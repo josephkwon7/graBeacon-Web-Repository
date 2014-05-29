@@ -1,0 +1,39 @@
+CREATE TABLE restaurant(
+res_id		NUMBER(4)	NOT NULL	PRIMARY KEY,
+name		VARCHAR2(255)	NOT NULL,
+zip_code	VARCHAR2(7),
+addr_full	VARCHAR2(255),
+tel_no		VARCHAR2(13),
+license_no	VARCHAR2(12),
+busi_hour	VARCHAR2(11)	NOT NULL,
+location	VARCHAR2(20)	NOT NULL,
+geo_lat		NUMBER(8,6)	NOT NULL,
+geo_long	NUMBER(9,6)	NOT NULL);
+
+CREATE TABLE food(
+food_id		NUMBER(4)	NOT NULL	PRIMARY KEY,
+name		VARCHAR2(255)	NOT NULL,
+image_small	VARCHAR2(255)	NOT NULL,
+image_big	VARCHAR2(255)	NOT NULL,
+comment_short	VARCHAR2(255)	NOT NULL,
+comment_detail	VARCHAR2(255)	NOT NULL,
+discount_perc	NUMBER,
+list_price	NUMBER		NOT NULL,
+comment_menu	VARCHAR2(255),
+is_mainview	NUMBER,
+res_id		NUMBER(4)	NOT NULL REFERENCES restaurant(res_id));
+
+CREATE TABLE beacon(
+beacon_id	NUMBER(4)	NOT NULL	PRIMARY KEY,
+uuid		VARCHAR2(50)	NOT NULL,
+major		NUMBER(5)	NOT NULL,
+minor		NUMBER(5)	NOT NULL,
+txp		NUMBER(4)	NOT NULL,
+res_id		NUMBER(4)	NOT NULL, 
+url		VARCHAR2(255)	NOT NULL);
+
+DELETE FROM beacon;
+INSERT INTO beacon (beacon_id, uuid, major, minor, txp, res_id, url) VALUES(0001,'d5756247-57a2-4344-915d-9599497940a7', 22, 0, 4, 4, 'http://192.168.200.27:8080/tastyroad/resources/img/IMG_1198.png');
+INSERT INTO beacon (beacon_id, uuid, major, minor, txp, res_id, url) VALUES(0002,'d5756247-57a2-4344-915d-9599497940a7', 33, 0, -23, 5, 'http://192.168.200.27:8080/tastyroad/resources/img/IMG_1191.png');
+INSERT INTO beacon (beacon_id, uuid, major, minor, txp, res_id, url) VALUES(0003,'d5756247-57a2-4344-915d-9599497940a7', 11, 0, -23, 6, 'http://192.168.200.27:8080/tastyroad/resources/img/IMG_1192.png');
+COMMIT;
