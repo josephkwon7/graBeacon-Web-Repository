@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BeaconMapper">
+ 
+	<resultMap id="beaconSelectMap" type="beacon">
+		<result property="beaconId" column="beacon_id" jdbcType="INTEGER"/>
+		<result property="uuId" column="uuid" jdbcType="VARCHAR" />
+		<result property="major" column="major" jdbcType="INTEGER" />
+		<result property="minor" column="minor" jdbcType="INTEGER" />
+		<result property="resId" column="res_id" jdbcType="INTEGER"  />
+	</resultMap>
+	
+	<insert id="addBeacon" parameterType="beacon" >
+	 	INSERT
+	 	INTO beacon(beacon_id, uuid, major, minor, res_id) 
+		VALUES	 ( beacon_seq.NEXTVAL, #{uuId}, #{major}, #{minor}, #{resId} )
+	</insert>
+	
+	<select id="findBeacon" parameterType="beacon" resultMap="beaconSelectMap">
+		SELECT
+		beacon_id, uuid, major, minor, res_id 		
+		FROM beacon 
+		WHERE uuid = trim(#{uuId}) AND major = #{major} AND minor = #{minor}
+	</select>
+	 
+	<select id="getBeacon" parameterType="INTEGER" resultMap="beaconSelectMap">
+		SELECT
+		beacon_id, uuid, major, minor, res_id 		
+		FROM beacon 
+		WHERE beacon_id = #{beaconId}
+	</select>
+	
+	<update id="updateBeacon" parameterType="beacon">
+		UPDATE beacon
+		<set>
+			<if test="uuId != null">uuid = #{uuId},</if>
+			<if test="major != null">major = #{major},</if>
+			<if test="minor != null">minor = #{minor},</if>
+			<if test="resId != null">res_id = #{resId}</if>
+		</set>	
+		WHERE beacon_id = #{beaconId}
+	</update>
+	
+	<delete	id="removeBeacon" 	parameterType="INTEGER" >
+		DELETE 
+		FROM beacon 
+		WHERE beacon_id = #{value}
+	</delete>
+<!--  	 
+	<sql id="select-beacon">
+		SELECT
+		beacon_id, uuid, major, minor, res_id 		
+		FROM beacon 
+	</sql>
+	
+	<sql id="orderby-beaconId-desc">
+	 	ORDER BY beacon_id 
+	</sql>
+	
+	<select id="getBeaconList" parameterType="search" 
+	 											  resultMap="userSelectMap">
+	
+		<include refid="select-users"/>
+	
+		<where>
+			<choose>
+				<when test=" searchCondition=='userId' ">
+					<if test="userId.size !=0">
+					user_id IN
+					<foreach 	item="value" 		collection="userId"  
+										open="(" 			separator= ","			close=")">
+						#{value}
+					</foreach>
+				</if>
+				</when>
+			
+				<when test="searchCondition=='userName' ">
+					<if test="userName[0] !=null"  >
+					user_name IN
+					<foreach 	item="value" 		collection="userName"  
+										open="(" 			separator= ","			close=")">
+						#{value}
+					</foreach>
+					</if>
+				</when>
+			</choose>
+			
+		</where>
+		<include refid="orderby-userId-desc"/>
+		
+	 </select>
+-->	 
+</mapper>

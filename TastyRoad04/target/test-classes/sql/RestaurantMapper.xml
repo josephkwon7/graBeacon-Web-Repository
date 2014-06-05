@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="RestaurantMapper">
+ 
+	<resultMap id="restaurantSelectMap" type="restaurant">
+		<result property="resId" column="res_id" jdbcType="INTEGER"/>
+		<result property="name" column="name" jdbcType="VARCHAR"/>
+		<result property="addr" column="addr" jdbcType="VARCHAR" />
+		<result property="phone" column="phone" jdbcType="VARCHAR" />
+		<result property="licenseNo" column="license_no" jdbcType="VARCHAR" />
+		<result property="geoLat" column="geo_lat" jdbcType="DOUBLE"  />
+		<result property="geoLong" column="geo_long" jdbcType="DOUBLE"  />
+		<result property="imgSmall1" column="img_small1" jdbcType="VARCHAR"  />
+		<result property="imgSmall2" column="img_small2" jdbcType="VARCHAR"  />
+		<result property="imgSmall3" column="img_small3" jdbcType="VARCHAR"  />
+		<result property="imgBig1" column="img_big1" jdbcType="VARCHAR"  />
+		<result property="imgBig2" column="img_big2" jdbcType="VARCHAR"  />
+		<result property="imgBig3" column="img_big3" jdbcType="VARCHAR"  />
+		<result property="imgBig4" column="img_big4" jdbcType="VARCHAR"  />
+		<result property="imgMenu" column="img_menu" jdbcType="VARCHAR"  />
+		<result property="copyComment" column="copy_comment" jdbcType="VARCHAR"  />
+	</resultMap>
+
+	<insert id="addRestaurant" parameterType="restaurant" >
+	 	INSERT
+	 	INTO restaurant(res_id, name, addr, phone, license_no, geo_lat, geo_long, img_small1, 
+	 		img_small2, img_small3, img_big1, img_big2, img_big3, img_big4, img_menu, copy_comment)  
+		VALUES	 (restaurant_seq.NEXTVAL, #{name,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, 
+		#{phone,jdbcType=VARCHAR}, #{licenseNo,jdbcType=VARCHAR}, #{geoLat,jdbcType=DOUBLE}, #{geoLong,jdbcType=DOUBLE}, 
+		#{imgSmall1,jdbcType=VARCHAR}, #{imgSmall2,jdbcType=VARCHAR}, #{imgSmall3,jdbcType=VARCHAR}, 
+		#{imgBig1,jdbcType=VARCHAR}, #{imgBig2,jdbcType=VARCHAR}, #{imgBig3,jdbcType=VARCHAR}, 
+		#{imgBig4,jdbcType=VARCHAR}, #{imgMenu,jdbcType=VARCHAR}, #{copyComment,jdbcType=VARCHAR})
+	</insert>
+	
+	<select id="findRestaurant" parameterType="restaurant" resultMap="restaurantSelectMap">
+		SELECT
+		res_id, name, addr, phone, license_no, geo_lat, geo_long, img_small1, 
+	 		img_small2, img_small3, img_big1, img_big2, img_big3, img_big4, img_menu, copy_comment		
+		FROM restaurant 
+		WHERE name = #{name}
+	</select>
+	 
+	<select id="getRestaurant" parameterType="INTEGER" resultMap="restaurantSelectMap">
+		SELECT
+		res_id, name, addr, phone, license_no, geo_lat, geo_long, img_small1, 
+	 		img_small2, img_small3, img_big1, img_big2, img_big3, img_big4, img_menu, copy_comment		
+		FROM restaurant 
+		WHERE res_id = #{value}
+		<!-- #{age:INTEGER} #{regDate:DATE} ) -->
+	</select>
+	
+	<update id="updateRestaurant" parameterType="restaurant">
+		UPDATE restaurant
+		<set>
+			<if test="name != null">name = #{name},</if>
+			<if test="addr != null">addr = #{addr},</if>
+			<if test="phone != null">phone = #{phone},</if>
+			<if test="licenseNo != null">license_no = #{licenseNo},</if>
+			<if test="geoLat != null">geo_lat = #{geoLat},</if>
+			<if test="geoLong != null">geo_long = #{geoLong},</if>
+			<if test="imgSmall1 != null">img_small1 = #{imgSmall1},</if>
+			<if test="imgSmall2 != null">img_small2 = #{imgSmall2},</if>
+			<if test="imgSmall3 != null">img_small3 = #{imgSmall3},</if>
+			<if test="imgBig1 != null">img_big1 = #{imgBig1},</if>
+			<if test="imgBig2 != null">img_big2 = #{imgBig2},</if>
+			<if test="imgBig3 != null">img_big3 = #{imgBig3},</if>
+			<if test="imgBig4 != null">img_big4 = #{imgBig4},</if>
+			<if test="imgMenu != null">img_menu = #{imgMenu},</if>
+			<if test="copyComment != null">copy_comment = #{copyComment}</if>
+
+		</set>	
+		WHERE res_id = #{resId}
+	</update>
+	
+	<delete	id="removeRestaurant" 	parameterType="INTEGER" >
+		DELETE 
+		FROM restaurant 
+		WHERE res_id = #{resId}
+	</delete>
+<!--  	 
+	<sql id="select-beacon">
+		SELECT
+		beacon_id, uuid, major, minor, res_id 		
+		FROM beacon 
+	</sql>
+	
+	<sql id="orderby-beaconId-desc">
+	 	ORDER BY beacon_id DESC
+	</sql>
+	
+	<select id="getBeaconList" parameterType="search" 
+	 											  resultMap="userSelectMap">
+	
+		<include refid="select-users"/>
+	
+		<where>
+			<choose>
+				<when test=" searchCondition=='userId' ">
+					<if test="userId.size !=0">
+					user_id IN
+					<foreach 	item="value" 		collection="userId"  
+										open="(" 			separator= ","			close=")">
+						#{value}
+					</foreach>
+				</if>
+				</when>
+			
+				<when test="searchCondition=='userName' ">
+					<if test="userName[0] !=null"  >
+					user_name IN
+					<foreach 	item="value" 		collection="userName"  
+										open="(" 			separator= ","			close=")">
+						#{value}
+					</foreach>
+					</if>
+				</when>
+			</choose>
+			
+		</where>
+		<include refid="orderby-userId-desc"/>
+		
+	 </select>
+-->	 
+</mapper>
