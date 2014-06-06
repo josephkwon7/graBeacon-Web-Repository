@@ -25,7 +25,7 @@ public class BeaconServiceImpl implements BeaconService {
 	private BeaconDao beaconDao;
 	
 	private int callCount;
-	private Calendar calendar = Calendar.getInstance();
+	private Calendar calendar;
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		
 	///Constructor
@@ -49,7 +49,7 @@ public class BeaconServiceImpl implements BeaconService {
 	public Beacon findBeacon(Beacon beacon)
 			throws Exception {
 		callCount++;
-		System.out.println("["+dateFormat.format(calendar.getTime())+ "] Find Beacon Call : " +callCount);		
+		System.out.println("["+dateFormat.format(Calendar.getInstance().getTime())+ "] Find Beacon Call : " +callCount);		
 		return beaconDao.findBeacon(beacon);
 	}
 
