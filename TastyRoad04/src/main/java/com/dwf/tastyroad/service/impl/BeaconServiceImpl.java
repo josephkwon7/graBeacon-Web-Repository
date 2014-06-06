@@ -3,6 +3,8 @@
  */
 package com.dwf.tastyroad.service.impl;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +22,12 @@ public class BeaconServiceImpl implements BeaconService {
 	///Field
 	@Autowired
 	@Qualifier("beaconDaoImpl")
-	BeaconDao beaconDao;
+	private BeaconDao beaconDao;
 	
+	private int callCount;
+	private Calendar calendar = Calendar.getInstance();
+	private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		
 	///Constructor
 	public BeaconServiceImpl(){
 		System.out.println("::"+this.getClass()+" Default Constructor Call");
@@ -42,6 +48,8 @@ public class BeaconServiceImpl implements BeaconService {
 	@Override
 	public Beacon findBeacon(Beacon beacon)
 			throws Exception {
+		callCount++;
+		System.out.println("["+dateFormat.format(calendar.getTime())+ "] Find Beacon Call : " +callCount);		
 		return beaconDao.findBeacon(beacon);
 	}
 
