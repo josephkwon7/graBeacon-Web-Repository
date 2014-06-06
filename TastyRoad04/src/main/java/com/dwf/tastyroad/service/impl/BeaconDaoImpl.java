@@ -19,6 +19,8 @@ public class BeaconDaoImpl implements BeaconDao {
 	@Qualifier("sqlSessionTemplate")
 	private SqlSession sqlSession;
 	
+	private int callCount = 0;
+	
 	///Constructor
 	public BeaconDaoImpl(){
 		System.out.println("::"+getClass()+" Default Constructor Call");
@@ -38,6 +40,8 @@ public class BeaconDaoImpl implements BeaconDao {
 	@Override
 	public Beacon findBeacon(Beacon beacon)
 			throws Exception {
+		callCount++;
+		System.out.println("["+this.getClass().getName()+ "] Find Beacon Call : " +callCount);		
 		return sqlSession.selectOne("BeaconMapper.findBeacon", beacon);
 	}
 
