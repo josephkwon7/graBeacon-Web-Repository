@@ -422,7 +422,7 @@ null, null, 'http://192.168.200.27:8080/tastyroad/resources/img/food1.png',
 INSERT INTO restaurant(res_id, name, addr, phone, license_no, geo_lat, geo_long, img_small1, 
 img_small2, img_small3, img_big1, img_big2, img_big3, img_big4, img_menu, copy_comment)  
 VALUES	 (restaurant_seq.NEXTVAL, '카나디안 랍스타', '서울시 서초구 서초동 1-5', '02-3333-3333', 
-410-81-33333, 37.4888772,127.0157366, 'http://192.168.200.27:8080/tastyroad/resources/img/IMG_1198.png', 
+410-81-33333, 37.4888772,127.0157366, 'http://192.168.200.27:8080/tastyroad/resources/img/IMG_1191.png', 
 null, null, 'http://192.168.200.27:8080/tastyroad/resources/img/food1.png',
 'http://192.168.200.27:8080/tastyroad/resources/img/food2.png',
 'http://192.168.200.27:8080/tastyroad/resources/img/food3.png', null, null, '최상급 랍스타를 최저가에!');
@@ -431,10 +431,10 @@ null, null, 'http://192.168.200.27:8080/tastyroad/resources/img/food1.png',
 /*아래 INSERT구문에서 1021(res_id)를 수정하고 실행할 것. - sequence에 의해 restaurant 테이블에
 res_id가 자동으로 매겨지기 때문에 위 INSERT 후 어떤 번호인지 확인해야지만 알수 있음)
 INSERT INTO beacon(beacon_id, uuid, major, minor, res_id) 
-VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 11, 0, 1021 );
+VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 11, 0, 1033 );
 
 INSERT INTO beacon(beacon_id, uuid, major, minor, res_id) 
-VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 22, 0, 1022 );
+VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 22, 0, 1034 );
 
 INSERT INTO beacon(beacon_id, uuid, major, minor, res_id) 
-VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 33, 0, 1023 );
+VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 33, 0, 1035 );
