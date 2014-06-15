@@ -11,14 +11,13 @@ public class Restaurant {
 	private double geoLat;
 	private double geoLong;
 	private String imgSmall1;
-	private String imgSmall2;
-	private String imgSmall3;
 	private String imgBig1;
 	private String imgBig2;
 	private String imgBig3;
-	private String imgBig4;
+	private String imgMarker;
 	private String imgMenu;
 	private String copyComment;
+	private int resType; //1=한식,2=일식,3=중식,4=양식,5=카페
 	
 	///Constructor
 	public Restaurant() {
@@ -28,7 +27,7 @@ public class Restaurant {
 		this.name = name;
 		this.imgSmall1 = imgSmall1;
 	}
-	
+
 	///Getter/Setter
 	public int getResId() {
 		return resId;
@@ -94,22 +93,6 @@ public class Restaurant {
 		this.imgSmall1 = imgSmall1;
 	}
 
-	public String getImgSmall2() {
-		return imgSmall2;
-	}
-
-	public void setImgSmall2(String imgSmall2) {
-		this.imgSmall2 = imgSmall2;
-	}
-
-	public String getImgSmall3() {
-		return imgSmall3;
-	}
-
-	public void setImgSmall3(String imgSmall3) {
-		this.imgSmall3 = imgSmall3;
-	}
-
 	public String getImgBig1() {
 		return imgBig1;
 	}
@@ -134,12 +117,12 @@ public class Restaurant {
 		this.imgBig3 = imgBig3;
 	}
 
-	public String getImgBig4() {
-		return imgBig4;
+	public String getImgMarker() {
+		return imgMarker;
 	}
 
-	public void setImgBig4(String imgBig4) {
-		this.imgBig4 = imgBig4;
+	public void setImgMarker(String imgMarker) {
+		this.imgMarker = imgMarker;
 	}
 
 	public String getImgMenu() {
@@ -158,17 +141,50 @@ public class Restaurant {
 		this.copyComment = copyComment;
 	}
 
-	///toString
+	public int getResType() {
+		return resType;
+	}
+
+	public void setResType(int resType) {
+		this.resType = resType;
+	}
+
 	@Override
 	public String toString() {
-		return "Restaurant [resId=" + resId + ", name=" + name + ", addr="
-				+ addr + ", phone=" + phone + ", licenseNo=" + licenseNo
-				+ ", geoLat=" + geoLat + ", geoLong=" + geoLong
-				+ ", imgSmall1=" + imgSmall1 + ", imgSmall2=" + imgSmall2
-				+ ", imgSmall3=" + imgSmall3 + ", imgBig1=" + imgBig1
-				+ ", imgBig2=" + imgBig2 + ", imgBig3=" + imgBig3
-				+ ", imgBig4=" + imgBig4 + ", imgMenu=" + imgMenu
-				+ ", copyComment=" + copyComment + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Restaurant [resId=");
+		builder.append(resId);
+		builder.append(", name=");
+		builder.append(name);
+		builder.append(", addr=");
+		builder.append(addr);
+		builder.append(", phone=");
+		builder.append(phone);
+		builder.append(", licenseNo=");
+		builder.append(licenseNo);
+		builder.append(", geoLat=");
+		builder.append(geoLat);
+		builder.append(", geoLong=");
+		builder.append(geoLong);
+		builder.append(", imgSmall1=");
+		builder.append(imgSmall1);
+		builder.append(", imgBig1=");
+		builder.append(imgBig1);
+		builder.append(", imgBig2=");
+		builder.append(imgBig2);
+		builder.append(", imgBig3=");
+		builder.append(imgBig3);
+		builder.append(", imgMarker=");
+		builder.append(imgMarker);
+		builder.append(", imgMenu=");
+		builder.append(imgMenu);
+		builder.append(", copyComment=");
+		builder.append(copyComment);
+		builder.append(", resType=");
+		builder.append(resType);
+		builder.append("]");
+		return builder.toString();
 	}
+
 
 }

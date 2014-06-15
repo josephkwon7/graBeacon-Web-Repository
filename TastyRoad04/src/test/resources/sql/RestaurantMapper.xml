@@ -14,31 +14,29 @@
 		<result property="geoLat" column="geo_lat" jdbcType="DOUBLE"  />
 		<result property="geoLong" column="geo_long" jdbcType="DOUBLE"  />
 		<result property="imgSmall1" column="img_small1" jdbcType="VARCHAR"  />
-		<result property="imgSmall2" column="img_small2" jdbcType="VARCHAR"  />
-		<result property="imgSmall3" column="img_small3" jdbcType="VARCHAR"  />
 		<result property="imgBig1" column="img_big1" jdbcType="VARCHAR"  />
 		<result property="imgBig2" column="img_big2" jdbcType="VARCHAR"  />
 		<result property="imgBig3" column="img_big3" jdbcType="VARCHAR"  />
-		<result property="imgBig4" column="img_big4" jdbcType="VARCHAR"  />
+		<result property="imgMarker" column="img_marker" jdbcType="VARCHAR"  />
 		<result property="imgMenu" column="img_menu" jdbcType="VARCHAR"  />
 		<result property="copyComment" column="copy_comment" jdbcType="VARCHAR"  />
+		<result property="resType" column="res_type" jdbcType="INTEGER"/>
 	</resultMap>
 
 	<insert id="addRestaurant" parameterType="restaurant" >
-	 	INSERT
-	 	INTO restaurant(res_id, name, addr, phone, license_no, geo_lat, geo_long, img_small1, 
-	 		img_small2, img_small3, img_big1, img_big2, img_big3, img_big4, img_menu, copy_comment)  
+	 	INSERT 
+	 	INTO restaurant(res_id, name, addr, phone, license_no, geo_lat, geo_long, 
+	 	img_small1, img_big1, img_big2, img_big3, img_marker, img_menu, copy_comment, res_type)  
 		VALUES	 (restaurant_seq.NEXTVAL, #{name,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, 
 		#{phone,jdbcType=VARCHAR}, #{licenseNo,jdbcType=VARCHAR}, #{geoLat,jdbcType=DOUBLE}, #{geoLong,jdbcType=DOUBLE}, 
-		#{imgSmall1,jdbcType=VARCHAR}, #{imgSmall2,jdbcType=VARCHAR}, #{imgSmall3,jdbcType=VARCHAR}, 
-		#{imgBig1,jdbcType=VARCHAR}, #{imgBig2,jdbcType=VARCHAR}, #{imgBig3,jdbcType=VARCHAR}, 
-		#{imgBig4,jdbcType=VARCHAR}, #{imgMenu,jdbcType=VARCHAR}, #{copyComment,jdbcType=VARCHAR})
+		#{imgSmall1,jdbcType=VARCHAR}, #{imgBig1,jdbcType=VARCHAR}, #{imgBig2,jdbcType=VARCHAR}, #{imgBig3,jdbcType=VARCHAR}, 
+		#{imgMarker,jdbcType=VARCHAR}, #{imgMenu,jdbcType=VARCHAR}, #{copyComment,jdbcType=VARCHAR}, #{resType,jdbcType=INTEGER})
 	</insert>
 	
 	<select id="findRestaurant" parameterType="restaurant" resultMap="restaurantSelectMap">
 		SELECT
 		res_id, name, addr, phone, license_no, geo_lat, geo_long, img_small1, 
-	 		img_small2, img_small3, img_big1, img_big2, img_big3, img_big4, img_menu, copy_comment		
+	 		img_big1, img_big2, img_big3, img_marker, img_menu, copy_comment, res_type		
 		FROM restaurant 
 		WHERE name = #{name}
 	</select>
@@ -46,7 +44,7 @@
 	<select id="getRestaurant" parameterType="INTEGER" resultMap="restaurantSelectMap">
 		SELECT
 		res_id, name, addr, phone, license_no, geo_lat, geo_long, img_small1, 
-	 		img_small2, img_small3, img_big1, img_big2, img_big3, img_big4, img_menu, copy_comment		
+	 		img_big1, img_big2, img_big3, img_marker, img_menu, copy_comment, res_type		
 		FROM restaurant 
 		WHERE res_id = #{value}
 		<!-- #{age:INTEGER} #{regDate:DATE} ) -->
@@ -62,15 +60,14 @@
 			<if test="geoLat != null">geo_lat = #{geoLat},</if>
 			<if test="geoLong != null">geo_long = #{geoLong},</if>
 			<if test="imgSmall1 != null">img_small1 = #{imgSmall1},</if>
-			<if test="imgSmall2 != null">img_small2 = #{imgSmall2},</if>
-			<if test="imgSmall3 != null">img_small3 = #{imgSmall3},</if>
 			<if test="imgBig1 != null">img_big1 = #{imgBig1},</if>
 			<if test="imgBig2 != null">img_big2 = #{imgBig2},</if>
 			<if test="imgBig3 != null">img_big3 = #{imgBig3},</if>
-			<if test="imgBig4 != null">img_big4 = #{imgBig4},</if>
+			<if test="imgMarker != null">img_marker = #{imgMarker},</if>
 			<if test="imgMenu != null">img_menu = #{imgMenu},</if>
-			<if test="copyComment != null">copy_comment = #{copyComment}</if>
-
+			<if test="copyComment != null">copy_comment = #{copyComment},</if>
+			<if test="resType != null">res_type = #{resType}</if>
+	
 		</set>	
 		WHERE res_id = #{resId}
 	</update>
