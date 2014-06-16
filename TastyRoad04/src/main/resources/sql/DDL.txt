@@ -41,8 +41,8 @@ CREATE TABLE DWF2.RESTAURANT (
 	addr VARCHAR2(255), /* 주소 */
 	phone VARCHAR2(13), /* 전화번호 */
 	license_no VARCHAR2(12), /* 사업자번호 */
-	geo_lat NUMBER(8,6), /* 위치위도 */
-	geo_long NUMBER(9,6), /* 위치경도 */
+	geo_lat NUMBER(12,9), /* 위치위도 */
+	geo_long NUMBER(12,9), /* 위치경도 */
 	img_small1 VARCHAR2(255), /* 이미지(소)1 */
 	img_big1 VARCHAR2(255), /* 이미지(대)1 */
 	img_big2 VARCHAR2(255), /* 이미지(대)2 */
@@ -271,7 +271,7 @@ VALUES	 (restaurant_seq.NEXTVAL, '[논현]요시참치', '서울시 서초구 �
 INSERT INTO restaurant(res_id, name, addr, phone, license_no, geo_lat, geo_long, img_small1, 
 img_big1, img_big2, img_big3, img_marker, img_menu, copy_comment, res_type)   
 VALUES	 (restaurant_seq.NEXTVAL, '프리울리 베네치아', '서울시 서초구 서초동 1500-15', '02-2222-2222', 
-410-81-22222, 37.4918772,127.0079137, 'main/food_2_1.png', 
+410-81-22222, 37.4953647, 127.0289504, 'main/food_2_1.png', 
 'detail/food_2_2.png','detail/food_2_3.png','detail/food_2_4.png', 
 'map/map_shop_marker_2.png' , 'menu/menu_2.png', '이태리 정통 피자의 참맛!', 4 );
 
@@ -285,10 +285,10 @@ VALUES	 (restaurant_seq.NEXTVAL, '카나디안 랍스타', '서울시 서초구 
 /*아래 INSERT구문에서 1021(res_id)를 수정하고 실행할 것. - sequence에 의해 restaurant 테이블에
 res_id가 자동으로 매겨지기 때문에 위 INSERT 후 어떤 번호인지 확인해야지만 알수 있음) */
 INSERT INTO beacon(beacon_id, uu_id, major, minor, res_id) 
-VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 11, 0, 1042 );
+VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 11, 0, 1000 );
 
 INSERT INTO beacon(beacon_id, uu_id, major, minor, res_id) 
-VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 22, 0, 1043 );
+VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 22, 0, 1001 );
 
 INSERT INTO beacon(beacon_id, uu_id, major, minor, res_id) 
-VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 33, 0, 1044 );
+VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 33, 0, 1002 );
