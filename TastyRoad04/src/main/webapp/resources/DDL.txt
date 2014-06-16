@@ -28,7 +28,7 @@ COMMENT ON COLUMN DWF2.BEACON.res_id IS '맛집ID';
 
 CREATE UNIQUE INDEX DWF2.PK_BEACON
 	ON DWF2.BEACON (
-		beacon_id, major, minor ASC
+		uu_id, major, minor ASC
 	);
 
 
@@ -284,11 +284,11 @@ VALUES	 (restaurant_seq.NEXTVAL, '카나디안 랍스타', '서울시 서초구 
 
 /*아래 INSERT구문에서 1021(res_id)를 수정하고 실행할 것. - sequence에 의해 restaurant 테이블에
 res_id가 자동으로 매겨지기 때문에 위 INSERT 후 어떤 번호인지 확인해야지만 알수 있음) */
-INSERT INTO beacon(beacon_id, uuid, major, minor, res_id) 
+INSERT INTO beacon(beacon_id, uu_id, major, minor, res_id) 
 VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 11, 0, 1042 );
 
-INSERT INTO beacon(beacon_id, uuid, major, minor, res_id) 
+INSERT INTO beacon(beacon_id, uu_id, major, minor, res_id) 
 VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 22, 0, 1043 );
 
-INSERT INTO beacon(beacon_id, uuid, major, minor, res_id) 
+INSERT INTO beacon(beacon_id, uu_id, major, minor, res_id) 
 VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 33, 0, 1044 );
