@@ -16,9 +16,9 @@
 
 	<insert id="addOwner" parameterType="owner" >
 	 	INSERT
-	 	INTO owner(owner_id, name, phone, addr, email, res_id) 
-		VALUES	 ( owner_seq.NEXTVAL, #{name,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
-		#{addr,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{resId} )
+	 	owner(name, phone, addr, email, res_id) 
+		VALUES	 (#{name,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+		#{addr,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{resId, jdbcType=INTEGER} )
 	</insert>
 	
 	<select id="findOwner" parameterType="owner" resultMap="ownerSelectMap">
@@ -38,13 +38,12 @@
 	<update id="updateOwner" parameterType="INTEGER">
 		UPDATE owner
 		<set>
-			<if test="name != null">name = #{name},</if>
-			<if test="phone != null">phone = #{phone},</if>
-			<if test="addr != null">addr = #{addr},</if>
-			<if test="email != null">email = #{email},</if>
-			<if test="resId != null">res_id = #{resId}</if>
+			<if test="name != null">name = #{name, jdbcType=VARCHAR},</if>
+			<if test="phone != null">phone = #{phone, jdbcType=VARCHAR},</if>
+			<if test="addr != null">addr = #{addr, jdbcType=VARCHAR},</if>
+			<if test="email != null">email = #{email, jdbcType=VARCHAR},</if>
 		</set>	
-		WHERE owner_id = #{ownerId}
+		WHERE owner_id = #{ownerId, jdbcType=INTEGER}
 	</update>
 	
 	<delete	id="removeOwner" parameterType="INTEGER" >
