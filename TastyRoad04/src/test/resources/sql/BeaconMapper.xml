@@ -15,8 +15,8 @@
 	
 	<insert id="addBeacon" parameterType="beacon" >
 	 	INSERT
-	 	INTO beacon(beacon_id, uu_id, major, minor, res_id) 
-		VALUES	 ( beacon_seq.NEXTVAL, #{uuId}, #{major}, #{minor}, #{resId} )
+	 	INTO beacon(uu_id, major, minor, res_id) 
+		VALUES	 (#{uuId, jdbcType=VARCHAR}, #{major, jdbcType=INTEGER}, #{minor, jdbcType=INTEGER}, #{resId, jdbcType=INTEGER} )
 	</insert>
 	
 	<select id="findBeacon" parameterType="beacon" resultMap="beaconSelectMap">
@@ -39,7 +39,6 @@
 			<if test="uuId != null">uu_id = #{uuId},</if>
 			<if test="major != null">major = #{major},</if>
 			<if test="minor != null">minor = #{minor},</if>
-			<if test="resId != null">res_id = #{resId}</if>
 		</set>	
 		WHERE beacon_id = #{beaconId}
 	</update>
