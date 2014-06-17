@@ -14,10 +14,9 @@ public class Restaurant {
 	private String imgBig1;
 	private String imgBig2;
 	private String imgBig3;
-	private String imgMarker;
 	private String imgMenu;
 	private String copyComment;
-	private int resType; //1=한식,2=일식,3=중식,4=양식,5=카페
+	private int resCategory; //1=한식,2=일식,3=중식,4=양식,5=카페
 	
 	///Constructor
 	public Restaurant() {
@@ -117,14 +116,6 @@ public class Restaurant {
 		this.imgBig3 = imgBig3;
 	}
 
-	public String getImgMarker() {
-		return imgMarker;
-	}
-
-	public void setImgMarker(String imgMarker) {
-		this.imgMarker = imgMarker;
-	}
-
 	public String getImgMenu() {
 		return imgMenu;
 	}
@@ -141,12 +132,12 @@ public class Restaurant {
 		this.copyComment = copyComment;
 	}
 
-	public int getResType() {
-		return resType;
+	public int getResCategory() {
+		return resCategory;
 	}
 
-	public void setResType(int resType) {
-		this.resType = resType;
+	public void setResCategory(int resCategory) {
+		this.resCategory = resCategory;
 	}
 
 	@Override
@@ -174,14 +165,12 @@ public class Restaurant {
 		builder.append(imgBig2);
 		builder.append(", imgBig3=");
 		builder.append(imgBig3);
-		builder.append(", imgMarker=");
-		builder.append(imgMarker);
 		builder.append(", imgMenu=");
 		builder.append(imgMenu);
 		builder.append(", copyComment=");
 		builder.append(copyComment);
-		builder.append(", resType=");
-		builder.append(resType);
+		builder.append(", resCategory=");
+		builder.append(resCategory);
 		builder.append("]");
 		return builder.toString();
 	}
