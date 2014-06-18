@@ -49,7 +49,7 @@ CREATE TABLE DWF2.RESTAURANT (
 	img_big3 VARCHAR2(255), /* 이미지(대)3 */
 	img_menu VARCHAR2(255), /* 메뉴이미지 */
 	copy_comment VARCHAR2(255), /* 광고문구(간략) */
-	res_category NUMBER(1) /*맛집 타입. 미정. 한식 중식 등 */
+	res_category NUMBER(1) /*맛집 타입. 1 = 한식, 2 = 중식 , 3 = 양식 , 4 = 일식 , 5 = 카페 등 */
 );
 
 COMMENT ON TABLE DWF2.RESTAURANT IS '맛집';
