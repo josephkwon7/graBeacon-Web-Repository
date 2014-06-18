@@ -16,7 +16,7 @@ public class Restaurant {
 	private String imgBig3;
 	private String imgMenu;
 	private String copyComment;
-	private int resCategory; //1=한식,2=일식,3=중식,4=양식,5=카페
+	private int resCategory; //1=한식,2=중식,3=일식,4=양식,5=카페
 	
 	///Constructor
 	public Restaurant() {
