@@ -1,0 +1,237 @@
+/*각 테이블의 유니크한 ID생성을 위해 sequence 생성 */
+CREATE SEQUENCE beacon_seq START WITH 1000 INCREMENT BY 1 NOCACHE NOCYCLE;
+
+CREATE SEQUENCE restaurant_seq START WITH 1000 INCREMENT BY 1 NOCACHE NOCYCLE;
+
+CREATE SEQUENCE owner_seq START WITH 1000 INCREMENT BY 1 NOCACHE NOCYCLE;
+
+/* 비콘 */
+CREATE TABLE DWF2.BEACON (
+	beacon_id NUMBER(4) NOT NULL, /* 비콘ID */
+	uu_id VARCHAR2(36), /* UUID */
+	major NUMBER(5), /* Major */
+	minor NUMBER(5), /* Minor */
+	res_id NUMBER(4) /* 맛집ID */
+);
+
+COMMENT ON TABLE DWF2.BEACON IS '비콘';
+
+COMMENT ON COLUMN DWF2.BEACON.beacon_id IS '비콘ID';
+
+COMMENT ON COLUMN DWF2.BEACON.uu_id IS 'UUID';
+
+COMMENT ON COLUMN DWF2.BEACON.major IS 'Major';
+
+COMMENT ON COLUMN DWF2.BEACON.minor IS 'Minor';
+
+COMMENT ON COLUMN DWF2.BEACON.res_id IS '맛집ID';
+
+CREATE UNIQUE INDEX DWF2.PK_BEACON
+	ON DWF2.BEACON (
+		uu_id, major, minor ASC
+	);
+
+
+
+
+/* 맛집 */
+CREATE TABLE DWF2.RESTAURANT (
+	res_id NUMBER(4) NOT NULL, /* 맛집ID */
+	name VARCHAR2(255), /* 상호 */
+	addr VARCHAR2(255), /* 주소 */
+	phone VARCHAR2(13), /* 전화번호 */
+	license_no VARCHAR2(12), /* 사업자번호 */
+	geo_lat NUMBER(12,9), /* 위치위도 */
+	geo_long NUMBER(12,9), /* 위치경도 */
+	img_small1 VARCHAR2(255), /* 이미지(소)1 */
+	img_big1 VARCHAR2(255), /* 이미지(대)1 */
+	img_big2 VARCHAR2(255), /* 이미지(대)2 */
+	img_big3 VARCHAR2(255), /* 이미지(대)3 */
+	img_menu VARCHAR2(255), /* 메뉴이미지 */
+	copy_comment VARCHAR2(255), /* 광고문구(간략) */
+	res_category NUMBER(1) /*맛집 타입. 미정. 한식 중식 등 */
+);
+
+COMMENT ON TABLE DWF2.RESTAURANT IS '맛집';
+
+COMMENT ON COLUMN DWF2.RESTAURANT.res_id IS '맛집ID';
+
+COMMENT ON COLUMN DWF2.RESTAURANT.name IS '상호';
+
+COMMENT ON COLUMN DWF2.RESTAURANT.addr IS '주소';
+
+COMMENT ON COLUMN DWF2.RESTAURANT.phone IS '전화번호';
+
+COMMENT ON COLUMN DWF2.RESTAURANT.license_no IS '사업자번호';
+
+COMMENT ON COLUMN DWF2.RESTAURANT.geo_lat IS '위치위도';
+
+COMMENT ON COLUMN DWF2.RESTAURANT.geo_long IS '위치경도';
+
+COMMENT ON COLUMN DWF2.RESTAURANT.img_small1 IS '이미지(소)1';
+
+COMMENT ON COLUMN DWF2.RESTAURANT.img_big1 IS '이미지(대)1';
+
+COMMENT ON COLUMN DWF2.RESTAURANT.img_big2 IS '이미지(대)2';
+
+COMMENT ON COLUMN DWF2.RESTAURANT.img_big3 IS '이미지(대)3';
+
+COMMENT ON COLUMN DWF2.RESTAURANT.img_menu IS '이미지메뉴';
+
+COMMENT ON COLUMN DWF2.RESTAURANT.copy_comment IS '광고문구(간략)';
+
+COMMENT ON COLUMN DWF2.RESTAURANT.res_category IS '맛집 타입';
+
+CREATE UNIQUE INDEX DWF2.PK_RESTAURANT
+	ON DWF2.RESTAURANT (
+		res_id ASC
+	);
+
+
+
+/* 관리자 */
+CREATE TABLE DWF2.ADMINISTRATOR (
+	admin_id VARCHAR2(255) NOT NULL, /* 관리자ID */
+	password VARCHAR2(255) NOT NULL /* 패스워드 */
+);
+
+COMMENT ON TABLE DWF2.ADMINISTRATOR IS '관리자';
+
+COMMENT ON COLUMN DWF2.ADMINISTRATOR.admin_id IS '관리자ID';
+
+COMMENT ON COLUMN DWF2.ADMINISTRATOR.password IS '패스워드';
+
+CREATE UNIQUE INDEX DWF2.PK_ADMINISTRATOR
+	ON DWF2.ADMINISTRATOR (
+		admin_id ASC
+	);
+
+
+
+/* 점주 */
+CREATE TABLE DWF2.OWNER (
+	owner_id NUMBER(4) NOT NULL, /* 점주ID */
+	name VARCHAR2(255), /* 이름 */
+	phone VARCHAR2(255), /* 전화번호 */
+	addr VARCHAR2(255), /* 주소 */
+	email VARCHAR2(255), /* 메일 */
+	res_id NUMBER(4) /* 맛집ID */
+);
+
+COMMENT ON TABLE DWF2.OWNER IS '점주';
+
+COMMENT ON COLUMN DWF2.OWNER.owner_id IS '점주ID';
+
+COMMENT ON COLUMN DWF2.OWNER.name IS '이름';
+
+COMMENT ON COLUMN DWF2.OWNER.phone IS '전화번호';
+
+COMMENT ON COLUMN DWF2.OWNER.addr IS '주소';
+
+COMMENT ON COLUMN DWF2.OWNER.email IS '메일';
+
+COMMENT ON COLUMN DWF2.OWNER.res_id IS '맛집ID';
+
+CREATE UNIQUE INDEX DWF2.PK_OWNER
+	ON DWF2.OWNER (
+		owner_id ASC
+	);
+
+
+/* ADD CONSTRAINT */
+
+ALTER TABLE DWF2.BEACON
+	ADD
+		CONSTRAINT PK_BEACON2
+		PRIMARY KEY (
+			beacon_id
+		);
+
+ALTER TABLE DWF2.RESTAURANT
+	ADD
+		CONSTRAINT PK_RESTAURANT2
+		PRIMARY KEY (
+			res_id
+		);
+
+ALTER TABLE DWF2.ADMINISTRATOR
+	ADD
+		CONSTRAINT PK_ADMINISTRATOR2
+		PRIMARY KEY (
+			admin_id
+		);
+
+
+ALTER TABLE DWF2.OWNER
+	ADD
+		CONSTRAINT PK_OWNER2
+		PRIMARY KEY (
+			owner_id
+		);
+
+/* 
+ALTER TABLE DWF2.BEACON
+	ADD
+		CONSTRAINT FK_RESTAURANT_TO_BEACON
+		FOREIGN KEY (
+			res_id
+		)
+		REFERENCES DWF2.RESTAURANT (
+			res_id
+		);
+
+
+
+ALTER TABLE DWF2.OWNER
+	ADD
+		CONSTRAINT FK_RESTAURANT_TO_OWNER
+		FOREIGN KEY (
+			res_id
+		)
+		REFERENCES DWF2.RESTAURANT (
+			res_id
+		);
+*/
+
+INSERT INTO restaurant(res_id, name, addr, phone, license_no, geo_lat, geo_long, img_small1, 
+img_big1, img_big2, img_big3, img_menu, copy_comment, res_category)  
+VALUES	 (restaurant_seq.NEXTVAL, '[논현]요시참치', '서울시 서초구 서초동 1571-15', '02-1111-1111', 
+410-81-11111, 37.4924885,127.0124686, 'main/food_1_1.png', 
+'detail/food_1_2.png','detail/food_1_3.png','detail/food_1_4.png', 
+, 'menu/menu_1.png', '최고의 참치 명가!', 2 );
+
+
+INSERT INTO restaurant(res_id, name, addr, phone, license_no, geo_lat, geo_long, img_small1, 
+img_big1, img_big2, img_big3, img_menu, copy_comment, res_category)  
+VALUES	 (restaurant_seq.NEXTVAL, '프리울리 베네치아', '서울시 서초구 서초동 1500-15', '02-2222-2222', 
+410-81-22222, 37.4953647, 127.0289504, 'main/food_2_1.png', 
+'detail/food_2_2.png','detail/food_2_3.png','detail/food_2_4.png', 
+, 'menu/menu_2.png', '이태리 정통 피자의 참맛!', 4 );
+
+INSERT INTO restaurant(res_id, name, addr, phone, license_no, geo_lat, geo_long, img_small1, 
+img_big1, img_big2, img_big3, img_menu, copy_comment, res_category)      
+VALUES	 (restaurant_seq.NEXTVAL, '카나디안 랍스타', '서울시 서초구 서초동 1-5', '02-3333-3333', 
+410-81-33333, 37.4888772,127.0157366, 'main/food_3_1.png', 
+'detail/food_3_2.png','detail/food_3_3.png','detail/food_3_4.png', 
+, 'menu/menu_3.png', '최상급 랍스타를 최저가에!', 4 );
+
+/* 아래 INSERT구문에서 1021(res_id)를 수정하고 실행할 것. - sequence에 의해 restaurant 테이블에
+res_id가 자동으로 매겨지기 때문에 위 INSERT 후 어떤 번호인지 확인해야지만 알수 있음) */
+INSERT INTO beacon(beacon_id, uu_id, major, minor, res_id) 
+VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 11, 0, 1000 );
+
+INSERT INTO beacon(beacon_id, uu_id, major, minor, res_id) 
+VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 22, 0, 1001 );
+
+INSERT INTO beacon(beacon_id, uu_id, major, minor, res_id) 
+VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 33, 0, 1002 );
+
+/* Owner Insert
+INSERT INTO owner(owner_id, name, phone, addr, email, res_id) 
+VALUES ( owner_seq.NEXTVAL, '참치사장', '010-1111-1111', '서울시 강남구 서초동 골목', 'king@tuna.com', 1000);
+
+INSERT INTO owner(owner_id, name, phone, addr, email, res_id) 
+VALUES ( owner_seq.NEXTVAL, '피자사장', '010-2222-2222', '서울시 강남구 서초동 대로', 'king@pizza.com', 1001);
+
+INSERT INTO owner(owner_id, name, phone, addr, email, res_id) 
+VALUES ( owner_seq.NEXTVAL, '랍스타사장', '010-3333-3333', '서울시 강남구 서초동 지하', 'king@robster.com', 1002);

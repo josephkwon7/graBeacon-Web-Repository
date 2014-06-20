@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BeaconMapper">
+ 
+	<resultMap id="beaconSelectMap" type="beacon">
+		<result property="beaconId" column="beacon_id" jdbcType="INTEGER"/>
+		<result property="uuId" column="uu_id" jdbcType="VARCHAR" />
+		<result property="major" column="major" jdbcType="INTEGER" />
+		<result property="minor" column="minor" jdbcType="INTEGER" />
+		<result property="resId" column="res_id" jdbcType="INTEGER"  />
+	</resultMap>
+	
+	<insert id="addBeacon" parameterType="beacon" >
+	 	INSERT
+	 	INTO beacon(beacon_id, uu_id, major, minor, res_id) 
+		VALUES	 ( beacon_seq.NEXTVAL, #{uuId}, #{major}, #{minor}, #{resId} )
+	</insert>
+	
+	<select id="findBeacon" parameterType="beacon" resultMap="beaconSelectMap">
+		SELECT
+		beacon_id, uu_id, major, minor, res_id 		
+		FROM beacon 
+		WHERE uu_id=  #{uuId} AND major = #{major} AND minor = #{minor}
+	</select>
+	 
+	<select id="getBeacon" parameterType="INTEGER" resultMap="beaconSelectMap">
+		SELECT
+		beacon_id, uu_id, major, minor, res_id 		
+		FROM beacon 
+		WHERE beacon_id = #{beaconId}
+	</select>
+	
+	<update id="updateBeacon" parameterType="beacon">
+		UPDATE beacon
+		<set>
+			<if test="uuId != null">uu_id = #{uuId},</if>
+			<if test="major != null">major = #{major},</if>
+			<if test="minor != null">minor = #{minor},</if>
+			<if test="resId != null">res_id = #{resId}</if>
+		</set>	
+		WHERE beacon_id = #{beaconId}
+	</update>
+	
+	<delete	id="removeBeacon" 	parameterType="INTEGER" >
+		DELETE 
+		FROM beacon 
+		WHERE beacon_id = #{value}
+	</delete>
+
+  	<sql id="select-beacon">
+		SELECT
+		beacon_id, uu_id, major, minor, res_id		
+		FROM beacon
+	</sql>
+	
+	<sql id="orderby-beaconId">
+	 	ORDER BY beacon_id
+	</sql>
+	
+	<select id="getBeaconList" parameterType="search" resultMap="beaconSelectMap">		
+  	
+		SELECT inner_table.*, ROWNUM
+		FROM( 
+			<include refid="select-beacon"/>
+			<if test="searchKeyword!=''">
+		  		<where>			
+		  			<if test="searchCondition==1">
+		  				uu_id LIKE '%${searchKeyword}%'
+		  			</if>
+		  			<if test="searchCondition==2">
+		  				major LIKE '%${searchKeyword}%'
+		  			</if>
+		  			<if test="searchCondition==3">
+		  				minor LIKE '%${searchKeyword}%'
+		  			</if>
+		  			<if test="searchCondition==4">
+		  				res_id LIKE '%${searchKeyword}%'
+		  			</if>		  			
+		  		</where>
+	  		</if>
+	  		ORDER BY beacon_id
+		  	)inner_table
+		WHERE <![CDATA[ROWNUM<=#{endRowNum}]]> 
+		AND ROWNUM BETWEEN #{startRowNum} AND #{endRowNum} 
+  	</select> 
+  			  		
+	<select id="getTotalCount" parameterType="String" resultType="INTEGER">
+  		SELECT COUNT(*) FROM beacon
+  	</select>
+ 
+</mapper>
