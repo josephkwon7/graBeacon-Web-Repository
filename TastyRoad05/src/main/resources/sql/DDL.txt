@@ -1,3 +1,20 @@
+drop table beacon;
+drop table restaurant;
+drop table owner;
+drop table administrator;
+drop sequence rbeacon_seq;
+drop sequence restaurant_seq;
+drop sequence owner_seq;
+drop index PK_BEACON;
+drop index PK_RESTAURANT;
+drop index PK_OWNER;
+drop index PK_ADMINISTRATOR;
+drop index PK_BEACON2;
+drop index PK_RESTAURANT2;
+drop index PK_OWNER2;
+drop index PK_ADMINISTRATOR2;
+
+
 /*각 테이블의 유니크한 ID생성을 위해 sequence 생성 */
 CREATE SEQUENCE beacon_seq START WITH 1000 INCREMENT BY 1 NOCACHE NOCYCLE;
 
@@ -218,20 +235,20 @@ VALUES	 (restaurant_seq.NEXTVAL, '카나디안 랍스타', '서울시 서초구 
 /* 아래 INSERT구문에서 1021(res_id)를 수정하고 실행할 것. - sequence에 의해 restaurant 테이블에
 res_id가 자동으로 매겨지기 때문에 위 INSERT 후 어떤 번호인지 확인해야지만 알수 있음) */
 INSERT INTO beacon(beacon_id, uu_id, major, minor, res_id) 
-VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 11, 0, 1019 );
+VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 11, 0, 1003 );
 
 INSERT INTO beacon(beacon_id, uu_id, major, minor, res_id) 
-VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 22, 0, 1020 );
+VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 22, 0, 1004 );
 
 INSERT INTO beacon(beacon_id, uu_id, major, minor, res_id) 
-VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 33, 0, 1021 );
+VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 33, 0, 1005 );
 
 /* Owner Insert
 INSERT INTO owner(owner_id, name, phone, addr, email, res_id) 
-VALUES ( owner_seq.NEXTVAL, '참치사장', '010-1111-1111', '서울시 강남구 서초동 골목', 'king@tuna.com', 1019);
+VALUES ( owner_seq.NEXTVAL, '참치사장', '010-1111-1111', '서울시 강남구 서초동 골목', 'king@tuna.com', 1003);
 
 INSERT INTO owner(owner_id, name, phone, addr, email, res_id) 
-VALUES ( owner_seq.NEXTVAL, '피자사장', '010-2222-2222', '서울시 강남구 서초동 대로', 'king@pizza.com', 1020);
+VALUES ( owner_seq.NEXTVAL, '피자사장', '010-2222-2222', '서울시 강남구 서초동 대로', 'king@pizza.com', 1004);
 
 INSERT INTO owner(owner_id, name, phone, addr, email, res_id) 
-VALUES ( owner_seq.NEXTVAL, '랍스타사장', '010-3333-3333', '서울시 강남구 서초동 지하', 'king@robster.com', 1021);
+VALUES ( owner_seq.NEXTVAL, '랍스타사장', '010-3333-3333', '서울시 강남구 서초동 지하', 'king@robster.com', 1005);
