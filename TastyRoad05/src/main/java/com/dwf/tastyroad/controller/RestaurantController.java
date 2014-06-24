@@ -256,4 +256,19 @@ public class RestaurantController {
 		return "forward:/restaurant/listRestaurant.do";
 	}
 
+	@RequestMapping(value="/removeRestaurant.do", method=RequestMethod.GET)
+	//인자로 web client에서 모델 restaurant을 받음 
+	public String removeRestaurantAction(
+			@ModelAttribute("restaurant")Restaurant restaurant
+			)throws Exception {
+
+		System.out.println("_______________________________________________");
+		System.out.println("==> /restaurant/addRestaurant.do __call !!!");
+		System.out.println("_______________________________________________");
+		
+		restaurantService.removeRestaurant(restaurant.getResId());
+		
+		return "forward:/restaurant/listRestaurant.do";
+	}	
+	
 }

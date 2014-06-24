@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+ 
 <!doctype html>
 <html>
 <head>
@@ -18,8 +18,10 @@
 
 <body bgcolor="#ffffff" text="#000000">
 	<div style="width: 98%; margin-left: 10px;">
+	
 		<form name="detailForm" action="/restaurant/listRestaurant.do"
 			method="GET" onsubmit="return false">
+			
 			<table width="100%" height="37" border="0" cellpadding="0"
 				cellspacing="0">
 				<tr>
@@ -66,8 +68,6 @@
 				</tr>
 			</table>
 		</form>
-
-
 			<table width="100%" border="0" cellspacing="0" cellpadding="0"
 				style="margin-top: 10px;">
 				<tr>
@@ -114,21 +114,28 @@
 						</td>
 						<td></td>
 						<td align="left">
+						
 							<form action="/beacon/listBeacon.do" method="GET">
 								<input type="submit" value="비콘관리">
 								<input type="hidden" name="searchKeyword" value="${restaurantList.resId}">
 								<input type="hidden" name="searchCondition" value="4">
 							</form>
-							<form action="/owner/getOwnerDetail.do" method="GET">
+							<form action="/owner/getOwnerDetail.do" method="POST">
 								<input type="submit" value="점주관리">
 								<input type="hidden" name="searchKeyword" value="${restaurantList.resId}">
 								<input type="hidden" name="searchCondition" value="5">
 							</form>
-							<form action="/restaurant/removeRestaurant.do" method="GET">
+							<form action="/restaurant/removeRestaurant.do" method="POST">
 								<input type="submit" value="삭제">
-								<input type="hidden" name="searchKeyword" value="${restaurantList.resId}">
 								<input type="hidden" name="searchCondition" value="5">
+								<input type="hidden" name="searchKeyword" value="${restaurantList.resId}">
 							</form>
+				
+						<!--  
+							<a href="/beacon/listBeacon.do?resId=${restaurantList.resId}">비콘관리</a>
+							<a href="/owner/getOwnerDetail.do?searchKeyword=${restaurantList.resId}&searchCondition=5">점주관리</a>
+							<a href="/restaurant/removeRestaurant.do?resId=${restaurantList.resId}">삭제</a>
+						-->
 						</td>
 					</tr>
 					<tr>
@@ -138,6 +145,7 @@
 				</c:forEach>
 			<%--  search 고객용 View 시작 --%>
 			</table>
+
 
 
 			<!--  페이지 Navigator 시작 -->
@@ -151,13 +159,14 @@
 				</tr>
 			</table>
 			<!--  페이지 Navigator 끝 -->
-		
-
-		<form action="/restaurant/getAddRestaurantView.do" method="POST">
-			<input type="submit" value="맛집추가">
-		</form>
-
+	
 	</div>
+
+	<form action="/restaurant/getAddRestaurantView.do" method="POST">
+		<input type="submit" value="맛집추가">
+	</form>
+
+
 </body>
 </html>
 

@@ -31,7 +31,9 @@
 				<td width="12" height="37"><img src="/resources/images/ct_ttl_img03.gif" width="12" height="37"></td>
 			</tr>
 		</table>
-	<c:if test="${owner.ownerId != 0}">		
+		
+	<c:if test="${owner.ownerId != 0}">	
+		
 		<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:13px;">
 			<tr>
 				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
@@ -125,36 +127,46 @@
 			<td align="right">
 				<table border="0" cellspacing="0" cellpadding="0">
 					<tr>
-						<td width="17" height="23"><img src="/resources/images/ct_btnbg01.gif" width="17" height="23"></td>
-						<td background="/resources/images/ct_btnbg02.gif" class="ct_btn01" style="padding-top:3px;">
+						<td width="17" height="23">
 							<c:if test="${owner.ownerId == 0}">
-								<form action="/owner/getAddOwnerView.do" method="GET">
-									<input type="submit" value="점주추가">
+								<form name="getAddOwnerView" action="/owner/getAddOwnerView.do" method="GET">
 									<input type="hidden" name="resId" value="${owner.resId}">
+									<input type="submit" value="점주추가">
 								</form>							
 							</c:if>
 							<c:if test="${owner.ownerId != 0}">
-								<form action="/owner/getUpdateOwnerView.do" method="GET">
-									<input type="submit" value="점주수정">
+								<form name="getUpdateOwnerView" action="/owner/getUpdateOwnerView.do" method="GET">
 									<input type="hidden" name="ownerId" value="${owner.ownerId}">
+									<input type="submit" value="점주수정">
 								</form>
 							</c:if>
+						</td>
+							<c:if test="${owner.ownerId != 0}">
+								<td width="30"></td>	
+
+									<td width="17" height="23">
+										<form name="removeOwner" action="/owner/removeOwner.do" method="GET">
+											<input type="hidden" name="ownerId" value="${owner.ownerId}">
+											<input type="submit" value="점주삭제">
+										</form>
+									</td>
+							</c:if>
 							
-						<td width="14" height="23"><img src="/resources/images/ct_btnbg03.gif" width="14" height="23"></td>
 						<td width="30"></td>	
+
 						<td width="17" height="23"><img src="/resources/images/ct_btnbg01.gif" width="17" height="23"></td>
-				
 						<td background="/resources/images/ct_btnbg02.gif" class="ct_btn01" style="padding-top:3px;">
-							<a href="javascript:fncMoveBackward();">목록</a></td>
+							<a href="javascript:fncMoveBackward();">맛집목록</a></td>
 						<td width="14" height="23"><img src="/resources/images/ct_btnbg03.gif" width="14" height="23"></td>
+
 						<td width="30"></td>					
+
 						<td width="17" height="23"><img src="/resources/images/ct_btnbg01.gif" width="17" height="23"></td>
-						
 						<td background="/resources/images/ct_btnbg02.gif" class="ct_btn01" style="padding-top:3px;">
 							<a href="javascript:history.go(-1);">뒤로</a></td>
 						<td width="14" height="23"><img src="/resources/images/ct_btnbg03.gif" width="14" height="23"></td>
-						<td width="30"></td>					
 						
+
 					</tr>
 				</table>
 			</td>

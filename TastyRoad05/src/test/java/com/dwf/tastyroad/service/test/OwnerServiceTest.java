@@ -8,7 +8,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.dwf.tastyroad.model.Owner;
-import com.dwf.tastyroad.service.OwnerDao;
 import com.dwf.tastyroad.service.OwnerService;
 
 

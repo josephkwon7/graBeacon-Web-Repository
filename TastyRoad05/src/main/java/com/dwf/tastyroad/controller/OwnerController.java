@@ -1,5 +1,8 @@
 package com.dwf.tastyroad.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -36,75 +39,119 @@ public class OwnerController {
 		System.out.println("::" +getClass()+ " Default Constructor Call");
 	}
 	
-	@RequestMapping(value="/getOwnerDetail.do")
-	public ModelAndView getOwnerDetailAction(@ModelAttribute("search")Search search) throws Exception{
+	@RequestMapping(value="/getOwnerDetail.do", method=RequestMethod.POST)
+	public ModelAndView getOwnerDetailAction(
+			@ModelAttribute("search")Search search
+			)throws Exception{
 
 		System.out.println("_______________________________________________");
-		System.out.println("==> /owner/getOwnerDetail.do __call !!!");
+		System.out.println("==> /owner/getOwnerDetail.do__call !!!");
 		System.out.println("==> search : " +search);
 		System.out.println("_______________________________________________");
+
+		Owner owner = null;
 		
-		System.out.println("==> search.getSearchKeyword : " +search.getSearchKeyword());
-		//Owner owner2 = ownerService.findOwner(new Owner);
-		Owner owner = ownerService.findOwner(new Owner(Integer.parseInt(search.getSearchKeyword())));
-		//System.out.println(owner.toString());
-		//System.out.println("!!!!!!!" + owner);
-		
-		if(owner == null){
-			owner = new Owner(Integer.parseInt(search.getSearchKeyword()));
+		if(search.getSearchCondition() != null){
+			if(search.getSearchCondition().equals("5")){
+				Owner tmpOwner = new Owner(Integer.parseInt(search.getSearchKeyword()));
+				owner = ownerService.findOwner(tmpOwner);
+				if(owner == null){
+					owner = tmpOwner;
+				}
+			}
 		}
 		
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("ownerViews/ownerDetail");
+		System.out.println("owner : " +owner);
+		
+		ModelAndView modelAndView = new ModelAndView("ownerViews/ownerDetail");
 		modelAndView.addObject("owner", owner);	
 
 		return modelAndView;
 	}
 	
 	@RequestMapping(value="/getUpdateOwnerView.do", method=RequestMethod.GET)
-	public ModelAndView getUpdateOwnerViewAction(@RequestParam("ownerId") int ownerId) throws Exception{
+	public ModelAndView getUpdateOwnerViewAction(
+			@ModelAttribute("owner")Owner owner) throws Exception{
 
 		System.out.println("_______________________________________________");
 		System.out.println("==> /owner/getUpdateOwnerView.do__call !!!");
 		System.out.println("_______________________________________________");
 		
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("ownerViews/ownerUpdate");
-		modelAndView.addObject("owner", ownerService.getOwner(ownerId));
+		ModelAndView modelAndView = new ModelAndView("ownerViews/ownerUpdate");
+		modelAndView.addObject("owner", ownerService.getOwner(owner.getOwnerId()));
 		
 		return modelAndView;
 	}
 	
 	@RequestMapping(value="/updateOwner.do", method=RequestMethod.POST)
-	public String updateOwnerAction(@ModelAttribute("owner")Owner owner) throws Exception{
+	public ModelAndView updateOwnerAction(
+			@ModelAttribute("owner")Owner owner 			
+			) throws Exception{
 		
 		System.out.println("_______________________________________________");
 		System.out.println("==> /owner/updateOwner.do__call !!!");
-		System.out.println("==> owner : " +owner);
+		System.out.println("==> owner : "+owner);
 		System.out.println("_______________________________________________");
 		
-		ModelAndView modelAndView=new ModelAndView();
 		ownerService.updateOwner(owner);
-		modelAndView.addObject("owner", ownerService.getOwner(owner.getOwnerId()));
-		modelAndView.addObject("search", new Search("5", String.valueOf(owner.getResId())));
-		System.out.println(owner.toString());
-		return "forward:/owner/getOwnerDetail.do";
+		ModelAndView modelAndView = new ModelAndView(
+				"forward:/owner/getOwnerDetail.do?searchCondition=5&searchKeyword="
+				+owner.getResId());
+		
+		return modelAndView;
 	}
 	
 	@RequestMapping(value="/getAddOwnerView.do", method=RequestMethod.GET)
-	public ModelAndView getAddOwnerViewAction(@ModelAttribute("owner")Owner owner) throws Exception{
+	public ModelAndView getAddOwnerViewAction(//@RequestParam(value = "resId", required = false) Integer resId) throws Exception{
+			@ModelAttribute("owner")Owner owner) throws Exception{
 		
 		System.out.println("_______________________________________________");
 		System.out.println("==> /owner/getAddOwnerView.do__call !!!");
 		System.out.println("==> owner : " +owner);
 		System.out.println("_______________________________________________");
 		
-		ModelAndView modelAndView=new ModelAndView();
-		modelAndView.setViewName("ownerViews/ownerAdd");
+		ModelAndView modelAndView = new ModelAndView("ownerViews/ownerAdd");
 		modelAndView.addObject("owner", owner);
 
 		return modelAndView;
 	}
+	
+	@RequestMapping(value="/addOwner.do", method=RequestMethod.GET)
+	public ModelAndView addOwnerAction(
+			@ModelAttribute("owner")Owner owner) throws Exception{
+		
+		System.out.println("_______________________________________________");
+		System.out.println("==> /owner/addOwner.do__call !!!");
+		System.out.println("==> owner : " +owner);
+		System.out.println("_______________________________________________");
+		
+		ownerService.addOwner(owner);
+		
+		ModelAndView modelAndView = new ModelAndView(
+				"forward:/owner/getOwnerDetail.do?searchCondition=5&searchKeyword=" 
+				+owner.getResId());
+		
+		return modelAndView;
+	}
+	
+	@RequestMapping(value="/removeOwner.do", method=RequestMethod.GET)
+	public ModelAndView removeOwnerAction(
+			@ModelAttribute("owner")Owner owner) throws Exception{
+		
+		System.out.println("_______________________________________________");
+		System.out.println("==> /owner/removeOwner.do__call !!!");
+		System.out.println("==> owner : " +owner);
+		System.out.println("_______________________________________________");
+		
+		ownerService.removeOwner(owner.getOwnerId());
+		
+		ModelAndView modelAndView = new ModelAndView(
+				"forward:/owner/getOwnerDetail.do?searchCondition=5&searchKeyword=" 
+				+owner.getResId());
+		
+		return modelAndView;
+	}
+	
 }
 	
 

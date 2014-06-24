@@ -29,7 +29,7 @@
 						style="padding-left: 10px;">
 						<table width="100%" border="0" cellspacing="0" cellpadding="0">
 							<tr>
-								<td width="93%" class="ct_ttl01">비콘 목록</td>
+								<td width="93%" class="ct_ttl01">비콘목록</td>
 							</tr>
 						</table>
 					</td>
@@ -38,122 +38,63 @@
 				</tr>
 			</table>
 
-			<table width="100%" border="0" cellspacing="0" cellpadding="0"
-				style="margin-top: 10px;">
-				<tr>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			style="margin-top: 10px;">
 
-					<td align="right">
-						<select name="searchCondition" class="ct_input_g" style="width: 80px">
-								<option value="1" ${search.searchCondition=="1"?"SELECTED":""}>UUID</option>
-								<option value="2" ${search.searchCondition=="2"?"SELECTED":""}>Major</option>
-								<option value="3" ${search.searchCondition=="3"?"SELECTED":""}>Minor</option>
-								<!--  <option value="4" ${search.searchCondition=="4"?"SELECTED":""}>ResId</option> -->
-						</select> 
-						
-						
-						<c:if test="${search.searchCondition == 4}">
-							<input type="text" name="searchKeyword"	value=''
-							class="ct_input_g" style="width: 200px; height: 19px">
-						</c:if>
-						<c:if test="${search.searchCondition != 4}">
-							<input type="text" name="searchKeyword"	value="${search.searchKeyword==null?'':search.searchKeyword}"
-							class="ct_input_g" style="width: 200px; height: 19px">
-						</c:if>
-					</td>
+			<tr>
+				<td class="ct_list_b" width="50">일련번호</td>
+				<td class="ct_line02"></td>
+				<td class="ct_list_b" width="150">UUID</td>
+				<td class="ct_line02"></td>
+				<td class="ct_list_b" width="100">Major</td>
+				<td class="ct_line02"></td>
+				<td class="ct_list_b" width="100">Minor</td>
+				<td class="ct_line02"></td>
+				<td class="ct_list_b" width="50">맛집번호</td>
+				<td class="ct_line02"></td>
+				<td class="ct_list_b"></td>
+			</tr>
+			<tr>
+				<td colspan="11" bgcolor="808285" height="1"></td>
+			</tr>
 
-					<td align="right" width="70">
-						<table border="0" cellspacing="0" cellpadding="0">
-							<tr>
-								<td width="17" height="23"><img	src="/resources/images/ct_btnbg01.gif" width="17" height="23"></td>
-								<td background="/resources/images/ct_btnbg02.gif" class="ct_btn01"
-									style="padding-top: 3px;"><a href="javascript:fncGetList('1');">검색</a></td>
-								<td width="14" height="23"><img
-									src="/resources/images/ct_btnbg03.gif" width="14" height="23"></td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-			</table>
+			<%--  search 고객용 View 시작 --%>
+			<c:forEach var="beaconList" items="${beaconList}">
 
-
-
-			<table width="100%" border="0" cellspacing="0" cellpadding="0"
-				style="margin-top: 10px;">
-				<tr>
-					<td colspan="11">전체${resultPage.totalCount }건수, 현재
-						${resultPage.currentPage} 페이지</td>
-				</tr>
-				<tr>
-					<td class="ct_list_b" width="50">일련번호</td>
-					<td class="ct_line02"></td>
-					<td class="ct_list_b" width="150">UUID</td>
-					<td class="ct_line02"></td>
-					<td class="ct_list_b" width="100">Major</td>
-					<td class="ct_line02"></td>
-					<td class="ct_list_b" width="100">Minor</td>
-					<td class="ct_line02"></td>
-					<td class="ct_list_b" width="50">맛집번호</td>
-					<td class="ct_line02"></td>
-					<td class="ct_list_b"></td>
-					<td class="ct_line02"></td>
-					<td class="ct_list_b"></td>
-				</tr>
-				<tr>
-					<td colspan="11" bgcolor="808285" height="1"></td>
-				</tr>
-
-				<%--  search 고객용 View 시작 --%>
-				<c:forEach var="beaconList" items="${beaconList}">
-	
-					<tr class="ct_list_pop">
-						<td align="center">${beaconList.beaconId}</td>
-						<td></td>
-						<td align="left">${beaconList.uuId}</td>
-						<td></td>
-						<td align="left">${beaconList.major}</td>
-						<td></td>
-						<td align="left">${beaconList.minor}</td>
-						<td></td>
-						<td align="left">${beaconList.resId}</td>
-						<td></td>
-						<td align="left">
-							<form action="/beacon/getBeaconUpdateView.do" method="get">
-								<input type="submit" value="수정">
-								<input type="hidden" name="updateView" value="${beaconList.beaconId}">
-							</form>
-						</td>
-						<td></td>
-						<td align="left">
-							<form action="/beacon/removeBeacon.do" method="get">
-								<input type="submit" value="삭제">
-								<input type="hidden" name="remove" value="${beaconList.beaconId}">
-							</form>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="11" bgcolor="D6D7D6" height="1"></td>
-					</tr>
-				</c:forEach>
-			</table>
-
-
-			<!--  페이지 Navigator 시작 -->
-			<table width="100%" border="0" cellspacing="0" cellpadding="0"
-				style="margin-top: 10px;">
-				<tr>
-					<td align="center"><input type="hidden" id="currentPage"
-						name="currentPage" value="" /> 
-						<jsp:include page="../common/pageNavigator.jsp" />
+				<tr class="ct_list_pop">
+					<td align="center">${beaconList.beaconId}</td>
+					<td></td>
+					<td align="left">${beaconList.uuId}</td>
+					<td></td>
+					<td align="left">${beaconList.major}</td>
+					<td></td>
+					<td align="left">${beaconList.minor}</td>
+					<td></td>
+					<td align="left">${beaconList.resId}</td>
+					<td></td>
+					<td align="left">
+						<form action="/beacon/getBeaconUpdateView.do" method="get">
+							<input type="submit" value="수정">
+							<input type="hidden" name="beaconId" value="${beaconList.beaconId}">
+						</form>
+						<form action="/beacon/removeBeacon.do" method="get">
+							<input type="submit" value="삭제">
+							<input type="hidden" name="beaconId" value="${beaconList.beaconId}">
+						</form>
 					</td>
 				</tr>
-			</table>
-			<!--  페이지 Navigator 끝 -->
-		</form>
-		
-		<form action="/beacon/AddBeaconView.do" method="get">
-			<input type="submit" value="비콘추가">
-			<input type="hidden" name="addView" value="${search.searchKeyword}">
-		</form>
+				<tr>
+					<td colspan="11" bgcolor="D6D7D6" height="1"></td>
+				</tr>
+			</c:forEach>
+		</table>
+
+		<c:if test="${search.searchCondition == 4}">
+			<form action="/beacon/getAddBeaconView.do" method="get">
+				<input type="submit" value="비콘추가">
+				<input type="hidden" name="resId" value="${search.searchKeyword}">
+			</form>
+		</c:if>
 
 	</div>
 </body>

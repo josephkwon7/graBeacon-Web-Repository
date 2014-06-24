@@ -5,37 +5,38 @@
 <!doctype html>
 <html>
 <head>
-	<title>점주등록</title>
+	<title>비컨등록</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="/resources/css/admin.css" type="text/css">
 	<script type="text/javascript">
 
 		function fncAddProduct(){
 			//Form 유효성 검증
-		 	var name = document.detailForm.name.value;
-			//var addr = document.detailForm.addr.value;
-			//var phone = document.detailForm.phone.value;
+		 	var uuId = document.detailForm.uuId.value;
+			var major = document.detailForm.major.value;
+			var minor = document.detailForm.minor.value;
 			//var email = document.detailForm.email.value;
 		
-			if(name == null || name.length<1){
-				alert("이름은 반드시 입력하여야 합니다.");
+			if(uuId == null || uuId.length<1){
+				alert("UUID는 반드시 입력하여야 합니다.");
+				return;
+			}
+			
+			if(major == null || major.length<1){
+				alert("major 값은 반드시 입력하여야 합니다.");
+				return;
+			}
+			if(minor == null || minor.length<1){
+				alert("minor 값은 반드시 입력하여야 합니다.");
 				return;
 			}
 			/*
-			if(addr == null || addr.length<1){
-				alert("주소는 반드시 입력하여야 합니다.");
-				return;
-			}
-			if(phone == null || phone.length<1){
-				alert("전화번호는 반드시 입력하여야 합니다.");
-				return;
-			}
 			if(email == null || email.length<1){
 				alert("이메일은 반드시 입력하여야 합니다.");
 				return;
 			}
 			*/
-			document.detailForm.action='/owner/addOwner.do';
+			document.detailForm.action='/beacon/addBeacon.do';
 			document.detailForm.submit();
 			}
 			
@@ -50,7 +51,7 @@
 
 <body bgcolor="#ffffff" text="#000000">
 
-<form name="detailForm" method="GET" enctype="multipart/form-data"><!--  -->
+<form name="detailForm" method="POST" enctype="multipart/form-data"><!--  -->
 	<table width="100%" height="37" border="0" cellpadding="0" cellspacing="0">
 		<tr>
 			<td width="15" height="37"><img src="/resources/images/ct_ttl_img01.gif"
@@ -59,7 +60,7 @@
 				style="padding-left: 10px;">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<td width="93%" class="ct_ttl01">점주등록</td>
+					<td width="93%" class="ct_ttl01">비컨등록</td>
 					<td width="20%" align="right">&nbsp;</td>
 				</tr>
 			</table>
@@ -75,53 +76,42 @@
 			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 		</tr>
 		<tr>
-			<td width="104" class="ct_write">이름*</td>
+			<td width="104" class="ct_write">UUID*</td>
 			<td bgcolor="D6D6D6" width="1"></td>
 			<td class="ct_write01">
-				<input type="text" name="name" class="ct_input_g" 
+				<input type="text" name="uuId" class="ct_input_g" 
 				style="width: 100px; height: 19px" maxLength="20" 
-				value="${owner.name}">
+				value="${beacon.uuId==null?'':beacon.uuId}">
 			</td>
 		</tr>
 		<tr>
 			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 		</tr>
 		<tr>
-			<td width="104" class="ct_write">주소</td>
+			<td width="104" class="ct_write">Major*</td>
 			<td bgcolor="D6D6D6" width="1"></td>
 			<td class="ct_write01">
-				<input type="text" name="addr" class="ct_input_g" 
+				<input type="text" name="major" class="ct_input_g" 
 				style="width: 100px; height: 19px" maxLength="20" 
-				value="${owner.addr}">
+				value="${beacon.major==0?'':beacon.major}">
 			</td>
 		</tr>
 		<tr>
 			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 		</tr>
 		<tr>
-			<td width="104" class="ct_write">전화번호</td>
+			<td width="104" class="ct_write">Minor*</td>
 			<td bgcolor="D6D6D6" width="1"></td>
 			<td class="ct_write01">
-				<input type="text" name="phone" class="ct_input_g" 
+				<input type="text" name="minor" class="ct_input_g" 
 				style="width: 100px; height: 19px" maxLength="20" 
-				value="${owner.phone}">
+				value="${beacon.minor==0?'':beacon.minor}">
 			</td>
 		</tr>
-		<tr>
-			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-		</tr>
-		<tr>
-			<td width="104" class="ct_write">이메일</td>
-			<td bgcolor="D6D6D6" width="1"></td>
-			<td class="ct_write01">
-				<input type="text" name="email" class="ct_input_g" 
-				style="width: 100px; height: 19px" maxLength="20" 
-				value="${owner.email}">
-			</td>
-		</tr>
+
 	</table>
 	
-	<input type="hidden" name="resId" value="${owner.resId}">
+	<input type="hidden" name="resId" value="${beacon.resId}">
 	
 	<table width="100%" border="0" cellspacing="0" cellpadding="0"
 		style="margin-top: 10px;">
