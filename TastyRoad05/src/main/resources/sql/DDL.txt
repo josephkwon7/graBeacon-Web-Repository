@@ -1,3 +1,6 @@
+set linesize 1000;
+set pagesize 1000;
+
 drop table beacon;
 drop table restaurant;
 drop table owner;
@@ -252,3 +255,5 @@ VALUES ( owner_seq.NEXTVAL, '피자사장', '010-2222-2222', '서울시 강남�
 
 INSERT INTO owner(owner_id, name, phone, addr, email, res_id) 
 VALUES ( owner_seq.NEXTVAL, '랍스타사장', '010-3333-3333', '서울시 강남구 서초동 지하', 'king@robster.com', 1005);
+
+COMMIT;
