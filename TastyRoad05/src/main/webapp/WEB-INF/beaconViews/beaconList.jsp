@@ -42,7 +42,7 @@
 
 <body bgcolor="#ffffff" text="#000000">
 	<div style="width: 98%; margin-left: 10px;">
-<!-- 		<form name="detailForm" action="/beacon/listBeacon.do"
+<!-- 		<form name="detailForm" action="/beacon/listBeacon"
 			method="get" onsubmit="return false">
  -->
 			<table width="100%" height="37" border="0" cellpadding="0"
@@ -98,15 +98,15 @@
 					<td align="left">${beaconList.resId}</td>
 					<td></td>
 					<td align="left">
-						<a href="javascript:post('/beacon/getUpdateBeaconView.do', 
+						<a href="javascript:post('/beacon/getUpdateBeaconView', 
 						  {beaconId: '${beaconList.beaconId}'});">수정</a>
-						<a href="javascript:post('/beacon/removeBeacon.do', 
+						<a href="javascript:post('/beacon/removeBeacon', 
 						  {beaconId: '${beaconList.beaconId}', resId: '${beaconList.resId}'});">삭제</a>						<!--  
-						<form action="/beacon/getUpdateBeaconView.do" method="POST">
+						<form action="/beacon/getUpdateBeaconView" method="POST">
 							<input type="submit" value="수정">
 							<input type="hidden" name="beaconId" value="${beaconList.beaconId}">
 						</form>
-						<form action="/beacon/removeBeacon.do" method="POST">
+						<form action="/beacon/removeBeacon" method="POST">
 							<input type="submit" value="삭제">
 							<input type="hidden" name="beaconId" value="${beaconList.beaconId}">
 							<input type="hidden" name="resId" value="${beaconList.resId}">
@@ -124,7 +124,7 @@
 		<%-- Restaurant List에서 바로 넘어왔을 경우에만 비콘추가 버튼이 보이게 함
 		- 바로 넘어 왔다면 search.searchCondition == 4 일 수 밖에 없음--%>
 		<c:if test="${search.searchCondition == 4}">
-			<form action="/beacon/getAddBeaconView.do" method="POST">
+			<form action="/beacon/getAddBeaconView" method="POST">
 				<input type="submit" value="비콘추가">
 				<input type="hidden" name="resId" value="${search.searchKeyword}">
 			</form>

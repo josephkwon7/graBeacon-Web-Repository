@@ -35,7 +35,7 @@
 				return;
 			}
 			*/
-			document.detailForm.action='/owner/addOwner.do';
+			document.detailForm.action='/owner/addOwner';
 			document.detailForm.submit();
 			}
 			

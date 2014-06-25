@@ -36,7 +36,7 @@
 				return;
 			}
 			*/
-			document.detailForm.action='/beacon/addBeacon.do';
+			document.detailForm.action='/beacon/addBeacon';
 			document.detailForm.submit();
 			}
 			

@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="/resources/css/admin.css" type="text/css">
 	<script type="text/javascript">
 		function fncMoveBackward(){
-			document.location.href="/restaurant/listRestaurant.do";
+			document.location.href="/restaurant/listRestaurant";
 		}
 	</script>
 </head>
@@ -271,14 +271,14 @@
 				<table border="0" cellspacing="0" cellpadding="0">
 					<tr>
 						<td width="17" height="23">
-							<form name="getUpdateOwnerView" action="/restaurant/getUpdateRestaurantView.do" method="POST">
+							<form name="getUpdateOwnerView" action="/restaurant/getUpdateRestaurantView" method="POST">
 								<input type="hidden" name="resId" value="${restaurant.resId}">
 								<input type="submit" value="맛집수정">
 							</form>
 						</td>
 
 						<td width="17" height="23">
-							<form name="removeOwner" action="/restaurant/removeRestaurant.do" method="POST">
+							<form name="removeOwner" action="/restaurant/removeRestaurant" method="POST">
 								<input type="hidden" name="resId" value="${restaurant.resId}">
 								<input type="submit" value="맛집삭제">
 							</form>

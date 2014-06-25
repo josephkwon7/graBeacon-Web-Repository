@@ -29,7 +29,7 @@
 				return;
 			}
 		
-			document.detailForm.action='/beacon/updateBeacon.do';
+			document.detailForm.action='/beacon/updateBeacon';
 			document.detailForm.submit();
 		}
 

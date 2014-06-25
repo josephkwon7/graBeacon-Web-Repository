@@ -43,7 +43,7 @@
 <body bgcolor="#ffffff" text="#000000">
 	<div style="width: 98%; margin-left: 10px;">
 
-		<form name="detailForm" action="/restaurant/listRestaurant.do"
+		<form name="detailForm" action="/restaurant/listRestaurant"
 			method="POST" onsubmit="return false">
 			
 			<table width="100%" height="37" border="0" cellpadding="0"
@@ -122,7 +122,7 @@
 						<td align="center">${restaurantList.resId}</td>
 						<td></td>
 						<td align="left">
-							<a href="javascript:post('/restaurant/getRestaurantDetail.do', 
+							<a href="javascript:post('/restaurant/getRestaurantDetail', 
 						  {resId: '${restaurantList.resId}'});">${restaurantList.name}</a>
 						</td>
 						<td></td>
@@ -141,36 +141,36 @@
 						</td>
 						<td></td>
 						<td align="left">
-						  <a href="javascript:post('/beacon/getBeaconList.do', 
+						  <a href="javascript:post('/beacon/getBeaconList', 
 						  {searchKeyword: '${restaurantList.resId}', searchCondition: '4'});">비콘관리</a>
 
-						  <a href="javascript:post('/owner/getOwnerDetail.do', 
+						  <a href="javascript:post('/owner/getOwnerDetail', 
 						  {searchKeyword: '${restaurantList.resId}', searchCondition: '5'});">점주관리</a>
 
 						<!--  
-						  <a href="javascript:post('/restaurant/removeRestaurant.do', 
+						  <a href="javascript:post('/restaurant/removeRestaurant', 
 						  {resId: '${restaurantList.resId}'});">맛집삭제</a>
 						  -->
 						  <!--  
-							<form action="/beacon/getBeaconList.do" method="POST">
+							<form action="/beacon/getBeaconList" method="POST">
 								<input type="submit" value="비콘관리">
 								<input type="hidden" name="searchKeyword" value="${restaurantList.resId}">
 								<input type="hidden" name="searchCondition" value="4">
 							</form>
-							<form action="/owner/getOwnerDetail.do" method="POST">
+							<form action="/owner/getOwnerDetail" method="POST">
 								<input type="submit" value="점주관리">
 								<input type="hidden" name="searchKeyword" value="${restaurantList.resId}">
 								<input type="hidden" name="searchCondition" value="5">
 							</form>
-							<form action="/restaurant/removeRestaurant.do" method="POST">
+							<form action="/restaurant/removeRestaurant" method="POST">
 								<input type="submit" value="삭제">
 								<input type="hidden" name="resId" value="${restaurantList.resId}">
 							</form>
 						-->
 						<!--  
-							<a href="/beacon/listBeacon.do?resId=${restaurantList.resId}">비콘관리</a>
-							<a href="/owner/getOwnerDetail.do?searchKeyword=${restaurantList.resId}&searchCondition=5">점주관리</a>
-							<a href="/restaurant/removeRestaurant.do?resId=${restaurantList.resId}">삭제</a>
+							<a href="/beacon/listBeacon?resId=${restaurantList.resId}">비콘관리</a>
+							<a href="/owner/getOwnerDetail?searchKeyword=${restaurantList.resId}&searchCondition=5">점주관리</a>
+							<a href="/restaurant/removeRestaurant?resId=${restaurantList.resId}">삭제</a>
 						-->
 						</td>
 					</tr>
@@ -197,7 +197,7 @@
 		</form>
 	</div>
 
-	<form action="/restaurant/getAddRestaurantView.do" method="POST">
+	<form action="/restaurant/getAddRestaurantView" method="POST">
 		<input type="submit" value="맛집추가">
 	</form>
 

@@ -66,7 +66,7 @@
 		}
 */
 
-		document.detailForm.action='/restaurant/addRestaurant.do';
+		document.detailForm.action='/restaurant/addRestaurant';
 		document.detailForm.submit();
 	}
 	

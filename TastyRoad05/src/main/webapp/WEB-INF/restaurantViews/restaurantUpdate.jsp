@@ -64,7 +64,7 @@
 		}
 */
 
-		document.detailForm.action='/restaurant/updateRestaurant.do';
+		document.detailForm.action='/restaurant/updateRestaurant';
 		document.detailForm.submit();
 	}
 	
