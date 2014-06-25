@@ -11,7 +11,7 @@
 	Hello world!  
 </h1>
 
-	<form name="detailForm" action="/restaurant/listRestaurant.do" method="POST">
+	<form name="detailForm" action="/restaurant/listRestaurant" method="POST">
 		<input type="submit" value="맛집목록보기">
 	</form>
 
