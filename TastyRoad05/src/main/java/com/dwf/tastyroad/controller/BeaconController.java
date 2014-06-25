@@ -19,6 +19,9 @@ import com.dwf.tastyroad.model.Page;
 import com.dwf.tastyroad.model.Search;
 import com.dwf.tastyroad.service.BeaconService;
 
+
+/*수정사항: RequestMapping .do 제거. by 정준호.*/
+
 //URI /beacon로 들어오는 요청 처리
 @Controller
 @RequestMapping("/beacon")
@@ -40,12 +43,12 @@ public class BeaconController {
 		System.out.println("::" +getClass()+ " Default Constructor Call");
 	}
 	
-	@RequestMapping(value="/getAddBeaconView.do", method=RequestMethod.POST)
+	@RequestMapping(value="/getAddBeaconView", method=RequestMethod.POST)
 	public ModelAndView getAddBeaconViewAction(
 			@ModelAttribute("beacon")Beacon beacon) throws Exception{
 		
 		System.out.println("_______________________________________________");
-		System.out.println("==> /beacon/getAddBeaconView.do__call !!!");
+		System.out.println("==> /beacon/getAddBeaconView__call !!!");
 		System.out.println("==> beacon : " +beacon);
 		System.out.println("_______________________________________________");
 		
@@ -55,19 +58,19 @@ public class BeaconController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/addBeacon.do", method=RequestMethod.POST)
+	@RequestMapping(value="/addBeacon", method=RequestMethod.POST)
 	public ModelAndView addBeaconAction(
 			@ModelAttribute("beacon")Beacon beacon) throws Exception{
 		
 		System.out.println("_______________________________________________");
-		System.out.println("==> /owner/addBeacon.do__call !!!");
+		System.out.println("==> /owner/addBeacon__call !!!");
 		System.out.println("==> beacon : " +beacon);
 		System.out.println("_______________________________________________");
 		
 		beaconService.addBeacon(beacon);
 		
 //		ModelAndView modelAndView = new ModelAndView(
-//				"forward:/beacon/getBeaconList.do?searchCondition=4&searchKeyword=" 
+//				"forward:/beacon/getBeaconList?searchCondition=4&searchKeyword=" 
 //				+beacon.getResId());
 		
 		Search search = new Search("4", ""+beacon.getResId());
@@ -76,7 +79,7 @@ public class BeaconController {
 		
 		List beaconList = beaconService.getBeaconList(search);
 		Page resultPage = new Page( search.getCurrentPage(), beaconService.getTotalCount(search), pageUnit, pageSize);
-		System.out.println("@/addBeacon.do resultPage : " +resultPage);
+		System.out.println("@/addBeacon resultPage : " +resultPage);
 		
 		//debugging용 beacon list출력
 		for(int i=0; i<beaconList.size();i++){
@@ -92,12 +95,12 @@ public class BeaconController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/getBeaconList.do", method=RequestMethod.POST)
+	@RequestMapping(value="/getBeaconList", method=RequestMethod.POST)
 	public ModelAndView getListBeaconAction(
 			@ModelAttribute("search")Search search) throws Exception{
 		
 		System.out.println("_______________________________________________");
-		System.out.println("==> /beacon/getBeaconList.do __call !!!");
+		System.out.println("==> /beacon/getBeaconList __call !!!");
 		System.out.println("==> search : " +search);
 		System.out.println("_______________________________________________");
 		
@@ -108,7 +111,7 @@ public class BeaconController {
 		
 		List beaconList = beaconService.getBeaconList(search);
 		Page resultPage = new Page( search.getCurrentPage(), beaconService.getTotalCount(search), pageUnit, pageSize);
-		System.out.println("@/getBeaconList.do resultPage : " +resultPage);
+		System.out.println("@/getBeaconList resultPage : " +resultPage);
 		
 		//debugging용 beacon list출력
 		Beacon beacon;
@@ -125,52 +128,52 @@ public class BeaconController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/getUpdateBeaconView.do", method=RequestMethod.POST)
+	@RequestMapping(value="/getUpdateBeaconView", method=RequestMethod.POST)
 	public ModelAndView getUpdateBeaconViewAction(
 			@ModelAttribute("beacon")Beacon beacon) throws Exception{
 
 		System.out.println("_______________________________________________");
-		System.out.println("==> /beacon/getUpdateBeaconView.do__call !!!");
+		System.out.println("==> /beacon/getUpdateBeaconView__call !!!");
 		System.out.println("==> beacon : "+beacon);
 		System.out.println("_______________________________________________");
 		
 		ModelAndView modelAndView = new ModelAndView("beaconViews/beaconUpdate");
 		modelAndView.addObject("beacon", beaconService.getBeacon(beacon.getBeaconId()));
-		System.out.println("@getUpdateBeaconView.do : " +beaconService.getBeacon(beacon.getBeaconId()));
+		System.out.println("@getUpdateBeaconView : " +beaconService.getBeacon(beacon.getBeaconId()));
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/updateBeacon.do", method=RequestMethod.POST)
+	@RequestMapping(value="/updateBeacon", method=RequestMethod.POST)
 	public ModelAndView updateBeaconAction(
 			@ModelAttribute("beacon")Beacon beacon 			
 			) throws Exception{
 		
 		System.out.println("_______________________________________________");
-		System.out.println("==> /beacon/updateBeacon.do__call !!!");
+		System.out.println("==> /beacon/updateBeacon__call !!!");
 		System.out.println("==> beacon : "+beacon);
 		System.out.println("_______________________________________________");
 		
 		beaconService.updateBeacon(beacon);
 		ModelAndView modelAndView = new ModelAndView(
-				"forward:/beacon/getBeaconList.do?searchCondition=4&searchKeyword="
+				"forward:/beacon/getBeaconList?searchCondition=4&searchKeyword="
 				+beacon.getResId());
 		
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/removeBeacon.do", method=RequestMethod.POST)
+	@RequestMapping(value="/removeBeacon", method=RequestMethod.POST)
 	public ModelAndView removeBeaconAction(
 			@ModelAttribute("beacon")Beacon beacon) throws Exception{
 		
 		System.out.println("_______________________________________________");
-		System.out.println("==> /beacon/removeBeacon.do__call !!!");
+		System.out.println("==> /beacon/removeBeacon__call !!!");
 		System.out.println("==> beacon : " +beacon);
 		System.out.println("_______________________________________________");
 		
 		beaconService.removeBeacon(beacon.getBeaconId());
 		
 		ModelAndView modelAndView = new ModelAndView(
-				"forward:/beacon/getBeaconList.do?searchCondition=4&searchKeyword="
+				"forward:/beacon/getBeaconList?searchCondition=4&searchKeyword="
 				+beacon.getResId());
 		
 		return modelAndView;

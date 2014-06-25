@@ -18,6 +18,8 @@ import com.dwf.tastyroad.model.Owner;
 import com.dwf.tastyroad.model.Search;
 import com.dwf.tastyroad.service.OwnerService;
 
+
+/*수정사항: RequestMapping .do 제거. by 정준호.*/
 //URI /beacon로 들어오는 요청 처리
 @Controller
 @RequestMapping("/owner")
@@ -39,13 +41,13 @@ public class OwnerController {
 		System.out.println("::" +getClass()+ " Default Constructor Call");
 	}
 	
-	@RequestMapping(value="/getOwnerDetail.do", method=RequestMethod.POST)
+	@RequestMapping(value="/getOwnerDetail", method=RequestMethod.POST)
 	public ModelAndView getOwnerDetailAction(
 			@ModelAttribute("search")Search search
 			)throws Exception{
 
 		System.out.println("_______________________________________________");
-		System.out.println("==> /owner/getOwnerDetail.do__call !!!");
+		System.out.println("==> /owner/getOwnerDetail__call !!!");
 		System.out.println("==> search : " +search);
 		System.out.println("_______________________________________________");
 		
@@ -69,12 +71,12 @@ public class OwnerController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/getUpdateOwnerView.do", method=RequestMethod.POST)
+	@RequestMapping(value="/getUpdateOwnerView", method=RequestMethod.POST)
 	public ModelAndView getUpdateOwnerViewAction(
 			@ModelAttribute("owner")Owner owner) throws Exception{
 
 		System.out.println("_______________________________________________");
-		System.out.println("==> /owner/getUpdateOwnerView.do__call !!!");
+		System.out.println("==> /owner/getUpdateOwnerView__call !!!");
 		System.out.println("==> owner : " +owner);
 		System.out.println("_______________________________________________");
 		
@@ -84,19 +86,19 @@ public class OwnerController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/updateOwner.do", method=RequestMethod.POST)
+	@RequestMapping(value="/updateOwner", method=RequestMethod.POST)
 	public ModelAndView updateOwnerAction(
 			@ModelAttribute("owner")Owner owner 			
 			) throws Exception{
 		
 		System.out.println("_______________________________________________");
-		System.out.println("==> /owner/updateOwner.do__call !!!");
+		System.out.println("==> /owner/updateOwner__call !!!");
 		System.out.println("==> owner : "+owner);
 		System.out.println("_______________________________________________");
 		
 		ownerService.updateOwner(owner);
 		
-		//modelAndView.setViewName("forward:/owner/getOwnerDetail.do");
+		//modelAndView.setViewName("forward:/owner/getOwnerDetail");
 		Search search=new Search("5", ""+owner.getResId());
 		
 		Owner tmpOwner = new Owner(Integer.parseInt(search.getSearchKeyword()));
@@ -111,12 +113,12 @@ public class OwnerController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/getAddOwnerView.do", method=RequestMethod.POST)
+	@RequestMapping(value="/getAddOwnerView", method=RequestMethod.POST)
 	public ModelAndView getAddOwnerViewAction(//@RequestParam(value = "resId", required = false) Integer resId) throws Exception{
 			@ModelAttribute("owner")Owner owner) throws Exception{
 		
 		System.out.println("_______________________________________________");
-		System.out.println("==> /owner/getAddOwnerView.do__call !!!");
+		System.out.println("==> /owner/getAddOwnerView__call !!!");
 		System.out.println("==> owner : " +owner);
 		System.out.println("_______________________________________________");
 		
@@ -126,12 +128,12 @@ public class OwnerController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/addOwner.do", method=RequestMethod.POST)
+	@RequestMapping(value="/addOwner", method=RequestMethod.POST)
 	public ModelAndView addOwnerAction(
 			@ModelAttribute("owner")Owner owner) throws Exception{
 		
 		System.out.println("_______________________________________________");
-		System.out.println("==> /owner/addOwner.do__call !!!");
+		System.out.println("==> /owner/addOwner__call !!!");
 		System.out.println("==> owner : " +owner);
 		System.out.println("_______________________________________________");
 		
@@ -144,12 +146,12 @@ public class OwnerController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/removeOwner.do", method=RequestMethod.POST)
+	@RequestMapping(value="/removeOwner", method=RequestMethod.POST)
 	public ModelAndView removeOwnerAction(
 			@ModelAttribute("owner")Owner owner) throws Exception{
 		
 		System.out.println("_______________________________________________");
-		System.out.println("==> /owner/removeOwner.do__call !!!");
+		System.out.println("==> /owner/removeOwner__call !!!");
 		System.out.println("==> owner : " +owner);
 		System.out.println("_______________________________________________");
 		

@@ -27,6 +27,8 @@ import com.oreilly.servlet.multipart.MultipartParser;
 import com.oreilly.servlet.multipart.ParamPart;
 import com.oreilly.servlet.multipart.Part;
 
+
+/*수정사항: RequestMapping .do 제거. by 정준호.*/
 //Class가 Controller임을 Spring에 알려줌
 @Controller
 //URI /restaurant로 들어오는 요청 처리
@@ -55,13 +57,13 @@ public class RestaurantController {
 		System.out.println("::" +getClass()+ " Default Constructor Call");
 	}
 	
-	//listRestaurant.do 요청 처리 - 맛집목록보기 화면 요청
-	@RequestMapping(value="/listRestaurant.do", method=RequestMethod.POST)
+	//listRestaurant 요청 처리 - 맛집목록보기 화면 요청
+	@RequestMapping(value="/listRestaurant", method=RequestMethod.POST)
 	//Search 모델을 인자로 받음 - web client로 부터 받은 것
 	public ModelAndView listRestaurantAction(@ModelAttribute("search")Search search) throws Exception{
 		
 		System.out.println("_______________________________________________");
-		System.out.println("==> /restaurant/listRestaurant.do __call !!!");
+		System.out.println("==> /restaurant/listRestaurant __call !!!");
 		System.out.println("==> search : " +search);
 		System.out.println("_______________________________________________");
 		
@@ -84,7 +86,7 @@ public class RestaurantController {
 			restaurant = (Restaurant) restaurantList.get(i);
 			System.out.println("restaurant.toString()"+restaurant.toString()+"__");
 		}
-		System.out.println("@/listRestaurant.do resultPage : " +resultPage);
+		System.out.println("@/listRestaurant resultPage : " +resultPage);
 		
 		//response에 전달할 model과 view를 담을 ModelAndView 인스턴스 생성
 		ModelAndView modelAndView = new ModelAndView();
@@ -100,8 +102,8 @@ public class RestaurantController {
 		return modelAndView;
 	}
 	
-	///getAddRestaurantView.do 요청 처리 - 추가할 맛집 입력 화면 요청
-	@RequestMapping(value="/getAddRestaurantView.do", method=RequestMethod.POST)
+	///getAddRestaurantView 요청 처리 - 추가할 맛집 입력 화면 요청
+	@RequestMapping(value="/getAddRestaurantView", method=RequestMethod.POST)
 	public ModelAndView getAddRestaurantViewAction(@ModelAttribute("restaurant")Restaurant restaurant) throws Exception{
 
 		ModelAndView modelAndView = new ModelAndView();
@@ -110,8 +112,8 @@ public class RestaurantController {
 		return modelAndView;
 	}
 
-	///getAddRestaurantView.do 요청 처리 - 맛집 추가 요청
-	@RequestMapping(value="/addRestaurant.do", method=RequestMethod.POST)
+	///getAddRestaurantView 요청 처리 - 맛집 추가 요청
+	@RequestMapping(value="/addRestaurant", method=RequestMethod.POST)
 	//인자로 web client에서 모델 restaurant을 받음 
 	public ModelAndView addProductAction(
 			@ModelAttribute("restaurant")Restaurant restaurant,
@@ -119,7 +121,7 @@ public class RestaurantController {
 			HttpServletResponse response)throws Exception {
 
 		System.out.println("_______________________________________________");
-		System.out.println("==> /restaurant/addRestaurant.do __call !!!");
+		System.out.println("==> /restaurant/addRestaurant __call !!!");
 		System.out.println("_______________________________________________");
 		
 		try {  
@@ -254,7 +256,7 @@ public class RestaurantController {
 		restaurantService.addRestaurant(restaurant);
 
 		//맛집 추가 작업 수행 후에 맛집 목록 화면 으로 자동 이동
-		//return "forward:/restaurant/listRestaurant.do";
+		//return "forward:/restaurant/listRestaurant";
 		
 		//CurrentPage 초기값 1 set
 		Search search = new Search();
@@ -288,11 +290,11 @@ public class RestaurantController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/getRestaurantDetail.do", method=RequestMethod.POST)
+	@RequestMapping(value="/getRestaurantDetail", method=RequestMethod.POST)
 	public ModelAndView getRestaurantDetailAction(@ModelAttribute("restaurant")Restaurant restaurant) throws Exception{
 
 		System.out.println("_______________________________________________");
-		System.out.println("==> /restaurant/getRestaurantDetail.do__call !!!");
+		System.out.println("==> /restaurant/getRestaurantDetail__call !!!");
 		System.out.println("_______________________________________________");	
 
 		ModelAndView modelAndView = new ModelAndView();
@@ -302,11 +304,11 @@ public class RestaurantController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/getUpdateRestaurantView.do", method=RequestMethod.POST)
+	@RequestMapping(value="/getUpdateRestaurantView", method=RequestMethod.POST)
 	public ModelAndView getUpdateRestaurantViewAction(@ModelAttribute("restaurant")Restaurant restaurant) throws Exception{
 
 		System.out.println("_______________________________________________");
-		System.out.println("==> /restaurant/getUpdateRestaurantView.do__call !!!");
+		System.out.println("==> /restaurant/getUpdateRestaurantView__call !!!");
 		System.out.println("_______________________________________________");	
 		
 		ModelAndView modelAndView = new ModelAndView();
@@ -316,11 +318,11 @@ public class RestaurantController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/updateRestaurant.do", method=RequestMethod.POST)
+	@RequestMapping(value="/updateRestaurant", method=RequestMethod.POST)
 	public ModelAndView updateRestaurantAction(@ModelAttribute("restaurant")Restaurant restaurant) throws Exception{
 
 		System.out.println("_______________________________________________");
-		System.out.println("==> /restaurant/updateRestaurant.do__call !!!");
+		System.out.println("==> /restaurant/updateRestaurant__call !!!");
 		System.out.println("_______________________________________________");		
 		
 		restaurantService.updateRestaurant(restaurant);
@@ -333,14 +335,14 @@ public class RestaurantController {
 	}
 
 
-	@RequestMapping(value="/removeRestaurant.do", method=RequestMethod.POST)
+	@RequestMapping(value="/removeRestaurant", method=RequestMethod.POST)
 	//인자로 web client에서 모델 restaurant을 받음 
 	public ModelAndView removeRestaurantAction(
 			@ModelAttribute("restaurant")Restaurant restaurant
 			)throws Exception {
 
 		System.out.println("_______________________________________________");
-		System.out.println("==> /restaurant/addRestaurant.do__call !!!");
+		System.out.println("==> /restaurant/addRestaurant__call !!!");
 		System.out.println("_______________________________________________");
 		
 		restaurantService.removeRestaurant(restaurant.getResId());
