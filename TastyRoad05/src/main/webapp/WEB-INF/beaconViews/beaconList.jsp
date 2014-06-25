@@ -8,18 +8,43 @@
 <title>비콘관리</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/resources/css/admin.css" type="text/css">
-<script type="text/javascript">
-	function fncGetList(page) {
-		document.getElementById("currentPage").value = page;
-		document.detailForm.submit();
-	}
-</script>
+	<script type="text/javascript">
+		function fncGetList(page) {
+			document.getElementById("currentPage").value = page;
+			document.detailForm.submit();
+		}
+		
+		function post(path, params) {
+		    //method = method || "post"; // Set method to post by default if not specified.
+
+		    // The rest of this code assumes you are not using a library.
+		    // It can be made less wordy if you use one.
+		    var form = document.createElement("form");
+		    form.setAttribute("method", "post");
+		    form.setAttribute("action", path);
+
+		    for(var key in params) {
+		        if(params.hasOwnProperty(key)) {
+		            var hiddenField = document.createElement("input");
+		            hiddenField.setAttribute("type", "hidden");
+		            hiddenField.setAttribute("name", key);
+		            hiddenField.setAttribute("value", params[key]);
+
+		            form.appendChild(hiddenField);
+		         }
+		    }
+
+		    document.body.appendChild(form);
+		    form.submit();
+		}
+	</script>
 </head>
 
 <body bgcolor="#ffffff" text="#000000">
 	<div style="width: 98%; margin-left: 10px;">
-		<form name="detailForm" action="/beacon/listBeacon.do"
+<!-- 		<form name="detailForm" action="/beacon/listBeacon.do"
 			method="get" onsubmit="return false">
+ -->
 			<table width="100%" height="37" border="0" cellpadding="0"
 				cellspacing="0">
 				<tr>
@@ -52,7 +77,7 @@
 				<td class="ct_line02"></td>
 				<td class="ct_list_b" width="50">맛집번호</td>
 				<td class="ct_line02"></td>
-				<td class="ct_list_b"></td>
+				<td class="ct_list_b" width="50">관리</td>
 			</tr>
 			<tr>
 				<td colspan="11" bgcolor="808285" height="1"></td>
@@ -73,14 +98,20 @@
 					<td align="left">${beaconList.resId}</td>
 					<td></td>
 					<td align="left">
-						<form action="/beacon/getBeaconUpdateView.do" method="get">
+						<a href="javascript:post('/beacon/getUpdateBeaconView.do', 
+						  {beaconId: '${beaconList.beaconId}'});">수정</a>
+						<a href="javascript:post('/beacon/removeBeacon.do', 
+						  {beaconId: '${beaconList.beaconId}', resId: '${beaconList.resId}'});">삭제</a>						<!--  
+						<form action="/beacon/getUpdateBeaconView.do" method="POST">
 							<input type="submit" value="수정">
 							<input type="hidden" name="beaconId" value="${beaconList.beaconId}">
 						</form>
-						<form action="/beacon/removeBeacon.do" method="get">
+						<form action="/beacon/removeBeacon.do" method="POST">
 							<input type="submit" value="삭제">
 							<input type="hidden" name="beaconId" value="${beaconList.beaconId}">
+							<input type="hidden" name="resId" value="${beaconList.resId}">
 						</form>
+						-->
 					</td>
 				</tr>
 				<tr>
@@ -89,8 +120,11 @@
 			</c:forEach>
 		</table>
 
+
+		<%-- Restaurant List에서 바로 넘어왔을 경우에만 비콘추가 버튼이 보이게 함
+		- 바로 넘어 왔다면 search.searchCondition == 4 일 수 밖에 없음--%>
 		<c:if test="${search.searchCondition == 4}">
-			<form action="/beacon/getAddBeaconView.do" method="get">
+			<form action="/beacon/getAddBeaconView.do" method="POST">
 				<input type="submit" value="비콘추가">
 				<input type="hidden" name="resId" value="${search.searchKeyword}">
 			</form>

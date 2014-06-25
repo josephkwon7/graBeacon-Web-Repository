@@ -56,7 +56,7 @@ public class RestaurantController {
 	}
 	
 	//listRestaurant.do 요청 처리 - 맛집목록보기 화면 요청
-	@RequestMapping(value="/listRestaurant.do", method=RequestMethod.GET)
+	@RequestMapping(value="/listRestaurant.do", method=RequestMethod.POST)
 	//Search 모델을 인자로 받음 - web client로 부터 받은 것
 	public ModelAndView listRestaurantAction(@ModelAttribute("search")Search search) throws Exception{
 		
@@ -84,6 +84,7 @@ public class RestaurantController {
 			restaurant = (Restaurant) restaurantList.get(i);
 			System.out.println("restaurant.toString()"+restaurant.toString()+"__");
 		}
+		System.out.println("@/listRestaurant.do resultPage : " +resultPage);
 		
 		//response에 전달할 model과 view를 담을 ModelAndView 인스턴스 생성
 		ModelAndView modelAndView = new ModelAndView();
@@ -112,7 +113,7 @@ public class RestaurantController {
 	///getAddRestaurantView.do 요청 처리 - 맛집 추가 요청
 	@RequestMapping(value="/addRestaurant.do", method=RequestMethod.POST)
 	//인자로 web client에서 모델 restaurant을 받음 
-	public String addProductAction(
+	public ModelAndView addProductAction(
 			@ModelAttribute("restaurant")Restaurant restaurant,
 			HttpServletRequest request,
 			HttpServletResponse response)throws Exception {
@@ -253,22 +254,127 @@ public class RestaurantController {
 		restaurantService.addRestaurant(restaurant);
 
 		//맛집 추가 작업 수행 후에 맛집 목록 화면 으로 자동 이동
-		return "forward:/restaurant/listRestaurant.do";
+		//return "forward:/restaurant/listRestaurant.do";
+		
+		//CurrentPage 초기값 1 set
+		Search search = new Search();
+		search.setCurrentPage(1);
+		search.setPageSize(pageSize);
+		
+		//field에서 읽어온 pageSize set
+		search.setPageSize(pageSize);		
+		
+		//DB에서 검색조건(초기에는 null)을 적용해 가져온 restaurant 목록 가져옴 
+		List restaurantList = restaurantService.getRestaurantList(search);
+		//Page instance 생성(게시판에 page navigation시 사용)
+		Page resultPage = new Page( search.getCurrentPage(), restaurantService.getTotalCount(search), pageUnit, pageSize);
+		
+		//restaurant list를 console에 출력
+		for(int i=0; i<restaurantList.size();i++){
+			restaurant = (Restaurant) restaurantList.get(i);
+			System.out.println("restaurant.toString()"+restaurant.toString()+"__");
+		}
+		
+		//response에 전달할 model과 view를 담을 ModelAndView 인스턴스 생성
+		ModelAndView modelAndView = new ModelAndView();
+		//전달할 view set. 
+		//WEB-INF/restaurantViews/restaurantList.jsp를 전달(servlet-context.xml참조)
+		modelAndView.setViewName("restaurantViews/restaurantList");
+		//이하 3라인. 이름,객체 형태로 response에 전달
+		modelAndView.addObject("restaurantList", restaurantList);
+		modelAndView.addObject("resultPage", resultPage);
+		modelAndView.addObject("search", search);
+		
+		return modelAndView;
+	}
+	
+	@RequestMapping(value="/getRestaurantDetail.do", method=RequestMethod.POST)
+	public ModelAndView getRestaurantDetailAction(@ModelAttribute("restaurant")Restaurant restaurant) throws Exception{
+
+		System.out.println("_______________________________________________");
+		System.out.println("==> /restaurant/getRestaurantDetail.do__call !!!");
+		System.out.println("_______________________________________________");	
+
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("restaurantViews/restaurantDetail");
+		modelAndView.addObject("restaurant", restaurantService.getRestaurant(restaurant.getResId()));
+			
+		return modelAndView;
+	}
+	
+	@RequestMapping(value="/getUpdateRestaurantView.do", method=RequestMethod.POST)
+	public ModelAndView getUpdateRestaurantViewAction(@ModelAttribute("restaurant")Restaurant restaurant) throws Exception{
+
+		System.out.println("_______________________________________________");
+		System.out.println("==> /restaurant/getUpdateRestaurantView.do__call !!!");
+		System.out.println("_______________________________________________");	
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("restaurantViews/restaurantUpdate");
+		modelAndView.addObject("restaurant", restaurantService.getRestaurant(restaurant.getResId()));
+			
+		return modelAndView;
+	}
+	
+	@RequestMapping(value="/updateRestaurant.do", method=RequestMethod.POST)
+	public ModelAndView updateRestaurantAction(@ModelAttribute("restaurant")Restaurant restaurant) throws Exception{
+
+		System.out.println("_______________________________________________");
+		System.out.println("==> /restaurant/updateRestaurant.do__call !!!");
+		System.out.println("_______________________________________________");		
+		
+		restaurantService.updateRestaurant(restaurant);
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("restaurantViews/restaurantDetail");
+		modelAndView.addObject("restaurant", restaurantService.getRestaurant(restaurant.getResId()));
+			
+		return modelAndView;
 	}
 
-	@RequestMapping(value="/removeRestaurant.do", method=RequestMethod.GET)
+
+	@RequestMapping(value="/removeRestaurant.do", method=RequestMethod.POST)
 	//인자로 web client에서 모델 restaurant을 받음 
-	public String removeRestaurantAction(
+	public ModelAndView removeRestaurantAction(
 			@ModelAttribute("restaurant")Restaurant restaurant
 			)throws Exception {
 
 		System.out.println("_______________________________________________");
-		System.out.println("==> /restaurant/addRestaurant.do __call !!!");
+		System.out.println("==> /restaurant/addRestaurant.do__call !!!");
 		System.out.println("_______________________________________________");
 		
 		restaurantService.removeRestaurant(restaurant.getResId());
 		
-		return "forward:/restaurant/listRestaurant.do";
+		//CurrentPage 초기값 1 set
+		Search search = new Search();
+		search.setCurrentPage(1);
+		search.setPageSize(pageSize);
+		
+		//field에서 읽어온 pageSize set
+		search.setPageSize(pageSize);		
+		
+		//DB에서 검색조건(초기에는 null)을 적용해 가져온 restaurant 목록 가져옴 
+		List restaurantList = restaurantService.getRestaurantList(search);
+		//Page instance 생성(게시판에 page navigation시 사용)
+		Page resultPage = new Page( search.getCurrentPage(), restaurantService.getTotalCount(search), pageUnit, pageSize);
+		
+		//restaurant list를 console에 출력
+		for(int i=0; i<restaurantList.size();i++){
+			restaurant = (Restaurant) restaurantList.get(i);
+			System.out.println("restaurant.toString()"+restaurant.toString()+"__");
+		}
+		
+		//response에 전달할 model과 view를 담을 ModelAndView 인스턴스 생성
+		ModelAndView modelAndView = new ModelAndView();
+		//전달할 view set. 
+		//WEB-INF/restaurantViews/restaurantList.jsp를 전달(servlet-context.xml참조)
+		modelAndView.setViewName("restaurantViews/restaurantList");
+		//이하 3라인. 이름,객체 형태로 response에 전달
+		modelAndView.addObject("restaurantList", restaurantList);
+		modelAndView.addObject("resultPage", resultPage);
+		modelAndView.addObject("search", search);
+		
+		return modelAndView;
 	}	
 	
 }

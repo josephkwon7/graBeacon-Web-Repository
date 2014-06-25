@@ -49,8 +49,8 @@
 </head>
 
 <body bgcolor="#ffffff" text="#000000">
-
-<form name="detailForm" method="GET" enctype="multipart/form-data"><!--  -->
+<c:out value="${owner}"/>
+<form name="detailForm" method="POST">
 	<table width="100%" height="37" border="0" cellpadding="0" cellspacing="0">
 		<tr>
 			<td width="15" height="37"><img src="/resources/images/ct_ttl_img01.gif"

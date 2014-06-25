@@ -13,14 +13,38 @@
 		document.getElementById("currentPage").value = page;
 		document.detailForm.submit();
 	}
+	
+	function post(path, params) {
+	    //method = method || "post"; // Set method to post by default if not specified.
+
+	    // The rest of this code assumes you are not using a library.
+	    // It can be made less wordy if you use one.
+	    var form = document.createElement("form");
+	    form.setAttribute("method", "post");
+	    form.setAttribute("action", path);
+
+	    for(var key in params) {
+	        if(params.hasOwnProperty(key)) {
+	            var hiddenField = document.createElement("input");
+	            hiddenField.setAttribute("type", "hidden");
+	            hiddenField.setAttribute("name", key);
+	            hiddenField.setAttribute("value", params[key]);
+
+	            form.appendChild(hiddenField);
+	         }
+	    }
+
+	    document.body.appendChild(form);
+	    form.submit();
+	}
 </script>
 </head>
 
 <body bgcolor="#ffffff" text="#000000">
 	<div style="width: 98%; margin-left: 10px;">
-	
+
 		<form name="detailForm" action="/restaurant/listRestaurant.do"
-			method="GET" onsubmit="return false">
+			method="POST" onsubmit="return false">
 			
 			<table width="100%" height="37" border="0" cellpadding="0"
 				cellspacing="0">
@@ -67,7 +91,7 @@
 					</td>
 				</tr>
 			</table>
-		</form>
+
 			<table width="100%" border="0" cellspacing="0" cellpadding="0"
 				style="margin-top: 10px;">
 				<tr>
@@ -97,7 +121,10 @@
 					<tr class="ct_list_pop">
 						<td align="center">${restaurantList.resId}</td>
 						<td></td>
-						<td align="left">${restaurantList.name}</td>
+						<td align="left">
+							<a href="javascript:post('/restaurant/getRestaurantDetail.do', 
+						  {resId: '${restaurantList.resId}'});">${restaurantList.name}</a>
+						</td>
 						<td></td>
 						<td align="left">${restaurantList.addr}</td>
 						<td></td>
@@ -106,16 +133,26 @@
 						<td align="left">
 							<c:choose>
 								<c:when test="${restaurantList.resCategory == '1'}">한식</c:when>
-								<c:when test="${restaurantList.resCategory == '2'}">중식</c:when>
-								<c:when test="${restaurantList.resCategory == '3'}">일식</c:when>
+								<c:when test="${restaurantList.resCategory == '2'}">일식</c:when>
+								<c:when test="${restaurantList.resCategory == '3'}">중식</c:when>
 								<c:when test="${restaurantList.resCategory == '4'}">양식</c:when>
 								<c:otherwise>카페</c:otherwise>
 							</c:choose>
 						</td>
 						<td></td>
 						<td align="left">
-						
-							<form action="/beacon/listBeacon.do" method="GET">
+						  <a href="javascript:post('/beacon/getBeaconList.do', 
+						  {searchKeyword: '${restaurantList.resId}', searchCondition: '4'});">비콘관리</a>
+
+						  <a href="javascript:post('/owner/getOwnerDetail.do', 
+						  {searchKeyword: '${restaurantList.resId}', searchCondition: '5'});">점주관리</a>
+
+						<!--  
+						  <a href="javascript:post('/restaurant/removeRestaurant.do', 
+						  {resId: '${restaurantList.resId}'});">맛집삭제</a>
+						  -->
+						  <!--  
+							<form action="/beacon/getBeaconList.do" method="POST">
 								<input type="submit" value="비콘관리">
 								<input type="hidden" name="searchKeyword" value="${restaurantList.resId}">
 								<input type="hidden" name="searchCondition" value="4">
@@ -127,10 +164,9 @@
 							</form>
 							<form action="/restaurant/removeRestaurant.do" method="POST">
 								<input type="submit" value="삭제">
-								<input type="hidden" name="searchCondition" value="5">
-								<input type="hidden" name="searchKeyword" value="${restaurantList.resId}">
+								<input type="hidden" name="resId" value="${restaurantList.resId}">
 							</form>
-				
+						-->
 						<!--  
 							<a href="/beacon/listBeacon.do?resId=${restaurantList.resId}">비콘관리</a>
 							<a href="/owner/getOwnerDetail.do?searchKeyword=${restaurantList.resId}&searchCondition=5">점주관리</a>
@@ -143,7 +179,6 @@
 					</tr>
 					
 				</c:forEach>
-			<%--  search 고객용 View 시작 --%>
 			</table>
 
 
@@ -159,7 +194,7 @@
 				</tr>
 			</table>
 			<!--  페이지 Navigator 끝 -->
-	
+		</form>
 	</div>
 
 	<form action="/restaurant/getAddRestaurantView.do" method="POST">

@@ -57,7 +57,7 @@
 				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 			</tr>
 			<tr>
-				<td width="104" class="ct_write">이름<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
+				<td width="104" class="ct_write">맛집이름<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 				<td bgcolor="D6D6D6" width="1"></td>
 				<td class="ct_write01">
 					${owner.name==null?'':owner.name}
@@ -129,13 +129,13 @@
 					<tr>
 						<td width="17" height="23">
 							<c:if test="${owner.ownerId == 0}">
-								<form name="getAddOwnerView" action="/owner/getAddOwnerView.do" method="GET">
+								<form name="getAddOwnerView" action="/owner/getAddOwnerView.do" method="POST">
 									<input type="hidden" name="resId" value="${owner.resId}">
 									<input type="submit" value="점주추가">
 								</form>							
 							</c:if>
 							<c:if test="${owner.ownerId != 0}">
-								<form name="getUpdateOwnerView" action="/owner/getUpdateOwnerView.do" method="GET">
+								<form name="getUpdateOwnerView" action="/owner/getUpdateOwnerView.do" method="POST">
 									<input type="hidden" name="ownerId" value="${owner.ownerId}">
 									<input type="submit" value="점주수정">
 								</form>
@@ -145,8 +145,9 @@
 								<td width="30"></td>	
 
 									<td width="17" height="23">
-										<form name="removeOwner" action="/owner/removeOwner.do" method="GET">
+										<form name="removeOwner" action="/owner/removeOwner.do" method="POST">
 											<input type="hidden" name="ownerId" value="${owner.ownerId}">
+											<input type="hidden" name="ownerId" value="${owner.resId}">
 											<input type="submit" value="점주삭제">
 										</form>
 									</td>
