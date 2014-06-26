@@ -2,15 +2,29 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+
 <!doctype html>
 <html lang="en">
 <meta content='text/html; charset=utf-8' http-equiv='Content-type'>
 <head>
-	<link rel="stylesheet"	type="text/css"	href="/resources/css/index.css">
-	<link rel="stylesheet"	type="text/css"	href="/resources/css/header.css">
-	<link rel="stylesheet"	type="text/css"	href="/resources/css/footer1.css">
-    
+	<link rel="stylesheet"	type="text/css"	href="../resources/css/index.css">
+	<link rel="stylesheet"	type="text/css"	href="../resources/css/header.css">
+	<link rel="stylesheet"	type="text/css"	href="../resources/css/footer1.css">
+   
+	<script type="text/javascript">
+	   
+	   	function post(path) {
+	
+		    var form = document.createElement("form");
+		    form.setAttribute("method", "post");
+		    form.setAttribute("action", path);
+	
+		    document.body.appendChild(form);
+		    form.submit();
+		} 
 
+   	</script>
+   	
 </head>
 <body>
 <br/>
@@ -27,10 +41,14 @@
 			<div id="header" align="center">
 				<div class="wrap">
 					<div class="navi-icon">
-						<a href="/index.jsp"><div class="logo"></div></a> 
-						<a href="/intro.jsp"><div class="navi01"></div></a> 
-						<a href="/map.jsp"><div class="navi02"></div></a> 
-						<a href="/manage.jsp"><div class="navi03"></div></a>
+						<a href="/"><div class="logo"></div></a> 
+						<form method="POST">
+							<a href=javascript:post('/home/getIntroView');><div class="navi01"></div></a>
+						<a href=javascript:post('/home/getMapView');><div class="navi02"></div></a>
+						<a href=javascript:post('/home/getManageView');><div class="navi03"></div></a> 
+						</form> 
+						
+						
 					</div>
 					<!-- 네비게이션 아이콘 -->
 				</div>
