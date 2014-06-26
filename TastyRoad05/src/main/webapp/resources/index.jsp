@@ -8,11 +8,15 @@
 </head>
 <body>
 <h1>
-	Hello world!  
+	Welcome to TastyRoad !!  
 </h1>
 
 	<form name="detailForm" action="/restaurant/listRestaurant" method="POST">
 		<input type="submit" value="맛집목록보기">
+	</form>
+	
+	<form name="detailForm2" action="/admin/logon" method="POST">
+		<input type="submit" value="로그인 화면보기">
 	</form>
 
 </body>

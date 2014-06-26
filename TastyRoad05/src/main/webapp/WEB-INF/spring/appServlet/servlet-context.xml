@@ -17,6 +17,11 @@
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven />
 
+	<!-- HandlerMapping 선언
+	<mvc:interceptors>
+		<bean class="com.dwf.tastyroad.common.LogonCheckInterceptor"/>	 
+	</mvc:interceptors>
+ -->
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 

@@ -1,0 +1,244 @@
+@charset "UTF-8"; 
+.img-slide { 
+    margin: -25px auto 14px; 
+    height: 493px; 
+}  
+.blind, 
+legend { 
+    display: block; 
+    overflow: hidden; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 1px; 
+    height: 1px; 
+    font-size: 0; 
+    line-height: 0; 
+    white-space: nowrap; 
+} 
+.logout-area { 
+    position: absolute; 
+    margin-top: 15px; 
+    top: 283px; 
+    right: 26px; 
+    color: #ffffff; 
+    font-size: 13px; 
+} 
+.logout-area .logout-button { 
+    font-size: 12px; 
+    color: #ffffff; 
+    font-weight: 700; 
+} 
+.logout-area .logout-button:hover { text-decoration: underline } 
+.login-box { 
+	
+	
+	widht:500px;
+	position:relative;
+	left:60%;
+	margin-left:-250px;
+    position: absolute; 
+    top: 300px; 
+    right: 26px; 
+    width: 270px; 
+    z-index: 1; 
+    font-family: Helvetica neue,Apple SD Gothic Neo,'Apple SD 산돌고딕 Neo',NanumGothic,'나눔고딕',ng,sans-serif; 
+} 
+.login-box .login_lst li { margin-top: 8px } 
+.login-box .login_lst .inp_box { 
+    display: block; 
+    position: relative; 
+    -webkit-border-radius: 2px; 
+    -moz-border-radius: 2px; 
+    -ms-border-radius: 2px; 
+    -o-border-radius: 2px; 
+    border-radius: 2px; 
+    background: #fff; 
+} 
+.login-box .login_lst .inp_box ::-webkit-input-placeholder { 
+    color: #b4b4b4; 
+    font-size: 13px; 
+} 
+.login-box .login_lst .inp_box :-moz-placeholder { 
+    color: #b4b4b4; 
+    font-size: 13px; 
+} 
+.login-box .login_lst .inp_box ::-moz-placeholder { 
+    color: #b4b4b4; 
+    font-size: 13px; 
+} 
+.login-box .login_lst .inp_box :-ms-input-placeholder { 
+    color: #b4b4b4; 
+    font-size: 13px; 
+} 
+.login-box .login_lst .inp_box label { 
+    position: absolute; 
+    left: 15px; 
+    top: 11px; 
+    font-size: 13px; 
+    line-height: 1.4; 
+    color: #bec1c7; 
+    cursor: auto; 
+} 
+.login-box .login_lst .inp_box input::-ms-clear { display: none } 
+.login-box .login_lst .inp_box input { 
+    overflow: hidden; 
+    width: 240px; 
+    height: 40px; 
+    padding: 0 15px; 
+    font-size: 14px; 
+    color: #333539; 
+    line-height: 1.4; 
+    background: 0 0; 
+    outline: 0; 
+    border: 0; 
+    border-radius: 2px; 
+} 
+.login-box .login_lst .inp_box .btn_help { 
+    position: absolute; 
+    top: 50%; 
+    right: 12px; 
+    display: inline-block; 
+    overflow: hidden; 
+    line-height: 999em; 
+    vertical-align: top; 
+   /*버튼 이미지 만들기*/
+    background-image: url("/image/kakaoImages01.png") no-repeat -467px -320px; 
+    background-size: 500px 600px; 
+    width: 20px; 
+    height: 20px; 
+    margin-top: -10px; 
+} 
+.login-box .login_lst .inp_box .btn_help.close { background-position: -462px -342px } 
+.login-box .state_box { margin: 10px 0 17px 0 } 
+.login-box .state_box input::-ms-clear { display: none } 
+.login-box .state_box input { 
+    display: inline-block; 
+    margin-right: 5px; 
+    vertical-align: middle; 
+} 
+.login-box .state_box label { 
+    display: inline-block; 
+    font-size: 12px; 
+    color: #ffffff; 
+    font-weight: 700; 
+    line-height: 14px; 
+    vertical-align: middle; 
+    cursor: pointer; 
+} 
+.login-box .error_txt { 
+    margin: 20px 0 14px 0; 
+    padding: 14px 12px; 
+    background: url(http://img2.kakao.co.kr/assets/static/bg_tooltip-f76b788326dbeba8c349fc62b3be601e.png); 
+    -webkit-border-radius: 2px; 
+    -moz-border-radius: 2px; 
+    -ms-border-radius: 2px; 
+    -o-border-radius: 2px; 
+    border-radius: 2px; 
+    font-size: 13px; 
+    line-height: 18px; 
+    color: #fff; 
+    text-align: center; 
+} 
+.login-box .mem_info { 
+    position: relative; 
+    margin-top: 12px; 
+} 
+.login-box .mem_info .find_lst { 
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+} 
+.login-box .mem_info .find_lst li { float: left } 
+.login-box .mem_info .find_lst li a { 
+    font-size: 12px; 
+    color: #fff; 
+    font-weight: bold; 
+} 
+.login-box .mem_info .find_lst .bar { 
+    display: inline-block; 
+    width: 1px; 
+    height: 9px; 
+    margin: 0 6px 0 3px; 
+    border-left: 1px solid #fff; 
+} 
+.login-box .btn_login { 
+    display: block; 
+    width: 100%; 
+    height: 48px; 
+    padding: 15px 0 14px; 
+    -webkit-border-radius: 2px; 
+    -moz-border-radius: 2px; 
+    -ms-border-radius: 2px; 
+    -o-border-radius: 2px; 
+    border-radius: 2px; 
+    font-size: 16px; 
+    color: #393939; 
+    background: #ff8c00; /*로그인 버튼 이미지 색깔.*/
+    font-weight: 700; 
+    text-align: center; 
+    letter-spacing: -1px; 
+} 
+.login-box .btn_login span { position: relative } 
+ 
+}  
+.login-box .btn-for-story .story-profile-img { 
+    height: 67px; 
+    padding: 5px; 
+    float: left; 
+    margin-top: -15px; 
+    margin-right: -4px; 
+} 
+ 
+.ly_tooltip { 
+    position: absolute; 
+    bottom: 40px; 
+    left: 0; 
+    right: 0; 
+    padding: 14px 12px; 
+    background: url(http://img2.kakao.co.kr/assets/static/bg_tooltip-f76b788326dbeba8c349fc62b3be601e.png); 
+    -webkit-border-radius: 2px; 
+    -moz-border-radius: 2px; 
+    -ms-border-radius: 2px; 
+    -o-border-radius: 2px; 
+    border-radius: 2px; 
+    display: none; 
+} 
+.ly_tooltip p { 
+    font-size: 13px; 
+    color: #fff; 
+    line-height: 18px; 
+} 
+.ly_tooltip .bn_box { margin-top: 10px } 
+.ly_tooltip .bn_box a { 
+    display: inline-block; 
+    font-size: 13px; 
+    color: #4169e1; 
+    line-height: 16px; 
+    font-weight: 700; 
+} 
+ 
+.ly_tooltip .arr { 
+    position: absolute; 
+    bottom: -4.5px;  
+    right: 15px; 
+    display: inline-block; 
+    overflow: hidden; 
+    width: auto; 
+    height: 10px; 
+    line-height: 999em; 
+    vertical-align: top; 
+    background: url(http://img2.kakao.co.kr/assets/static/sp-a4f357a04bfbbc95917145438d41b86b.png); 
+    background-position: -11px -65px; 
+    width: 12px; 
+    height: 6px; 
+} 
+
+body {
+	 background-color: #708090; 
+	 
+}
+
+ 
+ 
+  
