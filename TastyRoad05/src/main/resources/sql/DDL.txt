@@ -246,7 +246,7 @@ VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 22, 0, 1004
 INSERT INTO beacon(beacon_id, uu_id, major, minor, res_id) 
 VALUES ( beacon_seq.NEXTVAL, 'd5756247-57a2-4344-915d-9599497940a7', 33, 0, 1005 );
 
-/* Owner Insert
+/* Owner Insert */
 INSERT INTO owner(owner_id, name, phone, addr, email, res_id) 
 VALUES ( owner_seq.NEXTVAL, '참치사장', '010-1111-1111', '서울시 강남구 서초동 골목', 'king@tuna.com', 1003);
 
@@ -255,5 +255,11 @@ VALUES ( owner_seq.NEXTVAL, '피자사장', '010-2222-2222', '서울시 강남�
 
 INSERT INTO owner(owner_id, name, phone, addr, email, res_id) 
 VALUES ( owner_seq.NEXTVAL, '랍스타사장', '010-3333-3333', '서울시 강남구 서초동 지하', 'king@robster.com', 1005);
+
+
+/* Administrator Insert */
+INSERT INTO administrator (admin_id, password)
+VALUES ('admin', 'admin');
+
 
 COMMIT;
