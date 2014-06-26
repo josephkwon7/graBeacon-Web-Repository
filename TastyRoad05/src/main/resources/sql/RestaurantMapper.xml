@@ -112,6 +112,19 @@
   			  		
 	<select id="getTotalCount" parameterType="String" resultType="INTEGER">
   		SELECT COUNT(*) FROM restaurant
+  			<if test="searchKeyword!=''">
+		  		<where>			
+		  			<if test="searchCondition==1">
+		  				name LIKE '%${searchKeyword}%'
+		  			</if>
+		  			<if test="searchCondition==2">
+		  				addr LIKE '%${searchKeyword}%'
+		  			</if>
+		  			<if test="searchCondition==3">
+		  				phone LIKE '%${searchKeyword}%'
+		  			</if>
+		  		</where>
+	  		</if>
   	</select> 
   	
 </mapper>

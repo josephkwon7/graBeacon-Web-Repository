@@ -79,6 +79,7 @@ public class RestaurantController {
 		List restaurantList = restaurantService.getRestaurantList(search);
 		//Page instance 생성(게시판에 page navigation시 사용)
 		Page resultPage = new Page( search.getCurrentPage(), restaurantService.getTotalCount(search), pageUnit, pageSize);
+		System.out.println("============="+search.getCurrentPage()+"=============");
 		
 		//restaurant list를 console에 출력
 		Restaurant restaurant;
