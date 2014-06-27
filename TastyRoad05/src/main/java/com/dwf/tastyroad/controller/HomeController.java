@@ -46,7 +46,7 @@ public class HomeController {
 	public ModelAndView getIntroViewAction() throws Exception{
 		
 		System.out.println("_______________________________________________");
-		System.out.println("==> /home/intro __call !!!");
+		System.out.println("==> /home/getIntroView __call !!!");
 		System.out.println("_______________________________________________");
 
 		return new ModelAndView("homeViews/intro");
@@ -56,7 +56,7 @@ public class HomeController {
 	public ModelAndView getManageViewAction() throws Exception{
 		
 		System.out.println("_______________________________________________");
-		System.out.println("==> /home/manage __call !!!");
+		System.out.println("==> /home/getManageView __call !!!");
 		System.out.println("_______________________________________________");
 
 		return new ModelAndView("homeViews/manage");
@@ -66,7 +66,7 @@ public class HomeController {
 	public ModelAndView getMapViewAction() throws Exception{
 		
 		System.out.println("_______________________________________________");
-		System.out.println("==> /home/map __call !!!");
+		System.out.println("==> /home/getMapView __call !!!");
 		System.out.println("_______________________________________________");
 
 		return new ModelAndView("homeViews/map");

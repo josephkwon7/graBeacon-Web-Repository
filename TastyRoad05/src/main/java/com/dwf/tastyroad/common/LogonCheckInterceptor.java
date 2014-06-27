@@ -21,36 +21,36 @@ public class LogonCheckInterceptor extends HandlerInterceptorAdapter{
 							HttpServletResponse response,
 							Object handler
 							)throws Exception{
-		//@SessionAttributes(value="sessionAdmin",required=false)Admin admin
-		System.out.println("[LogonCheckInterceptor START ! ! !]");
 		
 		HttpSession session=request.getSession(true);
 		Admin sessionAdmin=null;
 		if( (sessionAdmin=(Admin)session.getAttribute("sessionAdmin"))==null){
 			sessionAdmin=new Admin();
 		}
-		
+		String uri=request.getRequestURI();
+
 		if(sessionAdmin.isActive()){
-			String uri=request.getRequestURI();
-			if(uri.indexOf("logonAction")!=-1||uri.indexOf("logon")!=-1){
+			if(uri.indexOf("getManageView")!=-1){
 				request.getRequestDispatcher("/WEB-INF/adminViews/home.jsp").forward(request, response);
-				System.out.println("[로그인 상태... 로그인후 불필요한 요구...]");
-				System.out.println("[LogonCheckInterceptor end...]");
+				System.out.println("[@LogonCheckInterceptor 로그인 상태... 로그인후 불필요한 요청]");
 				return false;
 			}
-			System.out.println("[로그인 상태...]");
-			System.out.println("[LogonCheckInterceptor end...]");
 			return true;
+			
 		}else{
-			String uri=request.getRequestURI();
-			if(uri.indexOf("logonAction")!=-1||uri.indexOf("logon")!=-1){
-				System.out.println("[로그인 시도 상태....]");
-				System.out.println("[LogonCheckInterceptor end...]");
+			if(uri.indexOf("/admin")!=-1 || 
+				uri.indexOf("/beacon")!=-1 || 
+				uri.indexOf("/home")!=-1 ||
+				uri.indexOf("/json")!=-1 ||				
+				uri.indexOf("/owner")!=-1 ||
+				uri.indexOf("/resources")!=-1){
+				
+				System.out.println("[@LogonCheckInterceptor 로그인 불필요 서비스....]");
 				return true;
 			}
-			request.getRequestDispatcher("/WEB-INF/adminViews/logon.jsp").forward(request, response);
-			System.out.println("[로그인 이전...]");
-			System.out.println("[LogonCheckInterceptor end...]");
+			request.getRequestDispatcher("/WEB-INF/homeViews/manage.jsp").forward(request, response);
+			System.out.println("[@LogonCheckInterceptor 로그인 이전... 로그인 필요한 요청]");
+
 			return false;
 		}
 	}

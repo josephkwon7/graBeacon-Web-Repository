@@ -1,37 +1,38 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="com.dwf.tastyroad.model.Admin" %>
 
-<!-- 
-	1. 로그인 유무확인 :: Work Flow Control
-		ㅇ 비로그인 인경우  : 로그인 화면 display 
-	    ㅇ 로그인한 경우 : 이미 로그인 한 회원임을 display
-	2. 로그인 확인은...
-		ㅇ 로그인한 회원은 session ObjectScope에 User객체를 갖고, active 는 true
-		ㅇ User객체의 유무 및 User의 active 값을 true / false 값으로 판단
-====================================================
-==> logon.jsp는 view  역할 및  Work Flow Control (방어적 코딩)를 수행
-====================================================	
--->
-
-<!-- 	#. 비 로그인한 회원 -->
 <%	Admin sessionAdmin = (Admin)session.getAttribute("sessionAdmin");	%>
 
-<%	//if ( user == null  ||  ! user.isActive() )  { %>
-	<%-- 	<jsp:forward page="/logon.do" />	--%>
-<%-- } --%>
-
-<!-- 	#. 로그인한 회원이면 -->
 <html>
 	
-	<head><title>Home Page</title></head>
-		[info] :: ${requestScope.message}<br/><br/>
+	<head>
+		<title>Home Page</title>
+	
+		<script type="text/javascript">
+		   	function post(path) {
+		
+			    var form = document.createElement("form");
+			    form.setAttribute("method", "post");
+			    form.setAttribute("action", path);
+		
+			    document.body.appendChild(form);
+			    form.submit();
+			} 
+	
+	   	</script>
+	
+	</head>
 	<body>
-		<p>Simple Model2 Examples</p>
-		<p> 환영합니다.  : <%= sessionAdmin.getAdminId()%>님</p> <%-- ${sessionUser.userId} ${param.userId} --%>
-
+		<p> 환영합니다.  : <%= sessionAdmin.getAdminId()%>님</p> 
 		<br/><br/>
-		<a href = "/admin/logoutAction">logout</a>
+		<form name=logOut method="POST">
+		</form>
+		<a href="javascript:post('/admin/logoutAction');"><button>로그아웃</button></a>
+		<form name=getRestaurantListView method="POST">
+		</form>
+		<a href="javascript:post('/restaurant/getRestaurantListView');"><button>맛집관리</button></a>
 	</body>
 	
 </html>

@@ -58,12 +58,12 @@ public class RestaurantController {
 	}
 	
 	//listRestaurant 요청 처리 - 맛집목록보기 화면 요청
-	@RequestMapping(value="/listRestaurant", method=RequestMethod.POST)
+	@RequestMapping(value="/getRestaurantListView", method=RequestMethod.POST)
 	//Search 모델을 인자로 받음 - web client로 부터 받은 것
-	public ModelAndView listRestaurantAction(@ModelAttribute("search")Search search) throws Exception{
+	public ModelAndView getRestaurantListViewAction(@ModelAttribute("search")Search search) throws Exception{
 		
 		System.out.println("_______________________________________________");
-		System.out.println("==> /restaurant/listRestaurant __call !!!");
+		System.out.println("==> /restaurant/getRestaurantListView__call !!!");
 		System.out.println("==> search : " +search);
 		System.out.println("_______________________________________________");
 		

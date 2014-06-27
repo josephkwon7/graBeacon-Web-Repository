@@ -10,65 +10,65 @@
 	<link rel="stylesheet" href="/resources/css/admin.css" type="text/css">
 	<script type="text/javascript">
 
-	function fncAddProduct(){
-		//Form 유효성 검증
+		function fncAddProduct(){
+			//Form 유효성 검증
+		
+		 	var name = document.detailForm.name.value;
+			var addr = document.detailForm.addr.value;
+			var phone = document.detailForm.phone.value;
+			var geoLat = document.detailForm.geoLat.value;
+			var geoLong = document.detailForm.geoLong.value;
+			var imgSmall1 = document.detailForm.imgSmall1.value;
+			var imgBig1 = document.detailForm.imgBig1.value;
+			var imgMenu = document.detailForm.imgMenu.value;
+			var copyComment = document.detailForm.copyComment.value;
+			var resCategory = document.detailForm.resCategory.value;
+		
+			if(name == null || name.length<1){
+				alert("상호명은 반드시 입력하여야 합니다.");
+				return;
+			}
+	/*		if(addr == null || addr.length<1){
+				alert("주소는 반드시 입력하여야 합니다.");
+				return;
+			}
+			if(phone == null || phone.length<1){
+				alert("전화번호는 반드시 입력하여야 합니다.");
+				return;
+			}
+			if(geoLat == null || geoLat.length<1){
+				alert("상세위치(위도)는 반드시 입력하여야 합니다.");
+				return;
+			}
+			if(geoLong == null || geoLong.length<1){
+				alert("상세위치(경도)는 반드시 입력하여야 합니다.");
+				return;
+			}	
+			if(imgSmall1 == null || imgSmall1.length<1){
+				alert("메인이미지는 반드시 있어야 합니다.");
+				return;
+			}
+			if(imgBig1 == null || imgBig1.length<1){
+				alert("상세이미지1은 반드시 있어야 합니다.");
+				return;
+			}
+			if(imgMenu == null || imgMenu.length<1){
+				alert("메뉴이미지는 반드시 있어야 합니다.");
+				return;
+			}
+			if(copyComment == null || copyComment.length<1){
+				alert("광고문구는 반드시 입력하여야 합니다.");
+				return;
+			}		
+			if(resCategory == null || resCategory.length<1){
+				alert("맛집분류는 반드시 선택하여야 합니다.");
+				return;
+			}
+	*/
 	
-	 	var name = document.detailForm.name.value;
-		var addr = document.detailForm.addr.value;
-		var phone = document.detailForm.phone.value;
-		var geoLat = document.detailForm.geoLat.value;
-		var geoLong = document.detailForm.geoLong.value;
-		var imgSmall1 = document.detailForm.imgSmall1.value;
-		var imgBig1 = document.detailForm.imgBig1.value;
-		var imgMenu = document.detailForm.imgMenu.value;
-		var copyComment = document.detailForm.copyComment.value;
-		var resCategory = document.detailForm.resCategory.value;
-	
-		if(name == null || name.length<1){
-			alert("상호명은 반드시 입력하여야 합니다.");
-			return;
+			document.detailForm.action='/restaurant/addRestaurant';
+			document.detailForm.submit();
 		}
-/*		if(addr == null || addr.length<1){
-			alert("주소는 반드시 입력하여야 합니다.");
-			return;
-		}
-		if(phone == null || phone.length<1){
-			alert("전화번호는 반드시 입력하여야 합니다.");
-			return;
-		}
-		if(geoLat == null || geoLat.length<1){
-			alert("상세위치(위도)는 반드시 입력하여야 합니다.");
-			return;
-		}
-		if(geoLong == null || geoLong.length<1){
-			alert("상세위치(경도)는 반드시 입력하여야 합니다.");
-			return;
-		}	
-		if(imgSmall1 == null || imgSmall1.length<1){
-			alert("메인이미지는 반드시 있어야 합니다.");
-			return;
-		}
-		if(imgBig1 == null || imgBig1.length<1){
-			alert("상세이미지1은 반드시 있어야 합니다.");
-			return;
-		}
-		if(imgMenu == null || imgMenu.length<1){
-			alert("메뉴이미지는 반드시 있어야 합니다.");
-			return;
-		}
-		if(copyComment == null || copyComment.length<1){
-			alert("광고문구는 반드시 입력하여야 합니다.");
-			return;
-		}		
-		if(resCategory == null || resCategory.length<1){
-			alert("맛집분류는 반드시 선택하여야 합니다.");
-			return;
-		}
-*/
-
-		document.detailForm.action='/restaurant/addRestaurant';
-		document.detailForm.submit();
-	}
 	
 	function resetData(){
 		document.detailForm.reset();

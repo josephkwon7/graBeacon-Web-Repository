@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.dwf.tastyroad.model.Admin;
 //settter method없는 이유. 직접 생성해 쓸 이유가 없음. 스프링에 종속적
@@ -26,62 +27,28 @@ public class AdminController {
 		System.out.println("::" +getClass()+ " Default Constructor Call");
 	}
 	
-	@RequestMapping("/getLogonView")
-	public String getLogonViewAction(Model model){
-		
-		System.out.println("_______________________________________________");
-		System.out.println("==> /admin/getLogonView__call !!!");
-		System.out.println("==> model : " +model);
-		System.out.println("_______________________________________________");
-		
-		String message = "[ getLogonViewAction() ] 아이디, 패스워드를 입력하세요.";
-		
-		//ModelAndView modelAndView = new ModelAndView();
-		//modelAndView.setViewName("/user/logon.jsp");
-		model.addAttribute("message", message);
-		
-		return "/adminViews/logon";
-	}
-	
-	@RequestMapping("/getHomeView")
-	public String home(Model model, HttpSession session){
-		
-		System.out.println("_______________________________________________");
-		System.out.println("==> /admin/getHomeView__call !!!");
-		System.out.println("==> model : " +model);
-		System.out.println("==> session : " +session);
-		System.out.println("_______________________________________________");
-		
-		String message = "[ home() ] WELCOME";
-		
-		//ModelAndView modelAndView = new ModelAndView();
-		//modelAndView.setViewName("/user/home.jsp");
-		//modelAndView.addObject("message", message);
-		model.addAttribute("message",message);
-				
-		System.out.println("\n:: ==> home() end.....");
-		
-		return "/adminViews/home";		
-	}
-	
-
 	@RequestMapping(value="/logonAction", method=RequestMethod.POST)
-	public String logonAction(@ModelAttribute("admin")Admin admin, Model model,
-										HttpSession session) throws Exception{
+	public ModelAndView logonAction(
+			@ModelAttribute("admin")Admin admin, 
+			HttpSession session) throws Exception{
 		
 		System.out.println("_______________________________________________");
 		System.out.println("==> /admin/logonAction__call !!!");
 		System.out.println("==> admin : " +admin);
-		System.out.println("==> model : " +model);
 		System.out.println("==> session : " +session);
 		System.out.println("_______________________________________________");
 		
-		String viewName = "/adminViews/logon";
+		String viewName = "/homeViews/manage";
+		String passwordFromDB = null;
 		
-		String passwordFromDB = adminService.findAdmin(admin.getAdminId()).getPassword();
-		if(passwordFromDB != null) {
-			if(admin.getPassword().equals(passwordFromDB)){
-				admin.setActive(true);
+		Admin adminFromDB = adminService.findAdmin(admin.getAdminId());
+						
+		if(adminFromDB != null) {
+			passwordFromDB = adminFromDB.getPassword();
+			if(passwordFromDB != null){
+				if(admin.getPassword().equals(passwordFromDB)){
+					admin.setActive(true);
+				}
 			}
 		}else {
 			if(admin.getPassword() == null){
@@ -98,38 +65,70 @@ public class AdminController {
 		
 		String message = null;
 		if(viewName.equals("/adminViews/home")){
-			message = "[ logonAction() ] WELCOME";
+			message = "환영합니다. 로그인 되었습니다.";
 		}else{
-			message = "[ logonAction() ] 아이디, 패스워드가 틀렸습니다";
+			message = "아이디 혹은 패스워드가 틀렸습니다.";
 		}
 		
-		//ModelAndView modelAndView = new ModelAndView();
-		//modelAndView.setViewName(viewName);
-		//modelAndView.addObject("message", message);
-		model.addAttribute("message", message);
-		
-		return viewName;			
+		ModelAndView modelAndView = new ModelAndView(viewName);
+		modelAndView.addObject("message", message);
+	
+		return modelAndView;			
 	}
 	
 	@RequestMapping("/logoutAction")
-	public String logoutAction(Model model, HttpSession session){
+	public ModelAndView logoutAction(
+			@ModelAttribute("admin")Admin admin, HttpSession session){
 		
 		System.out.println("_______________________________________________");
 		System.out.println("==> /admin/logoutAction__call !!!");
-		System.out.println("==> model : " +model);
+		System.out.println("==> admin : " +admin);
 		System.out.println("==> session : " +session);
 		System.out.println("_______________________________________________");
 		
 		session.removeAttribute("sessionUser");
 		
-		String message = "[ logout() ] 아이디, 패스워드 3자 이상 입력하세요.";
+		String message = "로그아웃 되었습니다.";
 		
-		//ModelAndView modelAndView = new ModelAndView();
-		//modelAndView.setViewName("/user/logon.jsp");
-		//modelAndView.addObject("message", message);
-		model.addAttribute("message", message);
+		ModelAndView modelAndView = new ModelAndView("/homeViews/manage");
+		modelAndView.addObject("message", message);
 		
-		return "/adminViews/logon";		
+		return modelAndView;		
 	}
 
+//	@RequestMapping("/getLogonView")
+//	public String getLogonViewAction(Model model){
+//		
+//		System.out.println("_______________________________________________");
+//		System.out.println("==> /admin/getLogonView__call !!!");
+//		System.out.println("==> model : " +model);
+//		System.out.println("_______________________________________________");
+//		
+//		String message = "[ getLogonViewAction() ] 아이디, 패스워드를 입력하세요.";
+//		
+//		//ModelAndView modelAndView = new ModelAndView();
+//		//modelAndView.setViewName("/user/logon.jsp");
+//		model.addAttribute("message", message);
+//		
+//		return "/adminViews/logon";
+//	}
+	
+//	@RequestMapping("/getHomeView")
+//	public ModelAndView getHomeViewAction(
+//			@ModelAttribute("Admin")Admin admin, HttpSession session){
+//		
+//		System.out.println("_______________________________________________");
+//		System.out.println("==> /admin/getHomeView__call !!!");
+//		System.out.println("==> admin : " +admin);
+//		System.out.println("==> session : " +session);
+//		System.out.println("_______________________________________________");
+//		
+//		String message = "[ home() ] WELCOME";
+//		
+//		ModelAndView modelAndView = new ModelAndView("/adminViews/home");
+//		modelAndView.addObject("message", message);
+//					
+//		return modelAndView;		
+//	}
+	
 }
