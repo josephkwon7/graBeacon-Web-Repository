@@ -149,7 +149,7 @@ public class RestaurantController {
 			//전달된 파일의 이름
 			String fileName = "";
 			//dynamic하게 구성된 기본 파일 저장 경로
-			String baseFilePath = request.getRealPath("/")+"resources\\img"; 
+			String baseFilePath = request.getRealPath("/")+"resources/img"; 
 			//System.out.println(baseFilePath);
 			
 			//upload된 모든 Part에 대해 반복 
@@ -170,15 +170,15 @@ public class RestaurantController {
 					//parameter의 이름에 따라 파일이 저장될 경로 set
 					switch(paramName){
 						case "imgSmall1" : 
-							filePath = baseFilePath + "\\main"; 
+							filePath = baseFilePath + "/main"; 
 							break;
 						case "imgBig1" :
 						case "imgBig2" :
 						case "imgBig3" :
-							filePath = baseFilePath + "\\detail"; 
+							filePath = baseFilePath + "/detail"; 
 							break;
 						case "imgMenu" :
-							filePath = baseFilePath + "\\menu"; 
+							filePath = baseFilePath + "/menu"; 
 							break;
 					}//end of switch
 	 
