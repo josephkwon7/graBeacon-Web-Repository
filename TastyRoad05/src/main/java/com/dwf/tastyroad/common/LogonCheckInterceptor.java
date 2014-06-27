@@ -43,8 +43,9 @@ public class LogonCheckInterceptor extends HandlerInterceptorAdapter{
 				uri.indexOf("/home")!=-1 ||
 				uri.indexOf("/json")!=-1 ||				
 				uri.indexOf("/owner")!=-1 ||
-				uri.indexOf("/resources")!=-1){
-				
+				uri.indexOf("/resources")!=-1 ||
+				uri.indexOf("/googlemap")!=-1)
+			{
 				System.out.println("[@LogonCheckInterceptor 로그인 불필요 서비스....]");
 				return true;
 			}
