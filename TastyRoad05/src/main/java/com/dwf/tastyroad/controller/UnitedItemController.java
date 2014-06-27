@@ -62,7 +62,7 @@ public class UnitedItemController {
 		modelAndView.addObject("itemList", unitedItemService.findItemList(search));
 		System.out.println(unitedItemService.findItemList(search));
 		System.out.println(itemList);		
-		modelAndView.setViewName("homeViews/map");
+		modelAndView.setViewName("unitedWebViews/unitedItemMapView");
 		return modelAndView;
 	}
     
