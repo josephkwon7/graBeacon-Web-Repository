@@ -8,11 +8,15 @@
 	<title>점주관리</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="/resources/css/admin.css" type="text/css">
+	
+	<!-- 자바스크립트 주석처리. by 정준호. to Post방식으로 받기 위함. -->
+	<!--  
 	<script type="text/javascript">
 		function fncMoveBackward(){
 			document.location.href="/restaurant/listRestaurant";
 		}
 	</script>
+	-->
 </head>
 
 <body bgcolor="#ffffff" text="#000000">
@@ -157,7 +161,14 @@
 
 						<td width="17" height="23"><img src="/resources/images/ct_btnbg01.gif" width="17" height="23"></td>
 						<td background="/resources/images/ct_btnbg02.gif" class="ct_btn01" style="padding-top:3px;">
+						
+							<!--  
 							<a href="javascript:fncMoveBackward();">맛집목록</a></td>
+							-->
+						
+							<form name="moveToRestaurantList" action="/restaurant/getRestaurantListView"" method="POST">
+								<input type="submit" value="맛집목록">
+							</form></td>
 						<td width="14" height="23"><img src="/resources/images/ct_btnbg03.gif" width="14" height="23"></td>
 
 						<td width="30"></td>					
