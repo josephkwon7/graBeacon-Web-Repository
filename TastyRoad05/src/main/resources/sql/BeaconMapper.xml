@@ -3,6 +3,130 @@
 		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+
+<!-- MySQL DB Mapper. by 정준호. -->
+<mapper namespace="BeaconMapper">
+ 
+	<resultMap id="beaconSelectMap" type="beacon">
+		<result property="beaconId" column="beacon_id" jdbcType="INTEGER"/>
+		<result property="uuId" column="uu_id" jdbcType="VARCHAR" />
+		<result property="major" column="major" jdbcType="INTEGER" />
+		<result property="minor" column="minor" jdbcType="INTEGER" />
+		<result property="resId" column="res_id" jdbcType="INTEGER"  />
+	</resultMap>
+	
+	<insert id="addBeacon" parameterType="beacon" >
+	 	INSERT beacon(	beacon_id, 
+	 					uu_id, 
+	 					major, 
+	 					minor, 
+	 					res_id	) 
+		VALUES (	#{beaconId, jdbcType=INTEGER},
+				    #{uuId, jdbcType=VARCHAR},
+				    #{major, jdbcType=INTEGER}, 
+				    #{minor, jdbcType=INTEGER}, 
+				    #{resId, jdbcType=INTEGER}	)
+	</insert>
+	
+	<select id="findBeacon" parameterType="beacon" resultMap="beaconSelectMap">
+		SELECT
+		beacon_id, 
+		uu_id, 
+		major, 
+		minor, 
+		res_id 		
+		FROM beacon 
+		WHERE uu_id= #{uuId} 
+			  AND 
+			  major = #{major} 
+			  AND 
+			  minor = #{minor}
+	</select>
+	 
+	<select id="getBeacon" parameterType="INTEGER" resultMap="beaconSelectMap">
+		SELECT
+		beacon_id, 
+		uu_id, 
+		major, 
+		minor, 
+		res_id 		
+		FROM beacon 
+		WHERE beacon_id = #{beaconId}
+	</select>
+	
+	<update id="updateBeacon" parameterType="beacon">
+		UPDATE beacon
+		<set>
+			<if test="uuId != null">uu_id = #{uuId, jdbcType=VARCHAR},</if>
+			<if test="major != null">major = #{major, jdbcType=INTEGER},</if>
+			<if test="minor != null">minor = #{minor, jdbcType=INTEGER},</if>
+		</set>	
+		WHERE beacon_id = #{beaconId}
+	</update>
+	
+	<delete	id="removeBeacon" 	parameterType="INTEGER" >
+		DELETE 
+		FROM beacon 
+		WHERE beacon_id = #{value}
+	</delete>
+
+  	<sql id="select-beacon">
+		SELECT
+		beacon_id, 
+		uu_id, 
+		major, 
+		minor, 
+		res_id		
+		FROM beacon
+	</sql>
+	
+	<sql id="orderby-beaconId">
+	 	ORDER BY beacon_id
+	</sql>
+	
+	<select id="getBeaconList" parameterType="search" resultMap="beaconSelectMap">		
+  	
+  		SELECT inner_table2.*
+  		FROM(
+				SELECT inner_table.*, @ROWNUM := @ROWNUM +1 as row_seq
+				FROM( 
+					<include refid="select-beacon"/>
+					<if test="searchKeyword!=''">
+				  		<where>			
+				  			<if test="searchCondition==1">
+				  				uu_id LIKE '%${searchKeyword}%'
+				  			</if>
+				  			<if test="searchCondition==2">
+				  				major LIKE '%${searchKeyword}%'
+				  			</if>
+				  			<if test="searchCondition==3">
+				  				minor LIKE '%${searchKeyword}%'
+				  			</if>
+				  			<if test="searchCondition==4">
+				  				res_id LIKE '%${searchKeyword}%'
+				  			</if>		  			
+				  		</where>
+			  		</if>
+			  		ORDER BY beacon_id
+				)inner_table,(select @ROWNUM:=0) as R
+		
+		)inner_table2
+		WHERE row_seq<![CDATA[<=]]>#{endRowNum} 
+		AND row_seq BETWEEN #{startRowNum} AND #{endRowNum} 
+  	
+  	</select> 
+  			  		
+	<select id="getTotalCount" parameterType="String" resultType="INTEGER">
+  		SELECT COUNT(*) FROM beacon
+  	</select>
+ 
+</mapper>
+
+
+
+
+<!-- Oracle DB Mapper 주석처리. by 정준호. -->
+<!--  
 <mapper namespace="BeaconMapper">
  
 	<resultMap id="beaconSelectMap" type="beacon">
@@ -92,3 +216,6 @@
   	</select>
  
 </mapper>
+-->
+<!-- Oracle DB Mapper 주석처리 끝. by 정준호. -->
+

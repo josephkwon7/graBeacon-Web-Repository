@@ -3,6 +3,133 @@
 		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+
+<!-- MySQL DB Mapper. by 정준호. -->
+<mapper namespace="OwnerMapper">
+ 
+	<resultMap id="ownerSelectMap" type="owner">
+		<result property="ownerId" column="owner_id" jdbcType="INTEGER"/>
+		<result property="name" column="name" jdbcType="VARCHAR" />
+		<result property="phone" column="phone" jdbcType="VARCHAR" />
+		<result property="addr" column="addr" jdbcType="VARCHAR" />
+		<result property="email" column="email" jdbcType="VARCHAR"  />
+		<result property="resId" column="res_id" jdbcType="INTEGER"  />
+	</resultMap>
+
+	<insert id="addOwner" parameterType="owner" >
+	 	INSERT owner(	owner_id, 
+	 				 	name, 
+	 				 	phone, 
+	 				 	addr, 
+	 				 	email, 
+	 				 	res_id	) 
+		VALUES (	#{ownerId, jdbcType=INTEGER}, 
+					#{name, jdbcType=VARCHAR}, 
+					#{phone, jdbcType=VARCHAR}, 
+					#{addr, jdbcType=VARCHAR}, 
+					#{email, jdbcType=VARCHAR}, 
+					#{resId}	)
+	</insert>
+	
+	<select id="findOwner" parameterType="owner" resultMap="ownerSelectMap">
+	 	SELECT
+		owner_id, 
+		name, 
+		phone, 
+		addr, 
+		email, 
+		res_id	
+		FROM owner 
+		WHERE res_id = #{resId} 
+	</select>
+	 
+	<select id="getOwner" parameterType="INTEGER" resultMap="ownerSelectMap">
+		SELECT
+		owner_id, 
+		name, 
+		phone, 
+		addr, 
+		email, 
+		res_id	
+		FROM owner 
+		WHERE owner_id = #{ownerId} 
+	</select>
+	
+	<update id="updateOwner" parameterType="INTEGER">
+		UPDATE owner
+		<set>
+			<if test="name != null">name = #{name, jdbcType=VARCHAR},</if>
+			<if test="phone != null">phone = #{phone, jdbcType=VARCHAR},</if>
+			<if test="addr != null">addr = #{addr, jdbcType=VARCHAR},</if>
+			<if test="email != null">email = #{email, jdbcType=VARCHAR},</if>
+		</set>	
+		WHERE owner_id = #{ownerId}
+	</update>
+	
+	<delete	id="removeOwner" parameterType="INTEGER" >
+		DELETE 
+		FROM owner 
+		WHERE owner_id = #{ownerId}
+	</delete>
+	
+  	<sql id="select-owner">
+		SELECT
+		owner_id, 
+		name, 
+		phone, 
+		addr, 
+		email, 
+		res_id		
+		FROM owner
+	</sql>
+	
+	<sql id="orderby-ownerId">
+	 	ORDER BY owner_id
+	</sql>
+	
+	<select id="getOwnerList" parameterType="search" resultMap="ownerSelectMap">		
+  		SELECT inner_table2.*
+  		FROM(
+				SELECT inner_table.*, @ROWNUM := @ROWNUM +1 as row_seq
+				FROM( 
+					<include refid="select-owner"/>
+					<if test="searchKeyword!=''">
+				  		<where>			
+				  			<if test="searchCondition==1">
+				  				name LIKE '%${searchKeyword}%'
+				  			</if>
+				  			<if test="searchCondition==2">
+				  				phone LIKE '%${searchKeyword}%'
+				  			</if>
+				  			<if test="searchCondition==3">
+				  				addr LIKE '%${searchKeyword}%'
+				  			</if>
+				  			<if test="searchCondition==4">
+				  				email LIKE '%${searchKeyword}%'
+				  			</if>		  			
+				  			<if test="searchCondition==5">
+				  				res_id LIKE '%${searchKeyword}%'
+				  			</if>			  		
+				  		</where>
+			  		</if>
+			  		ORDER BY owner_id
+				)inner_table,(select @ROWNUM:=0) as R
+				
+		)inner_table2		
+		WHERE row_seq<![CDATA[<=]]>#{endRowNum}
+		AND row_seq BETWEEN #{startRowNum} AND #{endRowNum} 
+  	</select> 
+  			  		
+	<select id="getTotalCount" parameterType="String" resultType="INTEGER">
+  		SELECT COUNT(*) FROM owner_id
+  	</select>
+</mapper>
+
+
+
+
+<!-- Oracle DB Mapper 주석처리. by 정준호. -->
+<!-- 
 <mapper namespace="OwnerMapper">
  
 	<resultMap id="ownerSelectMap" type="owner">
@@ -97,3 +224,4 @@
   		SELECT COUNT(*) FROM owner_id
   	</select>
 </mapper>
+-->

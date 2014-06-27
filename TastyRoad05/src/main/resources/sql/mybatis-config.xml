@@ -18,6 +18,8 @@
 		<typeAlias alias="restaurant" type="com.dwf.tastyroad.model.Restaurant" />
 		<typeAlias alias="owner" type="com.dwf.tastyroad.model.Owner" />
 		<typeAlias alias="admin" type="com.dwf.tastyroad.model.Admin" />
+		<typeAlias alias="location" type="com.dwf.tastyroad.model.Location"/>
+ 		<typeAlias alias="item" type="com.dwf.tastyroad.model.Item"/>
 		<typeAlias alias="search" type="com.dwf.tastyroad.model.Search" />
 	</typeAliases>
 	
@@ -27,6 +29,7 @@
 		<mapper resource="sql/RestaurantMapper.xml"/>
 		<mapper resource="sql/OwnerMapper.xml"/>
 		<mapper resource="sql/AdminMapper.xml"/>
+		<mapper resource="sql/UnitedItemMapper.xml"/>
 	</mappers>
 
 </configuration>

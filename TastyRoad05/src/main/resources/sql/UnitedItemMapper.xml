@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		
+<mapper namespace="UnitedItemMapper">
+	
+<!-- teamdwf가 주석처리함... -->
+<!-- 
+	<resultMap id="ItemSelectMap" type="item">
+		<result property="itemNo" column="item_no" jdbcType="INTEGER"/>
+		<result property="userNo" column="user_no" jdbcType="INTEGER"/>
+		<result property="itemName" column="item_name" jdbcType="VARCHAR"/>
+		<result property="price" column="price" jdbcType="INTEGER"/>
+ 		<result property="itemInfo" column="item_info" jdbcType="VARCHAR"/>
+		<result property="regiDate" column="regi_date" jdbcType="DATE"/>
+		<result property="stateCode" column="state_code" jdbcType="INTEGER"/>
+		<result property="category1" column="category1" jdbcType="INTEGER"/>
+		<result property="category2" column="category2" jdbcType="INTEGER"/>
+		<result property="gridX1" column="grid_x1" jdbcType="DOUBLE"/>
+		<result property="gridY1" column="grid_y1" jdbcType="DOUBLE"/>
+		<result property="gridX2" column="grid_x2" jdbcType="DOUBLE"/>
+		<result property="gridY2" column="grid_y2" jdbcType="DOUBLE"/>
+		<result property="gridX3" column="grid_x3" jdbcType="DOUBLE"/>
+		<result property="gridY3" column="grid_y3" jdbcType="DOUBLE"/>
+		<result property="itemPicturePath1" column="filepath1" jdbcType="VARCHAR"/>
+		<result property="itemPicturePath2" column="filepath2" jdbcType="VARCHAR"/>
+		<result property="itemPicturePath3" column="filepath3" jdbcType="VARCHAR"/>
+	</resultMap>
+-->
+	
+	
+	<resultMap id="ItemSelectMap" type="item">
+		<result property="itemNo" column="res_id" jdbcType="INTEGER"/>
+		<result property="itemName" column="name" jdbcType="VARCHAR"/>
+		<result property="itemInfo" column="copy_comment" jdbcType="VARCHAR"/>
+		<result property="stateCode" column="res_category" jdbcType="INTEGER"/>
+		<result property="gridX1" column="geo_lat" jdbcType="DOUBLE"/>
+		<result property="gridY1" column="geo_long" jdbcType="DOUBLE"/>
+		<result property="itemPicturePath1" column="img_small1" jdbcType="VARCHAR"/>
+		<result property="itemPicturePath2" column="img_big1" jdbcType="VARCHAR"/>
+		<result property="itemPicturePath3" column="img_menu" jdbcType="VARCHAR"/>
+	</resultMap>
+
+
+<!-- teamdwf가 주석처리함...  -->
+<!-- 
+	<insert id="addItem" parameterType="item">
+		INSERT item (	user_no,
+						state_code,
+						item_name,
+						price,
+						item_info,
+						regi_date,
+						category1,
+						category2	)
+		VALUES (	#{userNo, jdbcType=INTEGER},
+					#{stateCode, jdbcType=INTEGER},
+					#{itemName, jdbcType=VARCHAR},
+					#{price, jdbcType=INTEGER},
+					#{itemInfo, jdbcType=VARCHAR},
+					sysdate(),
+					#{category1, jdbcType=INTEGER},
+					#{category2, jdbcType=INTEGER}	)
+	</insert>
+	
+	<insert id="addLocation" parameterType="item">
+		INSERT location	(	item_no,
+							grid_x1,
+							grid_y1,
+							grid_x2,
+							grid_y2,
+							grid_x3,
+							grid_y3		)
+		VALUES (	#{itemNo},
+					#{gridX1},
+					#{gridY1},
+					#{gridX2},
+					#{gridY2},
+					#{gridX3},
+					#{gridY3}	)
+	</insert>
+	
+	<insert id="addItem_pic" parameterType="item">
+		INSERT item_pic	(	item_no,
+							filepath1,
+							filepath2,
+							filepath3	)
+		VALUES (	#{itemNo},
+					#{itemPicturePath1},
+					#{itemPicturePath2},
+					#{itemPicturePath3}		)
+	</insert>
+ -->	
+ 
+ <!-- teamdwf가 주석처리함...  -->
+ <!-- 
+	<select id="findItemNo" parameterType="item" resultType="integer">
+		SELECT MAX(item_no)
+		FROM item
+		WHERE user_no=#{userNo}
+	</select>
+
+
+	<select id="findItemNo" parameterType="item" resultType="integer">
+		SELECT MAX(item_no)
+		FROM item
+		WHERE user_no=#{userNo}
+	</select>
+-->	
+
+<!-- teamdwf가 주석처리함...  -->
+<!--  
+	<select id="findItem" parameterType="integer" resultMap="ItemSelectMap">
+-->
+<!-- 		SELECT -->
+<!-- 		i.item_no, u.nickname, u.user_no, i.state_code, i.item_name, i.price, i.item_info, i.regi_date, i.category1, i.category2, l.grid_x, l.grid_y -->
+<!-- 		FROM user u, item i, location l -->
+<!-- 		WHERE i.item_no = l.item_no -->
+<!-- 			  AND -->
+<!-- 			  i.user_no = u.user_no -->
+<!-- 			  AND -->
+<!-- 			  i.item_no = #{value} -->
+<!-- 	SELECT
+		i.item_no, i.user_no, i.state_code, i.item_name, i.price, i.item_info, i.regi_date, i.category1, i.category2, l.grid_x1, l.grid_y1, l.grid_x2, l.grid_y2, l.grid_x3, l.grid_y3
+		FROM item i, location l
+		WHERE	i.item_no=l.item_no
+				AND
+				i.item_no=#{value}
+	</select>
+ -->	
+ 
+<!-- teamdwf가 주석처리함...  -->
+<!--
+	<select id="findItemList" resultMap="ItemSelectMap">
+		SELECT
+		u.user_no,
+		i.item_no,
+		i.item_name,
+		i.item_info,
+		i.price,
+		i.state_code,
+		i.category1,
+		i.category2,
+		i.regi_date,
+		ip.filepath1,
+		ip.filepath2,
+		ip.filepath3,
+		l.grid_x1,
+		l.grid_y1,
+		l.grid_x2,
+		l.grid_y2,
+		l.grid_x3,
+		l.grid_y3
+		FROM item i
+		LEFT OUTER JOIN item_pic ip ON ip.item_no = i.item_no
+		LEFT OUTER JOIN location l ON l.item_no = i.item_no
+		LEFT OUTER JOIN user u ON i.user_no = u.user_no
+-->
+		<!-- <if test="searchCondition!=''">
+			<where>
+				<if test="searchCondition==1">
+				i.state_code = 1
+				</if>
+				<if test="searchCondition==2">
+				i.state_code = 2
+				</if>
+				<if test="searchKeyword!=''">
+				AND i.item_name = '%#{searchKeyword}%'
+				</if>
+			</where>
+		</if>
+		<if test="searchCondition==''">
+			<if test="searchKeyword!=''">
+			WHERE i.item_name LIKE '%#{searchKeyword}%'
+			</if>
+		</if> -->
+<!-- </select> -->	
+
+
+	<select id="findItemList" resultMap="ItemSelectMap">
+		SELECT
+		res_id,
+		name,
+		copy_comment,
+		res_category,
+		geo_lat,
+		geo_long,
+		img_small1,
+		img_big1,
+		img_menu
+		FROM restaurant;
+	</select>
+
+
+	
+						<!-- ///////////////////////여기서부터 원래코드////////////////////// -->
+	<!-- 
+	<select id="findItemList" parameterType="search" resultMap="ItemSelectMap">
+		SELECT	
+		item_no, user_no, state_code, item_name, price, item_info, regi_date, 
+		category1, category2, grid_x1, grid_y1, grid_x2, grid_y2, grid_x3, grid_y3,
+		filepath1, filepath2, filepath3
+		FROM (	SELECT
+			inner_table.*, @RNUM:=@RNUM+1 AS row_seq
+			FROM	(
+						SELECT
+						i.item_no, i.user_no, i.state_code, i.item_name, 
+						i.price, i.item_info, i.regi_date, i.category1, 
+						i.category2, l.grid_x1, l.grid_y1, l.grid_x2, 
+						l.grid_y2, l.grid_x3, l.grid_y3,
+						ip.filepath1, ip.filepath2, ip.filepath3
+						FROM item i
+							 LEFT OUTER JOIN location l ON i.item_no = l.item_no
+							 LEFT OUTER JOIN item_pic ip ON i.item_no = ip.item_no
+						<if test="searchKeyword!='' ">
+							<where>
+								<if test="searchCondition==1">
+									AND item_name LIKE '%${searchKeyword}%'
+								</if>
+								<if test="searchCondition==2">
+									AND price LIKE '%${searchKeyword}%'
+								</if>
+								<if test="searchCondition==3">
+									AND state_code LIKE '%${searchKeyword}%'
+								</if>
+							</where>
+						</if>
+						ORDER BY item_no	) AS inner_table,
+					(	SELECT @RNUM :=0	) AS RNUM
+			WHERE <![CDATA[@RNUM<#{endRowNum}]]>	) AS inner_table
+ 		WHERE inner_table.row_seq BETWEEN #{startRowNum} AND #{endRowNum}
+	</select>
+	 -->
+						<!-- ///////////////////////여기까지 원래코드////////////////////// -->
+	 
+	<!-- 
+	<select id="findItemList" parameterType="search" resultMap="ItemSelectMap">
+		SELECT
+		item_no, user_no, state_code, item_name, price, item_info, regi_date, category1, category2, grid_x1, grid_y1, grid_x2, grid_y2, grid_x3, grid_y3
+		FROM (	SELECT
+			inner_table.*, @RNUM:=@RNUM+1 AS row_seq
+			FROM	(
+						SELECT
+						i.item_no, i.user_no, i.state_code, i.item_name, i.price, i.item_info, i.regi_date, i.category1, i.category2, l.grid_x1, l.grid_y1, l.grid_x2, l.grid_y2, l.grid_x3, l.grid_y3
+						FROM item i, location l
+						<if test="searchKeyword!='' ">
+							<where>
+								i.item_no = l.item_no
+								<if test="searchCondition==1">
+									AND item_name LIKE '%${searchKeyword}%'
+								</if>
+								<if test="searchCondition==2">
+									AND price LIKE '%${searchKeyword}%'
+								</if>
+								<if test="searchCondition==3">
+									AND state_code LIKE '%${searchKeyword}%'
+								</if>
+							</where>
+						</if>
+						ORDER BY item_no	) AS inner_table,
+					(	SELECT @RNUM :=0	) AS RNUM
+			WHERE <![CDATA[@RNUM<#{endRowNum}]]>	) AS inner_table
+		WHERE inner_table.row_seq BETWEEN #{startRowNum} AND #{endRowNum}
+	</select>
+	 -->
+	 
+<!-- teamdwf가 수정함... -->
+<!-- 
+	<update id="updateItem" parameterType="item">
+		UPDATE item
+		<set>
+			<if test="stateCode!=null">
+				state_code=#{stateCode, jdbcType=INTEGER},
+			</if>
+			<if test="itemName!=null">
+				item_name=#{itemName, jdbcType=VARCHAR},
+			</if>
+			<if test="price!=null">
+				price=#{price, jdbcType=INTEGER},
+			</if>
+			<if test="itemInfo!=null">
+				item_info=#{itemInfo, jdbcType=VARCHAR},
+			</if>
+			<if test="category1!=null">
+				category1=#{category1, jdbcType=INTEGER},
+			</if>
+			<if test="category2!=null">
+				category2=#{category2, jdbcType=INTEGER}
+			</if>
+		</set>
+		WHERE item_no = #{itemNo, jdbcType=INTEGER}
+	</update>
+	
+	<delete id="removeItem" parameterType="integer">
+		DELETE
+		FROM item
+		WHERE item_no = ${value}
+	</delete>
+-->
+</mapper>
