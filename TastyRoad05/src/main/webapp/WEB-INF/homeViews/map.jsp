@@ -1804,7 +1804,7 @@
 				<div class="navi-icon">
 						<a href="/"><div class="logo"></div></a> 
 						<a href=javascript:post('/home/getIntroView');><div class="navi01"></div></a>
-						<a href=javascript:post('/googlemap/unitedItemMapView');><div class="navi02"></div></a>
+						<a href=javascript:post('/home/getMapView');><div class="navi02"></div></a>
 						<a href=javascript:post('/home/getManageView');><div class="navi03"></div></a> 
 		
 					</div>
@@ -1830,7 +1830,7 @@
 		</center>
 	</table>
 	
-	<div id="map_canvas" style="width:100%; height:100%;"></div>
+	<div id="map_canvas" style="width:80%; height:95%;"></div>
 	
 	<footer id="footer">
 
