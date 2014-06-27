@@ -24,6 +24,15 @@
 		    form.submit();
 		} 
 
+ 		function get(path) {
+	   		
+		    var form = document.createElement("form");
+		    form.setAttribute("method", "get");
+		    form.setAttribute("action", path);
+	
+		    document.body.appendChild(form);
+		    form.submit();
+		} 
    	</script>
 
 </head>
@@ -44,7 +53,7 @@
 					<div class="navi-icon">
 						<a href="/"><div class="logo"></div></a> 
 						<a href=javascript:post('/home/getIntroView');><div class="navi01"></div></a>
-						<a href=javascript:post('/home/getMapView');><div class="navi02"></div></a>
+						<a href=javascript:get('/googlemap/unitedItemMapView');><div class="navi02"></div></a>
 						<a href=javascript:post('/home/getManageView');><div class="navi03"></div></a> 
 
 					</div>
