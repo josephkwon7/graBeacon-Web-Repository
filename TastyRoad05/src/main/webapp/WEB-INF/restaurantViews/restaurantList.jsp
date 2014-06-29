@@ -43,7 +43,7 @@
 <body bgcolor="#ffffff" text="#000000">
 	<div style="width: 98%; margin-left: 10px;">
 
-		<form name="detailForm" action="/restaurant/listRestaurant"
+		<form name="detailForm" action="/restaurant/getRestaurantListView"
 			method="POST" onsubmit="return false">
 			
 			<table width="100%" height="37" border="0" cellpadding="0"

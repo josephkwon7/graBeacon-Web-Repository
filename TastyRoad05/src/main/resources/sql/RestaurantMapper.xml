@@ -110,21 +110,20 @@
 
   	<sql id="select-restaurant">
 		SELECT
-		res_id, 
-		name, 
-		addr, 
-		phone, 
-		license_no, 
-		geo_lat, 
-		geo_long, 
-		img_small1, 
-		img_big1, 
-		img_big2, 
-		img_big3, 
-		img_menu, 
-		copy_comment, 
-		res_category		
-		FROM restaurant
+			res_id, 
+			name, 
+			addr, 
+			phone, 
+			license_no, 
+			geo_lat, 
+			geo_long, 
+			img_small1, 
+			img_big1, 
+			img_big2, 
+			img_big3, 
+			img_menu, 
+			copy_comment, 
+			res_category		
 	</sql>
 	
 	<sql id="orderby-restaurantId">
@@ -137,6 +136,7 @@
 				SELECT inner_table.*, @ROWNUM := @ROWNUM +1 as row_seq
 				FROM( 
 					<include refid="select-restaurant"/>
+					FROM restaurant
 					<if test="searchKeyword!=''">
 				  		<where>			
 				  			<if test="searchCondition==1">
