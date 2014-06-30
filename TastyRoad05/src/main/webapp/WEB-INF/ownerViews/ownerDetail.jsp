@@ -7,7 +7,8 @@
 <head>
 	<title>점주관리</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="/resources/css/admin.css" type="text/css">
+	<link rel="stylesheet" href="\resources\css\bootstrap.css" type="text/css">
+	<link rel="stylesheet" type="text/css" href="../resources/css/header.css">
 	
 	<!-- 자바스크립트 주석처리. by 정준호. to Post방식으로 받기 위함. -->
 	<!--  
@@ -17,52 +18,112 @@
 		}
 	</script>
 	-->
+	
+	
+	<style type="text/css">
+	.submittable{
+	margin-top : 20px;
+	margin-left : 730px;
+	}
+	</style>
+	
+	
+<script type="text/javascript">
+	   
+	   	function post(path) {
+	
+		    var form = document.createElement("form");
+		    form.setAttribute("method", "post");
+		    form.setAttribute("action", path);
+	
+		    document.body.appendChild(form);
+		    form.submit();
+		} 
+
+ 		function get(path) {
+	   		
+		    var form = document.createElement("form");
+		    form.setAttribute("method", "get");
+		    form.setAttribute("action", path);
+	
+		    document.body.appendChild(form);
+		    form.submit();
+		} 
+   	</script>
+	
+	
 </head>
 
-<body bgcolor="#ffffff" text="#000000">
+<body>
 
-		<table width="100%" height="37" border="0" cellpadding="0"cellspacing="0">
-			<tr>
-				<td width="15" height="37"><img src="/resources/images/ct_ttl_img01.gif" width="15" height="37"></td>
-				<td background="/resources/images/ct_ttl_img02.gif" width="100%" style="padding-left:10px;">
-				<table width="100%" border="0" cellspacing="0" cellpadding="0">
-					<tr>
-						<td width="93%" class="ct_ttl01">점주조회</td>
-						<td width="20%" align="right">&nbsp;</td>
-					</tr>
-				</table>
-				</td>
-				<td width="12" height="37"><img src="/resources/images/ct_ttl_img03.gif" width="12" height="37"></td>
-			</tr>
-		</table>
+
+
+
+<br/>
+<br/>
+ 
+<hr/> 
+<hr/>
+<hr/>
+<header>
+		
+			<div id="header" align="center">
+				<div class="wrap">
+					
+					<div class="navi-icon">
+						<a href="/"><div class="logo"></div></a> 
+						<a href=javascript:post('/home/getIntroView');><div class="navi01"></div></a>
+						<a href=javascript:get('/home/getMapView');><div class="navi02"></div></a>
+						<a href=javascript:post('/home/getManageView');><div class="navi03"></div></a> 
+
+					</div>
+					<!-- 네비게이션 아이콘 -->
+				</div>
+				<!-- Wrap -->
+			</div>
+			
+		</header>
+		
+		
+
+
+		<table width="100%" height="37" border="0" cellpadding="0" cellspacing="0">
+		
+            
+              <tr>
+              	<div class="restaurantAdd_well"><i class="icon-plus"></i>점주조회</div>
+              </tr>
+       
+	</table>
+		
+		 
 		
 	<c:if test="${owner.ownerId != 0}">	
 		
-		<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:13px;">
+		<table  class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:13px;">
 			<tr>
-				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+				<td height="1" colspan="4" ></td>
 			</tr>
 			<tr>
-				<td width="104" class="ct_write">점주번호<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
-				<td bgcolor="D6D6D6" width="1"></td>
+				<td width="104" class="ct_write">점주번호 </td>
+				<td ></td>
 				<td class="ct_write01">
-					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<table>
 						<tr>
-							<td width="105">
+							<td >
 								${owner.ownerId==null?'':owner.ownerId}
 							</td>
-							<td>
-							</td>
+						 
 						</tr>
 					</table>
 				</td>
 			</tr>
 			<tr>
-				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+				<td ></td>
 			</tr>
 			<tr>
-				<td width="104" class="ct_write">맛집이름<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
-				<td bgcolor="D6D6D6" width="1"></td>
+				<td class="ct_write">맛집이름<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
+				<td ></td>
 				<td class="ct_write01">
 					${owner.name==null?'':owner.name}
 				</td>
@@ -71,8 +132,8 @@
 				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 			</tr>
 			<tr>
-				<td width="104" class="ct_write">전화번호</td>
-				<td bgcolor="D6D6D6" width="1"></td>
+				<td class="ct_write">전화번호</td>
+				<td ></td>
 				<td class="ct_write01">
 					${owner.phone==null?'':owner.phone}
 				</td>
@@ -81,23 +142,23 @@
 				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 			</tr>
 			<tr>
-				<td width="104" class="ct_write">주소</td>
-				<td bgcolor="D6D6D6" width="1"></td>
+				<td class="ct_write">주소</td>
+				<td ></td>
 				<td class="ct_write01">
 					${owner.addr==null?'':owner.addr}
 				</td>
 			</tr>
 			<tr>
-				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+				<td height="1" colspan="3" ></td>
 			</tr>
 			<tr>
-				<td width="104" class="ct_write">이메일</td>
-				<td bgcolor="D6D6D6" width="1"></td>
+				<td class="ct_write">이메일</td>
+				<td ></td>
 				<td class="ct_write01">
 					<!-- 테이블 시작 -->
-					<table border="0" cellspacing="0" cellpadding="0">
+					<table >
 						<tr>
-							<td height="26">
+							<td  >
 								${owner.email==null?'':owner.email}
 							</td>
 						</tr>
@@ -105,85 +166,72 @@
 				</td>
 			</tr>
 			<tr>
-				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+				 
 			</tr>
 			<tr>
-				<td width="104" class="ct_write">맛집번호</td>
-				<td bgcolor="D6D6D6" width="1"></td>
+				<td  class="ct_write">맛집번호</td>
+				<td width="1"></td>
 				<td class="ct_write01">
 					${owner.resId==null?'':owner.resId}
 				</td>
 			</tr>
 			<tr>
-				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+				<td ></td>
 			</tr>
 		</table>
+		
+		
 	</c:if>
 	
 	<c:if test="${owner.ownerId == 0}">
 		등록된 점주가 없습니다. 아래 점주추가 버튼을 눌러 점주를 추가해 주세요.	
 	</c:if>
 	
-	<table width="100%" border="0" cellspacing="0" cellpadding="0"	style="margin-top:10px;">
-		<tr>
-			<td width="53%">
-			</td>
-			<td align="right">
-				<table border="0" cellspacing="0" cellpadding="0">
+	<table class="submittable" border="0" cellspacing="0" cellpadding="0">
 					<tr>
-						<td width="17" height="23">
+						<td >
 							<c:if test="${owner.ownerId == 0}">
 								<form name="getAddOwnerView" action="/owner/getAddOwnerView" method="POST">
 									<input type="hidden" name="resId" value="${owner.resId}">
-									<input type="submit" value="점주추가">
+									<input type="submit" value="점주추가" class="btn">&nbsp;
 								</form>							
 							</c:if>
 							<c:if test="${owner.ownerId != 0}">
 								<form name="getUpdateOwnerView" action="/owner/getUpdateOwnerView" method="POST">
 									<input type="hidden" name="ownerId" value="${owner.ownerId}">
-									<input type="submit" value="점주수정">
+									<input type="submit" value="점주수정"  class="btn">&nbsp;&nbsp;
 								</form>
 							</c:if>
 						</td>
 							<c:if test="${owner.ownerId != 0}">
-								<td width="30"></td>	
+								<td  ></td>	
 
-									<td width="17" height="23">
+									<td >
 										<form name="removeOwner" action="/owner/removeOwner" method="POST">
 											<input type="hidden" name="ownerId" value="${owner.ownerId}">
 											<input type="hidden" name="ownerId" value="${owner.resId}">
-											<input type="submit" value="점주삭제">
+											<input type="submit" value="점주삭제" class="btn">&nbsp;&nbsp;
 										</form>
 									</td>
 							</c:if>
-							
-						<td width="30"></td>	
-
-						<td width="17" height="23"><img src="/resources/images/ct_btnbg01.gif" width="17" height="23"></td>
-						<td background="/resources/images/ct_btnbg02.gif" class="ct_btn01" style="padding-top:3px;">
+			 
+						<td >
 						
 							<!--  
 							<a href="javascript:fncMoveBackward();">맛집목록</a></td>
 							-->
 						
-							<form name="moveToRestaurantList" action="/restaurant/getRestaurantListView"" method="POST">
-								<input type="submit" value="맛집목록">
-							</form></td>
-						<td width="14" height="23"><img src="/resources/images/ct_btnbg03.gif" width="14" height="23"></td>
-
-						<td width="30"></td>					
-
-						<td width="17" height="23"><img src="/resources/images/ct_btnbg01.gif" width="17" height="23"></td>
-						<td background="/resources/images/ct_btnbg02.gif" class="ct_btn01" style="padding-top:3px;">
-							<a href="javascript:history.go(-1);">뒤로</a></td>
-						<td width="14" height="23"><img src="/resources/images/ct_btnbg03.gif" width="14" height="23"></td>
+							<form  name="moveToRestaurantList" action="/restaurant/getRestaurantListView"" method="POST">
+								<input type="submit" value="맛집목록" class="btn">&nbsp;&nbsp;
+							</form> 
+		 <!-- 
+						<td class="btn">
+						 <a href="javascript:history.go(-1);" >뒤로</a> </td>
+			  -->
 						
 
 					</tr>
 				</table>
-			</td>
-		</tr>
-	</table>
-
+		 
 </body>
 </html>

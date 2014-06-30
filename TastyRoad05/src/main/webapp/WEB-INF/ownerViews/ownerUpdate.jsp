@@ -6,7 +6,10 @@
 <head>
 	<title>점주정보수정</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="/resources/css/admin.css" type="text/css">
+	
+	<link rel="stylesheet" href="/resources/css/bootstrap.css" type="text/css">
+	<link rel="stylesheet" href="/resources/css/header.css" type="text/css">
+	
 	<script type="text/javascript">
 
 	function fncUpdateOwner(){
@@ -42,10 +45,66 @@
 
 	</script>
 
+<script type="text/javascript">
+	   
+	   	function post(path) {
+	
+		    var form = document.createElement("form");
+		    form.setAttribute("method", "post");
+		    form.setAttribute("action", path);
+	
+		    document.body.appendChild(form);
+		    form.submit();
+		} 
+
+ 		function get(path) {
+	   		
+		    var form = document.createElement("form");
+		    form.setAttribute("method", "get");
+		    form.setAttribute("action", path);
+	
+		    document.body.appendChild(form);
+		    form.submit();
+		} 
+   	</script>
+   	
+   	<style type="text/css">
+	.submit{
+	padding-top:10px;
+	margin-left:920px;
+	}
+	</style>
+	
 
 </head>
 
 <body bgcolor="#ffffff" text="#000000">
+
+<header>
+		
+			<div id="header" align="center">
+				<div class="wrap">
+					
+					<div class="navi-icon">
+						<a href="/"><div class="logo"></div></a> 
+						<a href=javascript:post('/home/getIntroView');><div class="navi01"></div></a>
+						<a href=javascript:get('/home/getMapView');><div class="navi02"></div></a>
+						<a href=javascript:post('/home/getManageView');><div class="navi03"></div></a> 
+
+					</div>
+					<!-- 네비게이션 아이콘 -->
+				</div>
+				<!-- Wrap -->
+			</div>
+			
+		</header>
+		
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 <form name="detailForm" method="POST"><!--  enctype="multipart/form-data" -->
 	
@@ -53,76 +112,70 @@
 	<input type="hidden" name="ownerId" value="${owner.ownerId}">
 	<input type="hidden" name="resId" value="${owner.resId}">
 	
-	<table width="100%" height="37" border="0" cellpadding="0"
-		cellspacing="0">
-		<tr>
-			<td width="15" height="37"><img src="/resources/images/ct_ttl_img01.gif"
-				width="15" height="37"></td>
-			<td background="/resources/images/ct_ttl_img02.gif" width="100%"
-				style="padding-left: 10px;">
-			<table width="100%" border="0" cellspacing="0" cellpadding="0">
-				<tr>
-					<td width="93%" class="ct_ttl01">점주정보수정</td>
-					<td width="20%" align="right">&nbsp;</td>
-				</tr>
-			</table>
-			</td>
-			<td width="12" height="37"><img src="/resources/images/ct_ttl_img03.gif"
-				width="12" height="37"></td>
-		</tr>
-	</table>
+	<table width="100%" height="37" border="0" cellpadding="0"cellspacing="0">
+			<tr>
+				
+				<table width="100%" height="37" border="0" cellpadding="0" cellspacing="0">
+    	<tr>
+    		<div class="restaurantAdd_well"><i class="icon-plus"></i> 점주정보수정</div>
+    	</tr>
+    </table>
+				</td>
+				
+			</tr>
+		</table>
 
-	<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	<table class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0"
 		style="margin-top: 13px;">
 		<tr>
-			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+			<td height="1" colspan="3" ></td>
 		</tr>
 		<tr>
-			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+			<td height="1" colspan="3" ></td>
 		</tr>
 		<tr>
 			<td width="104" class="ct_write">이름 <img
 				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
-			<td bgcolor="D6D6D6" width="1"></td>
+			<td> </td>
 			<td class="ct_write01"><input type="text" name="name" value="${owner.name==null?'':owner.name}"
-				class="ct_input_g" style="width: 100px; height: 19px" maxLength="10"
+				class="ct_input_g" maxLength="10"
 				minLength="6"></td>
 		</tr>
 		<tr>
-			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td width="104" class="ct_write">전화번호 <img
 				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
-			<td bgcolor="D6D6D6" width="1"></td>
+			<td width="1"></td>
 			<td class="ct_write01"><input type="text" name="phone" value="${owner.phone==null?'':owner.phone}"
-				class="ct_input_g" style="width: 100px; height: 19px" maxLength="10"
+				class="ct_input_g" maxLength="10"
 				minLength="6"></td>
 		</tr>
 		<tr>
-			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td width="104" class="ct_write">주소 <img
 				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
-			<td bgcolor="D6D6D6" width="1"></td>
+			<td width="1"></td>
 			<td class="ct_write01"><input type="text" name="addr" value="${owner.addr==null?'':owner.addr}"
-				class="ct_input_g" style="width: 100px; height: 19px" maxLength="50">
+				class="ct_input_g"  maxLength="50">
 			</td>
 		</tr>
 		<tr>
-			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td width="104" class="ct_write">이메일 <img
 				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
-			<td bgcolor="D6D6D6" width="1"></td>
+			<td width="1"></td>
 			<td class="ct_write01"><input type="text" name="email" value="${owner.email==null?'':owner.email}"
-				class="ct_input_g" style="width: 100px; height: 19px" maxLength="10"
+				class="ct_input_g" maxLength="10"
 				minLength="6"></td>
 		</tr>
 		<tr>
-			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+			<td></td>
 		</tr>
 	</table>
 
@@ -133,20 +186,15 @@
 			<td align="right">
 			<table border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<td width="17" height="23"><img src="/resources/images/ct_btnbg01.gif"
-						width="17" height="23"></td>
-					<td background="/resources/images/ct_btnbg02.gif" class="ct_btn01"
-						style="padding-top: 3px;"><a href="javascript:fncUpdateOwner();">수정</a></td>
-					<td width="14" height="23"><img src="/resources/images/ct_btnbg03.gif"
-						width="14" height="23"></td>
+					<td ></td>
+					<td ><a href="javascript:fncUpdateOwner();"><button class="btn">수정</a></button></td>
+					<td > </td>
 	
+					<td width="3"></td>	
 	
-					<td width="17" height="23"><img src="/resources/images/ct_btnbg01.gif"
-						width="17" height="23"></td>
-					<td background="/resources/images/ct_btnbg02.gif" class="ct_btn01"
-						style="padding-top: 3px;"><a href="javascript:history.back()">취소</a></td>
-					<td width="14" height="23"><img src="/resources/images/ct_btnbg03.gif"
-						width="14" height="23"></td>
+					<td > </td>
+					<td ><a href="javascript:history.back()"><button class="btn">취소</a></button></td>
+					<td width="14" height="23"> </td>
 				</tr>
 			</table>
 			</td>

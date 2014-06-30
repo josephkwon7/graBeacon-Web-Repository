@@ -7,7 +7,8 @@
 <head>
 	<title>점주등록</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="/resources/css/admin.css" type="text/css">
+	<link rel="stylesheet" href="/resources/css/header.css" type="text/css">
+	<link rel="stylesheet" href="/resources/css/bootstrap.css" type="text/css">
 	<script type="text/javascript">
 
 		function fncAddProduct(){
@@ -46,27 +47,77 @@
 	</script>
 
 
+	<style type="text/css">
+	.submittable{
+	margin-top : 20px;
+	margin-left : 730px;
+	}
+	</style>
+
+</head>
+
+<script type="text/javascript">
+	   
+	   	function post(path) {
+	
+		    var form = document.createElement("form");
+		    form.setAttribute("method", "post");
+		    form.setAttribute("action", path);
+	
+		    document.body.appendChild(form);
+		    form.submit();
+		} 
+
+ 		function get(path) {
+	   		
+		    var form = document.createElement("form");
+		    form.setAttribute("method", "get");
+		    form.setAttribute("action", path);
+	
+		    document.body.appendChild(form);
+		    form.submit();
+		} 
+   	</script>
+   	
 </head>
 
 <body bgcolor="#ffffff" text="#000000">
-<c:out value="${owner}"/>
+
+
+<br/>
+<br/>
+ 
+<hr/> 
+<hr/>
+<hr/>
+<header>
+		
+			<div id="header" align="center">
+				<div class="wrap">
+					
+					<div class="navi-icon">
+						<a href="/"><div class="logo"></div></a> 
+						<a href=javascript:post('/home/getIntroView');><div class="navi01"></div></a>
+						<a href=javascript:get('/home/getMapView');><div class="navi02"></div></a>
+						<a href=javascript:post('/home/getManageView');><div class="navi03"></div></a> 
+
+					</div>
+					<!-- 네비게이션 아이콘 -->
+				</div>
+				<!-- Wrap -->
+			</div>
+			
+		</header>
+		
+		
+<!--<c:out value="${owner}"/>-->
+
 <form name="detailForm" method="POST">
 	<table width="100%" height="37" border="0" cellpadding="0" cellspacing="0">
 		<tr>
-			<td width="15" height="37"><img src="/resources/images/ct_ttl_img01.gif"
-				width="15" height="37"></td>
-			<td background="/resources/images/ct_ttl_img02.gif" width="100%"
-				style="padding-left: 10px;">
-			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td width="93%" class="ct_ttl01">점주등록</td>
-					<td width="20%" align="right">&nbsp;</td>
 				</tr>
-			</table>
-			</td>
-			<td width="12" height="37"><img src="/resources/images/ct_ttl_img03.gif"
-				width="12" height="37"></td>
-		</tr>
 	</table>
 	
 	<table width="100%" border="0" cellspacing="0" cellpadding="0"
@@ -130,32 +181,12 @@
 			<td align="right">
 			<table border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<td width="17" height="23"><img src="/resources/images/ct_btnbg01.gif"
-						width="17" height="23"></td>
-					<td background="/resources/images/ct_btnbg02.gif" class="ct_btn01"
-						style="padding-top: 3px;">
-						<a href="javascript:fncAddProduct();">등록</a></td>
-					<td width="14" height="23"><img src="/resources/images/ct_btnbg03.gif"
-						width="14" height="23"></td>
+						<button class="btn"><a href="javascript:fncAddProduct();">등록</a></button></td>
 	
-					<td width="10"></td>
-	
-					<td width="17" height="23"><img src="/resources/images/ct_btnbg01.gif"
-						width="17" height="23"></td>
-					<td background="/resources/images/ct_btnbg02.gif" class="ct_btn01"
-						style="padding-top: 3px;"><a href="javascript:resetData();">취소</a></td>
-					<td width="14" height="23"><img src="/resources/images/ct_btnbg03.gif"
-						width="14" height="23"></td>
+						<button class="btn"> <a href="javascript:resetData();">취소</a></button></td>
 						
-					<td width="10"></td>
-						
-					<td width="17" height="23"><img src="/resources/images/ct_btnbg01.gif" 
-						width="17" height="23"></td>
-					<td background="/resources/images/ct_btnbg02.gif" class="ct_btn01" 
-						style="padding-top:3px;">
-						<a href="javascript:history.go(-1);">뒤로</a></td>
-					<td width="14" height="23"><img src="/resources/images/ct_btnbg03.gif" 
-						width="14" height="23"></td>
+						<br/>
+						<button class="btn"><a href="javascript:history.go(-1);">뒤로</a></button></td>
 				</tr>
 			</table>
 			</td>
