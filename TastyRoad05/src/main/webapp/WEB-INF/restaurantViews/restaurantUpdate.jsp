@@ -121,25 +121,30 @@
 						<a href=javascript:post('/home/getManageView');><div class="navi03"></div></a> 
 
 					</div>
-					<!-- 네비게이션 아이콘 -->
+					
+					<!-- 충돌
+					<div align="right">
+					<form name=logOut method="POST"></form>
+					<a href="javascript:post('/admin/logoutAction');">log-out<img
+						src="../resources/img/icon/logout.png"></a>
+
 				</div>
+				 -->
+									<!-- 네비게이션 아이콘 -->
+				</div>
+				
 				<!-- Wrap -->
 			</div>
 			
 	
 		</header>
-			<br>
-		
-<br><br><br><br><br>
+	
 
 	<!--  hidden parameter for update -->
 	<input type="hidden" name="resId" value="${restaurant.resId}">
 	
-	<table width="100%" height="37" border="0" cellpadding="0" cellspacing="0">
-    	<tr>
-    		<div class="restaurantAdd_well"><i class="icon-edit"></i> 맛집정보수정</div>
-    	</tr>
-    </table>
+    		<div class="restaurant_well"><i class="icon-edit"></i> 맛집정보수정</div>
+    	
 
 	<table width="100%" border="0" cellspacing="0" cellpadding="0"
 		style="margin-top: 13px;">
