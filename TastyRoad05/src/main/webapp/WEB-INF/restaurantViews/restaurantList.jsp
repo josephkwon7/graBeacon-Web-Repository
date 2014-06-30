@@ -94,28 +94,20 @@
 					</div>
 				</tr>
 			</table>
-
-			<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			
+			<td colspan="11"><i class="icon-list-alt"></i>전체${resultPage.totalCount }건수,
+				현재 ${resultPage.currentPage} 페이지</td>
+				
+			<table class="table table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0"
 				style="margin-top: 10px;">
-				<tr>
-					<td colspan="11"><i class="icon-list-alt"></i>전체${resultPage.totalCount }건수, 현재
-						${resultPage.currentPage} 페이지</td>
-				</tr>
+				
 				<tr>
 					<td class="ct_list_b" width="50">번호</td>
-					<td class="ct_line02"></td>
 					<td class="ct_list_b" width="100">이름</td>
-					<td class="ct_line02"></td>
 					<td class="ct_list_b" width="200">주소</td>
-					<td class="ct_line02"></td>
 					<td class="ct_list_b" width="100">전화번호</td>
-					<td class="ct_line02"></td>
 					<td class="ct_list_b" width="50">분류</td>
-					<td class="ct_line02"></td>
 					<td class="ct_list_b" width="200">관리</td>
-				</tr>
-				<tr>
-					<td colspan="11" bgcolor="808285" height="1"></td>
 				</tr>
 
 				<%--  search 고객용 View 시작 --%>
@@ -123,16 +115,12 @@
 
 					<tr class="ct_list_pop">
 						<td align="center">${restaurantList.resId}</td>
-						<td></td>
 						<td align="left">
 							<a href="javascript:post('/restaurant/getRestaurantDetail', 
 						  {resId: '${restaurantList.resId}'});">${restaurantList.name}</a>
 						</td>
-						<td></td>
 						<td align="left">${restaurantList.addr}</td>
-						<td></td>
 						<td align="left">${restaurantList.phone}</td>
-						<td></td>
 						<td align="left">
 							<c:choose>
 								<c:when test="${restaurantList.resCategory == '1'}">한식</c:when>
@@ -142,7 +130,6 @@
 								<c:otherwise>카페</c:otherwise>
 							</c:choose>
 						</td>
-						<td></td>
 						<td align="left">
 						  <a href="javascript:post('/beacon/getBeaconList', 
 						  {searchKeyword: '${restaurantList.resId}', searchCondition: '4'});">비콘관리</a>
@@ -176,9 +163,6 @@
 							<a href="/restaurant/removeRestaurant?resId=${restaurantList.resId}">삭제</a>
 						-->
 						</td>
-					</tr>
-					<tr>
-						<td colspan="11" bgcolor="D6D7D6" height="1"></td>
 					</tr>
 					
 				</c:forEach>
