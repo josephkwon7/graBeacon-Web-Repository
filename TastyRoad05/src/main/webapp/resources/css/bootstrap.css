@@ -2077,7 +2077,7 @@ table {
 .table-bordered tbody:first-child tr:first-child th,
 .table-bordered tbody:first-child tr:first-child td {
   border-top: 0;
-  padding: 10px 0 0 0;
+  padding: 0 0 0 0;
 }
 
 .table-bordered thead:first-child tr:first-child > th:first-child,
