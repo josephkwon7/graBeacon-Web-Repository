@@ -28,13 +28,12 @@ border-bottom: 1px solid #FF8C0A;
     overflow: hidden;
 }
 .company .company-visual .text.type2 {
-    overflow: hidden;
-    position: absolute;
-    top: 50px;
-    left: 387px;
-    width: 570px;
-	margin-left: 20%;
-    height: 279px;
+overflow: hidden;
+position: absolute;
+top: 50px;
+left: 387px;
+width: 570px;
+margin-left: 20%;
 	
 }
 .company .company-visual .text.type2 p {
@@ -50,9 +49,7 @@ border-bottom: 1px solid #FF8C0A;
 
 .company .bc_use_img{
 width: auto;
-
-
-margin-left:13%
+margin-left: 15.8%;
 }
 
 .company .ci {
@@ -91,12 +88,9 @@ border-bottom: 1px solid #FF8C0A;
 
 }
 .company .contact-us {
-    
-	
-    margin: 70px;
-	
-
-    background: url(../img/design/contacuUs02.png) no-repeat 448px top;
+background: url(../img/design/contacuUs02.png) no-repeat 530px;
+margin: 30px;
+padding-left: 90px;
 }
 
 .company .contact-us h3 {
