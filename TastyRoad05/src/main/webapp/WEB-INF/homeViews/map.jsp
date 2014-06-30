@@ -1831,7 +1831,8 @@
 	</table>
 	
 	<div id="map_canvas" style="width:80%; height:95%;"></div>
-	
+	<br/>
+	<br/>
 	<footer id="footer">
 
 		<!-- preview modal -->
