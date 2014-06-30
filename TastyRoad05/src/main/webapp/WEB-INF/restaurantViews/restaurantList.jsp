@@ -66,26 +66,14 @@
 			</div>
 			
 		</header>
-		
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
 
 	<div style="width: 98%; margin-left: 10px;">
 
 		<form name="detailForm" action="/restaurant/getRestaurantListView"
 			method="POST" onsubmit="return false">
 			
-			<table width="100%" height="37" border="0" cellpadding="0"
-				cellspacing="0">
-				
-				  <div class="restaurantList_well"><i class="icon-th"></i> 맛집 목록</div>
+			<div class="restaurantList_well"><i class="icon-th"></i> 맛집 목록</div>
 				  
-			</table>
-
 			<table width="100%" border="0" cellspacing="0" cellpadding="0"
 				style="margin-top: 10px;">
 				<tr>
@@ -96,18 +84,14 @@
 							<option value="2" ${search.searchCondition=="2"?"SELECTED":""}>주소</option>
 							<option value="3" ${search.searchCondition=="3"?"SELECTED":""}>전화번호</option>
 					</select> 
+					
+					<div class="input-append">
 					<input type="text" name="searchKeyword"	value="${search.searchKeyword==null?'':search.searchKeyword}"
-						class="ct_input_g" style="width: 200px; height: 19px"></td>
-
-
-					<td align="right" width="70">
-						<table border="0" cellspacing="0" cellpadding="0">
-							<tr>
-								<button class="btn" type="button"><a href="javascript:fncGetList('1');">
-								<i class="icon-search"></i>검색</a></button>
-							</tr>
-						</table>
+						class="ct_input_g" style="width: 200px; height: 19px">
+					<button class="btn" type="button"><a href="javascript:fncGetList('1');">
+					<i class="icon-search"></i>검색</a></button>
 					</td>
+					</div>
 				</tr>
 			</table>
 
@@ -219,11 +203,9 @@
 	</form>
 	
 	<div align="right">
-	
 	<form name=logOut method="POST">
-		</form>
 		<a href="javascript:post('/admin/logoutAction');"><button class="btn">로그아웃</button></a>
-	
+	</form>
 	
 	</div>
 
