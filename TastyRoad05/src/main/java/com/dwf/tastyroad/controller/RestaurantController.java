@@ -70,7 +70,7 @@ public class RestaurantController {
 	private static final int PORT = 5001;
 	private static final String ID ="imageserver";
 	private static final String PASSWORD = "WeAre47th";
-	private static final String UPLOAD_DIR = "/home1/imageserver/teamdwf";
+	private static final String UPLOAD_DIR = "teamdwf";
 	
 	
 	///Constructor - default
@@ -158,8 +158,8 @@ public class RestaurantController {
 		String fileInput = "";
 		String fileName = "";
 		String fileDir2 = "";
-		ArrayList<File> fileList = new ArrayList<File>();
-		//HashMap<String, File> fileMap = new HashMap<String, File>();
+		//ArrayList<File> fileList = new ArrayList<File>();
+		HashMap<String, File> fileMap = new HashMap<String, File>();
 		
 		while(formNames.hasMoreElements()){
 			
@@ -180,8 +180,8 @@ public class RestaurantController {
 						System.out.println("fileDirectory : " + fileDir2);
 						restaurant.setImgSmall1("main/" +fileName);
 						System.out.println("restaurant.getImageSmall1 : " + restaurant.getImgSmall1());
-						fileList.add(mpr.getFile(fileInput));
-						//fileMap.put("imgSmall1", mpr.getFile(fileInput));
+						//fileList.add(mpr.getFile(fileInput));
+						fileMap.put("imgSmall1", mpr.getFile(fileInput));
 						//System.out.println("getFile? ==> " + mpr.getFile(fileInput));
 						break;
 					case "imgBig1" :
@@ -189,8 +189,8 @@ public class RestaurantController {
 						System.out.println("fileDirectory : " + fileDir2);
 						restaurant.setImgBig1("detail/" +fileName);
 						System.out.println("restaurant.getImageBig1 : " + restaurant.getImgBig1());
-						fileList.add(mpr.getFile(fileInput));
-						//fileMap.put("imgBig1", mpr.getFile(fileInput));
+						//fileList.add(mpr.getFile(fileInput));
+						fileMap.put("imgBig1", mpr.getFile(fileInput));
 						//System.out.println("getFile? ==> " + mpr.getFile(fileInput));
 						break;
 					case "imgBig2" :
@@ -198,8 +198,8 @@ public class RestaurantController {
 						System.out.println("fileDirectory : " + fileDir2);
 						restaurant.setImgBig2("detail/" +fileName);
 						System.out.println("restaurant.getImageBig2 : " + restaurant.getImgBig2());
-						fileList.add(mpr.getFile(fileInput));
-						//fileMap.put("imgBig2", mpr.getFile(fileInput));
+						//fileList.add(mpr.getFile(fileInput));
+						fileMap.put("imgBig2", mpr.getFile(fileInput));
 						//System.out.println("getFile? ==> " + mpr.getFile(fileInput));
 						break;
 					case "imgBig3" :
@@ -207,8 +207,8 @@ public class RestaurantController {
 						System.out.println("fileDirectory : " + fileDir2);
 						restaurant.setImgBig3("detail/" +fileName);
 						System.out.println("restaurant.getImageBig3 : " + restaurant.getImgBig3());
-						fileList.add(mpr.getFile(fileInput));
-						//fileMap.put("imgBig3", mpr.getFile(fileInput));
+						//fileList.add(mpr.getFile(fileInput));
+						fileMap.put("imgBig3", mpr.getFile(fileInput));
 						//System.out.println("getFile? ==> " + mpr.getFile(fileInput));
 						break;
 					case "imgMenu" :
@@ -216,8 +216,8 @@ public class RestaurantController {
 						System.out.println("fileDirectory : " + fileDir2);
 						restaurant.setImgMenu("menu/" +fileName);
 						System.out.println("restaurant.getImageMenu : " + restaurant.getImgMenu());
-						fileList.add(mpr.getFile(fileInput));
-						//fileMap.put("imgMenu", mpr.getFile(fileInput));
+						//fileList.add(mpr.getFile(fileInput));
+						fileMap.put("imgMenu", mpr.getFile(fileInput));
 						//System.out.println("getFile? ==> " + mpr.getFile(fileInput));
 						break;
 				}//endOfSwith
@@ -226,14 +226,49 @@ public class RestaurantController {
 
 			
 		FTPTransfer transfer = new FTPTransfer();
+		System.out.println("==============================ftp통신 시작=======================================");
+		transfer.FtpPut(SERVER_IP, PORT, ID, PASSWORD, UPLOAD_DIR, null, fileMap);
+//		transfer.FtpPut(SERVER_IP, PORT, ID, PASSWORD, UPLOAD_DIR, null, fileList);
+		System.out.println("==============================ftp통신 종료=======================================");
 		
-//		transfer.FtpPut(SERVER_IP, PORT, ID, PASSWORD, UPLOAD_DIR, null, fileMap);
-		transfer.FtpPut(SERVER_IP, PORT, ID, PASSWORD, UPLOAD_DIR, null, fileList);
+//		for(int i=0; i<fileList.size();i++){
+//			System.out.println("Local File 삭제를 위한 for 문 실행......");
+//			File file1 = new File(fileList.get(i).toString());
+//			file1.delete();
+//
+//				if(file1.exists()){
+//					System.out.println("삭제 Failed......");
+//				}
+//					else{
+//						System.out.println("삭제 Ok!!!!!!");
+//					}
+//		}//endOfForStatement
+	
 		
 		
-//		List<File> imageFileLists = new ArrayList<File>();
-//		List<String> imageFileName = new ArrayList<String>();
-//		
+		
+		
+		Set<String> set = fileMap.keySet();
+		String[]keys = set.toString().subSequence(1, set.toString().length()-1).toString().split(", ");
+		
+		for(int i=0; i<keys.length;i++){
+			System.out.println("Local File 삭제를 위한 for 문 실행......");
+			File file1 = new File(fileMap.get(keys[i]).toString());
+			file1.delete();
+
+				if(file1.exists()){
+					System.out.println("삭제 Failed......");
+				}
+					else{
+						System.out.println("삭제 Ok!!!!!!");
+					}
+		}//endOfForStatement
+		
+		
+		
+		
+		
+		
 		
 //		if(mpr.getFileNames().equals("imgSmall1")){
 //			filePath=dir+"/main/";
@@ -546,13 +581,15 @@ public class RestaurantController {
 		
 		
 		//여러개의 파일을 전송한다.
-	    public boolean FtpPut(String ip, int port, String id, String password, String uploaddir, String makedir, List fileList) {
+	    public boolean FtpPut(String ip, int port, String id, String password, String uploaddir, String makedir, HashMap<String, File> fileMap) {
 	    
 	    	boolean result = false;
 	        FTPClient ftp = null;
+	        File uploadFile=null;
+            FileInputStream fis = null;
 	        int reply = 0;
-
-	        try {
+	        
+			try {
 	            ftp = new FTPClient();
 	            ftp.connect(ip, port);
 	            
@@ -569,42 +606,110 @@ public class RestaurantController {
 	            
 		            ftp.setFileType(FTP.BINARY_FILE_TYPE);
 		            ftp.enterLocalPassiveMode();
-	
 		            
-		            for(int i=0;i<fileList.size();i++) {
+		            Set<String> set = fileMap.keySet();
+					String[]keys = set.toString().subSequence(1, set.toString().length()-1).toString().split(", ");
+					
+					System.out.println("=======ftp initial working directory=========");
+					System.out.println(ftp.printWorkingDirectory());
+					System.out.println("=============================================");
+		            
+					for(int i=0;i<keys.length;i++) {
+				            System.out.println("Parsing을 위해 for문 안으로 들어옴...");
+			            	String sourceFile = fileMap.get(keys[i]).toString(); //디렉토리+파일명
+				            String keyFileName = keys[i];
+				            System.out.println("sourceFile ==> " + sourceFile);
+//				            System.out.println("=======ftp initial working directory=========");
+//							System.out.println(ftp.printWorkingDirectory());
+//							ftp.changeWorkingDirectory("/"+uploaddir);
+//							ftp.changeWorkingDirectory("/teamdwf");
+//							System.out.println("=============================================");
 				            
-			            	String sourceFile = fileList.get(i).toString(); //디렉토리+파일명
-				            ftp.changeWorkingDirectory(uploaddir);
+//				            switch(keyFileName){
+//				            case "imgSmall1":
+//				            	System.out.println("=======ftp imgSmall1 current working directory=========");
+//				            	System.out.println("[imgSmall1] switch-case문 실행......");
+//				            	ftp.changeWorkingDirectory("main");
+//				            	System.out.println(ftp.printWorkingDirectory());
+//								System.out.println("=============================================");
+//								
+//				            	break;
+//				            case "imgBig1":
+//				            case "imgBig2":
+//				            case "imgBig3":
+//				            	System.out.println("=======ftp imgBig1/Big2/Big3 current working directory=========");
+//				            	System.out.println("[imgBig1, imgBig2, imgBig3] switch-case문 실행......");
+//				            	ftp.changeWorkingDirectory("detail");
+//				            	System.out.println(ftp.printWorkingDirectory());
+//								System.out.println("=============================================");
+//					            
+//				            	break;
+//				            case "imgMenu":
+//				            	System.out.println("=======ftp imgMenu current working directory=========");
+//				            	System.out.println("[imgMenu] switch-case문 실행......");
+//				            	ftp.changeWorkingDirectory("menu");
+//				            	System.out.println(ftp.printWorkingDirectory());
+//								System.out.println("=============================================");
+//				            	break;
+//				            default:
+//				            	System.out.println("=============================================");
+//				            	System.out.println("[Default] switch-case문 실행......");
+//				            	ftp.changeWorkingDirectory(uploaddir);
+//				            	System.out.println(ftp.printWorkingDirectory());
+//								System.out.println("=============================================");
+//				            	break;
+//				            }
 				            
-				            if(sourceFile.contains("imgSmall1")){
-				            	ftp.makeDirectory("/main/");
-				            	ftp.changeWorkingDirectory("/main/");
+				            if(keyFileName.equals("imgSmall1")){
+				            	//ftp.makeDirectory("main");
+				            	System.out.println("=======ftp imgSmall1 current working directory=========");
+				            	System.out.println("[imgSmall1] switch-case문 실행......");
+				            	ftp.changeWorkingDirectory("/"+uploaddir);
+								ftp.changeWorkingDirectory("/teamdwf/main");
+				            	//ftp.changeWorkingDirectory("/main");
+				            	System.out.println(ftp.printWorkingDirectory());
+								System.out.println("=============================================");
+				            	
 				            }
 				            
-					            else if(sourceFile.contains("imgBig1") ||
-					            		sourceFile.contains("imgBig2") ||
-					            		sourceFile.contains("imgBig3")){
+					            else if(keyFileName.equals("imgBig1") ||
+					            		keyFileName.equals("imgBig2") ||
+					            		keyFileName.equals("imgBig3")){
 					            	
-					            	ftp.makeDirectory("/detail/");
-					            	ftp.changeWorkingDirectory("/detail/");
+					            	//ftp.makeDirectory("detail");
+					            	System.out.println("=======ftp imgBig1/Big2/Big3 current working directory=========");
+					            	System.out.println("[imgBig1, imgBig2, imgBig3] switch-case문 실행......");
+					            	ftp.changeWorkingDirectory("/"+uploaddir);
+									ftp.changeWorkingDirectory("/teamdwf/detail");
+									//ftp.changeWorkingDirectory("/detail");
+					            	System.out.println(ftp.printWorkingDirectory());
+									System.out.println("=============================================");
+					            	
 					            }
 					          
-					            else if(sourceFile.contains("imgMenu")){
-					            	ftp.makeDirectory("/menu/");
-					            	ftp.changeWorkingDirectory("/menu/");
+					            else if(keyFileName.equals("imgMenu")){
+					            	//ftp.makeDirectory("menu");
+					            	System.out.println("=======ftp imgMenu current working directory=========");
+					            	System.out.println("[imgMenu] switch-case문 실행......");
+					            	ftp.changeWorkingDirectory("/teamdwf/menu");
+					            	//ftp.changeWorkingDirectory("/menu");
+					            	System.out.println(ftp.printWorkingDirectory());
+									System.out.println("=============================================");
+					            	
 					            }
 					            
-				            
-			            
-				            File uploadFile = new File(sourceFile);
-				            FileInputStream fis = null;
-				            
+				            	uploadFile  = new File(sourceFile);
 				            try {
 				                 fis = new FileInputStream(uploadFile);
 				                 boolean isSuccess = ftp.storeFile(uploadFile.getName(), fis);
 				                 if (isSuccess) {
 				                     System.out.println(sourceFile+" 파일 FTP 업로드 성공");
 				                 }
+//				                 	System.out.println("=======ftp initial working directory=========");
+//									System.out.println(ftp.printWorkingDirectory());
+//									ftp.changeWorkingDirectory("/"+uploaddir);
+//									ftp.changeWorkingDirectory("/teamdwf");
+//									System.out.println("=============================================");
 				            } catch(IOException e) {
 				            	e.printStackTrace();
 				            } finally {
@@ -617,7 +722,7 @@ public class RestaurantController {
 				                 }
 				             }
 			              }
-	            
+						  System.out.println("Parsing을 위한 for문 종료......");
 		            ftp.logout();
 		            result = true;
 	            
