@@ -77,7 +77,13 @@
 						<a href=javascript:post('/home/getManageView');><div class="navi03"></div></a> 
 
 					</div>
-					<!-- 네비게이션 아이콘 -->
+				<div align="right">
+					<form name=logOut method="POST"></form>
+					<a href="javascript:post('/admin/logoutAction');">log-out<img
+						src="../resources/img/icon/logout.png"></a>
+
+				</div>
+				<!-- 네비게이션 아이콘 -->
 				</div>
 				<!-- Wrap -->
 			</div>
@@ -108,14 +114,10 @@
 				<td width="104" class="ct_write">점주번호 </td>
 				<td ></td>
 				<td class="ct_write01">
-					<table>
-						<tr>
-							<td >
+				
+				
 								${owner.ownerId==null?'':owner.ownerId}
-							</td>
-						 
-						</tr>
-					</table>
+						
 				</td>
 			</tr>
 			<tr>
@@ -156,13 +158,9 @@
 				<td ></td>
 				<td class="ct_write01">
 					<!-- 테이블 시작 -->
-					<table >
-						<tr>
-							<td  >
+				
 								${owner.email==null?'':owner.email}
-							</td>
-						</tr>
-					</table>
+						
 				</td>
 			</tr>
 			<tr>
