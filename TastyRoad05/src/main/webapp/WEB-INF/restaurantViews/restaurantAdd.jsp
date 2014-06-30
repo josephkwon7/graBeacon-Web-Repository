@@ -7,7 +7,8 @@
 <head>
 	<title>맛집등록</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="/resources/css/admin.css" type="text/css">
+	<link rel="stylesheet" href="/resources/css/bootstrap.css" type="text/css">
+	<link rel="stylesheet" type="text/css" href="../resources/css/header.css">
 	<script type="text/javascript">
 
 		function fncAddProduct(){
@@ -77,28 +78,67 @@
 
 	</script>
 
+<script type="text/javascript">
+	   
+	   	function post(path) {
+	
+		    var form = document.createElement("form");
+		    form.setAttribute("method", "post");
+		    form.setAttribute("action", path);
+	
+		    document.body.appendChild(form);
+		    form.submit();
+		} 
 
+ 		function get(path) {
+	   		
+		    var form = document.createElement("form");
+		    form.setAttribute("method", "get");
+		    form.setAttribute("action", path);
+	
+		    document.body.appendChild(form);
+		    form.submit();
+		} 
+   	</script>
+   	
 </head>
 
 <body bgcolor="#ffffff" text="#000000">
 
+<header>
+		
+			<div id="header" align="center">
+				<div class="wrap">
+					
+					<div class="navi-icon">
+						<a href="/"><div class="logo"></div></a> 
+						<a href=javascript:post('/home/getIntroView');><div class="navi01"></div></a>
+						<a href=javascript:get('/home/getMapView');><div class="navi02"></div></a>
+						<a href=javascript:post('/home/getManageView');><div class="navi03"></div></a> 
+
+					</div>
+					<!-- 네비게이션 아이콘 -->
+				</div>
+				<!-- Wrap -->
+			</div>
+			
+		</header>
+		
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
 <form name="detailForm" method="POST" enctype="multipart/form-data"><!--  -->
 	<table width="100%" height="37" border="0" cellpadding="0" cellspacing="0">
-		<tr>
-			<td width="15" height="37"><img src="/resources/images/ct_ttl_img01.gif"
-				width="15" height="37"></td>
-			<td background="/resources/images/ct_ttl_img02.gif" width="100%"
-				style="padding-left: 10px;">
-			<table width="100%" border="0" cellspacing="0" cellpadding="0">
-				<tr>
-					<td width="93%" class="ct_ttl01">맛집등록</td>
-					<td width="20%" align="right">&nbsp;</td>
-				</tr>
-			</table>
-			</td>
-			<td width="12" height="37"><img src="/resources/images/ct_ttl_img03.gif"
-				width="12" height="37"></td>
-		</tr>
+		
+            
+              <tr>
+              	<div class="restaurantAdd_well"><i class="icon-plus"></i> 맛집등록</div>
+              </tr>
+       
 	</table>
 	
 	<table width="100%" border="0" cellspacing="0" cellpadding="0"
@@ -107,13 +147,13 @@
 			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 		</tr>
 		<tr>
-			<td width="104" class="ct_write">맛집이름*</td>
+			<td width="104" class="ct_write">맛집이름<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			<td bgcolor="D6D6D6" width="1"></td>
 			<td class="ct_write01">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td width="105">
-						<input type="text" name="name" class="ct_input_g" style="width: 100px; 
+						<input type="text" name="name" class="ct_input_g" style="width: 200px; 
 						height: 19px" maxLength="20">
 					</td>
 				</tr>
@@ -125,22 +165,22 @@
 			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 		</tr>
 		<tr>
-			<td width="104" class="ct_write">주소*</td>
+			<td width="104" class="ct_write">주소<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			<td bgcolor="D6D6D6" width="1"></td>
-			<td class="ct_write01">
-				<input type="text" name="addr" class="ct_input_g" style="width: 100px; 
-				height: 19px" maxLength="10">
+			<td class="ct_write02">
+				<input type="text" name="addr" class="ct_input_g" style="width: 200px; 
+				height: 19px" maxLength="30">
 			</td>
 		</tr>
 		<tr>
 			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 		</tr>
 		<tr>
-			<td width="104" class="ct_write">전화번호*</td>
+			<td width="104" class="ct_write">전화번호<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			<td bgcolor="D6D6D6" width="1"></td>
 			<td class="ct_write01">
 				<input type="text" name="phone" class="ct_input_g" 
-				style="width: 100px; height: 19px" maxLength="13">
+				style="width: 200px; height: 19px" maxLength="13">
 			</td>
 		</tr>
 		<tr>
@@ -149,48 +189,48 @@
 		<tr>
 			<td width="104" class="ct_write">사업자 등록번호</td>
 			<td bgcolor="D6D6D6" width="1"></td>
-			<td class="ct_write01"><input type="text" name="licenseNo"
-				class="ct_input_g" style="width: 100px; height: 19px" maxLength="13">
+			<td class="ct_write02"><input type="text" name="licenseNo"
+				class="ct_input_g" style="width: 200px;  height: 19px" maxLength="13"></input>
 			</td>
 		</tr>
 		<tr>
 			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 		</tr>
 		<tr>
-			<td width="104" class="ct_write">상세위치-위도*</td>
+			<td width="104" class="ct_write">상세위치-위도<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			<td bgcolor="D6D6D6" width="1"></td>
 			<td class="ct_write01"><input type="text" name="geoLat"
-				class="ct_input_g" style="width: 100px; height: 19px" maxLength="13"></input>
+				class="ct_input_g" style="width: 200px;  height: 19px" maxLength="13"></input>
 			</td>
 		</tr>
 		<tr>
 			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 		</tr>
 		<tr>
-			<td width="104" class="ct_write">상세위치-경도*</td>
+			<td width="104" class="ct_write">상세위치-경도<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			<td bgcolor="D6D6D6" width="1"></td>
-			<td class="ct_write01"><input type="text" name="geoLong"
-				class="ct_input_g" style="width: 100px; height: 19px" maxLength="13"></input>
+			<td class="ct_write02"><input type="text" name="geoLong"
+				class="ct_input_g" style="width: 200px; height: 19px" maxLength="13"></input>
 			</td>
 		</tr>
 		<tr>
 			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 		</tr>
 		<tr>
-			<td width="104" class="ct_write">메인이미지1*</td>
+			<td width="104" class="ct_write">메인이미지1<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			<td bgcolor="D6D6D6" width="1"></td>
 			<td class="ct_write01"><input type="file" name="imgSmall1"
-				class="ct_input_g" style="width: 500px; height: 19px"></input>
+				class="ct_input_g" style="width: 100%;"></input>
 			</td>
 		</tr>
 		<tr>
 			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 		</tr>
 		<tr>
-			<td width="104" class="ct_write">상세이미지1*</td>
+			<td width="104" class="ct_write">상세이미지1<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			<td bgcolor="D6D6D6" width="1"></td>
-			<td class="ct_write01"><input type="file" name="imgBig1"
-				class="ct_input_g" style="width: 500px; height: 19px"></input>
+			<td class="ct_write02"><input type="file" name="imgBig1"
+				class="ct_input_g02" style="width: 100%;"></input>
 			</td>
 		</tr>
 		<tr>
@@ -200,7 +240,7 @@
 			<td width="104" class="ct_write">상세이미지2</td>
 			<td bgcolor="D6D6D6" width="1"></td>
 			<td class="ct_write01"><input type="file" name="imgBig2"
-				class="ct_input_g" style="width: 500px; height: 19px"></input>
+				class="ct_input_g" style="width: 100%;"></input>
 			</td>
 		</tr>
 		<tr>
@@ -209,27 +249,27 @@
 		<tr>
 			<td width="104" class="ct_write">상세이미지3</td>
 			<td bgcolor="D6D6D6" width="1"></td>
-			<td class="ct_write01"><input type="file" name="imgBig3"
-				class="ct_input_g" style="width: 500px; height: 19px"></input>
+			<td class="ct_write02"><input type="file" name="imgBig3"
+				class="ct_input_g02" style="width: 100%;"></input>
 			</td>
 		</tr>
 		<tr>
 			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 		</tr>
 		<tr>
-			<td width="104" class="ct_write">메뉴이미지*</td>
+			<td width="104" class="ct_write">메뉴이미지<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			<td bgcolor="D6D6D6" width="1"></td>
 			<td class="ct_write01"><input type="file" name="imgMenu"
-				class="ct_input_g" style="width: 500px; height: 19px"></input>
+				class="ct_input_g" style="width: 100%;"></input>
 			</td>
 		</tr>
 		<tr>
 			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 		</tr>
 		<tr>
-			<td width="104" class="ct_write">광고문구*</td>
+			<td width="104" class="ct_write">광고문구<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			<td bgcolor="D6D6D6" width="1"></td>
-			<td class="ct_write01"><input type="text" name="copyComment"
+			<td class="ct_write02"><input type="text" name="copyComment"
 				class="ct_input_g" style="width: 500px; height: 19px" maxLength="30"></input>
 			</td>
 		</tr>
@@ -237,10 +277,10 @@
 			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 		</tr>
 		<tr>
-			<td width="104" class="ct_write">맛집분류*</td>
+			<td width="104" class="ct_write">맛집분류<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			<td bgcolor="D6D6D6" width="1"></td>
 			<td class="ct_write01">
-				<select name="resCategory" class="ct_input_g" style="width: 100px; height: 19px">
+				<select name="resCategory" class="ct_input_g" style="width: 100px; ">
 				  <option value="1">한식</option>
 				  <option value="2">일식</option>
 				  <option value="3">중식</option>
@@ -258,22 +298,22 @@
 			<td align="right">
 			<table border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<td width="17" height="23"><img src="/resources/images/ct_btnbg01.gif"
-						width="17" height="23"></td>
-					<td background="/resources/images/ct_btnbg02.gif" class="ct_btn01"
+					
+					<td background="/resources/images/ct_btnbg02.gif" class="btn"
 						style="padding-top: 3px;"><a
 						href="javascript:fncAddProduct();">등록</a></td>
-					<td width="14" height="23"><img src="/resources/images/ct_btnbg03.gif"
-						width="14" height="23"></td>
+					
 	
-					<td width="30"></td>
+					<td width="3"></td>
 	
-					<td width="17" height="23"><img src="/resources/images/ct_btnbg01.gif"
-						width="17" height="23"></td>
-					<td background="/resources/images/ct_btnbg02.gif" class="ct_btn01"
+	<!--  				
+					<td background="/resources/images/ct_btnbg02.gif" class="btn"
 						style="padding-top: 3px;"><a href="javascript:resetData();">취소</a></td>
-					<td width="14" height="23"><img src="/resources/images/ct_btnbg03.gif"
-						width="14" height="23"></td>
+		-->
+		<form name=getRestaurantListView method="POST">
+						</form>
+						<td class="btn" style="padding-top:3px;">
+						<a href="javascript:post('/restaurant/getRestaurantListView');">취소</a>
 				</tr>
 			</table>
 			</td>

@@ -7,28 +7,76 @@
 <head>
 	<title>맛집상세정보</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="/resources/css/admin.css" type="text/css">
+	<link rel="stylesheet" href="/resources/css/bootstrap.css" type="text/css">
+	<link rel="stylesheet" href="/resources/css/header.css" type="text/css">
 	<script type="text/javascript">
 		function fncMoveBackward(){
 			document.location.href="/restaurant/listRestaurant";
 		}
 	</script>
+	
+	<script type="text/javascript">
+	   
+	   	function post(path) {
+	
+		    var form = document.createElement("form");
+		    form.setAttribute("method", "post");
+		    form.setAttribute("action", path);
+	
+		    document.body.appendChild(form);
+		    form.submit();
+		} 
+
+ 		function get(path) {
+	   		
+		    var form = document.createElement("form");
+		    form.setAttribute("method", "get");
+		    form.setAttribute("action", path);
+	
+		    document.body.appendChild(form);
+		    form.submit();
+		} 
+   	</script>
+   	
 </head>
 
 <body bgcolor="#ffffff" text="#000000">
 
+<header>
+		
+			<div id="header" align="center">
+				<div class="wrap">
+					
+					<div class="navi-icon">
+						<a href="/"><div class="logo"></div></a> 
+						<a href=javascript:post('/home/getIntroView');><div class="navi01"></div></a>
+						<a href=javascript:get('/home/getMapView');><div class="navi02"></div></a>
+						<a href=javascript:post('/home/getManageView');><div class="navi03"></div></a> 
+
+					</div>
+					<!-- 네비게이션 아이콘 -->
+				</div>
+				<!-- Wrap -->
+			</div>
+			
+		</header>
+		<br>
+		
+<br>
+<br>
+<br>
+<br>
+
 		<table width="100%" height="37" border="0" cellpadding="0"cellspacing="0">
 			<tr>
-				<td width="15" height="37"><img src="/resources/images/ct_ttl_img01.gif" width="15" height="37"></td>
-				<td background="/resources/images/ct_ttl_img02.gif" width="100%" style="padding-left:10px;">
-				<table width="100%" border="0" cellspacing="0" cellpadding="0">
-					<tr>
-						<td width="93%" class="ct_ttl01">맛집상세정보</td>
-						<td width="20%" align="right">&nbsp;</td>
-					</tr>
-				</table>
+				
+				<table width="100%" height="37" border="0" cellpadding="0" cellspacing="0">
+    	<tr>
+    		<div class="restaurantAdd_well"><i class="icon-edit"></i> 맛집상세정보</div>
+    	</tr>
+    </table>
 				</td>
-				<td width="12" height="37"><img src="/resources/images/ct_ttl_img03.gif" width="12" height="37"></td>
+				
 			</tr>
 		</table>
 		
@@ -119,7 +167,7 @@
 				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 			</tr>
 			<tr>
-				<td width="104" class="ct_write">상세위치-경도*</td>
+					<td width="104" class="ct_write">상세위치-경도<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 				<td bgcolor="D6D6D6" width="1"></td>
 				<td class="ct_write01">
 					<!-- 테이블 시작 -->
@@ -273,26 +321,29 @@
 						<td width="17" height="23">
 							<form name="getUpdateOwnerView" action="/restaurant/getUpdateRestaurantView" method="POST">
 								<input type="hidden" name="resId" value="${restaurant.resId}">
-								<input type="submit" value="맛집수정">
+								<input class="btn" type="submit" value="맛집수정">
 							</form>
 						</td>
 
 						<td width="17" height="23">
 							<form name="removeOwner" action="/restaurant/removeRestaurant" method="POST">
 								<input type="hidden" name="resId" value="${restaurant.resId}">
-								<input type="submit" value="맛집삭제">
+								<input class="btn" type="submit" value="맛집삭제">
 							</form>
 						</td>
 
 						
-						<td width="30"></td>	
+									<td width="3"></td>	
 
 
-						<td width="17" height="23"><img src="/resources/images/ct_btnbg01.gif" width="17" height="23"></td>
-						<td background="/resources/images/ct_btnbg02.gif" class="ct_btn01" style="padding-top:3px;">
+			<!--  뒤로가기대신 목록보기로 바꿈
+						<td class="btn" style="padding-top:3px;">
 							<a href="javascript:history.go(-1);">뒤로</a></td>
-						<td width="14" height="23"><img src="/resources/images/ct_btnbg03.gif" width="14" height="23"></td>
-						
+						-->
+						<form name=getRestaurantListView method="POST">
+						</form>
+						<td class="btn" style="padding-top:3px;">
+						<a href="javascript:post('/restaurant/getRestaurantListView');">맛집목록</a>
 
 					</tr>
 				</table>

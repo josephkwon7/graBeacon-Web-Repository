@@ -7,7 +7,9 @@
 <head>
 <title>맛집관리</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/resources/css/admin.css" type="text/css">
+<link rel="stylesheet" href="/resources/css/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="/resources/css/header.css" type="text/css">
+
 <script type="text/javascript">
 	function fncGetList(page) {
 		document.getElementById("currentPage").value = page;
@@ -41,6 +43,33 @@
 </head>
 
 <body bgcolor="#ffffff" text="#000000">
+
+<header>
+		
+			<div id="header" align="center">
+				<div class="wrap">
+					
+					<div class="navi-icon">
+						<a href="/"><div class="logo"></div></a> 
+						<a href=javascript:post('/home/getIntroView');><div class="navi01"></div></a>
+						<a href=javascript:get('/home/getMapView');><div class="navi02"></div></a>
+						<a href=javascript:post('/home/getManageView');><div class="navi03"></div></a> 
+
+					</div>
+					<!-- 네비게이션 아이콘 -->
+				</div>
+				<!-- Wrap -->
+			</div>
+			
+		</header>
+		
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
 	<div style="width: 98%; margin-left: 10px;">
 
 		<form name="detailForm" action="/restaurant/getRestaurantListView"
@@ -48,20 +77,9 @@
 			
 			<table width="100%" height="37" border="0" cellpadding="0"
 				cellspacing="0">
-				<tr>
-					<td width="15" height="37"><img src="/resources/images/ct_ttl_img01.gif"
-						width="15" height="37"></td>
-					<td background="/resources/images/ct_ttl_img02.gif" width="100%"
-						style="padding-left: 10px;">
-						<table width="100%" border="0" cellspacing="0" cellpadding="0">
-							<tr>
-								<td width="93%" class="ct_ttl01">맛집 목록</td>
-							</tr>
-						</table>
-					</td>
-					<td width="12" height="37"><img src="/resources/images/ct_ttl_img03.gif"
-						width="12" height="37"></td>
-				</tr>
+				
+				  <div class="restaurantList_well"><i class="icon-th"></i> 맛집 목록</div>
+				  
 			</table>
 
 			<table width="100%" border="0" cellspacing="0" cellpadding="0"
@@ -81,11 +99,8 @@
 					<td align="right" width="70">
 						<table border="0" cellspacing="0" cellpadding="0">
 							<tr>
-								<td width="17" height="23"><img	src="/resources/images/ct_btnbg01.gif" width="17" height="23"></td>
-								<td background="/resources/images/ct_btnbg02.gif" class="ct_btn01"
-									style="padding-top: 3px;"><a href="javascript:fncGetList('1');">검색</a></td>
-								<td width="14" height="23"><img
-									src="/resources/images/ct_btnbg03.gif" width="14" height="23"></td>
+								<button class="btn" type="button"><a href="javascript:fncGetList('1');">
+								<i class="icon-search"></i>검색</a></button>
 							</tr>
 						</table>
 					</td>
@@ -95,7 +110,7 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0"
 				style="margin-top: 10px;">
 				<tr>
-					<td colspan="11">전체${resultPage.totalCount }건수, 현재
+					<td colspan="11"><i class="icon-list-alt"></i>전체${resultPage.totalCount }건수, 현재
 						${resultPage.currentPage} 페이지</td>
 				</tr>
 				<tr>
@@ -196,8 +211,17 @@
 	</div>
 
 	<form action="/restaurant/getAddRestaurantView" method="POST">
-		<input type="submit" value="맛집추가">
+		<input class="btn" type="submit" value="맛집추가">
 	</form>
+	
+	<div align="right">
+	
+	<form name=logOut method="POST">
+		</form>
+		<a href="javascript:post('/admin/logoutAction');"><button class="btn">로그아웃</button></a>
+	
+	
+	</div>
 
 
 </body>
