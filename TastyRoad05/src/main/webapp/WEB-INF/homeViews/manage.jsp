@@ -5,8 +5,12 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>TastyRoad - 생활의 윤택함을 더하다</title>
 		<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+		<link rel="stylesheet" href="../../resources/css/header.css" type="text/css">
+        <link rel="stylesheet" href="../../resources/css/bootstrap.css" type="text/css">
+        
+		<title>TastyRoad - 생활의 윤택함을 더하다</title>
+		
 		
 		<script type="text/javascript">
 			function loginValidation(){
@@ -43,12 +47,35 @@
  
 	<body>
 	
-		<p>${message}
-		<form name=loginForm method="POST">
-			관리자ID : <input type="text" name="adminId" value=""><br/><br/>
-			패스워드 : <input type="password" name="password" value=""><br/><br/>
+	<header>
+	<div id="header" align="center">
+    
+			<div class="wrap">
+			
+				<div class="navi-icon">
+				
+						<a href="/"><div class="logo"></div></a> 
+						<a href=javascript:post('/home/getIntroView');><div class="navi01"></div></a>
+						<a href=javascript:post('/home/getMapView');><div class="navi02"></div></a>
+						<a href=javascript:post('/home/getManageView');><div class="navi03"></div></a> 
+
+			 	</div>
+					<!-- 네비게이션 아이콘 -->
+	  		</div>
+				<!-- Wrap -->
+	</div>
+	</header>
+	
+	
+		
+		<form class="login_area" name=loginForm method="POST">
+		
+        <div class="login_area_image"></div>
+			<input type="text" name="adminId" value="" placeholder="관리자 ID" style="height:30"><br/><br/>
+			<input type="password" name="password" value="" placeholder="패스워드" style="height:30"><br/><br/>
+            <a href="javascript:loginValidation();"><button class="btn btn-warning" type="button" style="width:206; height:40">로그인</button></a>
+            <p>${message}
 		</form>
-		<a href="javascript:loginValidation();"><button>로그인</button></a>
 	</body>
 	
 </html>
