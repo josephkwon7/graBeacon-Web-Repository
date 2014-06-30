@@ -7,7 +7,9 @@
 <head>
 	<title>비컨등록</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="/resources/css/admin.css" type="text/css">
+	<link rel="stylesheet" href="/resources/css/bootstrap.css" type="text/css">
+	<link rel="stylesheet" href="/resources/css/header.css" type="text/css">
+	
 	<script type="text/javascript">
 
 		function fncAddProduct(){
@@ -45,67 +47,71 @@
 		}
 				
 	</script>
+	
+	<script type="text/javascript">
+	   
+	   	function post(path) {
+	
+		    var form = document.createElement("form");
+		    form.setAttribute("method", "post");
+		    form.setAttribute("action", path);
+	
+		    document.body.appendChild(form);
+		    form.submit();
+		} 
+
+   	</script>
 
 
 </head>
 
-<body bgcolor="#ffffff" text="#000000">
+<body>
 
+		<header>
+		
+			<div id="header" align="center">
+				<div class="wrap">
+					
+					<div class="navi-icon">
+						<a href="/"><div class="logo"></div></a> 
+						<a href=javascript:post('/home/getIntroView');><div class="navi01"></div></a>
+						<a href=javascript:post('/home/getMapView');><div class="navi02"></div></a>
+						<a href=javascript:post('/home/getManageView');><div class="navi03"></div></a> 
+
+					</div>
+					<!-- 네비게이션 아이콘 -->
+				</div>
+				<!-- Wrap -->
+			</div>
+			
+		</header>
+		
+		<br><br><br><br><br>
+		
 <form name="detailForm" method="POST">
-	<table width="100%" height="37" border="0" cellpadding="0" cellspacing="0">
-		<tr>
-			<td width="15" height="37"><img src="/resources/images/ct_ttl_img01.gif"
-				width="15" height="37"></td>
-			<td background="/resources/images/ct_ttl_img02.gif" width="100%"
-				style="padding-left: 10px;">
-			<table width="100%" border="0" cellspacing="0" cellpadding="0">
-				<tr>
-					<td width="93%" class="ct_ttl01">비컨등록</td>
-					<td width="20%" align="right">&nbsp;</td>
-				</tr>
-			</table>
-			</td>
-			<td width="12" height="37"><img src="/resources/images/ct_ttl_img03.gif"
-				width="12" height="37"></td>
-		</tr>
-	</table>
+
+    <div class="restaurant_well"><i class="icon-plus"></i> 비컨등록</div>
 	
-	<table width="100%" border="0" cellspacing="0" cellpadding="0"
-		style="margin-top: 13px;">
-		<tr>
-			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-		</tr>
+	<table class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 13px;">
+    
 		<tr>
 			<td width="104" class="ct_write">UUID*</td>
-			<td bgcolor="D6D6D6" width="1"></td>
 			<td class="ct_write01">
-				<input type="text" name="uuId" class="ct_input_g" 
-				style="width: 100px; height: 19px" maxLength="20" 
-				value="${beacon.uuId==null?'':beacon.uuId}">
+				<input type="text" name="uuId" class="ct_input_g" style="width: 100px; height: auto" maxLength="20" value="${beacon.uuId==null?'':beacon.uuId}">
 			</td>
 		</tr>
-		<tr>
-			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-		</tr>
+        
 		<tr>
 			<td width="104" class="ct_write">Major*</td>
-			<td bgcolor="D6D6D6" width="1"></td>
 			<td class="ct_write01">
-				<input type="text" name="major" class="ct_input_g" 
-				style="width: 100px; height: 19px" maxLength="20" 
-				value="${beacon.major==0?'':beacon.major}">
+				<input type="text" name="major" class="ct_input_g" style="width: 100px; height: auto" maxLength="20" value="${beacon.major==0?'':beacon.major}">
 			</td>
 		</tr>
-		<tr>
-			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-		</tr>
+        
 		<tr>
 			<td width="104" class="ct_write">Minor*</td>
-			<td bgcolor="D6D6D6" width="1"></td>
 			<td class="ct_write01">
-				<input type="text" name="minor" class="ct_input_g" 
-				style="width: 100px; height: 19px" maxLength="20" 
-				value="${beacon.minor==0?'':beacon.minor}">
+				<input type="text" name="minor" class="ct_input_g" style="width: 100px; height: auto" maxLength="20" value="${beacon.minor==0?'':beacon.minor}">
 			</td>
 		</tr>
 
@@ -113,39 +119,17 @@
 	
 	<input type="hidden" name="resId" value="${beacon.resId}">
 	
-	<table width="100%" border="0" cellspacing="0" cellpadding="0"
-		style="margin-top: 10px;">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
 		<tr>
 			<td width="53%"></td>
 			<td align="right">
 			<table border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<td width="17" height="23"><img src="/resources/images/ct_btnbg01.gif"
-						width="17" height="23"></td>
-					<td background="/resources/images/ct_btnbg02.gif" class="ct_btn01"
-						style="padding-top: 3px;">
-						<a href="javascript:fncAddProduct();">등록</a></td>
-					<td width="14" height="23"><img src="/resources/images/ct_btnbg03.gif"
-						width="14" height="23"></td>
+					<button class="btn" type="button"><a href="javascript:fncAddProduct();">등록</a></button>
 	
-					<td width="10"></td>
-	
-					<td width="17" height="23"><img src="/resources/images/ct_btnbg01.gif"
-						width="17" height="23"></td>
-					<td background="/resources/images/ct_btnbg02.gif" class="ct_btn01"
-						style="padding-top: 3px;"><a href="javascript:resetData();">취소</a></td>
-					<td width="14" height="23"><img src="/resources/images/ct_btnbg03.gif"
-						width="14" height="23"></td>
+					<button class="btn" type="button"><a href="javascript:resetData();">취소</a></button>
 						
-					<td width="10"></td>
-						
-					<td width="17" height="23"><img src="/resources/images/ct_btnbg01.gif" 
-						width="17" height="23"></td>
-					<td background="/resources/images/ct_btnbg02.gif" class="ct_btn01" 
-						style="padding-top:3px;">
-						<a href="javascript:history.go(-1);">뒤로</a></td>
-					<td width="14" height="23"><img src="/resources/images/ct_btnbg03.gif" 
-						width="14" height="23"></td>
+					<button class="btn" type="button"><a href="javascript:history.go(-1);">뒤로</a></button>
 				</tr>
 			</table>
 			</td>
