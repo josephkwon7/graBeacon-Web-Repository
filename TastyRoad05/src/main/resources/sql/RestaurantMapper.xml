@@ -150,7 +150,7 @@
 				  			</if>
 				  		</where>
 			  		</if>
-		  			ORDER BY res_id
+		  			ORDER BY res_id DESC
 			  	)inner_table,(select @ROWNUM:=0) as R
 		
 		)inner_table2
