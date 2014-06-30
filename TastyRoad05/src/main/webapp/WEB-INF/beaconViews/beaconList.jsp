@@ -66,8 +66,6 @@
 			
 		</header>
 		
-		<br><br><br><br><br><br>
-		
 	<div style="width: 98%; margin-left: 10px;">
 <!-- 		<form name="detailForm" action="/beacon/listBeacon"
 			method="get" onsubmit="return false">
@@ -90,10 +88,10 @@
 
 				<tr class="ct_list_pop">
 					<td align="center">${beaconList.beaconId}</td>
-					<td align="left">${beaconList.uuId}</td>
-					<td align="left">${beaconList.major}</td>
-					<td align="left">${beaconList.minor}</td>
-					<td align="left">${beaconList.resId}</td>
+					<td align="center">${beaconList.uuId}</td>
+					<td align="center">${beaconList.major}</td>
+					<td align="center">${beaconList.minor}</td>
+					<td align="center">${beaconList.resId}</td>
 					<td align="center">
 						<a class="btn" href="javascript:post('/beacon/getUpdateBeaconView', {beaconId: '${beaconList.beaconId}'});" style="width:50">수정</a>
 						<a class="btn" href="javascript:post('/beacon/removeBeacon', {beaconId: '${beaconList.beaconId}', resId: '${beaconList.resId}'});" style="width:50">삭제</a>	
@@ -114,11 +112,11 @@
 			</c:forEach>
 		</table>
 
-
 		<%-- Restaurant List에서 바로 넘어왔을 경우에만 비콘추가 버튼이 보이게 함
 		- 바로 넘어 왔다면 search.searchCondition == 4 일 수 밖에 없음--%>
 		<c:if test="${search.searchCondition == 4}">
-			<form action="/beacon/getAddBeaconView" method="POST">
+			<form action="/beacon/getAddBeaconView" method="POST" align="right">
+			</br>
 				<input class="btn" type="submit" value="비콘추가">
 				<input type="hidden" name="resId" value="${search.searchKeyword}">
 			</form>
