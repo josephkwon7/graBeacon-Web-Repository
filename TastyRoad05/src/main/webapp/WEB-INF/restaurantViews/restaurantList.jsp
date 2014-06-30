@@ -70,9 +70,9 @@
 
 					<td align="right">
 					<select name="searchCondition" class="ct_input_g" style="width: 80px">
-							<option value="1" ${search.searchCondition=="1"?"SELECTED":""}>이름</option>
-							<option value="2" ${search.searchCondition=="2"?"SELECTED":""}>주소</option>
-							<option value="3" ${search.searchCondition=="3"?"SELECTED":""}>전화번호</option>
+							<option value="1" ${search.searchCondition=="1"?"SELECTED":""}>UUID</option>
+							<option value="2" ${search.searchCondition=="2"?"SELECTED":""}>Major</option>
+							<option value="3" ${search.searchCondition=="3"?"SELECTED":""}>Minor</option>
 					</select> 
 					<input type="text" name="searchKeyword"	value="${search.searchKeyword==null?'':search.searchKeyword}"
 						class="ct_input_g" style="width: 200px; height: 19px"></td>
@@ -180,8 +180,6 @@
 					
 				</c:forEach>
 			</table>
-
-
 
 			<!--  페이지 Navigator 시작 -->
 			<table width="100%" border="0" cellspacing="0" cellpadding="0"

@@ -42,9 +42,9 @@
 
 <body bgcolor="#ffffff" text="#000000">
 	<div style="width: 98%; margin-left: 10px;">
-<!-- 		<form name="detailForm" action="/beacon/listBeacon"
-			method="get" onsubmit="return false">
- -->
+ 		<form name="detailForm" action="/beacon/getBeaconList"
+			method="POST" onsubmit="return false">
+
 			<table width="100%" height="37" border="0" cellpadding="0"
 				cellspacing="0">
 				<tr>
@@ -62,10 +62,42 @@
 						width="12" height="37"></td>
 				</tr>
 			</table>
+			
+			<table width="100%" border="0" cellspacing="0" cellpadding="0"
+				style="margin-top: 10px;">
+				<tr>
+
+					<td align="right">
+					<select name="searchCondition" class="ct_input_g" style="width: 80px">
+							<option value="1" ${search.searchCondition=="1"?"SELECTED":""}>UUID</option>
+							<option value="2" ${search.searchCondition=="2"?"SELECTED":""}>Major</option>
+							<option value="3" ${search.searchCondition=="3"?"SELECTED":""}>Minor</option>
+					</select> 
+					<input type="text" name="searchKeyword"	
+						value="${(empty search.searchKeyword||search.searchCondition==4)?'':search.searchKeyword}"
+						class="ct_input_g" style="width: 200px; height: 19px"></td>
+
+
+					<td align="right" width="70">
+						<table border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="17" height="23"><img	src="/resources/images/ct_btnbg01.gif" width="17" height="23"></td>
+								<td background="/resources/images/ct_btnbg02.gif" class="ct_btn01"
+									style="padding-top: 3px;"><a href="javascript:fncGetList('1');">검색</a></td>
+								<td width="14" height="23"><img
+									src="/resources/images/ct_btnbg03.gif" width="14" height="23"></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
 
 		<table width="100%" border="0" cellspacing="0" cellpadding="0"
 			style="margin-top: 10px;">
-
+			<tr>
+				<td colspan="11">전체${resultPage.totalCount }건수, 현재
+					${resultPage.currentPage} 페이지</td>
+			</tr>
 			<tr>
 				<td class="ct_list_b" width="50">일련번호</td>
 				<td class="ct_line02"></td>
@@ -83,7 +115,6 @@
 				<td colspan="11" bgcolor="808285" height="1"></td>
 			</tr>
 
-			<%--  search 고객용 View 시작 --%>
 			<c:forEach var="beaconList" items="${beaconList}">
 
 				<tr class="ct_list_pop">
@@ -101,24 +132,28 @@
 						<a href="javascript:post('/beacon/getUpdateBeaconView', 
 						  {beaconId: '${beaconList.beaconId}'});">수정</a>
 						<a href="javascript:post('/beacon/removeBeacon', 
-						  {beaconId: '${beaconList.beaconId}', resId: '${beaconList.resId}'});">삭제</a>						<!--  
-						<form action="/beacon/getUpdateBeaconView" method="POST">
-							<input type="submit" value="수정">
-							<input type="hidden" name="beaconId" value="${beaconList.beaconId}">
-						</form>
-						<form action="/beacon/removeBeacon" method="POST">
-							<input type="submit" value="삭제">
-							<input type="hidden" name="beaconId" value="${beaconList.beaconId}">
-							<input type="hidden" name="resId" value="${beaconList.resId}">
-						</form>
-						-->
+						  {beaconId: '${beaconList.beaconId}', resId: '${beaconList.resId}'});">삭제</a>	
 					</td>
 				</tr>
 				<tr>
 					<td colspan="11" bgcolor="D6D7D6" height="1"></td>
 				</tr>
 			</c:forEach>
-		</table>
+			</table>
+
+			<!--  페이지 Navigator 시작 -->
+			<table width="100%" border="0" cellspacing="0" cellpadding="0"
+				style="margin-top: 10px;">
+				<tr>
+					<td align="center"><input type="hidden" id="currentPage"
+						name="currentPage" value="" /> 
+						<jsp:include page="../common/pageNavigator.jsp" />
+					</td>
+				</tr>
+			</table>
+			<!--  페이지 Navigator 끝 -->
+
+		</form>
 
 
 		<%-- Restaurant List에서 바로 넘어왔을 경우에만 비콘추가 버튼이 보이게 함
