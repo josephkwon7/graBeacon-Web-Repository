@@ -59,7 +59,13 @@
 						<a href=javascript:post('/home/getManageView');><div class="navi03"></div></a> 
 
 					</div>
-					<!-- 네비게이션 아이콘 -->
+				<div align="right">
+					<form name=logOut method="POST"></form>
+					<a href="javascript:post('/admin/logoutAction');">log-out<img
+						src="../resources/img/icon/logout.png"></a>
+
+				</div>
+				<!-- 네비게이션 아이콘 -->
 				</div>
 				<!-- Wrap -->
 			</div>
