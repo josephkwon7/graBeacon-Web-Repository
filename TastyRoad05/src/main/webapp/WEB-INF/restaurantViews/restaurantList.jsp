@@ -85,19 +85,21 @@
 				<tr>
 
 					<td align="right">
+					<div class="input-append">
 					<select name="searchCondition" class="ct_input_g" style="width: 80px">
 							<option value="1" ${search.searchCondition=="1"?"SELECTED":""}>이름</option>
 							<option value="2" ${search.searchCondition=="2"?"SELECTED":""}>주소</option>
 							<option value="3" ${search.searchCondition=="3"?"SELECTED":""}>전화번호</option>
 					</select> 
 					
-					<div class="input-append">
+					
 					<input type="text" name="searchKeyword"	value="${search.searchKeyword==null?'':search.searchKeyword}"
 						class="ct_input_g" style="width: 200px; height: 19px">
 					<button class="btn" type="button"><a href="javascript:fncGetList('1');">
 					<i class="icon-search"></i>검색</a></button>
-					</td>
 					</div>
+					</td>
+					
 				</tr>
 			</table>
 			
