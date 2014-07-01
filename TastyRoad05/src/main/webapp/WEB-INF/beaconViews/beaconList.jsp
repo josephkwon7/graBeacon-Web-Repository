@@ -60,7 +60,7 @@
 
 					</div>
 				<div align="right">
-					<form name=logOut method="POST"></form>
+				
 					<a href="javascript:post('/admin/logoutAction');">log-out<img
 						src="../resources/img/icon/logout.png"></a>
 
