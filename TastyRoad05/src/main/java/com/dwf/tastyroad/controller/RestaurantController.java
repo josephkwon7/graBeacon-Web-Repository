@@ -1,6 +1,7 @@
 package com.dwf.tastyroad.controller;
 
 import java.io.File;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -71,7 +72,7 @@ public class RestaurantController {
 	private static final String ID ="imageserver";
 	private static final String PASSWORD = "WeAre47th";
 	private static final String UPLOAD_DIR = "teamdwf";
-	
+	public static HashMap<String, File> fileMap = new HashMap<String, File>();
 	
 	///Constructor - default
 	public RestaurantController() {
@@ -138,7 +139,7 @@ public class RestaurantController {
 	///getAddRestaurantView 요청 처리 - 맛집 추가 요청
 	@RequestMapping(value="/addRestaurant", method=RequestMethod.POST)
 	//인자로 web client에서 모델 restaurant을 받음 
-	public ModelAndView addProductAction(
+	public ModelAndView addRestaurantAction(
 			@ModelAttribute("restaurant")Restaurant restaurant,
 			HttpServletRequest request,
 			HttpServletResponse response)throws Exception {
@@ -152,14 +153,13 @@ public class RestaurantController {
 		int max = 5* 640 * 480;
 		
 		MultipartRequest mpr = new MultipartRequest(request, fileDir1, max, "UTF-8", new DefaultFileRenamePolicy());
-		
 		Enumeration formNames = mpr.getFileNames();
 		
 		String fileInput = "";
 		String fileName = "";
 		String fileDir2 = "";
 		//ArrayList<File> fileList = new ArrayList<File>();
-		HashMap<String, File> fileMap = new HashMap<String, File>();
+		//HashMap<String, File> fileMap = new HashMap<String, File>();
 		
 		while(formNames.hasMoreElements()){
 			
@@ -222,9 +222,19 @@ public class RestaurantController {
 						break;
 				}//endOfSwith
 			}//endOfIf
+			
+						restaurant.setName(mpr.getParameter("name"));
+						restaurant.setAddr(mpr.getParameter("addr"));
+						restaurant.setPhone(mpr.getParameter("phone"));
+						restaurant.setLicenseNo(mpr.getParameter("licenseNo"));
+						restaurant.setGeoLat(Double.parseDouble(mpr.getParameter("geoLat")));
+						restaurant.setGeoLong(Double.parseDouble(mpr.getParameter("geoLong")));
+						restaurant.setCopyComment(mpr.getParameter("copyComment"));
+						restaurant.setResCategory(Integer.parseInt(mpr.getParameter("resCategory")));
+			
 		}//endOfWhile
 
-			
+		
 		FTPTransfer transfer = new FTPTransfer();
 		System.out.println("==============================ftp통신 시작=======================================");
 		transfer.FtpPut(SERVER_IP, PORT, ID, PASSWORD, UPLOAD_DIR, null, fileMap);
@@ -449,40 +459,40 @@ public class RestaurantController {
 //			throw e;  			
 //		}//end of catch 
 		
-//		//실제 맛집 추가 작업 수행 - DB에 upload된 데이터를 저장
-//		restaurantService.addRestaurant(restaurant);
-//
-//		//맛집 추가 작업 수행 후에 맛집 목록 화면 으로 자동 이동
-//		//return "forward:/restaurant/listRestaurant";
-//		
-//		//CurrentPage 초기값 1 set
-//		Search search = new Search();
-//		search.setCurrentPage(1);
-//		search.setPageSize(pageSize);
-//		
-//		//field에서 읽어온 pageSize set
-//		search.setPageSize(pageSize);		
-//		
-//		//DB에서 검색조건(초기에는 null)을 적용해 가져온 restaurant 목록 가져옴 
-//		List restaurantList = restaurantService.getRestaurantList(search);
-//		//Page instance 생성(게시판에 page navigation시 사용)
-//		Page resultPage = new Page( search.getCurrentPage(), restaurantService.getTotalCount(search), pageUnit, pageSize);
-//		
-//		//restaurant list를 console에 출력
-//		for(int i=0; i<restaurantList.size();i++){
-//			restaurant = (Restaurant) restaurantList.get(i);
-//			System.out.println("restaurant.toString()"+restaurant.toString()+"__");
-//		}
-//		
-//		//response에 전달할 model과 view를 담을 ModelAndView 인스턴스 생성
+		//실제 맛집 추가 작업 수행 - DB에 upload된 데이터를 저장
+		restaurantService.addRestaurant(restaurant);
+
+		//맛집 추가 작업 수행 후에 맛집 목록 화면 으로 자동 이동
+		//return "forward:/restaurant/listRestaurant";
+		
+		//CurrentPage 초기값 1 set
+		Search search = new Search();
+		search.setCurrentPage(1);
+		search.setPageSize(pageSize);
+		
+		//field에서 읽어온 pageSize set
+		search.setPageSize(pageSize);		
+		
+		//DB에서 검색조건(초기에는 null)을 적용해 가져온 restaurant 목록 가져옴 
+		List restaurantList = restaurantService.getRestaurantList(search);
+		//Page instance 생성(게시판에 page navigation시 사용)
+		Page resultPage = new Page( search.getCurrentPage(), restaurantService.getTotalCount(search), pageUnit, pageSize);
+		
+		//restaurant list를 console에 출력
+		for(int i=0; i<restaurantList.size();i++){
+			restaurant = (Restaurant) restaurantList.get(i);
+			System.out.println("restaurant.toString()"+restaurant.toString()+"__");
+		}
+		
+		//response에 전달할 model과 view를 담을 ModelAndView 인스턴스 생성
 		ModelAndView modelAndView = new ModelAndView();
 		//전달할 view set. 
 		//WEB-INF/restaurantViews/restaurantList.jsp를 전달(servlet-context.xml참조)
-		//modelAndView.setViewName("restaurantViews/restaurantList");
+		modelAndView.setViewName("restaurantViews/restaurantList");
 		//이하 3라인. 이름,객체 형태로 response에 전달
-		//modelAndView.addObject("restaurantList", restaurantList);
-		//modelAndView.addObject("resultPage", resultPage);
-		//modelAndView.addObject("search", search);
+		modelAndView.addObject("restaurantList", restaurantList);
+		modelAndView.addObject("resultPage", resultPage);
+		modelAndView.addObject("search", search);
 		
 		return modelAndView;
 	}
@@ -539,9 +549,12 @@ public class RestaurantController {
 			)throws Exception {
 
 		System.out.println("_______________________________________________");
-		System.out.println("==> /restaurant/addRestaurant__call !!!");
+		System.out.println("==> /restaurant/removeRestaurant__call !!!");
 		System.out.println("_______________________________________________");
 		
+
+		FTPTransfer transfer = new FTPTransfer();
+		transfer.delete(SERVER_IP, PORT, ID, PASSWORD, UPLOAD_DIR, restaurantService.getRestaurant(restaurant.getResId()));
 		restaurantService.removeRestaurant(restaurant.getResId());
 		
 		//CurrentPage 초기값 1 set
@@ -578,16 +591,16 @@ public class RestaurantController {
 	
 	class FTPTransfer{
 		
-		
+		FTPClient ftp = null;
+		int reply = 0;
+		boolean result = false;
 		
 		//여러개의 파일을 전송한다.
 	    public boolean FtpPut(String ip, int port, String id, String password, String uploaddir, String makedir, HashMap<String, File> fileMap) {
 	    
-	    	boolean result = false;
-	        FTPClient ftp = null;
 	        File uploadFile=null;
             FileInputStream fis = null;
-	        int reply = 0;
+	        
 	        
 			try {
 	            ftp = new FTPClient();
@@ -742,5 +755,95 @@ public class RestaurantController {
 	        
 	        return result;
 	    }
-	}
-}
+	    
+	    public boolean delete(String ip, int port, String id, String password, String deletedir, Restaurant restaurant) throws Exception {
+	    	System.out.println("delete 메소드로 들어왔다.");
+	    	ftp = new FTPClient();
+	    	String fileToDelete=null;
+	    
+	    	ftp.connect(ip, port);
+	    	reply = ftp.getReplyCode();
+	    	 if (!FTPReply.isPositiveCompletion(reply)) {
+	             System.out.println("Connect Failed......");   
+	    		 ftp.disconnect();
+	                return result;
+	         }
+	    	 
+	    	 boolean success=ftp.login(id, password);
+	    	 
+	    	 if(!success){
+	    		 System.out.println("Could not login to server......");
+	    		 return result;
+	    	 }
+	    	 
+	    	 System.out.println("restaurant.getImgSmall1() ==> "+restaurant.getImgSmall1());
+	    	 System.out.println("restaurant.getImgBig1() ==> "+restaurant.getImgBig1());
+	    	 System.out.println("restaurant.getImgBig2() ==> "+restaurant.getImgBig2());
+	    	 System.out.println("restaurant.getImgBig3() ==> "+restaurant.getImgBig3());
+	    	 System.out.println("restaurant.getImgMenu() ==> "+restaurant.getImgMenu());
+	    	 
+  	    	 HashMap<String, String> imgPathMapping = new HashMap<String, String>();
+  	    	 imgPathMapping.put("imgSmall1", restaurant.getImgSmall1());
+  	    	 imgPathMapping.put("imgBig1", restaurant.getImgBig1());
+  	     	 imgPathMapping.put("imgBig2", restaurant.getImgBig2());
+  	    	 imgPathMapping.put("imgBig3", restaurant.getImgBig3());
+  	     	 imgPathMapping.put("imgMenu", restaurant.getImgMenu());
+  	    	
+  	     	 System.out.println(imgPathMapping);
+  	     	 
+  	     	 Set<String> set = imgPathMapping.keySet();
+  	     	 System.out.println(set.toString());
+  	     	 String[]keys=set.toString().subSequence(1, set.toString().length()-1).toString().split(", ");
+  	     	 
+			 for(int i=0; i<imgPathMapping.size();i++){
+					System.out.println("FTP File 삭제를 위한 for 문 실행......");
+					
+					if(keys[i].equals("imgSmall1")){
+						fileToDelete = "/" + deletedir + "/" + imgPathMapping.get(keys[i]);
+						result=ftp.deleteFile(fileToDelete);
+						
+						if(result){
+				    		 System.out.println("Delete file from imageserver success......");
+				    		 
+				    	 }
+				    	 else{
+				    		System.out.println("Could not delete file from imageserver......"); 
+				    		return result;
+				    	 }
+					}
+					else if(keys[i].equals("imgBig1") ||
+							keys[i].equals("imgBig2") ||
+							keys[i].equals("imgBig3")){
+						
+							fileToDelete = "/" + deletedir + "/" + imgPathMapping.get(keys[i]);
+							result=ftp.deleteFile(fileToDelete);
+							
+							if(result){
+					    		 System.out.println("Delete file from imageserver success......");
+					    		 
+					    	 }
+					    	 else{
+					    		System.out.println("Could not delete file from imageserver......"); 
+					    		return result;
+					    	 }
+					}
+					
+					else if(keys[i].equals("imgMenu")){
+						fileToDelete = "/" + deletedir + "/" + imgPathMapping.get(keys[i]);
+						result=ftp.deleteFile(fileToDelete);
+						
+						if(result){
+				    		 System.out.println("Delete file from imageserver success......");
+				    		 
+				    	 }
+				    	 else{
+				    		System.out.println("Could not delete file from imageserver......"); 
+				    		return result;
+				    	 }
+					}//end Of IfStatement
+				 
+			 }//end Of ForStatement
+				return !result; 
+	    }//end Of Method
+	}//end Of InnerClass
+}//end Of Class
