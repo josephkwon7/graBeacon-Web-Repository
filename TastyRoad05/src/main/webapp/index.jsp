@@ -37,13 +37,7 @@
    	
 </head>
 <body>
-<br/>
-<br/>
- 
-<hr/> 
-<hr/> 
-<hr/>
-<hr/>
+
  <div class = "linebottom"></div>
 
 		<header>
