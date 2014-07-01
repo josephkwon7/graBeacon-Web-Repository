@@ -120,14 +120,17 @@
 
 		<%-- Restaurant List에서 바로 넘어왔을 경우에만 비콘추가 버튼이 보이게 함
 		- 바로 넘어 왔다면 search.searchCondition == 4 일 수 밖에 없음--%>
-		<c:if test="${search.searchCondition == 4}">
-			<form action="/beacon/getAddBeaconView" method="POST" align="right">
-			</br>
-				<input class="btn" type="submit" value="비콘추가">
-				<input type="hidden" name="resId" value="${search.searchKeyword}">
-			</form>
-		</c:if>
-
+		<table>
+			<c:if test="${search.searchCondition == 4}">
+				<form action="/beacon/getAddBeaconView" method="POST" align="right">
+					</br> <input class="btn" type="submit" value="비콘추가"> <input
+						type="hidden" name="resId" value="${search.searchKeyword}">
+				</form>
+				<form name=getRestaurantListView method="POST"></form>
+				<a class="btn"
+					href="javascript:post('/restaurant/getRestaurantListView');">맛집목록</a>
+			</c:if>
+		</table>
 	</div>
 </body>
 </html>
