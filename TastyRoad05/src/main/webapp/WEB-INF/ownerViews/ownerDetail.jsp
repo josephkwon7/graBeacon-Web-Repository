@@ -19,14 +19,12 @@
 	</script>
 	-->
 	
-	
 	<style type="text/css">
 	.submittable{
 	margin-top : 20px;
 	margin-left : 730px;
 	}
 	</style>
-	
 	
 <script type="text/javascript">
 	   
@@ -51,22 +49,11 @@
 		} 
    	</script>
 	
-	
 </head>
 
 <body>
 
-
-
-
-<br/>
-<br/>
- 
-<hr/> 
-<hr/>
-<hr/>
-<header>
-		
+	<header>
 			<div id="header" align="center">
 				<div class="wrap">
 					
@@ -89,95 +76,56 @@
 			</div>
 			
 		</header>
-		
-		
 
-
-		<table width="100%" height="37" border="0" cellpadding="0" cellspacing="0">
-		
-            
-              <tr>
-              	<div class="restaurantAdd_well"><i class="icon-plus"></i>점주조회</div>
-              </tr>
-       
-	</table>
-		
-		 
+		<div class="restaurant_well"><i class="icon-plus"></i>점주조회</div>
 		
 	<c:if test="${owner.ownerId != 0}">	
 		
-		<table  class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:13px;">
-			<tr>
-				<td height="1" colspan="4" ></td>
-			</tr>
+		<table class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:13px;">
+
 			<tr>
 				<td width="104" class="ct_write">점주번호 </td>
-				<td ></td>
 				<td class="ct_write01">
-				
-				
-								${owner.ownerId==null?'':owner.ownerId}
-						
+					${owner.ownerId==null?'':owner.ownerId}
 				</td>
 			</tr>
-			<tr>
-				<td ></td>
-			</tr>
+			
 			<tr>
 				<td class="ct_write">맛집이름<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
-				<td ></td>
 				<td class="ct_write01">
 					${owner.name==null?'':owner.name}
 				</td>
 			</tr>
-			<tr>
-				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-			</tr>
+			
 			<tr>
 				<td class="ct_write">전화번호</td>
-				<td ></td>
 				<td class="ct_write01">
 					${owner.phone==null?'':owner.phone}
 				</td>
 			</tr>
-			<tr>
-				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-			</tr>
+			
 			<tr>
 				<td class="ct_write">주소</td>
-				<td ></td>
 				<td class="ct_write01">
 					${owner.addr==null?'':owner.addr}
 				</td>
 			</tr>
-			<tr>
-				<td height="1" colspan="3" ></td>
-			</tr>
+			
 			<tr>
 				<td class="ct_write">이메일</td>
-				<td ></td>
 				<td class="ct_write01">
-					<!-- 테이블 시작 -->
-				
-								${owner.email==null?'':owner.email}
-						
+					${owner.email==null?'':owner.email}
 				</td>
 			</tr>
-			<tr>
-				 
-			</tr>
+			
 			<tr>
 				<td  class="ct_write">맛집번호</td>
-				<td width="1"></td>
 				<td class="ct_write01">
 					${owner.resId==null?'':owner.resId}
 				</td>
 			</tr>
-			<tr>
-				<td ></td>
-			</tr>
+			
 		</table>
-		
 		
 	</c:if>
 	
@@ -213,7 +161,7 @@
 									</td>
 							</c:if>
 			 
-						<td >
+					<td>
 						
 							<!--  
 							<a href="javascript:fncMoveBackward();">맛집목록</a></td>
@@ -227,7 +175,8 @@
 						 <a href="javascript:history.go(-1);" >뒤로</a> </td>
 			  -->
 						
-
+					</td>
+					
 					</tr>
 				</table>
 		 
