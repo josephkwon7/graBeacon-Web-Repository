@@ -69,12 +69,10 @@ body{
 #main-reference{
 	width:984px;
 	height:320px;
-	margin:410px auto 5px auto;
+	margin:489px auto 5px auto;
 	background:url(../img/design/main_guide.png);
-	background-color:#fff;
 	border:1px solid #999;
 	border-radius:5px;
-	text-align:left;
 }
 
 /* 첫 번째 블럭 칸 영역 */
