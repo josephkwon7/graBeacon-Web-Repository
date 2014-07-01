@@ -99,14 +99,18 @@
 		    form.submit();
 		} 
    	</script>
+	
    	
+
+
 </head>
 
 <body>
 
-<form name="detailForm" method="POST" enctype="multipart/form-data">
+
 	
-		<header>
+	<header>
+		
 			<div id="header" align="center">
 				<div class="wrap">
 					
@@ -115,122 +119,177 @@
 						<a href=javascript:post('/home/getIntroView');><div class="navi01"></div></a>
 						<a href=javascript:get('/home/getMapView');><div class="navi02"></div></a>
 						<a href=javascript:post('/home/getManageView');><div class="navi03"></div></a> 
+
 					</div>
 					
+					<!-- 충돌
 					<div align="right">
+					<form name=logOut method="POST"></form>
 					<a href="javascript:post('/admin/logoutAction');">log-out<img
 						src="../resources/img/icon/logout.png"></a>
-					</div>
+
 				</div>
+				 -->
+									<!-- 네비게이션 아이콘 -->
+				</div>
+				
+				<!-- Wrap -->
 			</div>
-		</header>
-
-	<!--  hidden parameter for update -->
-	<input type="hidden" name="resId" value="${restaurant.resId}">
+			
 	
-    <div class="restaurant_well"><i class="icon-edit"></i> 맛집정보수정</div>
+		</header>
+	
+<form name="detailForm" method="POST" enctype="multipart/form-data">
+	<!--  hidden parameter for update -->
+	${restaurant.resId}
+	<input type="hidden" name="resId" value="${restaurant.resId}"></input>
+	
+    		<div class="restaurant_well"><i class="icon-edit"></i> 맛집정보수정</div>
+    	
 
-	<table class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0"
+	<table width="100%" border="0" cellspacing="0" cellpadding="0"
 		style="margin-top: 13px;">
 		<tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8px" height="8px" align="absmiddle">맛집이름</td>
-			
+			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+		</tr>
+		<tr>
+			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+		</tr>
+		<tr>
+			<td width="104" class="ct_write">맛집이름<img
+				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
+			<td bgcolor="D6D6D6" width="1"></td>
 			<td class="ct_write01"><input type="text" name="name" value="${restaurant.name==null?'':restaurant.name}"
 				class="ct_input_g" style="width: 250px; height: auto;" maxLength="10"
-				minLength="6"></td>
+				minLength="6"></input></td>
 		</tr>
-		
 		<tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8px" height="8px" align="absmiddle">주소</td>
-			
+			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+		</tr>
+		<tr>
+			<td width="104" class="ct_write">주소<img
+				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
+			<td bgcolor="D6D6D6" width="1"></td>
 			<td class="ct_write01"><input type="text" name="addr" value="${restaurant.addr==null?'':restaurant.addr}"
-				class="ct_input_g" style="width: 250px; height: auto;" maxLength="10"
-				minLength="6"></td>
+				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
+				minLength="6"></input></td>
 		</tr>
-		
 		<tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8px" height="8px" align="absmiddle">전화번호</td>
-			
+			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+		</tr>
+		<tr>
+			<td width="104" class="ct_write">전화번호<img
+				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
+			<td bgcolor="D6D6D6" width="1"></td>
 			<td class="ct_write01"><input type="text" name="phone" value="${restaurant.phone==null?'':restaurant.phone}"
 				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
-				minLength="6"></td>
+				minLength="6"></input></td>
 		</tr>
-		
 		<tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8px" height="8px" align="absmiddle">사업자 등록번호</td>
-			
+			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+		</tr>
+		<tr>
+			<td width="104" class="ct_write">사업자 등록번호<img
+				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
+			<td bgcolor="D6D6D6" width="1"></td>
 			<td class="ct_write01"><input type="text" name="licenseNo" value="${restaurant.licenseNo==null?'':restaurant.licenseNo}"
 				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
-				minLength="6"></td>
+				minLength="6"></input></td>
 		</tr>
-		
 		<tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8px" height="8px" align="absmiddle">상세위치-위도</td>
-			
+			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+		</tr>
+		<tr>
+			<td width="104" class="ct_write">상세위치-위도<img
+				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
+			<td bgcolor="D6D6D6" width="1"></td>
 			<td class="ct_write01"><input type="text" name="geoLat" value="${restaurant.geoLat==0?'':restaurant.geoLat}"
 				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
-				minLength="6"></td>
+				minLength="6"></input></td>
 		</tr>
-		
 		<tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8px" height="8px" align="absmiddle">상세위치-경도</td>
-			
+			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+		</tr>
+		<tr>
+			<td width="104" class="ct_write">상세위치-경도<img
+				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
+			<td bgcolor="D6D6D6" width="1"></td>
 			<td class="ct_write01"><input type="text" name="geoLong" value="${restaurant.geoLong==0?'':restaurant.geoLong}"
 				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
-				minLength="6"></td>
+				minLength="6"></input></td>
 		</tr>
-		
 		<tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8px" height="8px" align="absmiddle">메인이미지1</td>
-			
-			<td class="ct_write01"><input type="file" name="imgSmall1"
-				class="ct_input_g2" style="width: 250px; height: auto" maxLength="10"
-				minLength="6"></td>
+			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 		</tr>
-		
 		<tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8px" height="8px" align="absmiddle">상세이미지1</td>
-			
-			<td class="ct_write01"><input type="file" name="imgBig1"
+			<td width="104" class="ct_write">메인이미지1<img
+				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
+			<td bgcolor="D6D6D6" width="1"></td>
+			<td class="ct_write01"><input type="file" name="imgSmall1" 
 				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
-				minLength="6"></td>
+				minLength="6"></input></td>
 		</tr>
-		
 		<tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8px" height="8px" align="absmiddle">상세이미지2</td>
-			
-			<td class="ct_write01"><input type="file" name="imgBig2"
-				class="ct_input_g2" style="width: 250px; height: auto" maxLength="10"
-				minLength="6"></td>
+			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 		</tr>
-		
 		<tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8px" height="8px" align="absmiddle">상세이미지3</td>
-			
-			<td class="ct_write01"><input type="file" name="imgBig3"
+			<td width="104" class="ct_write">상세이미지1<img
+				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
+			<td bgcolor="D6D6D6" width="1"></td>
+			<td class="ct_write01"><input type="file" name="imgBig1" 
 				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
-				minLength="6"></td>
+				minLength="6"></input></td>
+		</tr>		<tr>
+			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 		</tr>
-		
 		<tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8px" height="8px" align="absmiddle">메뉴이미지</td>
-			
-			<td class="ct_write01"><input type="file" name="imgMenu"
-				class="ct_input_g2" style="width: 250px; height: auto" maxLength="10"
-				minLength="6"></td>
+			<td width="104" class="ct_write">상세이미지2<img
+				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
+			<td bgcolor="D6D6D6" width="1"></td>
+			<td class="ct_write01"><input type="file" name="imgBig2" 
+				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
+				minLength="6"></input></td>
 		</tr>
-		
 		<tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8px" height="8px" align="absmiddle">광고문구</td>
-			
+			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+		</tr>
+		<tr>
+			<td width="104" class="ct_write">상세이미지3<img
+				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
+			<td bgcolor="D6D6D6" width="1"></td>
+			<td class="ct_write01"><input type="file" name="imgBig3" 
+				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
+				minLength="6"></input></td>
+		</tr>
+		<tr>
+			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+		</tr>
+		<tr>
+			<td width="104" class="ct_write">메뉴이미지<img
+				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
+			<td bgcolor="D6D6D6" width="1"></td>
+			<td class="ct_write01"><input type="file" name="imgMenu" 
+				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
+				minLength="6"></input></td>
+		</tr>
+		<tr>
+			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+		</tr>
+		<tr>
+			<td width="104" class="ct_write">광고문구<img
+				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
+			<td bgcolor="D6D6D6" width="1"></td>
 			<td class="ct_write01"><input type="text" name="copyComment" value="${restaurant.copyComment==null?'':restaurant.copyComment}"
 				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
-				minLength="6"></td>
+				minLength="6"></input></td>
 		</tr>
-		
 		<tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8px" height="8px" align="absmiddle">맛집분류</td>
-			
+			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+		</tr>
+		<tr>
+			<td width="104" class="ct_write">맛집분류<img
+				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
+			<td bgcolor="D6D6D6" width="1"></td>
 			<td class="ct_write01">
 				<select name="resCategory" class="ct_input_g" style="width: 165px; height: auto">
 				  <option value="1" <c:if test="${restaurant.resCategory}==1">selected</c:if>>한식</option>
@@ -241,6 +300,10 @@
 				</select>
 			</td>
 		</tr>
+		<tr>
+			<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+		</tr>
+
 	</table>
 
 	<table width="100%" border="0" cellspacing="0" cellpadding="0"

@@ -117,7 +117,7 @@
 
 					</div>
 				<div align="right">
-					
+					<form name=logOut method="POST"></form>
 					<a href="javascript:post('/admin/logoutAction');">log-out<img
 						src="../resources/img/icon/logout.png"></a>
 
@@ -137,7 +137,7 @@
 		
 		<tr></tr>
 		<tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8px" height="8px" align="absmiddle">맛집이름</td>
+			<td width="104" class="ct_write">맛집이름<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			<td class="ct_write01">
 			<input type="text" name="name" class="ct_input_g" style="width: 400px; 
 			height: 19px" maxLength="20">
@@ -145,7 +145,7 @@
 		</tr>
 		
 		<tr></tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8px" height="8px" align="absmiddle">주소</td>
+			<td width="104" class="ct_write">주소<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			<td class="ct_write02">
 			<input type="text" name="addr" class="ct_input_g" style="width: 400px; 
 			height: 19px" maxLength="30">
@@ -153,7 +153,7 @@
 		</tr>
 		
 		<tr></tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8px" height="8px" align="absmiddle">전화번호</td>
+			<td width="104" class="ct_write">전화번호<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			<td class="ct_write01">
 			<input type="text" name="phone" class="ct_input_g" 
 			style="width: 400px; height: 19px" maxLength="13">
@@ -169,7 +169,7 @@
 		</tr>
 		
 		<tr></tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8px" height="8px" align="absmiddle">상세위치-위도</td>
+			<td width="104" class="ct_write">상세위치-위도<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			<td class="ct_write01">
 			<input type="text" name="geoLat"
 			class="ct_input_g" style="width: 400px;  height: 19px" maxLength="13"></input>
@@ -177,68 +177,63 @@
 		</tr>
 		
 		<tr></tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8px" height="8px" align="absmiddle">상세위치-경도</td>
+			<td width="104" class="ct_write">상세위치-경도<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			<td class="ct_write02">
 			<input type="text" name="geoLong"
 			class="ct_input_g" style="width: 400px; height: 19px" maxLength="13"></input>
 			</td>
 		</tr>
 		
-		<tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8px" height="8px" align="absmiddle">메인이미지1</td>
+		<tr></tr>
+			<td width="104" class="ct_write">메인이미지1<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			<td class="ct_write01">
 			<input type="file" name="imgSmall1"
-			class="ct_input_g2" style="width: 100%; height: auto" maxLength="10"
-				minLength="6"></input>
+			class="ct_input_g" style="width: 100%;"></input>
 			</td>
 		</tr>
 		
-		<tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8px" height="8px" align="absmiddle">상세이미지1</td>
-			<td class="ct_write01">
+		<tr></tr>
+			<td width="104" class="ct_write">상세이미지1<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
+			<td class="ct_write02">
 			<input type="file" name="imgBig1"
-			class="ct_input_g" style="width: 100%; height: auto" maxLength="10"
-				minLength="6"></input>
+			class="ct_input_g02" style="width: 100%;"></input>
 			</td>
 		</tr>
 		
-		<tr>
+		<tr></tr>
 			<td width="104" class="ct_write">상세이미지2</td>
 			<td class="ct_write01">
 			<input type="file" name="imgBig2"
-			class="ct_input_g2" style="width: 100%; height: auto" maxLength="10"
-				minLength="6"></input>
+			class="ct_input_g" style="width: 100%;"></input>
 			</td>
 		</tr>
 		
-		<tr>
+		<tr></tr>
 			<td width="104" class="ct_write">상세이미지3</td>
-			<td class="ct_write01">
+			<td class="ct_write02">
 			<input type="file" name="imgBig3"
-			class="ct_input_g" style="width: 100%; height: auto" maxLength="10"
-				minLength="6"></input>
+			class="ct_input_g02" style="width: 100%;"></input>
 			</td>
 		</tr>
 		
-		<tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8px" height="8px" align="absmiddle">메뉴이미지</td>
+		<tr></tr>
+			<td width="104" class="ct_write">메뉴이미지<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			<td class="ct_write01">
 			<input type="file" name="imgMenu"
-			class="ct_input_g2" style="width: 100%; height: auto" maxLength="10"
-				minLength="6"></input>
+			class="ct_input_g" style="width: 100%;"></input>
 			</td>
 		</tr>
 		
-		<tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8px" height="8px" align="absmiddle">광고문구</td>
-			<td class="ct_write01">
+		<tr></tr>
+			<td width="104" class="ct_write">광고문구<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
+			<td class="ct_write02">
 			<input type="text" name="copyComment"
 			class="ct_input_g" style="width: 400px; height: 19px" maxLength="30"></input>
 			</td>
 		</tr>
 		
-		<tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8px" height="8px" align="absmiddle">맛집분류</td>
+		<tr></tr>
+			<td width="104" class="ct_write">맛집분류<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			<td class="ct_write01">
 				<select name="resCategory" class="ct_input_g" style="width: 410px; ">
 				  <option value="1">한식</option>
