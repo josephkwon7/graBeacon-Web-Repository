@@ -99,10 +99,7 @@
 		    form.submit();
 		} 
    	</script>
-	
    	
-
-
 </head>
 
 <body>
