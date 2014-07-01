@@ -6334,4 +6334,12 @@ select {border:1x solid #ADAEAD; color:#777777; background-color:#ffffff; font-f
 	border:1px solid #d0d0d0;
 	border-radius:5px;
 }
+
+.asta_icon{
+	position:relative;
+	width:8px;
+	height:8px;
+	margin:0 0 0 0;
+	background-image: url("/resources/img/icon/asta.png") no-repeat;
+}
 	
