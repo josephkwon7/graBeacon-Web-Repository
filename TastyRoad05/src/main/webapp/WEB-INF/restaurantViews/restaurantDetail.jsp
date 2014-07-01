@@ -67,8 +67,6 @@
 			
 		</header>
 		
-    	<div class="restaurant_well"><i class="icon-edit"></i> 맛집상세정보</div>
-		
 		<div class="restaurant_well"><i class="icon-edit"></i> 맛집상세정보</div>
 		
 		<table class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:13px;">
