@@ -1100,7 +1100,7 @@ input[type="color"],
   display: inline-block;
   height: 20px;
   padding: 4px 6px;
-  margin-bottom: 10px;
+  margin-bottom: 0;
   font-size: 14px;
   line-height: 20px;
   color: #555555;
@@ -2015,7 +2015,7 @@ table {
 
 .table th,
 .table td {
-  padding: 5px 0 0 0;
+  padding: 8px 0 0 0;
   line-height: 30px;
   text-align: center;
   vertical-align: top;
@@ -6251,9 +6251,9 @@ a:clicked   {font-size: 9pt; color: #000000; text-decoration: none; font-family:
 .ct_input      {font-size:9pt; border:1x solid #468720; color:#777777; background-color:#ffffff; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; padding-top:2px}
 
 /* ct_input_g는 이미지 업로드용 버튼 영역인데 특정 영역의 색상이 고정되어있으므로 횡마다 컬러를 달리 하기 위하여 ct_input_g02를 추가함 */
-.ct_input_g    {font-size:9pt; border:1x solid #ADAEAD; color:#777777; background-color:#ffffff; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; padding-top:0px}
+.ct_input_g    {font-size:9pt; border:1x solid #ADAEAD; color:#777777; background-color:#ffffff; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; padding-top:0px; vertical-align: center;}
 
-.ct_input_g02    {font-size:9pt; border:1x solid #ADAEAD; color:#777777; background-color:#f5f5f5; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; padding-top:0px}
+.ct_input_g2    {font-size:9pt; border:1x solid #ADAEAD; color:#777777; background-color:#ededed; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; padding-top:0px}
 
 .ct_input_bg    {font-size:9pt; border:1x solid #ADAEAD; color:#777777; background-color:#dddddd; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; padding-top:2px}
 
@@ -6263,7 +6263,7 @@ select {border:1x solid #ADAEAD; color:#777777; background-color:#ffffff; font-f
 					border-bottom:solid 1px #CCC; background-color:d0d0d0;}
 
 /* ct_write02 추가 : 부트스트랩 CSS 테이블 타입중 행마다 컬러를 달리 주어주는 것이 있는데 횡렬 타입의 테이블에서는 먹히지 않기 때문에 ct_write를 이용하여 강제로 주어줌) */
-.ct_write01        {font-size: 9pt; color: #565656; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; padding:10px 0 0 10px; border-bottom:solid 1px #CCC;}
+.ct_write01        {font-size: 9pt; color: #565656; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; padding:10px 0 10px 10px; border-bottom:solid 1px #CCC;}
 
 .ct_write02        {font-size: 9pt; background-color:#f5f5f5; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; padding:10px 0 0 10px; border-bottom:solid 1px #CCC;}
 
@@ -6330,7 +6330,7 @@ select {border:1x solid #ADAEAD; color:#777777; background-color:#ffffff; font-f
 	height:250px;
 	margin:0 0 0 220px;
 	/*background-image:url("/resources/img/design/login_area_image.png");*/
-	background-image:url("/resources/img/design/login_icon.png");
+	background-image:url("/resources/img/design/bicLogo.png");
 	border:1px solid #d0d0d0;
 	border-radius:5px;
 }
