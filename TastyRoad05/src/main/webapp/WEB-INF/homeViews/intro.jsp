@@ -9,9 +9,9 @@
 <head>
 <title>DWF - 생활의 윤택함을 더하다</title>
 
-<link rel="stylesheet" media="all" href="../resources/css/intro.css">
-<link rel="stylesheet" type="text/css" href="../resources/css/header.css">
-<link rel="stylesheet" type="text/css" href="../resources/css/footer.css">
+<link rel="stylesheet" media="all" href="../../resources/css/intro.css">
+<link rel="stylesheet" type="text/css" href="../../resources/css/header.css">
+<link rel="stylesheet" type="text/css" href="../../resources/css/footer.css">
 
 <script type="text/javascript">
 	   
@@ -74,6 +74,7 @@
     
     <div class="orange_line2"></div>
     
+    <div id="intro_contact_box">
     <div class="intro_contact_text">
     	Contact Us</br>
         TEAM D.W.F</br>
@@ -82,6 +83,7 @@
     </div>
     
     <div class="intro_contact_image"></div>
+    </div>
 
 <!--
 	<footer id="footer">
