@@ -118,21 +118,21 @@
 			<tr>
 				<td width="104" class="ct_write">주소</td>
 				<td class="ct_write01"><input type="text" name="addr"
-					class="ct_input_g" style="width: 100px; height: 19px"
+					class="ct_input_g" style="width: 250px; height: 19px"
 					maxLength="20" value="${owner.addr}"></td>
 			</tr>
 			
 			<tr>
 				<td width="104" class="ct_write">전화번호</td>
 				<td class="ct_write01"><input type="text" name="phone"
-					class="ct_input_g" style="width: 100px; height: 19px"
+					class="ct_input_g" style="width: 250px; height: 19px"
 					maxLength="20" value="${owner.phone}"></td>
 			</tr>
 			
 			<tr>
 				<td width="104" class="ct_write">이메일</td>
 				<td class="ct_write01"><input type="text" name="email"
-					class="ct_input_g" style="width: 100px; height: 19px"
+					class="ct_input_g" style="width: 250px; height: 19px"
 					maxLength="20" value="${owner.email}"></td>
 			</tr>
 		</table>
