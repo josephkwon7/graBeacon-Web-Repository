@@ -1,5 +1,31 @@
+@charset "utf-8";
+/* CSS Document */
 
-.title.-typecompany {
+/* float 배치는 css float 자체에 버그가 있기 때문에 clear:both; 로 float을 초기화하여 버그를 해결할 수 있음 */
+
+/* 모든 태그 여백을 0으로 초기화시켜 프로그래밍 중간 중간에 발생하는 배치 어긋남 현상을 해소하려는 의도로 보임 */
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button{margin:0;padding:0}
+
+body{-webkit-text-size-adjust:none}
+
+body{background-color:#fff}
+
+body,th,td,input,select,textarea,button{font-size:15px;line-height:1.5;font-family:'Nanum Gothic','Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif;color:#444}
+
+body:lang(ja),th:lang(ja),td:lang(ja),input:lang(ja),select:lang(ja),textarea:lang(ja),button:lang(ja){font-family:'Hiragino Kaku Gothic ProN','Meiryo','Nanum Gothic','Malgun Gothic','맑은 고딕',dotum,'돋움','sans-serif'}
+
+body{background:#fff}
+
+/*본문 바디 영역 */
+body{ 
+	width:1024px;
+	height:auto;
+	margin:0 auto;
+	border:1px solid #ffffff;
+}
+
+.title .-typecompany {
     height: auto;
     border: none;
     background: none;
