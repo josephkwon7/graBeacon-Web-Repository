@@ -2181,13 +2181,13 @@ div.mousescroll:hover {
 						            /* main slider carousel items */
 						            "<div class=\"carousel-inner\">"+
 						              "<div class=\"active item\" data-slide-number=\"0\">"+
-						                "<img  src = \"../resources/img/"+marker.itemPicturePath1+"\" style=\"width: 640px; height:480;\">"+
+						                "<img  src = \"http://imageserver.iisweb.kr/teamdwf/"+marker.itemPicturePath1+"\" style=\"width: 640px; height:480;\">"+
 						              "</div>"+
 						              "<div class=\"item\" data-slide-number=\"1\">"+
-						              	"<img  src = \"../resources/img/"+marker.itemPicturePath2+"\" style=\"width: 640px; height:480;\">"+
+						              	"<img  src = \"http://imageserver.iisweb.kr/teamdwf/"+marker.itemPicturePath2+"\" style=\"width: 640px; height:480;\">"+
 					                  "</div>"+
 						              "<div class=\"item\" data-slide-number=\"2\">"+
-						                "<img  src = \"../resources/img/"+marker.itemPicturePath3+"\" style=\"width: 640px; height:480;\">"+
+						                "<img  src = \"http://imageserver.iisweb.kr/teamdwf/"+marker.itemPicturePath3+"\" style=\"width: 640px; height:480;\">"+
 						              "</div>"+						            
 						             	
 						              
