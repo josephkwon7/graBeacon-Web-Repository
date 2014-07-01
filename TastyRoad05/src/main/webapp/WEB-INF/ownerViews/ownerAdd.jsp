@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="/resources/css/header.css" type="text/css">
 <link rel="stylesheet" href="/resources/css/bootstrap.css"
 	type="text/css">
+	
 <script type="text/javascript">
 	function fncAddProduct() {
 		//Form 유효성 검증
@@ -53,7 +54,7 @@
 }
 </style>
 
-</head>
+
 
 <script type="text/javascript">
 	function post(path) {
@@ -84,12 +85,16 @@
 		<div id="header" align="center">
 			<div class="wrap">
 
+			
+				
 				<div class="navi-icon">
-					<a href="/"><div class="logo"></div></a> <a href=javascript:post('/home/getIntroView');><div
-							class="navi01"></div></a> <a href=javascript:get('/home/getMapView');><div
-							class="navi02"></div></a> <a href=javascript:post('/home/getManageView');><div
-							class="navi03"></div></a>
-				</div>
+						<a href="/"><div class="logo"></div></a> 
+						<a href=javascript:post('/home/getIntroView');><div class="navi01"></div></a>
+						<a href=javascript:get('/home/getMapView');><div class="navi02"></div></a>
+						<a href=javascript:post('/home/getManageView');><div class="navi03"></div></a> 
+
+					</div>
+					
 				<div align="right">
 
 					<a href="javascript:post('/admin/logoutAction');">log-out<img
@@ -103,8 +108,11 @@
 	</header>
 	
 	<!--<c:out value="${owner}"/>-->
-
+<c:out value="${owner}"/>
 		<div class="restaurant_well2">점주등록</div>
+
+
+<form name="detailForm" method="POST">
 
 		<table class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0"
 			style="margin-top: 13px;">
