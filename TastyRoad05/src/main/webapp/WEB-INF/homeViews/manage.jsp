@@ -56,6 +56,17 @@
 	
 	   	</script>
 		
+		<style type="text/css">
+	
+	.welcome{
+	background-color : #33dvdv;
+	text-align: center;
+	font-weight:bold;
+	}
+	</style>
+	
+		
+		
 	</head>
  
 	<body>
@@ -87,7 +98,7 @@
 			<input type="text" name="adminId" value="" placeholder="관리자 ID" style="height:30"><br/><br/>
 			<input type="password" name="password" value="" placeholder="패스워드" style="height:30" onkeypress="if(event.keyCode==13){javascript:loginValidation();return false;}"><br/><br/>
             <a href="javascript:loginValidation();"><button class="btn btn-warning" type="button" style="width:206; height:40">로그인</button></a>
-            <p>${message}
+            <p class="welcome"><br/>${message}</p>
 		</form>
 	</body>
 	
