@@ -46,13 +46,12 @@
 
 </head>
 
-<body bgcolor="#ffffff" text="#000000">
+<body>
 
 <header>
 		
 			<div id="header" align="center">
 				<div class="wrap">
-					
 					<div class="navi-icon">
 						<a href="/"><div class="logo"></div></a> 
 						<a href=javascript:post('/home/getIntroView');><div class="navi01"></div></a>
@@ -61,7 +60,7 @@
 
 					</div>
 			<div align="right">
-					<form name=logOut method="POST"></form>
+					
 					<a href="javascript:post('/admin/logoutAction');">log-out<img
 						src="../resources/img/icon/logout.png"></a>
 
@@ -80,28 +79,6 @@
 			
 			<div class="restaurant_well"><i class="icon-th"></i> 맛집 목록</div>
 				  
-			<table width="100%" border="0" cellspacing="0" cellpadding="0"
-				style="margin-top: 10px;">
-				<tr>
-
-					<td align="right">
-					<div class="input-append">
-					<select name="searchCondition" class="ct_input_g" style="width: 80px">
-							<option value="1" ${search.searchCondition=="1"?"SELECTED":""}>이름</option>
-							<option value="2" ${search.searchCondition=="2"?"SELECTED":""}>주소</option>
-							<option value="3" ${search.searchCondition=="3"?"SELECTED":""}>전화번호</option>
-					</select> 
-					
-					
-					<input type="text" name="searchKeyword"	value="${search.searchKeyword==null?'':search.searchKeyword}"
-						class="ct_input_g" style="width: 200px; height: 19px">
-					<button class="btn" type="button"><a href="javascript:fncGetList('1');">
-					<i class="icon-search"></i>검색</a></button>
-					</div>
-					</td>
-					
-				</tr>
-			</table>
 			
 			<td colspan="11"><i class="icon-list-alt"></i>전체${resultPage.totalCount }건수,
 				현재 ${resultPage.currentPage} 페이지</td>
@@ -187,6 +164,30 @@
 				</tr>
 			</table>
 			<!--  페이지 Navigator 끝 -->
+			
+			
+			<table width="100%" border="0" cellspacing="0" cellpadding="0"
+				style="margin-top: 10px;">
+				<tr>
+					<td align="right">
+					<div class="input-append">
+					<select name="searchCondition" class="ct_input_g" style="width: 80px">
+							<option value="1" ${search.searchCondition=="1"?"SELECTED":""}>이름</option>
+							<option value="2" ${search.searchCondition=="2"?"SELECTED":""}>주소</option>
+							<option value="3" ${search.searchCondition=="3"?"SELECTED":""}>전화번호</option>
+					</select> 
+					
+					
+					<input type="text" name="searchKeyword"	value="${search.searchKeyword==null?'':search.searchKeyword}"
+						class="ct_input_g" style="width: 200px; height: 19px" onkeypress="if(event.keyCode==13){javascript:fncGetList('1');return false;}"> 	
+					<button class="btn" type="button"><a href="javascript:fncGetList('1');">
+					<i class="icon-search"></i>검색</a></button>
+					</td>
+					</div>
+				</tr>
+			</table>
+			
+			
 		</form>
 	</div>
 
