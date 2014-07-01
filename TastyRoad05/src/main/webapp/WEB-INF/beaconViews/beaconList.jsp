@@ -126,6 +126,7 @@
 					</br> <input class="btn" type="submit" value="비콘추가"> <input
 						type="hidden" name="resId" value="${search.searchKeyword}">
 				</form>
+				&nbsp;
 				<form name=getRestaurantListView method="POST"></form>
 				<a class="btn"
 					href="javascript:post('/restaurant/getRestaurantListView');">맛집목록</a>
