@@ -84,9 +84,6 @@ body {
 			<div class="restaurant_well2">맛집 목록</div>
 				  
 			
-			<td colspan="11"><i class="icon-list-alt"></i>전체${resultPage.totalCount }건수,
-				현재 ${resultPage.currentPage} 페이지</td>
-				
 			<table class="table table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0"
 				style="margin-top: 10px;">
 				
@@ -155,7 +152,12 @@ body {
 					</tr>
 					
 				</c:forEach>
+				
+				
+				
 			</table>
+					<td align="right"><i class="icon-list-alt"></i>전체${resultPage.totalCount }건수,
+				현재 ${resultPage.currentPage} 페이지</td>
 
 			<!--  페이지 Navigator 시작 -->
 			<table width="100%" border="0" cellspacing="0" cellpadding="0"
