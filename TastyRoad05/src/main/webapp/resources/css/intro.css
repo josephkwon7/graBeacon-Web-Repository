@@ -13,201 +13,112 @@ body{background-color:#fff}
 
 body,th,td,input,select,textarea,button{font-size:15px;line-height:1.5;font-family:'Nanum Gothic','Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif;color:#444}
 
-body:lang(ja),th:lang(ja),td:lang(ja),input:lang(ja),select:lang(ja),textarea:lang(ja),button:lang(ja){font-family:'Hiragino Kaku Gothic ProN','Meiryo','Nanum Gothic','Malgun Gothic','맑은 고딕',dotum,'돋움','sans-serif'}
+body:lang(ja),th:lang(ja),td:lang(ja),input:lang(ja),select:lang(ja),textarea:lang(ja),button:lang(ja){
+	font-family:'Hiragino Kaku Gothic ProN','Meiryo','Nanum Gothic','Malgun Gothic','맑은 고딕',dotum,'돋움','sans-serif'}
 
 body{background:#fff}
+
+.float_clear{
+	clear:both;	
+}
 
 /*본문 바디 영역 */
 body{ 
 	width:1024px;
-	height:auto;
+	height:1200px;
 	margin:0 auto;
-	border:1px solid #ffffff;
+	border:1px solid #fff;
 }
 
-.title .-typecompany {
-    height: auto;
-    border: none;
-    background: none;
-    padding: 20px 0 0px 63px;
-
-}
-
-.company .line{
-
-margin:0 145px 0 145px;
-border:1px;
-border-bottom: 1px solid #FF8C0A;
-}
-
-.company .company-visual {
-   
-    position: relative;
-    width: auto;
-    height: 290px;
-	margin-right:60%;
-    background: url(../img/design/moongoo.png) no-repeat top;
-}
-.company .company-visual .text.type1 {
-    width: 0;
-    height: 0;
-    overflow: hidden;
-}
-.company .company-visual .text.type2 {
-overflow: hidden;
-position: absolute;
-top: 50px;
-left: 387px;
-width: 570px;
-margin-left: 20%;
-	
-}
-.company .company-visual .text.type2 p {
-    width: 90%;
-    margin: 0 30px 0 0;2014-06-24
-    letter-spacing: -2px;
-    font-size: 14px;
-    text-align: justify;
-	font-style: normal;
-	font-weight:bold;
-}
-
-
-.company .bc_use_img{
-width: auto;
-margin-left: 15.8%;
-}
-
-.company .ci {
-    margin-top: 40px;
-	position:relative;
-
-    width: 958px;
-    height: 258px;
-	left: 20px;
-	
-	
-    background: url(../img/design/logologo.png) no-repeat 388px top;
-	
-	 
-}
-
-.company .ci H3 {
-	margin-top: 40px;
+#intro_logo_image{
 	position: relative;
-    display: block;
-    width: 390px;
-    height: 240px;
-	right: 20px;
-	
-    background: url(../img/design/bc_use1.png) no-repeat left top;
-    
-    overflow: hidden;
-
-
-
-}
-.company .line2{
-margin:0 145px 0 145px;
-border:1px;
-border-bottom: 1px solid #FF8C0A;
-
-}
-.company .contact-us {
-background: url(../img/design/contacuUs02.png) no-repeat 530px;
-margin: 30px;
-padding-left: 90px;
+	background-image:url(../img/design/moongoo.png);
+	float:left;
+	margin:120px 0 0 60px;
+	width:280px;
+	height: 180px;
 }
 
-.company .contact-us h3 {
-    width: 148px;
-    height: 25px;
-    margin-top: 50px;
-    margin-left: 90px;
-    text-indent: -999px;
-	
-    overflow: hidden;
-    background: url(../img/design/many.png) no-repeat left -1809px;
-}
-/*īī��c�ٿ�ޱ�->����ٷΰ���*/
-/*
-.company .contact-us A {
-    display: block;
-    width: 190px;
-    height: 42px;
-    margin-left: 3px;
-    margin-top: 20px;
-    background: url(http://img2.kakao.co.kr/assets/btn/btn_set-53466ccf2bcfff53d38556b914b298ba.png) no-repeat left -454px;
-    text-indent: -9999px;
-    overflow: hidden;
-}
-*/
-.company .contact-us A:hover { background-position: 0 -500px }
-.company .contact-us dl {
-    overflow: hidden;
-    font-size: 14px;
-    line-height: 24px;
-	margin-left: 10px;
-    padding: 15px 0 0 2px;
-    color: #b1b1b1;
-    letter-spacing: -1px;
-}
-.company .contact-us dl dt {
-    font-weight: bold;
-    float: left;
-    padding-right: 10px;
-    padding-top: 7px;
-    color: #808080;
-
+#intro_text{
+	position:relative;
+	margin:100px 0 0 100px;
+	float:left;
+	font-size:14px;
+	width:500px;
+	height:300px;
 }
 
-
-.company .contact-us dl dd {
-    float: left;
-    padding-top: 7px;
-    padding-right: 20px;
-	
+#intro_text p{
+	font-family:seo;
+	font-size:16px;
+	color:#333;
+	padding:50px 0 0 0;
+	margin:0 0 0 10px;
 }
 
-
-.company .contact-us dl dt.clear {
-    clear: both;
-    float: left;
-}
-.company .contact-us .text.type1 {
-    width: 500px;
-    margin-top: 30px;
-    margin-left: 80px;
-}
-/*īī������->team.D.W.F*/
-.company .contact-us .text.type1 h4 {
-
-    width: 115px;
-    height: 17px;
-    text-indent: -999px;
-    overflow: hidden;
-	margin-left:15px;
-    background: url(../img/design/many.png) no-repeat -2px -1852px;
-}
-.company .contact-us .text.type2 {
-    width: 500px;
-    margin-top: 39px;
-    margin-left: 80px;
-
-}
-/*īī���?����->TastyRoad�?����*/
-
-.company .contact-us dl{
-font-weight: 2px;
-color: #000000;
-
+.orange_line1{
+	position:relative;
+	margin-top:400px;
+	background-image:url(../img/design/top-menu-bottom-line.png);
+	background-repeat:repeat-x;
+	width:1026px;
+	height:2px;
 }
 
-.company .contact-us address{
-font-weight: 2px;
-font-style: normal;
-color: #000000;
-
-border-bottom: 1px solid #b4b4b4; 
+.orange_line2{
+	position:relative;
+	margin-top:40px;
+	background-image:url(../img/design/top-menu-bottom-line.png);
+	background-repeat:repeat-x;
+	width:1026px;
+	height:2px;
 }
- 
+
+#intro_image_box{
+	position:relative;
+	width:900px;
+	height:220px;
+	margin:40px auto 0 auto;
+}
+
+.intro_main_image{
+	position:relative;
+	float:left;
+	width:420px;
+	height:220px;
+	background-image:url(../img/design/bc_use1.png);
+	border:1px solid #999;
+	border-radius:5px;
+}
+
+.intro_main_image2{
+	position:relative;
+	float:right;
+	width:420px;
+	height:220px;
+	background-image:url(../img/design/logologo.png);
+	border:1px solid #999;
+	border-radius:5px;
+}
+
+.intro_contact_text{
+	position:relative;	
+	float:left;
+	margin:40px 0 0 0;
+	width:480px;
+	height:320px;
+	border:1px solid #999;
+	border-radius:5px;
+}
+
+.intro_contact_image{
+	position:relative;
+	float:left;
+	margin:40px 0 0 50px;
+	width: 480px;
+	height:320px;
+	background-image:url(../img/design/contact_us.png);
+	background-color:#3CF;
+	border:1px solid #999;
+	border-radius:5px;
+}
