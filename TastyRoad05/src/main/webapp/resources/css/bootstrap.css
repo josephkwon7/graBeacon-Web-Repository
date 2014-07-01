@@ -3126,7 +3126,7 @@ table th[class*="span"],
 .restaurant_well {
   min-height: 20px;
   padding: 10px;
-  margin: 10% 1px 30px 4px;
+  margin: 12% 1px 30px 4px;
   border: 1px solid #e3e3e3;
   
   -webkit-border-radius: 4px;
@@ -6329,7 +6329,8 @@ select {border:1x solid #ADAEAD; color:#777777; background-color:#ffffff; font-f
 	width:280px;
 	height:250px;
 	margin:0 0 0 220px;
-	background-image:url("/resources/img/design/login_area_image.png");
+	/*background-image:url("/resources/img/design/login_area_image.png");*/
+	background-image:url("/resources/img/design/bicLogo.png");
 	border:1px solid #d0d0d0;
 	border-radius:5px;
 }
