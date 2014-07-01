@@ -2056,7 +2056,7 @@ table {
   border: 1px solid #dddddd;
   border-collapse: separate;
   *border-collapse: collapse;
-  border-left: 0;
+  border-left: 1;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
           border-radius: 4px;
@@ -3126,8 +3126,8 @@ table th[class*="span"],
 .restaurant_well {
   min-height: 20px;
   padding: 10px;
-  margin: 12% 1px 30px 4px;
-  border: 1px solid #e3e3e3;
+  margin: 10% 1px 30px 4px;
+  border: 1px solid #707070;
   
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
@@ -3141,7 +3141,7 @@ table th[class*="span"],
 	background-image: -moz-linear-gradient(#FFF, #CCC);
 	background-image: -ms-linear-gradient(#FFF, #CCC);
 	background-image: -o-linear-gradient(#FFF, #CCC);
-	background-image: linear-gradient(#FFF, #CCC);
+	background-image: linear-gradient(#ff9000, #fec376, #ffe7c8);
 	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffdae6f3', endColorstr='#ffc2d5ed', GradientType=0);
 }
 
@@ -6265,7 +6265,7 @@ select {border:1x solid #ADAEAD; color:#777777; background-color:#ffffff; font-f
 /* ct_write02 추가 : 부트스트랩 CSS 테이블 타입중 행마다 컬러를 달리 주어주는 것이 있는데 횡렬 타입의 테이블에서는 먹히지 않기 때문에 ct_write를 이용하여 강제로 주어줌) */
 .ct_write01        {font-size: 9pt; color: #565656; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; padding:10px 0 10px 10px; border-bottom:solid 1px #CCC;}
 
-.ct_write02        {font-size: 9pt; background-color:#f5f5f5; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; padding:10px 0 0 10px; border-bottom:solid 1px #CCC;}
+.ct_write02        {font-size: 9pt; background-color:#f5f5f5; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; padding:10px 0 10px 10px; border-bottom:solid 1px #CCC;}
 
 .ct_line02 {width:1px; background-color:#ffffff}
 
@@ -6282,7 +6282,7 @@ select {border:1x solid #ADAEAD; color:#777777; background-color:#ffffff; font-f
 	background-image: -moz-linear-gradient(#FFF, #CCC);
 	background-image: -ms-linear-gradient(#FFF, #CCC);
 	background-image: -o-linear-gradient(#FFF, #CCC);
-	background-image: linear-gradient(#FFF, #CCC);
+	background-image: linear-gradient(#ffa235, #fcbc71, #ffe2bf);
 	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffdae6f3', endColorstr='#ffc2d5ed', GradientType=0);
 }
 
@@ -6315,20 +6315,21 @@ select {border:1x solid #ADAEAD; color:#777777; background-color:#ffffff; font-f
 
 .login_area{
 	position:relative;
-	width:210px;
-	height:180px;
+	width:500px;
+	height:250px;
 	margin:20% auto;
 	padding:20px 20px 20px 20px;
 	border:1px solid #d0d0d0;
 	border-radius:5px;
 	background:#FFF;
 }
- 
-.asta_icon{
-	position:relative;
-	width:8px;
-	height:8px;
-	margin:0 0 0 0;
-	background-image: url("/resources/img/icon/astar.png") no-repeat;
+
+.login_area_image{
+	position:absolute;
+	width:280px;
+	height:250px;
+	margin:0 0 0 220px;
+	background-image:url("/resources/img/design/admin_login_image.png");
+	border:1px solid #d0d0d0;
+	border-radius:5px;
 }
-	
