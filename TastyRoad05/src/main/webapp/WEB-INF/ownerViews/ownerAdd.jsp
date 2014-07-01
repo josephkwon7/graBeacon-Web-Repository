@@ -191,7 +191,7 @@
 	
 						<button class="btn"> <a href="javascript:resetData();">취소</a></button></td>
 						
-						<br/>
+					
 						<button class="btn"><a href="javascript:history.go(-1);">뒤로</a></button></td>
 				</tr>
 			</table>
