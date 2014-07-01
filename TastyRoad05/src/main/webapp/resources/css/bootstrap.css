@@ -6313,23 +6313,14 @@ select {border:1x solid #ADAEAD; color:#777777; background-color:#ffffff; font-f
 
 /* 관리자 로그인 페이지 로그인 폼 영역 CSS 코드 추가 by 성은 */
 
-.login_area{
-	position:relative;
-	width:500px;
-	height:250px;
-	margin:20% auto;
-	padding:20px 20px 20px 20px;
-	border:1px solid #d0d0d0;
-	border-radius:5px;
-	background:#FFF;
-}
+.login_area {
+position: relative;
+width: 210px;
+height: 180px;
+margin: 20% auto;
+padding: 20px 20px 20px 20px;
+border: 1px solid #d0d0d0;
+border-radius: 5px;
+background: #FFF;
 
-.login_area_image{
-	position:absolute;
-	width:280px;
-	height:250px;
-	margin:0 0 0 220px;
-	background-image:url("/resources/img/design/admin_login_image.png");
-	border:1px solid #d0d0d0;
-	border-radius:5px;
-}
+} 
