@@ -93,7 +93,7 @@
 					
 					<div class="input-append">
 					<input type="text" name="searchKeyword"	value="${search.searchKeyword==null?'':search.searchKeyword}"
-						class="ct_input_g" style="width: 200px; height: 19px">
+						class="ct_input_g" style="width: 200px; height: 19px" onkeypress="if(event.keyCode==13){javascript:fncGetList('1');return false;}"> 	
 					<button class="btn" type="button"><a href="javascript:fncGetList('1');">
 					<i class="icon-search"></i>검색</a></button>
 					</td>
