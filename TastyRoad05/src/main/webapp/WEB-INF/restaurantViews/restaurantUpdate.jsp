@@ -107,7 +107,7 @@
 
 <body>
 
-<form name="detailForm" method="POST">
+<form name="detailForm" method="POST" enctype="multipart/form-data">
 	
 	<header>
 		
@@ -122,12 +122,14 @@
 
 					</div>
 					
-				
+					<!-- 충돌
 					<div align="right">
+					<form name=logOut method="POST"></form>
 					<a href="javascript:post('/admin/logoutAction');">log-out<img
 						src="../resources/img/icon/logout.png"></a>
+
 				</div>
-				
+				 -->
 									<!-- 네비게이션 아이콘 -->
 				</div>
 				
@@ -139,6 +141,7 @@
 	
 
 	<!--  hidden parameter for update -->
+	${restaurant.resId}
 	<input type="hidden" name="resId" value="${restaurant.resId}">
 	
     		<div class="restaurant_well"><i class="icon-edit"></i> 맛집정보수정</div>
@@ -222,7 +225,7 @@
 			<td width="104" class="ct_write">메인이미지1<img
 				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			<td bgcolor="D6D6D6" width="1"></td>
-			<td class="ct_write01"><input type="text" name="imgSmall1" value="${restaurant.imgSmall1==null?'':restaurant.imgSmall1}"
+			<td class="ct_write01"><input type="file" name="imgSmall1" 
 				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
 				minLength="6"></td>
 		</tr>
@@ -233,7 +236,7 @@
 			<td width="104" class="ct_write">상세이미지1<img
 				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			<td bgcolor="D6D6D6" width="1"></td>
-			<td class="ct_write01"><input type="text" name="imgBig1" value="${restaurant.imgBig1==null?'':restaurant.imgBig1}"
+			<td class="ct_write01"><input type="file" name="imgBig1" 
 				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
 				minLength="6"></td>
 		</tr>		<tr>
@@ -243,7 +246,7 @@
 			<td width="104" class="ct_write">상세이미지2<img
 				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			<td bgcolor="D6D6D6" width="1"></td>
-			<td class="ct_write01"><input type="text" name="imgBig2" value="${restaurant.imgBig2==null?'':restaurant.imgBig2}"
+			<td class="ct_write01"><input type="file" name="imgBig2" 
 				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
 				minLength="6"></td>
 		</tr>
@@ -254,7 +257,7 @@
 			<td width="104" class="ct_write">상세이미지3<img
 				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			<td bgcolor="D6D6D6" width="1"></td>
-			<td class="ct_write01"><input type="text" name="imgBig3" value="${restaurant.imgBig3==null?'':restaurant.imgBig3}"
+			<td class="ct_write01"><input type="file" name="imgBig3" 
 				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
 				minLength="6"></td>
 		</tr>
@@ -265,7 +268,7 @@
 			<td width="104" class="ct_write">메뉴이미지<img
 				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			<td bgcolor="D6D6D6" width="1"></td>
-			<td class="ct_write01"><input type="text" name="imgMenu" value="${restaurant.imgMenu==null?'':restaurant.imgMenu}"
+			<td class="ct_write01"><input type="file" name="imgMenu" 
 				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
 				minLength="6"></td>
 		</tr>
