@@ -100,8 +100,7 @@
 			</div>
 			
 		</header>
-		
-		<br><br><br><br><br>
+ 
 		
 <form name="detailForm" method="POST">
 
@@ -141,9 +140,9 @@
 			<table border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<button class="btn" type="button"><a href="javascript:fncAddProduct();">등록</a></button>
-	
+					&nbsp;
 					<button class="btn" type="button"><a href="javascript:resetData();">취소</a></button>
-						
+					&nbsp;
 					<button class="btn" type="button"><a href="javascript:history.go(-1);">뒤로</a></button>
 				</tr>
 			</table>
