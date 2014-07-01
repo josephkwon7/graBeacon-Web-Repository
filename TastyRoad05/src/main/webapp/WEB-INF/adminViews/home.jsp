@@ -38,6 +38,15 @@
 		} 
    	</script>
 	
+	<style type="text/css">
+	
+	.welcome{
+	background-color : #33dvdv;
+	text-align: center;
+	font-weight:bold;
+	}
+	</style>
+	
 	</head>
 	<body>
 	
@@ -69,7 +78,7 @@
         
 		<div class="login_area">
         <div class="login_area_image"></div>
-		<p> 환영합니다.  : <%= sessionAdmin.getAdminId()%>님</p> 
+		<p class="welcome"> 환영합니다.    <%= sessionAdmin.getAdminId()%>님</p> 
 		<form name=logOut method="POST">
 		</form>
 		<a href="javascript:post('/admin/logoutAction');"><button class="btn btn-warning" type="button" style="width:206; height:40">로그아웃</button></a>
