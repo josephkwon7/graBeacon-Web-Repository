@@ -1031,9 +1031,6 @@ pre code {
   overflow-y: scroll;
 }
 
-form {
-  margin: 0 0 20px;
-}
 
 fieldset {
   padding: 0;
@@ -3123,6 +3120,7 @@ table th[class*="span"],
 }
 
 /* 성은 추가!!!!! */
+<!--
 .restaurant_well {
   min-height: 20px;
   padding: 10px;
@@ -3144,6 +3142,21 @@ table th[class*="span"],
 	background-image: linear-gradient(#ff9000, #fec376, #ffe7c8);
 	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffdae6f3', endColorstr='#ffc2d5ed', GradientType=0);
 }
+-->
+.restaurant_well2 {
+  min-height: 20px;
+  width: auto;
+  font-size: 16px;
+  padding:0px 20px 0px 5px;
+  margin: 12% 0 6px 0;
+ 
+  font-weight: bold;
+  border-left: 4px solid orange;
+
+}
+
+
+
 
 .well blockquote {
   border-color: #ddd;
@@ -6321,6 +6334,6 @@ margin: 20% auto;
 padding: 20px 20px 20px 20px;
 border: 1px solid #d0d0d0;
 border-radius: 5px;
-background: #FFF;
+background: #f9f9f9f9;
 
 } 
