@@ -191,7 +191,7 @@
 				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			
 			<td class="ct_write01"><input type="file" name="imgSmall1"
-				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
+				class="ct_input_g2" style="width: 250px; height: auto" maxLength="10"
 				minLength="6"></td>
 		</tr>
 		
@@ -209,7 +209,7 @@
 				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			
 			<td class="ct_write01"><input type="file" name="imgBig2"
-				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
+				class="ct_input_g2" style="width: 250px; height: auto" maxLength="10"
 				minLength="6"></td>
 		</tr>
 		
@@ -227,7 +227,7 @@
 				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 			
 			<td class="ct_write01"><input type="file" name="imgMenu"
-				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
+				class="ct_input_g2" style="width: 250px; height: auto" maxLength="10"
 				minLength="6"></td>
 		</tr>
 		
