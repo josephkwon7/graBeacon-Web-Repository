@@ -138,6 +138,7 @@
 						width="17" height="23"></td>
 					
 				-->
+				&nbsp;
 					<button class="btn" type="button"><a href="javascript:history.back()">취소</a></button>
 				<!--
 					<td width="14" height="23"><img src="/resources/images/ct_btnbg03.gif"
