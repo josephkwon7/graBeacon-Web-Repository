@@ -1,7 +1,6 @@
 package com.dwf.tastyroad.controller;
 
 import java.io.File;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,6 +27,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dwf.tastyroad.model.Page;
@@ -533,15 +533,24 @@ public class RestaurantController {
 		System.out.println("_______________________________________________");
 		System.out.println("==> /restaurant/updateRestaurant__call !!!");
 		System.out.println("_______________________________________________");		
-		System.out.println(restaurant.getResId());
-		System.out.println(restaurant);
-		FTPTransfer transfer = new FTPTransfer();
-		transfer.delete(SERVER_IP, PORT, ID, PASSWORD, UPLOAD_DIR, restaurantService.getRestaurant(restaurant.getResId()));
+		
+//		CommonsMultipartResolver cmr = new CommonsMultipartResolver();
+//		String[] s1 = (String[])cmr.resolveMultipart(request).getParameterMap().get("resId");
+//		restaurant.setResId(Integer.parseInt(s1[0]));
+		
 		
 		String fileDir1 = request.getRealPath("/")+"resources/img";
 		int max = 5* 640 * 480;
 		
 		MultipartRequest mpr = new MultipartRequest(request, fileDir1, max, "UTF-8", new DefaultFileRenamePolicy());
+		
+		restaurant.setResId(Integer.parseInt(mpr.getParameter("resId")));
+		System.out.println(restaurant.getResId());
+		System.out.println(restaurant);
+		
+		FTPTransfer transfer = new FTPTransfer();
+		transfer.delete(SERVER_IP, PORT, ID, PASSWORD, UPLOAD_DIR, restaurantService.getRestaurant(restaurant.getResId()));
+		
 		Enumeration formNames = mpr.getFileNames();
 		
 		String fileInput = "";
