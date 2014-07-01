@@ -17,6 +17,13 @@
 			<link rel="stylesheet" type="text/css" href="../resources/css/footer.css">
 
 			<style>
+			
+			
+			.linebottom
+			{
+			margin-top: 70px;
+			
+			}
 			.my-box {
 				padding: 30 30 30 30;
 				padding-left: 10%;
@@ -1791,12 +1798,9 @@
 
 <!----------------------------------------------------------- -->
 	
-<br/>
-<br/>
  
-<hr/> 
-<hr/>
-<hr/>
+ 
+ 
  <div class = "linebottom"></div>
 	<header>
 		<div id="header" align="center">
