@@ -66,253 +66,117 @@
 			</div>
 			
 		</header>
-		<br>
 		
-<br>
-<br>
-<br>
-<br>
-
-		<table width="100%" height="37" border="0" cellpadding="0"cellspacing="0">
-			<tr>
-				
-				<table width="100%" height="37" border="0" cellpadding="0" cellspacing="0">
-    	<tr>
-    		<div class="restaurantAdd_well"><i class="icon-edit"></i> 맛집상세정보</div>
-    	</tr>
-    </table>
-				</td>
-				
-			</tr>
-		</table>
+    	<div class="restaurant_well"><i class="icon-edit"></i> 맛집상세정보</div>
 		
-		<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:13px;">
+		<div class="restaurant_well"><i class="icon-edit"></i> 맛집상세정보</div>
+		
+		<table class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:13px;">
+			
 			<tr>
-				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-			</tr>
-			<tr>
-				<td width="104" class="ct_write">맛집번호<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
-				<td bgcolor="D6D6D6" width="1"></td>
+				<td width="104" class="ct_write">맛집번호</td>
 				<td class="ct_write01">
-					<table width="100%" border="0" cellspacing="0" cellpadding="0">
-						<tr>
-							<td width="300">
-								${restaurant.resId==null?'':restaurant.resId}
-							</td>
-							<td>
-							</td>
-						</tr>
-					</table>
+					${restaurant.resId==null?'':restaurant.resId}
 				</td>
 			</tr>
-			<tr>
-				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-			</tr>
+			
 			<tr>
 				<td width="104" class="ct_write">상호명<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
-				<td bgcolor="D6D6D6" width="1"></td>
+				
 				<td class="ct_write01">
 					${restaurant.name==null?'':restaurant.name}
 				</td>
 			</tr>
-			<tr>
-				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-			</tr>
+			
 			<tr>
 				<td width="104" class="ct_write">주소</td>
-				<td bgcolor="D6D6D6" width="1"></td>
+				
 				<td class="ct_write01">
 					${restaurant.addr==null?'':restaurant.addr}
 				</td>
 			</tr>
-			<tr>
-				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-			</tr>
+			
 			<tr>
 				<td width="104" class="ct_write">전화번호</td>
-				<td bgcolor="D6D6D6" width="1"></td>
 				<td class="ct_write01">
 					${restaurant.phone==null?'':restaurant.phone}
 				</td>
 			</tr>
-			<tr>
-				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-			</tr>
+			
 			<tr>
 				<td width="104" class="ct_write">사업자 등록번호</td>
-				<td bgcolor="D6D6D6" width="1"></td>
 				<td class="ct_write01">
-					<!-- 테이블 시작 -->
-					<table border="0" cellspacing="0" cellpadding="0">
-						<tr>
-							<td height="26">
 					${restaurant.licenseNo==null?'':restaurant.licenseNo}
-							</td>
-						</tr>
-					</table>
 				</td>
 			</tr>
-						<tr>
-				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-			</tr>
+			
 			<tr>
 				<td width="104" class="ct_write">상세위치-위도</td>
-				<td bgcolor="D6D6D6" width="1"></td>
 				<td class="ct_write01">
-					<!-- 테이블 시작 -->
-					<table border="0" cellspacing="0" cellpadding="0">
-						<tr>
-							<td height="26">
 					${restaurant.geoLat==null?'':restaurant.geoLat}
-							</td>
-						</tr>
-					</table>
 				</td>
 			</tr>
-						<tr>
-				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-			</tr>
+			
 			<tr>
-					<td width="104" class="ct_write">상세위치-경도<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
-				<td bgcolor="D6D6D6" width="1"></td>
+				<td width="104" class="ct_write">상세위치-경도<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
 				<td class="ct_write01">
-					<!-- 테이블 시작 -->
-					<table border="0" cellspacing="0" cellpadding="0">
-						<tr>
-							<td height="26">
 					${restaurant.geoLong==null?'':restaurant.geoLong}
-							</td>
-						</tr>
-					</table>
 				</td>
 			</tr>
-						<tr>
-				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-			</tr>
+			
 			<tr>
 				<td width="104" class="ct_write">메인이미지1</td>
-				<td bgcolor="D6D6D6" width="1"></td>
 				<td class="ct_write01">
-					<!-- 테이블 시작 -->
-					<table border="0" cellspacing="0" cellpadding="0">
-						<tr>
-							<td height="26">
 					${restaurant.imgSmall1==null?'':restaurant.imgSmall1}
-							</td>
-						</tr>
-					</table>
 				</td>
 			</tr>
-						<tr>
-				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-			</tr>
+			
 			<tr>
 				<td width="104" class="ct_write">상세이미지1</td>
-				<td bgcolor="D6D6D6" width="1"></td>
 				<td class="ct_write01">
-					<!-- 테이블 시작 -->
-					<table border="0" cellspacing="0" cellpadding="0">
-						<tr>
-							<td height="26">
 					${restaurant.imgBig1==null?'':restaurant.imgBig1}
-							</td>
-						</tr>
-					</table>
 				</td>
 			</tr>
-						<tr>
-				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-			</tr>
+			
 			<tr>
 				<td width="104" class="ct_write">상세이미지2</td>
-				<td bgcolor="D6D6D6" width="1"></td>
 				<td class="ct_write01">
-					<!-- 테이블 시작 -->
-					<table border="0" cellspacing="0" cellpadding="0">
-						<tr>
-							<td height="26">
 					${restaurant.imgBig2==null?'':restaurant.imgBig2}
-							</td>
-						</tr>
-					</table>
 				</td>
 			</tr>
-						<tr>
-				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-			</tr>
+			
 			<tr>
 				<td width="104" class="ct_write">상세이미지3</td>
-				<td bgcolor="D6D6D6" width="1"></td>
 				<td class="ct_write01">
-					<!-- 테이블 시작 -->
-					<table border="0" cellspacing="0" cellpadding="0">
-						<tr>
-							<td height="26">
 					${restaurant.imgBig3==null?'':restaurant.imgBig3}
-							</td>
-						</tr>
-					</table>
 				</td>
 			</tr>
-						<tr>
-				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-			</tr>
+			
 			<tr>
 				<td width="104" class="ct_write">메뉴이미지</td>
-				<td bgcolor="D6D6D6" width="1"></td>
 				<td class="ct_write01">
-					<!-- 테이블 시작 -->
-					<table border="0" cellspacing="0" cellpadding="0">
-						<tr>
-							<td height="26">
 					${restaurant.imgMenu==null?'':restaurant.imgMenu}
-							</td>
-						</tr>
-					</table>
 				</td>
 			</tr>
-						<tr>
-				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-			</tr>
+			
 			<tr>
 				<td width="104" class="ct_write">광고문구</td>
-				<td bgcolor="D6D6D6" width="1"></td>
 				<td class="ct_write01">
-					<!-- 테이블 시작 -->
-					<table border="0" cellspacing="0" cellpadding="0">
-						<tr>
-							<td height="26">
 					${restaurant.copyComment==null?'':restaurant.copyComment}
-							</td>
-						</tr>
-					</table>
 				</td>
 			</tr>
-			<tr>
-				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-			</tr>
+			
 			<tr>
 				<td width="104" class="ct_write">맛집분류</td>
-				<td bgcolor="D6D6D6" width="1"></td>
 				<td class="ct_write01">
-					<!-- 테이블 시작 -->
-					<table border="0" cellspacing="0" cellpadding="0">
-						<tr>
-							<td height="26">
-								<c:choose>
-									<c:when test="${restaurant.resCategory == 1}">한식</c:when>
-									<c:when test="${restaurant.resCategory == 2}">일식</c:when>
-									<c:when test="${restaurant.resCategory == 3}">중식</c:when>
-									<c:when test="${restaurant.resCategory == 4}">양식</c:when>
-									<c:otherwise>카페</c:otherwise>
-								</c:choose>
-							</td>
-						</tr>
-					</table>
+					<c:choose>
+						<c:when test="${restaurant.resCategory == 1}">한식</c:when>
+						<c:when test="${restaurant.resCategory == 2}">일식</c:when>
+						<c:when test="${restaurant.resCategory == 3}">중식</c:when>
+						<c:when test="${restaurant.resCategory == 4}">양식</c:when>
+						<c:otherwise>카페</c:otherwise>
+					</c:choose>
 				</td>
-			</tr>
-			<tr>
-				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 			</tr>
 
 		</table>
@@ -338,9 +202,7 @@
 							</form>
 						</td>
 
-						
-									<td width="3"></td>	
-
+						<td width="3"></td>	
 
 			<!--  뒤로가기대신 목록보기로 바꿈
 						<td class="btn" style="padding-top:3px;">
