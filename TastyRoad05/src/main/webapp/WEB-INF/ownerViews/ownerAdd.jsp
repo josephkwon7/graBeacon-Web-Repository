@@ -104,12 +104,12 @@
 	
 	<!--<c:out value="${owner}"/>-->
 
-		<div class="restaurant_well">점주등록</div>
+		<div class="restaurant_well2">점주등록</div>
 
 		<table class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0"
 			style="margin-top: 13px;">
 			<tr>
-				<td width="104" class="ct_write">이름*</td>
+				<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">이름</td>
 				<td class="ct_write01"><input type="text" name="name"
 					class="ct_input_g" style="width: 250px; height: 19px"
 					maxLength="20" value="${owner.name}"></td>

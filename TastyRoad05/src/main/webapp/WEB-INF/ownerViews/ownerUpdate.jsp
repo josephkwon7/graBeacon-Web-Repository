@@ -105,12 +105,7 @@
 			
 		</header>
 		
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
+
 
 <form name="detailForm" method="POST"><!--  enctype="multipart/form-data" -->
 	
@@ -123,7 +118,7 @@
 				
 				<table width="100%" height="37" border="0" cellpadding="0" cellspacing="0">
     	<tr>
-    		<div class="restaurantAdd_well"><i class="icon-plus"></i> 점주정보수정</div>
+    		<div class="restaurantwell2">점주정보수정</div>
     	</tr>
     </table>
 				</td>
@@ -140,8 +135,7 @@
 			<td height="1" colspan="3" ></td>
 		</tr>
 		<tr>
-			<td width="104" class="ct_write">이름 <img
-				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
+			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">이름</td>
 			<td> </td>
 			<td class="ct_write01"><input type="text" name="name" value="${owner.name==null?'':owner.name}"
 				class="ct_input_g" maxLength="10"
@@ -151,8 +145,7 @@
 			<td></td>
 		</tr>
 		<tr>
-			<td width="104" class="ct_write">전화번호 <img
-				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
+			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">전화번호</td>
 			<td width="1"></td>
 			<td class="ct_write01"><input type="text" name="phone" value="${owner.phone==null?'':owner.phone}"
 				class="ct_input_g" maxLength="10"
@@ -162,8 +155,7 @@
 			<td></td>
 		</tr>
 		<tr>
-			<td width="104" class="ct_write">주소 <img
-				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
+			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">주소</td>
 			<td width="1"></td>
 			<td class="ct_write01"><input type="text" name="addr" value="${owner.addr==null?'':owner.addr}"
 				class="ct_input_g"  maxLength="50">
@@ -173,8 +165,7 @@
 			<td></td>
 		</tr>
 		<tr>
-			<td width="104" class="ct_write">이메일 <img
-				src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
+			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">이메일</td>
 			<td width="1"></td>
 			<td class="ct_write01"><input type="text" name="email" value="${owner.email==null?'':owner.email}"
 				class="ct_input_g" maxLength="10"

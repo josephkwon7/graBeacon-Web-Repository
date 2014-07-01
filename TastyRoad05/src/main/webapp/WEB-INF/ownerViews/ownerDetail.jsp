@@ -77,7 +77,7 @@
 			
 		</header>
 
-		<div class="restaurant_well"><i class="icon-plus"></i>점주조회</div>
+		<div class="restaurant_well2">점주조회</div>
 		
 	<c:if test="${owner.ownerId != 0}">	
 		
@@ -91,7 +91,7 @@
 			</tr>
 			
 			<tr>
-				<td class="ct_write">맛집이름<img src="/resources/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"></td>
+				<td class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">맛집이름</td>
 				<td class="ct_write01">
 					${owner.name==null?'':owner.name}
 				</td>

@@ -42,7 +42,11 @@
 </script>
 
 
-   	
+<style type="text/css">
+body {
+	width: 1024px;
+}
+</style>
 
 </head>
 
@@ -77,7 +81,7 @@
 		<form name="detailForm" action="/restaurant/getRestaurantListView"
 			method="POST" onsubmit="return false">
 			
-			<div class="restaurant_well"><i class="icon-th"></i> 맛집 목록</div>
+			<div class="restaurant_well2">맛집 목록</div>
 				  
 			
 			<td colspan="11"><i class="icon-list-alt"></i>전체${resultPage.totalCount }건수,

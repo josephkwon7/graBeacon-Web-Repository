@@ -76,7 +76,7 @@
 <!-- 		<form name="detailForm" action="/beacon/listBeacon"
 			method="get" onsubmit="return false">
  -->
-            <div class="restaurant_well"><i class="icon-check"></i> 비콘관리</div>
+            <div class="restaurant_well2">비콘관리</div>
 
 		<table class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
 

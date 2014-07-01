@@ -64,10 +64,11 @@
 			<!-- Wrap -->
 		</div>
 
+	
 	</header>
 
-	<div class="restaurant_well">
-		<i class="icon-edit"></i> 맛집상세정보
+	<div class="restaurant_well2">
+		맛집상세정보
 	</div>
 
 	<table class="table-bordered" width="100%" border="0" cellspacing="0"
@@ -80,9 +81,7 @@
 		</tr>
 
 		<tr>
-			<td width="104" class="ct_write">상호명<img
-				src="/resources/images/ct_icon_red.gif" width="3" height="3"
-				align="absmiddle"></td>
+			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">상호명</td>
 
 			<td class="ct_write01">
 				${restaurant.name==null?'':restaurant.name}</td>
@@ -114,9 +113,7 @@
 		</tr>
 
 		<tr>
-			<td width="104" class="ct_write">상세위치-경도<img
-				src="/resources/images/ct_icon_red.gif" width="3" height="3"
-				align="absmiddle"></td>
+			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">상세위치-경도</td>
 			<td class="ct_write01">
 				${restaurant.geoLong==null?'':restaurant.geoLong}</td>
 		</tr>

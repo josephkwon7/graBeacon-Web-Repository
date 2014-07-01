@@ -104,26 +104,26 @@
 		
 <form name="detailForm" method="POST">
 
-    <div class="restaurant_well"><i class="icon-plus"></i> 비컨등록</div>
+    <div class="restaurant_well2">비컨등록</div>
 	
 	<table class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 13px;">
     
 		<tr>
-			<td width="104" class="ct_write">UUID*</td>
+			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">UUID</td>
 			<td class="ct_write01">
 				<input type="text" name="uuId" class="ct_input_g" style="width: 100px; height: auto" maxLength="20" value="${beacon.uuId==null?'':beacon.uuId}">
 			</td>
 		</tr>
         
 		<tr>
-			<td width="104" class="ct_write">Major*</td>
+			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">Major</td>
 			<td class="ct_write01">
 				<input type="text" name="major" class="ct_input_g" style="width: 100px; height: auto" maxLength="20" value="${beacon.major==0?'':beacon.major}">
 			</td>
 		</tr>
         
 		<tr>
-			<td width="104" class="ct_write">Minor*</td>
+			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">Minor</td>
 			<td class="ct_write01">
 				<input type="text" name="minor" class="ct_input_g" style="width: 100px; height: auto" maxLength="20" value="${beacon.minor==0?'':beacon.minor}">
 			</td>
