@@ -87,7 +87,7 @@
 			</div>
 		</header>
 		
-		<br><br><br><br><br><br>
+		 
 
 <form name="detailForm" method="POST">
 	
