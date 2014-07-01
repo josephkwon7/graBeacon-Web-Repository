@@ -109,12 +109,12 @@
 		<table class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0"
 			style="margin-top: 13px;">
 			<tr>
-				<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8px" height="8px" align="absmiddle">이름</td>
+				<td width="104" class="ct_write">이름*</td>
 				<td class="ct_write01"><input type="text" name="name"
 					class="ct_input_g" style="width: 250px; height: 19px"
 					maxLength="20" value="${owner.name}"></td>
 			</tr>
-				
+			
 			<tr>
 				<td width="104" class="ct_write">주소</td>
 				<td class="ct_write01"><input type="text" name="addr"
@@ -149,11 +149,11 @@
 							<button class="btn">
 								<a href="javascript:fncAddProduct();">등록</a>
 							</button>
-							&nbsp;
+
 							<button class="btn">
 								<a href="javascript:resetData();">취소</a>
 							</button>
-							&nbsp;
+							
 							<button class="btn">
 								<a href="javascript:history.go(-1);">뒤로</a>
 							</button>

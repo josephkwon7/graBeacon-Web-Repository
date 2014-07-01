@@ -22,7 +22,7 @@
 	<style type="text/css">
 	.submittable{
 	margin-top : 20px;
-	margin-left : 870px;
+	margin-left : 730px;
 	}
 	</style>
 	
@@ -130,11 +130,10 @@
 	</c:if>
 	
 	<c:if test="${owner.ownerId == 0}">
-		 &nbsp;&nbsp;등록된 점주가 없습니다. <br/>
-		&nbsp;&nbsp;아래 점주추가 버튼을 눌러 점주를 추가해 주세요.	
+		등록된 점주가 없습니다. 아래 점주추가 버튼을 눌러 점주를 추가해 주세요.	
 	</c:if>
 	
-	<table class="submittable" border="0" cellspacing="0" cellpadding="0"  >
+	<table class="submittable" border="0" cellspacing="0" cellpadding="0">
 					<tr>
 						<td >
 							<c:if test="${owner.ownerId == 0}">
@@ -168,7 +167,7 @@
 							<a href="javascript:fncMoveBackward();">맛집목록</a></td>
 							-->
 						
-							<form  name="moveToRestaurantList" action="/restaurant/getRestaurantListView"" method="POST"  >
+							<form  name="moveToRestaurantList" action="/restaurant/getRestaurantListView"" method="POST">
 								<input type="submit" value="맛집목록" class="btn">&nbsp;&nbsp;
 							</form> 
 		 <!-- 
