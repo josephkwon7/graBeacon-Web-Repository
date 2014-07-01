@@ -81,8 +81,8 @@
 			<div class="restaurant_well"><i class="icon-th"></i> 맛집 목록</div>
 				  
 			
-			<td colspan="11"><i class="icon-list-alt"></i>전체${resultPage.totalCount }건수,
-				현재 ${resultPage.currentPage} 페이지</td>
+			<td colspan="11"><i class="icon-list-alt"></i>&nbsp; 현재${resultPage.currentPage} 페이지, 전체 ${resultPage.totalCount } 건
+				</td>
 				
 			<table class="table table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0"
 				style="margin-top: 10px;">
