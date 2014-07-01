@@ -237,7 +237,7 @@ public class RestaurantController {
 		
 		FTPTransfer transfer = new FTPTransfer();
 		System.out.println("==============================ftp통신 시작=======================================");
-		transfer.FtpPut(SERVER_IP, PORT, ID, PASSWORD, UPLOAD_DIR, null, fileMap);
+		transfer.insert(SERVER_IP, PORT, ID, PASSWORD, UPLOAD_DIR, null, fileMap);
 //		transfer.FtpPut(SERVER_IP, PORT, ID, PASSWORD, UPLOAD_DIR, null, fileList);
 		System.out.println("==============================ftp통신 종료=======================================");
 		
@@ -526,13 +526,106 @@ public class RestaurantController {
 	}
 	
 	@RequestMapping(value="/updateRestaurant", method=RequestMethod.POST)
-	public ModelAndView updateRestaurantAction(@ModelAttribute("restaurant")Restaurant restaurant) throws Exception{
+	public ModelAndView updateRestaurantAction(@ModelAttribute("restaurant")Restaurant restaurant, 
+			HttpServletRequest request,
+			HttpServletResponse response) throws Exception{
 
 		System.out.println("_______________________________________________");
 		System.out.println("==> /restaurant/updateRestaurant__call !!!");
 		System.out.println("_______________________________________________");		
+		System.out.println(restaurant.getResId());
+		System.out.println(restaurant);
+		FTPTransfer transfer = new FTPTransfer();
+		transfer.delete(SERVER_IP, PORT, ID, PASSWORD, UPLOAD_DIR, restaurantService.getRestaurant(restaurant.getResId()));
+		
+		String fileDir1 = request.getRealPath("/")+"resources/img";
+		int max = 5* 640 * 480;
+		
+		MultipartRequest mpr = new MultipartRequest(request, fileDir1, max, "UTF-8", new DefaultFileRenamePolicy());
+		Enumeration formNames = mpr.getFileNames();
+		
+		String fileInput = "";
+		String fileName = "";
+		String fileDir2 = "";
+		//ArrayList<File> fileList = new ArrayList<File>();
+		//HashMap<String, File> fileMap = new HashMap<String, File>();
+		
+		while(formNames.hasMoreElements()){
+			
+			System.out.println("============================");
+			fileInput = (String)formNames.nextElement();
+			System.out.println("fileInput : "+fileInput);
+			
+			
+			fileName = mpr.getFilesystemName(fileInput);
+			System.out.println("fileName : "+ fileName);
+			System.out.println("============================");
+			if(fileName != null){
+				System.out.println("if문안으로 들어오나?");
+				switch(fileInput){
+				
+					case "imgSmall1" : 
+						fileDir2 = fileDir1 + "/main";
+						System.out.println("fileDirectory : " + fileDir2);
+						restaurant.setImgSmall1("main/" +fileName);
+						System.out.println("restaurant.getImageSmall1 : " + restaurant.getImgSmall1());
+						//fileList.add(mpr.getFile(fileInput));
+						fileMap.put("imgSmall1", mpr.getFile(fileInput));
+						//System.out.println("getFile? ==> " + mpr.getFile(fileInput));
+						break;
+					case "imgBig1" :
+						fileDir2 = fileDir1 + "/detail";
+						System.out.println("fileDirectory : " + fileDir2);
+						restaurant.setImgBig1("detail/" +fileName);
+						System.out.println("restaurant.getImageBig1 : " + restaurant.getImgBig1());
+						//fileList.add(mpr.getFile(fileInput));
+						fileMap.put("imgBig1", mpr.getFile(fileInput));
+						//System.out.println("getFile? ==> " + mpr.getFile(fileInput));
+						break;
+					case "imgBig2" :
+						fileDir2 = fileDir1 + "/detail";
+						System.out.println("fileDirectory : " + fileDir2);
+						restaurant.setImgBig2("detail/" +fileName);
+						System.out.println("restaurant.getImageBig2 : " + restaurant.getImgBig2());
+						//fileList.add(mpr.getFile(fileInput));
+						fileMap.put("imgBig2", mpr.getFile(fileInput));
+						//System.out.println("getFile? ==> " + mpr.getFile(fileInput));
+						break;
+					case "imgBig3" :
+						fileDir2 = fileDir1 + "/detail";
+						System.out.println("fileDirectory : " + fileDir2);
+						restaurant.setImgBig3("detail/" +fileName);
+						System.out.println("restaurant.getImageBig3 : " + restaurant.getImgBig3());
+						//fileList.add(mpr.getFile(fileInput));
+						fileMap.put("imgBig3", mpr.getFile(fileInput));
+						//System.out.println("getFile? ==> " + mpr.getFile(fileInput));
+						break;
+					case "imgMenu" :
+						fileDir2 = fileDir1 + "/menu";
+						System.out.println("fileDirectory : " + fileDir2);
+						restaurant.setImgMenu("menu/" +fileName);
+						System.out.println("restaurant.getImageMenu : " + restaurant.getImgMenu());
+						//fileList.add(mpr.getFile(fileInput));
+						fileMap.put("imgMenu", mpr.getFile(fileInput));
+						//System.out.println("getFile? ==> " + mpr.getFile(fileInput));
+						break;
+				}//endOfSwith
+			}//endOfIf
+			
+						restaurant.setName(mpr.getParameter("name"));
+						restaurant.setAddr(mpr.getParameter("addr"));
+						restaurant.setPhone(mpr.getParameter("phone"));
+						restaurant.setLicenseNo(mpr.getParameter("licenseNo"));
+						restaurant.setGeoLat(Double.parseDouble(mpr.getParameter("geoLat")));
+						restaurant.setGeoLong(Double.parseDouble(mpr.getParameter("geoLong")));
+						restaurant.setCopyComment(mpr.getParameter("copyComment"));
+						restaurant.setResCategory(Integer.parseInt(mpr.getParameter("resCategory")));
+			
+		}//endOfWhile
 		
 		restaurantService.updateRestaurant(restaurant);
+		
+		transfer.insert(SERVER_IP, PORT, ID, PASSWORD, UPLOAD_DIR, null, fileMap);
 		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("restaurantViews/restaurantDetail");
@@ -596,7 +689,7 @@ public class RestaurantController {
 		boolean result = false;
 		
 		//여러개의 파일을 전송한다.
-	    public boolean FtpPut(String ip, int port, String id, String password, String uploaddir, String makedir, HashMap<String, File> fileMap) {
+	    public boolean insert(String ip, int port, String id, String password, String uploaddir, String makedir, HashMap<String, File> fileMap) {
 	    
 	        File uploadFile=null;
             FileInputStream fis = null;
@@ -845,5 +938,7 @@ public class RestaurantController {
 			 }//end Of ForStatement
 				return !result; 
 	    }//end Of Method
+	    
+	   
 	}//end Of InnerClass
 }//end Of Class
