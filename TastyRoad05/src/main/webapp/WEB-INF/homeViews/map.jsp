@@ -1955,6 +1955,93 @@
 						            /* main slider carousel items */
 						            "<div class=\"carousel-inner\">"+
 						              "<div class=\"active item\" data-slide-number=\"0\">"+
+						                "<img  src = \"http://imageserver.iisweb.co.kr/teamdwf/"+marker.itemPicturePath1+"\" style=\"width: 640px; height:480;\">"+
+						              "</div>"+
+						              "<div class=\"item\" data-slide-number=\"1\">"+
+						              	"<img  src = \"http://imageserver.iisweb.co.kr/teamdwf/"+marker.itemPicturePath2+"\" style=\"width: 640px; height:480;\">"+
+					                  "</div>"+
+						              "<div class=\"item\" data-slide-number=\"2\">"+
+						                "<img  src = \"http://imageserver.iisweb.co.kr/teamdwf/"+marker.itemPicturePath3+"\" style=\"width: 640px; height:480;\">"+
+						              "</div>"+						            
+						             	
+						              
+						            "</div>"+
+						            
+						            /* main slider carousel nav controls */
+						            "<a class=\"carousel-control left\" href=\"#myCarousel_view\" data-slide=\"prev\">‹</a>"+
+						            "<a class=\"carousel-control right\" href=\"#myCarousel_view\" data-slide=\"next\">›</a>"+
+						         "</div>"+
+						       "</div>"+
+						        
+						       
+						     "</div>"+
+						      
+						   "</div>"+
+						 "</div>"+ /* main slider carousel */
+					"</div>"+/* end of image slider */
+							
+							
+							<%-- ItemInfo 들어가는 공간 --%>
+							"<br><div id=\"itemInfo\">"+
+								marker.itemInfo+
+							"</div>"+
+							
+						"</div>"+
+						"<div class=\"modal-footer\">"+
+						"</div>"+ 
+						"<div class=\"modal-footer\">";
+						
+						//if(userNo==marker.userNo){
+						//	htmlinjec+=
+						//	"<button type=\"button\" class=\"btn btn-primary\" >수정</button>"+
+						//	"<button class=\"btn btn-primary\" data-toggle=\"modal\" href=\"#deletepopup\" onclick=\"return false\">삭제</button>";						
+						//	}
+						
+						htmlinjec+=
+						//"<button type=\"button\" class=\"btn btn-danger\" >찜</button>"+
+						"<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>"+
+						"</div>"+
+					"</div>"+	
+				"</div>"+
+			"</div>"+
+			"<a data-toggle=\"modal\" href=\"#item"+marker.itemNo+"\" id=\"modallink\"></a>";
+		};
+		document.getElementById("htmlInjectionSector").innerHTML = htmlinjec;
+		document.getElementById("modallink").click();
+ }
+		
+
+ </script>
+ 
+<!--  
+<script>
+
+ function modalInjection(marker){
+	  
+	  console.log(marker.itemNo);
+  	  //var userNo='${user.userNo}';
+  	  var htmlinjec;
+	  new function makeHtml(){
+			htmlinjec=
+			"<div id=\"item"+marker.itemNo+"\" class=\"item"+marker.itemNo+" modal fade\" title=\""+marker.title+"\"  tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">"+
+				"<div id=\"injection-modal\"class=\"modal-dialog\">"+
+					"<div class=\"modal-Content\">"+
+						"<div class=\"modal-header\">"+
+						"<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">×</button>"+
+				        "<h4 class=\"modal-title\">"+marker.title+"<font color=\"red\"></font></h4>"+
+				       
+						"</div>"+
+						"<div class=\"modal-body\">"+
+						
+					    "<div id=\"imgslider_container_view\">"+
+						  "<div class=\"row-fluid\">"+
+						    "<div class=\"span12\" id=\"slider\">"+
+						      "<div class=\"row-fluid\">"+
+						        "<div class=\"span8\" id=\"carousel-bounding-box\">"+
+						          "<div id=\"myCarousel_view\" class=\"carousel slide\">"+
+						            /* main slider carousel items */
+						            "<div class=\"carousel-inner\">"+
+						              "<div class=\"active item\" data-slide-number=\"0\">"+
 						                "<img  src = \"../resources/img/"+marker.itemPicturePath1+"\" style=\"width: 640px; height:480;\">"+
 						              "</div>"+
 						              "<div class=\"item\" data-slide-number=\"1\">"+
@@ -2011,5 +2098,5 @@
  }
 		
 
- </script>
-
+</script>
+-->
