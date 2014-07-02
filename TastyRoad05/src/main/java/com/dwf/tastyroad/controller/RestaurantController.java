@@ -66,13 +66,15 @@ public class RestaurantController {
 	private RestaurantService restaurantService;
 
 	
-	
+	/*field (for ftp통신)*/
 	private static final String SERVER_IP="119.205.211.176";
 	private static final int PORT = 5001;
 	private static final String ID ="imageserver";
 	private static final String PASSWORD = "WeAre47th";
 	private static final String UPLOAD_DIR = "teamdwf";
 	public static HashMap<String, File> fileMap = new HashMap<String, File>();
+	private Set<String> set=null;
+    private String[]keys=null;
 	
 	///Constructor - default
 	public RestaurantController() {
@@ -144,20 +146,53 @@ public class RestaurantController {
 			HttpServletRequest request,
 			HttpServletResponse response)throws Exception {
 
+		//Field
+		String fileDir1 = request.getRealPath("/")+"resources/img";
+		int max = 5* 640 * 480;
+		String fileInput = "";
+		String fileName = "";
+		String fileDir2 = "";
+		
 		System.out.println("_______________________________________________");
 		System.out.println("==> /restaurant/addRestaurant __call !!!");
 		System.out.println("_______________________________________________");
 		
 		
-		String fileDir1 = request.getRealPath("/")+"resources/img";
-		int max = 5* 640 * 480;
 		
+		
+		//=============================================<MultipartRequest시작>========================================
+		//
+		//			+---------------------+			
+		//			| author : 정준호.	  |
+		//			+---------------------+
+		//			| Date : 2014-07-02	  |
+		//			+---------------------+
+		//			  
+		//			1. 이미지 파일 업로드 처리를 위해 MultipartRequest를 사용.
+		//			2. restaurantAdd.jsp에서 넘어온 file객체를 Controller단에서 MultipartRequest로 처리.
+		//			3. restaurantAdd.jsp로 가서 확인할 2가지.
+		//					☞ form태그 enctype="multipart/form-data"를 확인할 것.
+		//					☞ 이미지 업로드를 위해 input 태그의 type="file"을 확인할 것.				
+		//			4. MultipartRequest 절차.
+		//				☞ MultipartRequest를 통해 전달받은 이미지 File을 Local File System에 임시로 저장.
+		//				☞ Enumeration으로 file form name & file name들을 무작위 추출한다. (while문이 끝날때까지)
+		//				☞ File객체를 추출하기 위해 new File()을 선언하고, fileName을 인자값으로 전달한다. 
+		//				☞ key-value 형태의 <String, File> map을 선언하여, File객체들을 차곡차곡 담는다.(while문이 끝낼때까지)
+		//				☞ 동시에, 도메인 setter 메소드로 값을 set.(이때 데이터 타입은 String으로 변환하여 set.)
+		//				☞ While문이 끝나면, File객체를 제외한 다른 데이터 타입(text...)의 파라메터 value들을 뽑아 먹는다.
+		//				☞ 마찬가지로 도메인 setter 메소드로 값을 set.
+		//				☞ DB에 저장.(File 객체는 경로만 DB에 저장. 실 File 객체는 ftp 통신을 통해 전달.)
+		//
+		//
+		//===========================================================================================================
+		
+		
+		
+			
 		MultipartRequest mpr = new MultipartRequest(request, fileDir1, max, "UTF-8", new DefaultFileRenamePolicy());
 		Enumeration formNames = mpr.getFileNames();
 		
-		String fileInput = "";
-		String fileName = "";
-		String fileDir2 = "";
+		
 		//ArrayList<File> fileList = new ArrayList<File>();
 		//HashMap<String, File> fileMap = new HashMap<String, File>();
 		
@@ -166,63 +201,83 @@ public class RestaurantController {
 			System.out.println("============================");
 			fileInput = (String)formNames.nextElement();
 			System.out.println("fileInput : "+fileInput);
+			//Console 출력창 확인. ==> fileInput : imgSmall1.
 			
 			
 			fileName = mpr.getFilesystemName(fileInput);
 			System.out.println("fileName : "+ fileName);
+			//Console 출력창 확인. ==> fileName : IMG_1200.png
 			System.out.println("============================");
+			
 			if(fileName != null){
 				System.out.println("if문안으로 들어오나?");
+				
 				switch(fileInput){
 				
 					case "imgSmall1" : 
-						fileDir2 = fileDir1 + "/main";
+						//fileDir2 = fileDir1 + "/main";
 						System.out.println("fileDirectory : " + fileDir2);
 						restaurant.setImgSmall1("main/" +fileName);
 						System.out.println("restaurant.getImageSmall1 : " + restaurant.getImgSmall1());
+						//Console 출력창 확인. ==> fileDirectory : C:\(생략)\wtpwebapps\TastyRoad05\resources/img/
 						//fileList.add(mpr.getFile(fileInput));
 						fileMap.put("imgSmall1", mpr.getFile(fileInput));
 						//System.out.println("getFile? ==> " + mpr.getFile(fileInput));
+						//Console 출력창 확인. ==>C:\(생략)\wtpwebapps\TastyRoad05\resources/img/(파일이름).png
 						break;
+						
 					case "imgBig1" :
-						fileDir2 = fileDir1 + "/detail";
+						//fileDir2 = fileDir1 + "/detail";
 						System.out.println("fileDirectory : " + fileDir2);
 						restaurant.setImgBig1("detail/" +fileName);
 						System.out.println("restaurant.getImageBig1 : " + restaurant.getImgBig1());
+						//Console 출력창 확인. ==> fileDirectory : C:\(생략)\wtpwebapps\TastyRoad05\resources/img/
 						//fileList.add(mpr.getFile(fileInput));
 						fileMap.put("imgBig1", mpr.getFile(fileInput));
 						//System.out.println("getFile? ==> " + mpr.getFile(fileInput));
+						//Console 출력창 확인. ==>C:\(생략)\wtpwebapps\TastyRoad05\resources/img/(파일이름).png
 						break;
+						
 					case "imgBig2" :
-						fileDir2 = fileDir1 + "/detail";
+						//fileDir2 = fileDir1 + "/detail";
 						System.out.println("fileDirectory : " + fileDir2);
 						restaurant.setImgBig2("detail/" +fileName);
 						System.out.println("restaurant.getImageBig2 : " + restaurant.getImgBig2());
+						//Console 출력창 확인. ==> fileDirectory : C:\(생략)\wtpwebapps\TastyRoad05\resources/img/
 						//fileList.add(mpr.getFile(fileInput));
 						fileMap.put("imgBig2", mpr.getFile(fileInput));
 						//System.out.println("getFile? ==> " + mpr.getFile(fileInput));
+						//Console 출력창 확인. ==>C:\(생략)\wtpwebapps\TastyRoad05\resources/img/(파일이름).png
 						break;
+						
 					case "imgBig3" :
-						fileDir2 = fileDir1 + "/detail";
+						//fileDir2 = fileDir1 + "/detail";
 						System.out.println("fileDirectory : " + fileDir2);
 						restaurant.setImgBig3("detail/" +fileName);
 						System.out.println("restaurant.getImageBig3 : " + restaurant.getImgBig3());
+						//Console 출력창 확인. ==> fileDirectory : C:\(생략)\wtpwebapps\TastyRoad05\resources/img/
 						//fileList.add(mpr.getFile(fileInput));
 						fileMap.put("imgBig3", mpr.getFile(fileInput));
 						//System.out.println("getFile? ==> " + mpr.getFile(fileInput));
+						//Console 출력창 확인. ==>C:\(생략)\wtpwebapps\TastyRoad05\resources/img/(파일이름).png
 						break;
+						
 					case "imgMenu" :
-						fileDir2 = fileDir1 + "/menu";
+						//fileDir2 = fileDir1 + "/menu";
 						System.out.println("fileDirectory : " + fileDir2);
 						restaurant.setImgMenu("menu/" +fileName);
 						System.out.println("restaurant.getImageMenu : " + restaurant.getImgMenu());
+						//Console 출력창 확인. ==> fileDirectory : C:\(생략)\wtpwebapps\TastyRoad05\resources/img/
 						//fileList.add(mpr.getFile(fileInput));
 						fileMap.put("imgMenu", mpr.getFile(fileInput));
 						//System.out.println("getFile? ==> " + mpr.getFile(fileInput));
+						//Console 출력창 확인. ==>C:\(생략)\wtpwebapps\TastyRoad05\resources/img/(파일이름).png
 						break;
+						
 				}//endOfSwith
 			}//endOfIf
 			
+						//type = "file" 을 제외한 나머지 파라메터 value들을 뽑아서 set.
 						restaurant.setName(mpr.getParameter("name"));
 						restaurant.setAddr(mpr.getParameter("addr"));
 						restaurant.setPhone(mpr.getParameter("phone"));
@@ -235,9 +290,46 @@ public class RestaurantController {
 		}//endOfWhile
 
 		
+		
+		
+		//=============================================<FTP 통신 시작-INSERT>========================================
+		//
+		//			+---------------------+			
+		//			| author : 정준호.	  |
+		//			+---------------------+
+		//			| Date : 2014-07-02	  |
+		//			+---------------------+
+		//			  
+		//			1. FTP 통신은 이미지 객체를 클라우드 이미지 서버로 전송하기 위함.
+		//			2. 클라우드 이미지 서버를 사용했을 경우, 트래픽관리를 효율적으로 할 수 있음.
+		//			3. FTP 통신 절차.
+		//				☞ FTPTransfer inner 클래스를 만들고, insert메소드를 만든다.
+		//				  		//inner class
+		//				  		public FTPTransfer{
+		//					  		insert(SERVER_IP, PORT, ID, PASSWORD, UPLOAD_DIR, Makedir, map)  
+		//				  		}
+		//				  
+		//				☞ FTPTransfer 클래스 인스턴스를 생성한다.
+		//						FTPTransfer transfer = new FTPTransfer();
+		//
+		//				☞ insert메소드를 호출 후, 
+		//				  MultipartRequest로부터 File 객체가 들어있는 <String, File> map을 전달 받는다.
+		//						transfer.insert(SERVER_IP, PORT, ID, PASSWORD, UPLOAD_DIR, null, fileMap);					
+		//
+		//				☞ insert 메소드 안에서 for 문으로 map의 value(File 객체)를 뽑고, ftp.storeFile()을 선언하여,
+		//				  ftp로 전송.
+		//
+		//				☞ ftp 전송이 끝나면, 로컬 파일 시스템에 임시 저장한 이미지 파일들을 삭제.
+		//
+		//
+		//===========================================================================================================
+				
+		
+		
+		
 		FTPTransfer transfer = new FTPTransfer();
 		System.out.println("==============================ftp통신 시작=======================================");
-		transfer.insert(SERVER_IP, PORT, ID, PASSWORD, UPLOAD_DIR, null, fileMap);
+		boolean result = transfer.insert(SERVER_IP, PORT, ID, PASSWORD, UPLOAD_DIR, null, fileMap);
 //		transfer.FtpPut(SERVER_IP, PORT, ID, PASSWORD, UPLOAD_DIR, null, fileList);
 		System.out.println("==============================ftp통신 종료=======================================");
 		
@@ -256,24 +348,26 @@ public class RestaurantController {
 	
 		
 		
-		
-		
-		Set<String> set = fileMap.keySet();
-		String[]keys = set.toString().subSequence(1, set.toString().length()-1).toString().split(", ");
-		
-		for(int i=0; i<keys.length;i++){
-			System.out.println("Local File 삭제를 위한 for 문 실행......");
-			File file1 = new File(fileMap.get(keys[i]).toString());
-			file1.delete();
-
-				if(file1.exists()){
-					System.out.println("삭제 Failed......");
-				}
-					else{
-						System.out.println("삭제 Ok!!!!!!");
+		//ftp 통신이 완료되면, 로컬 파일 시스템에 임시 저장된 이미지 파일들을 삭제.
+		if(result==true){
+			
+			set = fileMap.keySet();
+			//set.toString(); //Console 출력창 확인. ==> [imgSmall1, imgBig1, imgBig2, imgBig3, 
+			keys = set.toString().subSequence(1, set.toString().length()-1).toString().split(", ");
+			
+			for(int i=0; i<keys.length;i++){
+				System.out.println("Local File 삭제를 위한 for 문 실행......");
+				File file1 = new File(fileMap.get(keys[i]).toString());
+				file1.delete();
+	
+					if(file1.exists()){
+						System.out.println("삭제 Failed......");
 					}
-		}//endOfForStatement
-		
+						else{
+							System.out.println("삭제 Ok!!!!!!");
+						}
+			}//endOfForStatement
+		}
 		
 		
 		
@@ -511,6 +605,34 @@ public class RestaurantController {
 		return modelAndView;
 	}
 	
+	
+	
+	
+	//==============================================<FTP 통신 시작-UPDATE>=========================================
+	//
+	//			+---------------------+			
+	//			| author : 정준호.	  |
+	//			+---------------------+
+	//			| Date : 2014-07-02	  |
+	//			+---------------------+
+	//
+	//			1. 이미지 파일 업로드 처리를 위해 MultipartRequest를 사용.
+	//			2. restaurantUpdate.jsp에서 넘어온 file객체를 MultipartRequest로 처리.
+	//			3. restaurantUpdate.jsp로 가서 확인할 2가지.
+	//					☞ form태그 enctype="multipart/form-data"를 확인할 것.
+	//					☞ 이미지 업로드를 위해 input 태그의 type="file"을 확인할 것.	
+	//					☞ input 태그의 hidden value가 resId.
+	//			4. 기본절차.
+	//				☞ ftp에 업로드 된 기존 이미지 파일들을 delete.
+	//				☞ 이미지 파일경로와 그외 parameter value들을 도메인 객체 Restaurant에 set 한 후, DB update 실행.
+	//				☞ db에 새로이 추가된 이미지 파일경로를 갖고 ftp에 새로 업로드.
+	//
+	//
+	//===========================================================================================================
+	
+	
+	
+	
 	@RequestMapping(value="/getUpdateRestaurantView", method=RequestMethod.POST)
 	public ModelAndView getUpdateRestaurantViewAction(@ModelAttribute("restaurant")Restaurant restaurant) throws Exception{
 
@@ -654,7 +776,9 @@ public class RestaurantController {
 		System.out.println("==> /restaurant/removeRestaurant__call !!!");
 		System.out.println("_______________________________________________");
 		
-
+	
+		
+		//=============================================<FTP 통신 시작>========================================
 		FTPTransfer transfer = new FTPTransfer();
 		transfer.delete(SERVER_IP, PORT, ID, PASSWORD, UPLOAD_DIR, restaurantService.getRestaurant(restaurant.getResId()));
 		restaurantService.removeRestaurant(restaurant.getResId());
@@ -691,19 +815,51 @@ public class RestaurantController {
 		return modelAndView;
 	}
 	
+	
+	
+	
+	//=============================================<ftp통신 클래스 구현>===============================================
+	//
+	//			+---------------------+			
+	//			| author : 정준호.	  |
+	//			+---------------------+
+	//			| Date : 2014-07-02	  |
+	//			+---------------------+
+	//			
+	//			<insert>
+	//			1. FTPClient 인스턴스 생성.
+	//			2. ftp로 connect 시도. 실패하면 disconnect.
+	//			3. connection이 완료되면, login 시도. login실패하면 logout.
+	//			4. File 객체가 들어있는 map의 value를 for문으로 뽑아, new File() 인스턴스의 인자값으로 전달.
+	//			5. FileInputStream을 만들고, ftp.storeFile()로 File 객체를 전송.
+	//
+	//			<delete>
+	//			1. insert 1~3번과정과 동일.
+	//			2. restaurant 객체를 getter메소드로 받아와서 HashMap 형태로 저장.
+	//			3. for 문을 돌려서 map의 value를 뽑아냄.
+	//			4. 삭제할 파일의 ftp 디렉토리를 설정.
+	//			5. ftp.delete() 로 해당 경로의 파일을 삭제.
+	//
+	//===============================================================================================================
+	
+	
+	
+	
 	class FTPTransfer{
 		
+		//Field
 		FTPClient ftp = null;
 		int reply = 0;
 		boolean result = false;
-		
+		boolean isSuccess = false;
+		File uploadFile=null;
+        FileInputStream fis = null;
+        
+        String fileToDelete=null;
+        
 		//여러개의 파일을 전송한다.
 	    public boolean insert(String ip, int port, String id, String password, String uploaddir, String makedir, HashMap<String, File> fileMap) {
 	    
-	        File uploadFile=null;
-            FileInputStream fis = null;
-	        
-	        
 			try {
 	            ftp = new FTPClient();
 	            ftp.connect(ip, port);
@@ -722,11 +878,13 @@ public class RestaurantController {
 		            ftp.setFileType(FTP.BINARY_FILE_TYPE);
 		            ftp.enterLocalPassiveMode();
 		            
-		            Set<String> set = fileMap.keySet();
-					String[]keys = set.toString().subSequence(1, set.toString().length()-1).toString().split(", ");
+		            set = fileMap.keySet();
+		            //set.toString(); //Console 출력창 확인. ==> [imgSmall1, imgBig1, imgBig2, imgBig3, 
+					keys = set.toString().subSequence(1, set.toString().length()-1).toString().split(", ");
 					
 					System.out.println("=======ftp initial working directory=========");
-					System.out.println(ftp.printWorkingDirectory());
+					System.out.println(ftp.printWorkingDirectory());//ftp 현재 디렉토리를 print.
+					//Console 출력창 확인. ==> /
 					System.out.println("=============================================");
 		            
 					for(int i=0;i<keys.length;i++) {
@@ -734,12 +892,15 @@ public class RestaurantController {
 			            	String sourceFile = fileMap.get(keys[i]).toString(); //디렉토리+파일명
 				            String keyFileName = keys[i];
 				            System.out.println("sourceFile ==> " + sourceFile);
+				            //Console 출력창 확인. ==> sourceFile ==> C:\(생략)\wtpwebapps\TastyRoad05\resources\img\IMG_1205.png
+				            
+				            
 //				            System.out.println("=======ftp initial working directory=========");
 //							System.out.println(ftp.printWorkingDirectory());
 //							ftp.changeWorkingDirectory("/"+uploaddir);
 //							ftp.changeWorkingDirectory("/teamdwf");
 //							System.out.println("=============================================");
-				            
+//				            
 //				            switch(keyFileName){
 //				            case "imgSmall1":
 //				            	System.out.println("=======ftp imgSmall1 current working directory=========");
@@ -779,8 +940,9 @@ public class RestaurantController {
 				            	//ftp.makeDirectory("main");
 				            	System.out.println("=======ftp imgSmall1 current working directory=========");
 				            	System.out.println("[imgSmall1] switch-case문 실행......");
-				            	ftp.changeWorkingDirectory("/"+uploaddir);
-								ftp.changeWorkingDirectory("/teamdwf/main");
+				            	ftp.changeWorkingDirectory("/"+uploaddir);//해당 디렉토리로 옮겨서 작업.
+								ftp.changeWorkingDirectory("/teamdwf/main");//해당 디렉토리로 옮겨서 작업.
+								//Console 출력창 확인. ==> /teamdwf/menu
 				            	//ftp.changeWorkingDirectory("/main");
 				            	System.out.println(ftp.printWorkingDirectory());
 								System.out.println("=============================================");
@@ -794,8 +956,9 @@ public class RestaurantController {
 					            	//ftp.makeDirectory("detail");
 					            	System.out.println("=======ftp imgBig1/Big2/Big3 current working directory=========");
 					            	System.out.println("[imgBig1, imgBig2, imgBig3] switch-case문 실행......");
-					            	ftp.changeWorkingDirectory("/"+uploaddir);
-									ftp.changeWorkingDirectory("/teamdwf/detail");
+					            	ftp.changeWorkingDirectory("/"+uploaddir);//해당 디렉토리로 옮겨서 작업.
+									ftp.changeWorkingDirectory("/teamdwf/detail");//해당 디렉토리로 옮겨서 작업.
+									//Console 출력창 확인. ==> /teamdwf/detail
 									//ftp.changeWorkingDirectory("/detail");
 					            	System.out.println(ftp.printWorkingDirectory());
 									System.out.println("=============================================");
@@ -806,17 +969,19 @@ public class RestaurantController {
 					            	//ftp.makeDirectory("menu");
 					            	System.out.println("=======ftp imgMenu current working directory=========");
 					            	System.out.println("[imgMenu] switch-case문 실행......");
-					            	ftp.changeWorkingDirectory("/teamdwf/menu");
+					            	ftp.changeWorkingDirectory("/"+uploaddir);//해당 디렉토리로 옮겨서 작업.
+					            	ftp.changeWorkingDirectory("/teamdwf/menu");//해당 디렉토리로 옮겨서 작업.
+					            	//Console 출력창 확인. ==> /teamdwf/menu
 					            	//ftp.changeWorkingDirectory("/menu");
 					            	System.out.println(ftp.printWorkingDirectory());
 									System.out.println("=============================================");
 					            	
 					            }
 					            
-				            	uploadFile  = new File(sourceFile);
+				            	uploadFile  = new File(sourceFile);//ftp로 파일 업로드를 위한 new File()인스턴스 생성.
 				            try {
 				                 fis = new FileInputStream(uploadFile);
-				                 boolean isSuccess = ftp.storeFile(uploadFile.getName(), fis);
+				                 isSuccess = ftp.storeFile(uploadFile.getName(), fis);//File 인스턴스를 ftp로 전송.
 				                 if (isSuccess) {
 				                     System.out.println(sourceFile+" 파일 FTP 업로드 성공");
 				                 }
@@ -859,21 +1024,19 @@ public class RestaurantController {
 	    }
 	    
 	    public boolean delete(String ip, int port, String id, String password, String deletedir, Restaurant restaurant) throws Exception {
+	    	
 	    	System.out.println("delete 메소드로 들어왔다.");
 	    	ftp = new FTPClient();
-	    	String fileToDelete=null;
-	    
 	    	ftp.connect(ip, port);
+	    	
 	    	reply = ftp.getReplyCode();
 	    	 if (!FTPReply.isPositiveCompletion(reply)) {
-	             System.out.println("Connect Failed......");   
+	             System.out.println("Connection Failed......");   
 	    		 ftp.disconnect();
-	                return result;
+	             return result;
 	         }
 	    	 
-	    	 boolean success=ftp.login(id, password);
-	    	 
-	    	 if(!success){
+	    	 if(!ftp.login(id, password)){
 	    		 System.out.println("Could not login to server......");
 	    		 return result;
 	    	 }
@@ -893,9 +1056,9 @@ public class RestaurantController {
   	    	
   	     	 System.out.println(imgPathMapping);
   	     	 
-  	     	 Set<String> set = imgPathMapping.keySet();
+  	     	 set = imgPathMapping.keySet();
   	     	 System.out.println(set.toString());
-  	     	 String[]keys=set.toString().subSequence(1, set.toString().length()-1).toString().split(", ");
+  	     	 keys=set.toString().subSequence(1, set.toString().length()-1).toString().split(", ");
   	     	 
 			 for(int i=0; i<imgPathMapping.size();i++){
 					System.out.println("FTP File 삭제를 위한 for 문 실행......");
@@ -945,9 +1108,8 @@ public class RestaurantController {
 					}//end Of IfStatement
 				 
 			 }//end Of ForStatement
-				return !result; 
+				return result; 
 	    }//end Of Method
-	    
-	   
+
 	}//end Of InnerClass
 }//end Of Class
