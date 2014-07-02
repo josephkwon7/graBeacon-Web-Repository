@@ -101,10 +101,17 @@ body{
 	border-radius:5px;
 }
 
+#intro_contact_box{
+	position:relative;
+	width:900px;
+	height:320px;
+	margin:40px auto 0 auto;
+}
+
 .intro_contact_text{
 	position:relative;	
 	float:left;
-	margin:40px 0 0 60px;
+	margin:0 0 0 0;
 	padding:0 0 0 10px;
 	width:410px;
 	height:320px;
@@ -125,8 +132,8 @@ body{
 
 .intro_contact_image{
 	position:relative;
-	float:left;
-	margin:40px 0 0 60px;
+	float:right;
+	margin:0 0 0 0;
 	width: 420px;
 	height:320px;
 	background-image:url(../img/design/contact_us.png); 
