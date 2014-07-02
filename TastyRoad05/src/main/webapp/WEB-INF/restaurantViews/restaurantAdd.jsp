@@ -233,7 +233,7 @@
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">광고문구</td>
 			<td class="ct_write01">
 			<input type="text" name="copyComment"
-			class="ct_input_g" style="width: 400px; height: 19px" maxLength="10"></input>
+			class="ct_input_g" style="width: 400px; height: 19px" maxLength="30"></input>
 			</td>
 		</tr>
 		
