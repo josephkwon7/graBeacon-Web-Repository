@@ -84,7 +84,7 @@ body {
 			<div class="restaurant_well2">맛집 목록</div>
 				  
 			
-			<table class="table table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0"
+			<table class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0"
 				style="margin-top: 10px;">
 				
 				<tr>
@@ -101,13 +101,13 @@ body {
 
 					<tr class="ct_list_pop">
 						<td align="center">${restaurantList.resId}</td>
-						<td align="left">
+						<td align="center">
 							<a href="javascript:post('/restaurant/getRestaurantDetail', 
 						  {resId: '${restaurantList.resId}'});">${restaurantList.name}</a>
 						</td>
-						<td align="left">${restaurantList.addr}</td>
-						<td align="left">${restaurantList.phone}</td>
-						<td align="left">
+						<td align="center">${restaurantList.addr}</td>
+						<td align="center">${restaurantList.phone}</td>
+						<td align="center">
 							<c:choose>
 								<c:when test="${restaurantList.resCategory == '1'}">한식</c:when>
 								<c:when test="${restaurantList.resCategory == '2'}">일식</c:when>
@@ -116,7 +116,7 @@ body {
 								<c:otherwise>카페</c:otherwise>
 							</c:choose>
 						</td>
-						<td align="left">
+						<td align="center">
 						  <a href="javascript:post('/beacon/getBeaconList', 
 						  {searchKeyword: '${restaurantList.resId}', searchCondition: '4'});">비콘관리</a>
 
@@ -156,7 +156,7 @@ body {
 				
 				
 			</table>
-					<td align="right"><i class="icon-list-alt"></i>전체${resultPage.totalCount }건수,
+					<td align="right"></br><i class="icon-list-alt"></i>전체${resultPage.totalCount }건수,
 				현재 ${resultPage.currentPage} 페이지</td>
 
 			<!--  페이지 Navigator 시작 -->
