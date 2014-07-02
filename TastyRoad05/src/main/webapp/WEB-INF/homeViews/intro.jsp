@@ -85,7 +85,6 @@
 					width="30" /></a>
 			</div>
 		</div>
-
 		<div class="intro_contact_image"></div>
     </div>
     
