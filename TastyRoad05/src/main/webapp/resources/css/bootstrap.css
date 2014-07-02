@@ -6359,6 +6359,8 @@ border: 1px dashed gray;
 visibility: hidden;
 color: black;
 text-decoration: none;
+width:300px;
+height: auto;
 }
 
 .img_drop span img{ /*CSS for enlarged image*/
