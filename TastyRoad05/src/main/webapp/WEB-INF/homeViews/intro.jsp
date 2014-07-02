@@ -75,14 +75,18 @@
     <div class="orange_line2"></div>
     
     <div id="intro_contact_box">
-    <div class="intro_contact_text">
-    	Contact Us</br>
-        TEAM D.W.F</br>
-        만든이 Team.D.W.F(Dinner With Family)</br>
-        메일 lotusim@naver.com
-    </div>
-    
-    <div class="intro_contact_image"></div>
+		<div class="intro_contact_text">
+			<div class="Contact_us_img"></div>
+			&nbsp;만든이 Team.D.W.F(Dinner With Family)</br>
+			<div>
+			&nbsp;메일 teamdwf47@gmail.com <a class='customerMap'
+					href="mailTo:lotuslim00@naver.com"><img
+					src="../resources/img/design/mailgo.png" target=_black height="30"
+					width="30" /></a>
+			</div>
+		</div>
+
+		<div class="intro_contact_image"></div>
     </div>
 
 <!--
