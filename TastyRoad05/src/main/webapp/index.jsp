@@ -37,9 +37,6 @@
    	
 </head>
 <body>
-
- <div class = "linebottom"></div>
-
 		<header>
 		
 			<div id="header" align="center">
@@ -80,21 +77,16 @@
   <div class="block-content6"></div>
   </section>
     
-  <!-- 하단 메뉴 -->
   <footer id="footer">
-    <dl class="info">
-    	<dt>
-        Team DWF
-        </dt>
-        <dt>
-        주소 : 서울시 서초구 서초동 1327-15 비트아카데미빌딩 3층 301호
-        </dt>
-    </dl>
-    <details>
-    	<summary>Copyright@Team DWF Corp. All rights reserved.</summary>
-    </details>
-   </footer>
-  <!-- 하단 메뉴 -->
+		<dl class="info">
+			<dt>Team DWF</dt>
+			<dt>주소 : 서울시 서초구 서초동 1327-15 비트아카데미빌딩 3층 301호</dt>
+		</dl>
+		<details>
+			<summary>Copyright@Team DWF Corp. All rights reserved.</summary>
+		</details>
+	</footer>
+	
 </body>
 
 </html>
