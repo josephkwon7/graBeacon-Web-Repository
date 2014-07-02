@@ -746,7 +746,7 @@ h4,
 h5,
 h6 {
   margin: 10px 0;
-  font-family: inherit;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";
   font-weight: bold;
   line-height: 20px;
   color: inherit;
@@ -979,7 +979,7 @@ address {
 code,
 pre {
   padding: 0 3px 2px;
-  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";
   font-size: 12px;
   color: #333333;
   -webkit-border-radius: 3px;
@@ -1069,7 +1069,7 @@ input,
 button,
 select,
 textarea {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";
 }
 
 label {
@@ -2012,8 +2012,8 @@ table {
 
 .table th,
 .table td {
-  padding: 8px 0 0 0;
-  line-height: 30px;
+  padding: 0 0 0 0;
+  line-height: 40px;
   text-align: center;
   vertical-align: top;
   border-top: 1px solid #dddddd;
@@ -4555,7 +4555,7 @@ input[type="submit"].btn.btn-mini {
 .navbar-search .search-query {
   padding: 4px 14px;
   margin-bottom: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";
   font-size: 13px;
   font-weight: normal;
   line-height: 1;
@@ -6206,20 +6206,20 @@ a.badge:focus {
 /*	 Admin Sheet Style-Sheet													*/
 /********************************************************************************/
 
-td { font-size: 9pt; color: #58595B; font-style: normal; font-weight: normal; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
+td { font-size: 9pt; color: #58595B; font-style: normal; font-weight: normal; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
 
 
-A:link    {font-size: 9pt; COLOR: #58595B; text-decoration: none; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;}
-a:visited {font-size: 9pt; color: #58595B; text-decoration: none; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;}
-a:active  {font-size: 9pt; color: #58595B; text-decoration: none; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;}
-a:hover   {font-size: 9pt; color: #000000; text-decoration: none; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;}
-a:clicked   {font-size: 9pt; color: #000000; text-decoration: none; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;}
+A:link    {font-size: 9pt; COLOR: #58595B; text-decoration: none; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+a:visited {font-size: 9pt; color: #58595B; text-decoration: none; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+a:active  {font-size: 9pt; color: #58595B; text-decoration: none; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+a:hover   {font-size: 9pt; color: #000000; text-decoration: none; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+a:clicked   {font-size: 9pt; color: #000000; text-decoration: none; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
 
 
 
-.hp_search   {font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; font-size:9pt; border:1x solid #808080; color:#555555; background-color:#CEE6F4; padding-top:2px}
-.hp_input    {font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; font-size:9pt; border:1x solid #736D6D; color:#565656; background-color:#ffffff; padding-top:2px}
-.hp_input_bk {font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; font-size:9pt; border:1x solid #666666; color:#000000; background-color:#ffffff; padding-top:2px}
+.hp_search   {font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼"; font-size:9pt; border:1x solid #808080; color:#555555; background-color:#CEE6F4; padding-top:2px}
+.hp_input    {font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼"; font-size:9pt; border:1x solid #736D6D; color:#565656; background-color:#ffffff; padding-top:2px}
+.hp_input_bk {font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼"; font-size:9pt; border:1x solid #666666; color:#000000; background-color:#ffffff; padding-top:2px}
 
 
 .ct_center_margin   {padding:27px 35px 50px 5px;}
@@ -6231,54 +6231,54 @@ a:clicked   {font-size: 9pt; color: #000000; text-decoration: none; font-family:
 .ad_top_line01 {width:1px; background-color:#D8D8D8}
 
 .aba_box    {border:1x solid #CECBCE}
-.ad_login01 {font-family:"Helvetica Neue"; font-size:9pt; border-left:1px solid #A5C7F7; /*border-top:2px solid #969696;*/ border-right:1px solid #A5C7F7; border-bottom:1px solid #A5C7F7; 
+.ad_login01 {font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼"; font-size:9pt; border-left:1px solid #A5C7F7; /*border-top:2px solid #969696;*/ border-right:1px solid #A5C7F7; border-bottom:1px solid #A5C7F7; 
             color:#000000; background-color:#FFFFFF; padding-top:2px}
-.ct_box    {font-family:"Helvetica Neue"; font-size:9pt; border-left:1px solid #CECFCE;  border-right:1px solid #CECFCE; border-bottom:1px solid #CECFCE; 
+.ct_box    {font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼"; font-size:9pt; border-left:1px solid #CECFCE;  border-right:1px solid #CECFCE; border-bottom:1px solid #CECFCE; 
             color:#000000; background-color:#FFFFFF;}            
             
-.ct_name     {font-size: 10.5pt; COLOR: #104A93; font-weight:bold; text-decoration: none; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; letter-spacing:-1;}
-.ct_ttl      {font-size: 9pt; COLOR: #104A93; font-weight:bold; text-decoration: none; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; letter-spacing:-1;}
-.ct_village  {font-size: 9pt; COLOR: #427DC6; font-weight:bold; text-decoration: none; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; letter-spacing:-1;}
-.ct_date     {font-size: 9pt; COLOR: #295D8C; text-decoration: none; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;}
-.ct_ttl01     {font-size: 9pt; COLOR: #004D73; text-decoration: none; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight:bold; padding-top:3px;}
-.ct_ttl02     {font-size: 9pt; COLOR: #004D73; text-decoration: none; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;}
-.ct_ttl03     {font-size: 9pt; COLOR: #002C41; text-decoration: none; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight:bold; padding-top:3px;} 
+.ct_name     {font-size: 10.5pt; COLOR: #104A93; font-weight:bold; text-decoration: none; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼"; letter-spacing:-1;}
+.ct_ttl      {font-size: 9pt; COLOR: #104A93; font-weight:bold; text-decoration: none; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼"; letter-spacing:-1;}
+.ct_village  {font-size: 9pt; COLOR: #427DC6; font-weight:bold; text-decoration: none; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼"; letter-spacing:-1;}
+.ct_date     {font-size: 9pt; COLOR: #295D8C; text-decoration: none; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+.ct_ttl01     {font-size: 9pt; COLOR: #004D73; text-decoration: none; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼"; font-weight:bold; padding-top:3px;}
+.ct_ttl02     {font-size: 9pt; COLOR: #004D73; text-decoration: none; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+.ct_ttl03     {font-size: 9pt; COLOR: #002C41; text-decoration: none; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼"; font-weight:bold; padding-top:3px;} 
 
 
 .ct_line   {height:1px; background-color:#A8BAD4}
 .ct_line01 {height:1px; background-color:#E9F6FF}
 
-.ct_list           {font-size: 9pt; color: #343434; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; padding-top:5px; height:23px}
-.ct_list A:link    {font-size: 9pt; color: #343434; text-decoration: none; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
-.ct_list A:visited {font-size: 9pt; color: #343434; text-decoration: none; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
-.ct_list A:active  {font-size: 9pt; color: #343434; text-decoration: none; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
-.ct_list A:hover   {font-size: 9pt; color: #000000; text-decoration: none; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
+.ct_list           {font-size: 9pt; color: #343434; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼"; padding-top:5px; height:23px}
+.ct_list A:link    {font-size: 9pt; color: #343434; text-decoration: none; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+.ct_list A:visited {font-size: 9pt; color: #343434; text-decoration: none; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+.ct_list A:active  {font-size: 9pt; color: #343434; text-decoration: none; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+.ct_list A:hover   {font-size: 9pt; color: #000000; text-decoration: none; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
 
-.ct_list01           {font-size: 9pt; color: #525152; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; padding-top:5px; height:23px}
-.ct_list01 A:link    {font-size: 9pt; color: #525152; text-decoration: none; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
-.ct_list01 A:visited {font-size: 9pt; color: #525152; text-decoration: none; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
-.ct_list01 A:active  {font-size: 9pt; color: #525152; text-decoration: none; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
-.ct_list01 A:hover   {font-size: 9pt; color: #000000; text-decoration: none; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
+.ct_list01           {font-size: 9pt; color: #525152; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼"; padding-top:5px; height:23px}
+.ct_list01 A:link    {font-size: 9pt; color: #525152; text-decoration: none; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+.ct_list01 A:visited {font-size: 9pt; color: #525152; text-decoration: none; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+.ct_list01 A:active  {font-size: 9pt; color: #525152; text-decoration: none; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+.ct_list01 A:hover   {font-size: 9pt; color: #000000; text-decoration: none; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
 
 
-.ct_input      {font-size:9pt; border:1x solid #468720; color:#777777; background-color:#ffffff; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; padding-top:2px}
+.ct_input      {font-size:9pt; border:1x solid #468720; color:#777777; background-color:#ffffff; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼"; padding-top:2px}
 
 /* ct_input_g´Â ÀÌ¹ÌÁö ¾÷·Îµå¿ë ¹öÆ° ¿µ¿ªÀÎµ¥ Æ¯Á¤ ¿µ¿ªÀÇ »ö»óÀÌ °íÁ¤µÇ¾îÀÖÀ¸¹Ç·Î È¾¸¶´Ù ÄÃ·¯¸¦ ´Þ¸® ÇÏ±â À§ÇÏ¿© ct_input_g02¸¦ Ãß°¡ÇÔ */
-.ct_input_g    {font-size:9pt; border:1x solid #ADAEAD; color:#777777; background-color:#ffffff; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; padding-top:0px; vertical-align: center;}
+.ct_input_g    {font-size:9pt; border:1x solid #ADAEAD; color:#777777; background-color:#ffffff; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼"; padding-top:0px; vertical-align: center;}
 
-.ct_input_g2    {font-size:9pt; border:1x solid #ADAEAD; color:#777777; background-color:#ededed; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; padding-top:0px}
+.ct_input_g2    {font-size:9pt; border:1x solid #ADAEAD; color:#777777; background-color:#ededed; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼"; padding-top:0px}
 
-.ct_input_bg    {font-size:9pt; border:1x solid #ADAEAD; color:#777777; background-color:#dddddd; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; padding-top:2px}
+.ct_input_bg    {font-size:9pt; border:1x solid #ADAEAD; color:#777777; background-color:#dddddd; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼"; padding-top:2px}
 
-select {border:1x solid #ADAEAD; color:#777777; background-color:#ffffff; font-family:"Helvetica Neue"; font-size:12px; color:#5D5D5D; line-height:1.3;}
+select {border:1x solid #ADAEAD; color:#777777; background-color:#ffffff; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼"; font-size:12px; color:#5D5D5D; line-height:1.3;}
 
-.ct_write          {font-size: 9pt; color: #181818; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; padding:3px 0px 0px 10px; background-color:#F5F5F5; height:26px;
+.ct_write          {font-size: 9pt; color: #181818; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼"; padding:3px 0px 0px 10px; background-color:#F5F5F5; height:26px;
 					border-bottom:solid 1px #CCC; background-color:d0d0d0;}
 
 /* ct_write02 Ãß°¡ : ºÎÆ®½ºÆ®·¦ CSS Å×ÀÌºí Å¸ÀÔÁß Çà¸¶´Ù ÄÃ·¯¸¦ ´Þ¸® ÁÖ¾îÁÖ´Â °ÍÀÌ ÀÖ´Âµ¥ È¾·Ä Å¸ÀÔÀÇ Å×ÀÌºí¿¡¼­´Â ¸ÔÈ÷Áö ¾Ê±â ¶§¹®¿¡ ct_write¸¦ ÀÌ¿ëÇÏ¿© °­Á¦·Î ÁÖ¾îÁÜ) */
-.ct_write01        {font-size: 9pt; color: #565656; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; padding:10px 0 10px 10px; border-bottom:solid 1px #CCC;}
+.ct_write01        {font-size: 9pt; color: #565656; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼"; padding:10px 0 10px 10px; border-bottom:solid 1px #CCC;}
 
-.ct_write02        {font-size: 9pt; background-color:#f5f5f5; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; padding:10px 0 10px 10px; border-bottom:solid 1px #CCC;}
+.ct_write02        {font-size: 9pt; background-color:#f5f5f5; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼"; padding:10px 0 10px 10px; border-bottom:solid 1px #CCC;}
 
 .ct_line02 {width:1px; background-color:#ffffff}
 
@@ -6290,7 +6290,7 @@ select {border:1x solid #ADAEAD; color:#777777; background-color:#ffffff; font-f
 	color: #000; 
 	text-align:center;
 	text-decoration: none;
-	font-family:"Arial Black", Gadget, sans-serif;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";
 	background-image: -webkit-linear-gradient(#FFF, #CCC);
 	background-image: -moz-linear-gradient(#FFF, #CCC);
 	background-image: -ms-linear-gradient(#FFF, #CCC);
@@ -6299,30 +6299,30 @@ select {border:1x solid #ADAEAD; color:#777777; background-color:#ffffff; font-f
 	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffdae6f3', endColorstr='#ffc2d5ed', GradientType=0);
 }
 
-.ct_list_pop          {font-size: 9pt; color: #666666; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; padding-top:2px; height:30px;}
-.ct_list_pop A:link    {font-size: 9pt; color: #666666;  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
-.ct_list_pop A:visited {font-size: 9pt; color: #666666;  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
-.ct_list_pop A:active  {font-size: 9pt; color: #666666;  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
-.ct_list_pop A:hover   {font-size: 9pt; color: #000000;  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
+.ct_list_pop          {font-size: 9pt; color: #666666; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼"; padding-top:2px; height:30px;}
+.ct_list_pop A:link    {font-size: 9pt; color: #666666;  font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+.ct_list_pop A:visited {font-size: 9pt; color: #666666;  font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+.ct_list_pop A:active  {font-size: 9pt; color: #666666;  font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+.ct_list_pop A:hover   {font-size: 9pt; color: #000000;  font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
 
 
-.ct_list_no          {font-size: 9pt; color: #666666; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
-.ct_list_no A:link    {font-size: 9pt; color: #666666; text-decoration: none; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
-.ct_list_no A:visited {font-size: 9pt; color: #666666; text-decoration: none; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
-.ct_list_no A:active  {font-size: 9pt; color: #666666; text-decoration: none; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
-.ct_list_no A:hover   {font-size: 9pt; color: #808285; text-decoration: none; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
+.ct_list_no          {font-size: 9pt; color: #666666; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+.ct_list_no A:link    {font-size: 9pt; color: #666666; text-decoration: none; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+.ct_list_no A:visited {font-size: 9pt; color: #666666; text-decoration: none; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+.ct_list_no A:active  {font-size: 9pt; color: #666666; text-decoration: none; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+.ct_list_no A:hover   {font-size: 9pt; color: #808285; text-decoration: none; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
 
 
-.ct_btn               {font-size: 9pt; color: #000000; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
-.ct_btn A:link    {font-size: 9pt; color: #000000; text-decoration: none; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
-.ct_btn A:visited {font-size: 9pt; color: #000000; text-decoration: none; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
-.ct_btn A:active  {font-size: 9pt; color: #000000; text-decoration: none; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
-.ct_btn A:hover   {font-size: 9pt; color: #000000; text-decoration: none; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
+.ct_btn               {font-size: 9pt; color: #000000; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+.ct_btn A:link    {font-size: 9pt; color: #000000; text-decoration: none; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+.ct_btn A:visited {font-size: 9pt; color: #000000; text-decoration: none; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+.ct_btn A:active  {font-size: 9pt; color: #000000; text-decoration: none; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+.ct_btn A:hover   {font-size: 9pt; color: #000000; text-decoration: none; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
 
-.ct_btn01 A:link    {font-size: 9pt; color: #666666; text-decoration: none; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
-.ct_btn01 A:visited {font-size: 9pt; color: #666666; text-decoration: none; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
-.ct_btn01 A:active  {font-size: 9pt; color: #666666; text-decoration: none; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
-.ct_btn01 A:hover   {font-size: 9pt; color: #666666; text-decoration: none; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
+.ct_btn01 A:link    {font-size: 9pt; color: #666666; text-decoration: none; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+.ct_btn01 A:visited {font-size: 9pt; color: #666666; text-decoration: none; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+.ct_btn01 A:active  {font-size: 9pt; color: #666666; text-decoration: none; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+.ct_btn01 A:hover   {font-size: 9pt; color: #666666; text-decoration: none; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
 
 /* °ü¸®ÀÚ ·Î±×ÀÎ ÆäÀÌÁö ·Î±×ÀÎ Æû ¿µ¿ª CSS ÄÚµå Ãß°¡ by ¼ºÀº */
 
@@ -6355,7 +6355,7 @@ position: absolute;
 background-color: lightyellow;
 padding: 5px;
 left: -1000px;
-border: 1px dotted gray;
+border: 1px dashed gray;
 visibility: hidden;
 color: black;
 text-decoration: none;
