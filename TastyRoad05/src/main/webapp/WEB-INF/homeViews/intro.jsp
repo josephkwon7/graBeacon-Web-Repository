@@ -11,7 +11,6 @@
 
 <link rel="stylesheet" media="all" href="../../resources/css/intro.css">
 <link rel="stylesheet" type="text/css" href="../../resources/css/header.css">
-<link rel="stylesheet" type="text/css" href="../../resources/css/footer.css">
 
 <script type="text/javascript">
 	   
@@ -88,16 +87,7 @@
 		<div class="intro_contact_image"></div>
     </div>
     
-	<footer id="footer">
-		<dl class="info">
-			<dt>Team DWF</dt>
-			<dt>주소 : 서울시 서초구 서초동 1327-15 비트아카데미빌딩 3층 301호</dt>
-		</dl>
-		<details>
-			<summary>Copyright@Team DWF Corp. All rights reserved.</summary>
-		</details>
-	</footer>
-  
+<center><%@include file="../common/footer.jsp"%></center>
 </body>
 </html>
 
