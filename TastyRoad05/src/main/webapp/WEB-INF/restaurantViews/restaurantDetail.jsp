@@ -76,82 +76,69 @@
 
 		<tr>
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">맛집번호</td>
-			<td class="ct_write01">
-				${restaurant.resId==null?'':restaurant.resId}</td>
+			<td class="ct_write01">${restaurant.resId==null?'':restaurant.resId}</td>
 		</tr>
 
 		<tr>
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">상호명</td>
-
-			<td class="ct_write01">
-				${restaurant.name==null?'':restaurant.name}</td>
+			<td class="ct_write01">${restaurant.name==null?'':restaurant.name}</td>
 		</tr>
 
 		<tr>
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">주소</td>
-
-			<td class="ct_write01">
-				${restaurant.addr==null?'':restaurant.addr}</td>
+			<td class="ct_write01">${restaurant.addr==null?'':restaurant.addr}</td>
 		</tr>
 
 		<tr>
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">전화번호</td>
-			<td class="ct_write01">
-				${restaurant.phone==null?'':restaurant.phone}</td>
+			<td class="ct_write01">${restaurant.phone==null?'':restaurant.phone}</td>
 		</tr>
 
 		<tr>
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">사업자 등록번호</td>
-			<td class="ct_write01">
-				${restaurant.licenseNo==null?'':restaurant.licenseNo}</td>
+			<td class="ct_write01">${restaurant.licenseNo==null?'':restaurant.licenseNo}</td>
 		</tr>
 
 		<tr>
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">상세위치-위도</td>
-			<td class="ct_write01">
-				${restaurant.geoLat==null?'':restaurant.geoLat}</td>
+			<td class="ct_write01">${restaurant.geoLat==null?'':restaurant.geoLat}</td>
 		</tr>
 
 		<tr>
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">상세위치-경도</td>
-			<td class="ct_write01">
-				${restaurant.geoLong==null?'':restaurant.geoLong}</td>
+			<td class="ct_write01">${restaurant.geoLong==null?'':restaurant.geoLong}</td>
 		</tr>
 
 		<tr>
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">메인이미지1</td>
 			<td class="ct_write01">
-				${restaurant.imgSmall1==null?'':restaurant.imgSmall1}</td>
+			<a class="img_drop">${restaurant.imgSmall1==null?'':restaurant.imgSmall1}<span>${restaurant.imgSmall1}</span></a>
+			</td>
 		</tr>
 
 		<tr>
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">상세이미지1</td>
-			<td class="ct_write01">
-				${restaurant.imgBig1==null?'':restaurant.imgBig1}</td>
+			<td class="ct_write01">${restaurant.imgBig1==null?'':restaurant.imgBig1}</td>
 		</tr>
 
 		<tr>
 			<td width="104" class="ct_write">상세이미지2</td>
-			<td class="ct_write01">
-				${restaurant.imgBig2==null?'':restaurant.imgBig2}</td>
+			<td class="ct_write01">${restaurant.imgBig2==null?'':restaurant.imgBig2}</td>
 		</tr>
 
 		<tr>
 			<td width="104" class="ct_write">상세이미지3</td>
-			<td class="ct_write01">
-				${restaurant.imgBig3==null?'':restaurant.imgBig3}</td>
+			<td class="ct_write01">${restaurant.imgBig3==null?'':restaurant.imgBig3}</td>
 		</tr>
 
 		<tr>
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">메뉴이미지</td>
-			<td class="ct_write01">
-				${restaurant.imgMenu==null?'':restaurant.imgMenu}</td>
+			<td class="ct_write01">${restaurant.imgMenu==null?'':restaurant.imgMenu}</td>
 		</tr>
 
 		<tr>
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">광고문구</td>
-			<td class="ct_write01">
-				${restaurant.copyComment==null?'':restaurant.copyComment}</td>
+			<td class="ct_write01">${restaurant.copyComment==null?'':restaurant.copyComment}</td>
 		</tr>
 
 		<tr>
