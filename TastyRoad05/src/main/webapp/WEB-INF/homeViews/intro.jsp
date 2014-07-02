@@ -10,51 +10,13 @@
 <title>DWF - 생활의 윤택함을 더하다</title>
 
 <link rel="stylesheet" media="all" href="../../resources/css/intro.css">
-<link rel="stylesheet" type="text/css" href="../../resources/css/header.css">
-
-<script type="text/javascript">
-	   
-	   	function post(path) {
-	
-		    var form = document.createElement("form");
-		    form.setAttribute("method", "post");
-		    form.setAttribute("action", path);
-	
-		    document.body.appendChild(form);
-		    form.submit();
-		} 
-
- 		function get(path) {
-	   		
-		    var form = document.createElement("form");
-		    form.setAttribute("method", "get");
-		    form.setAttribute("action", path);
-	
-		    document.body.appendChild(form);
-		    form.submit();
-		} 
-   	</script>
-
+ 
+ 
 </head>
 
 <body>
 
-	<header>
-		<div id="header" align="center">
-			<div class="wrap">
-
-				<div class="navi-icon">
-					<a href="/"><div class="logo"></div></a> <a href=javascript:post('/home/getIntroView');><div
-							class="navi01"></div></a> <a href=javascript:get('/home/getMapView');><div
-							class="navi02"></div></a> <a href=javascript:post('/home/getManageView');><div
-							class="navi03"></div></a>
-
-				</div>
-				<!-- 네비게이션 아이콘 -->
-			</div>
-			<!-- Wrap -->
-		</div>
-	</header>
+<center><%@include file="../common/header.jsp"%></center>
     
 	<div id="intro_logo_image"></div>
     
