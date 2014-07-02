@@ -155,7 +155,7 @@
 			<td></td>
 		</tr>
 		<tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">주소</td>
+			<td width="104" class="ct_write">주소</td>
 			<td width="1"></td>
 			<td class="ct_write01"><input type="text" name="addr" value="${owner.addr==null?'':owner.addr}"
 				class="ct_input_g"  maxLength="50">
@@ -165,7 +165,7 @@
 			<td></td>
 		</tr>
 		<tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">이메일</td>
+			<td width="104" class="ct_write">이메일</td>
 			<td width="1"></td>
 			<td class="ct_write01"><input type="text" name="email" value="${owner.email==null?'':owner.email}"
 				class="ct_input_g" maxLength="10"
