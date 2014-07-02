@@ -121,36 +121,36 @@
 		<tr>
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">메인이미지1</td>
 			<td class="ct_write01">
-				<img src="http://imageserver.iisweb.kr/teamdwf/${restaurant.imgSmall1}" style= "width : 20%; height : 50%;" align="absmiddle">
-				<br>${restaurant.imgSmall1==null?'':restaurant.imgSmall1}</td>
+				<a class="img_drop">${restaurant.imgSmall1==null?'':restaurant.imgSmall1}
+				<span><img src="http://imageserver.iisweb.kr/teamdwf/${restaurant.imgSmall1}" width="300" height="300"></span></a>
 		</tr>
 
 		<tr>
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">상세이미지1</td>
 			<td class="ct_write01">
-				<img src="http://imageserver.iisweb.kr/teamdwf/${restaurant.imgBig1}" style= "width : 20%; height : 50%;" align="absmiddle">
-				<br>${restaurant.imgBig1==null?'':restaurant.imgBig1}</td>
+				<a class="img_drop">${restaurant.imgSmall1==null?'':restaurant.imgBig1}
+				<span><img src="http://imageserver.iisweb.kr/teamdwf/${restaurant.imgBig1}" width="300" height="300"></span></a>
 		</tr>
 
 		<tr>
 			<td width="104" class="ct_write">상세이미지2</td>
 			<td class="ct_write01">
-				<img src="http://imageserver.iisweb.kr/teamdwf/${restaurant.imgBig2}" style= "width : 20%; height : 50%;" align="absmiddle">
-				<br>${restaurant.imgBig2==null?'':restaurant.imgBig2}</td>
+				<a class="img_drop">${restaurant.imgSmall1==null?'':restaurant.imgBig2}
+				<span><img src="http://imageserver.iisweb.kr/teamdwf/${restaurant.imgBig2}" width="300" height="300"></span></a>
 		</tr>
 
 		<tr>
 			<td width="104" class="ct_write">상세이미지3</td>
 			<td class="ct_write01">
-				<img src="http://imageserver.iisweb.kr/teamdwf/${restaurant.imgBig3}" style= "width : 20%; height : 50%;" align="absmiddle">
-				<br>${restaurant.imgBig3==null?'':restaurant.imgBig3}</td>
+				<a class="img_drop">${restaurant.imgSmall1==null?'':restaurant.imgBig3}
+				<span><img src="http://imageserver.iisweb.kr/teamdwf/${restaurant.imgBig3}" width="300" height="300"></span></a>
 		</tr>
 
 		<tr>
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">메뉴이미지</td>
 			<td class="ct_write01">
-				<img src="http://imageserver.iisweb.kr/teamdwf/${restaurant.imgMenu}" style= "width : 20%; height : 50%;" align="absmiddle">
-				<br>${restaurant.imgMenu==null?'':restaurant.imgMenu}
+				<a class="img_drop">${restaurant.imgSmall1==null?'':restaurant.imgMenu}
+				<span><img src="http://imageserver.iisweb.kr/teamdwf/${restaurant.imgMenu}" width="300" height="300"></span></a>
 			</td>
 		</tr>
 
