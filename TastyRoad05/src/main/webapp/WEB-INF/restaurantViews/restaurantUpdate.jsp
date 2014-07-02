@@ -197,7 +197,7 @@
 		</tr>
 		
 		<tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">상세이미지2</td>
+			<td width="104" class="ct_write">상세이미지2</td>
 			
 			<td class="ct_write01"><input type="file" name="imgBig2"
 				class="ct_input_g2" style="width: 250px; height: auto" maxLength="10"
@@ -205,7 +205,7 @@
 		</tr>
 		
 		<tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">상세이미지3</td>
+			<td width="104" class="ct_write">상세이미지3</td>
 			
 			<td class="ct_write01"><input type="file" name="imgBig3"
 				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
