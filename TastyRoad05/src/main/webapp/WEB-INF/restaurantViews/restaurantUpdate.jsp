@@ -28,7 +28,7 @@
 			alert("상호명은 반드시 입력하여야 합니다.");
 			return;
 		}
-/*		if(addr == null || addr.length<1){
+		if(addr == null || addr.length<1){
 			alert("주소는 반드시 입력하여야 합니다.");
 			return;
 		}
@@ -64,7 +64,7 @@
 			alert("맛집분류는 반드시 선택하여야 합니다.");
 			return;
 		}
-*/
+
 
 		document.detailForm.action='/restaurant/updateRestaurant';
 		document.detailForm.submit();
@@ -157,7 +157,7 @@
 		</tr>
 		
 		<tr>
-			<td width="104" class="ct_write">사업자 등록번호</td>
+			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">사업자 등록번호</td>
 			
 			<td class="ct_write01"><input type="text" name="licenseNo" value="${restaurant.licenseNo==null?'':restaurant.licenseNo}"
 				class="ct_input_g" style="width: 250px; height: auto" maxLength="12"
@@ -224,8 +224,8 @@
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">광고문구</td>
 			
 			<td class="ct_write01"><input type="text" name="copyComment" value="${restaurant.copyComment==null?'':restaurant.copyComment}"
-				class="ct_input_g" style="width: 250px; height: auto" maxLength="30"
-				></td>
+				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
+				minLength="6"></td>
 		</tr>
 		
 		<tr>
