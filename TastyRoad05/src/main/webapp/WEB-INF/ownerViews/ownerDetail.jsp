@@ -130,7 +130,7 @@
 	</c:if>
 	
 	<c:if test="${owner.ownerId == 0}">
-		등록된 점주가 없습니다. 아래 점주추가 버튼을 눌러 점주를 추가해 주세요.	
+		<br>등록된 점주가 없습니다. 아래 점주추가 버튼을 눌러 점주를 추가해 주세요.	
 	</c:if>
 	
 	<table class="submittable" border="0" cellspacing="0" cellpadding="0">

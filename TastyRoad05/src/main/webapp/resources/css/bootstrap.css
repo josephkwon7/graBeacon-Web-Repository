@@ -1687,7 +1687,7 @@ select:focus:invalid:focus {
 .input-prepend .dropdown-menu,
 .input-append .popover,
 .input-prepend .popover {
-  font-size: 14px;
+  font-size: 11px;
 }
 
 .input-append input,
@@ -2446,7 +2446,7 @@ table th[class*="span"],
 }
 
 .icon-list-alt {
-  background-position: -264px -24px;
+  background-position: -264px -23px;
 }
 
 .icon-lock {
@@ -3236,7 +3236,7 @@ button.close {
   *display: inline;
   padding: 4px 12px 2px 10px;
   margin-bottom: 0;
-  *margin-left: .3em;
+  margin-left: 1px;
   font-size: 14px;
   line-height: 20px;
   color: #333333;
@@ -6209,10 +6209,10 @@ a.badge:focus {
 td { font-size: 9pt; color: #58595B; font-style: normal; font-weight: normal; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
 
 
-A:link    {font-size: 9pt; COLOR: #58595B; text-decoration: none; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+A:link    {font-size: 11pt; COLOR: #58595B; text-decoration: none; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
 a:visited {font-size: 9pt; color: #58595B; text-decoration: none; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
 a:active  {font-size: 9pt; color: #58595B; text-decoration: none; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
-a:hover   {font-size: 9pt; color: #000000; text-decoration: none; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
+a:hover   {font-size: 11pt; color: #000000; text-decoration: none; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
 a:clicked   {font-size: 9pt; color: #000000; text-decoration: none; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";}
 
 

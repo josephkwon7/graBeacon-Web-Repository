@@ -196,7 +196,6 @@
 							</form>
 						</td>
 
-						<td width="3"></td>
 
 						<!--  뒤로가기대신 목록보기로 바꿈
 						<td class="btn" style="padding-top:3px;">

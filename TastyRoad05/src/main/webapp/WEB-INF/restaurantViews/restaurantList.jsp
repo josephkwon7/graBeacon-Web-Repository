@@ -156,7 +156,7 @@ body {
 				
 				
 			</table>
-					<td align="right"><i class="icon-list-alt"></i>전체${resultPage.totalCount }건수,
+					<td align="right"><i class="icon-list-alt"></i>&nbsp;전체&nbsp;${resultPage.totalCount }&nbsp;건수,&nbsp;
 				현재 ${resultPage.currentPage} 페이지</td>
 
 			<!--  페이지 Navigator 시작 -->
@@ -177,7 +177,7 @@ body {
 				<tr>
 					<td align="right">
 					<div class="input-append">
-					<select name="searchCondition" class="ct_input_g" style="width: 80px">
+					<select name="searchCondition" class="ct_input_g" style="width: 87px">
 							<option value="1" ${search.searchCondition=="1"?"SELECTED":""}>이름</option>
 							<option value="2" ${search.searchCondition=="2"?"SELECTED":""}>주소</option>
 							<option value="3" ${search.searchCondition=="3"?"SELECTED":""}>전화번호</option>

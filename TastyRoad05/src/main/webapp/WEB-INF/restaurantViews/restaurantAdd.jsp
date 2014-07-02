@@ -252,7 +252,7 @@
 	</table>
 	
 	<table width="100%" border="0" cellspacing="0" cellpadding="0"
-		style="margin-top: 10px;">
+		style="margin-top: 10px; margin-bottom: 70px;">
 		<tr>
 			<td width="53%"></td>
 			<td align="right">
@@ -264,7 +264,7 @@
 						href="javascript:fncAddProduct();">등록</a></td>
 					
 	
-					<td width="3"></td>
+			
 	
 	<!--  				
 					<td background="/resources/images/ct_btnbg02.gif" class="btn"

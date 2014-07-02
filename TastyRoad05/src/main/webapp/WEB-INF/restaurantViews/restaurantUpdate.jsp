@@ -244,7 +244,7 @@
 	</table>
 
 	<table width="100%" border="0" cellspacing="0" cellpadding="0"
-		style="margin-top: 10px;">
+		style="margin-top: 10px; margin-bottom: 70px;"">
 		<tr> 
 			<td width="53%"></td>
 			<td align="right">
@@ -254,7 +254,7 @@
 					<td class="btn"
 						style="padding-top: 3px;"><a href="javascript:fncUpdateRestaurant()">수정</a></td>
 		
-			<td width="3"></td>	
+			
 						
 					<td class="btn"
 						style="padding-top: 3px;"><a href="javascript:history.back()">취소</a></td>

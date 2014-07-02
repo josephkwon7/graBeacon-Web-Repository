@@ -154,8 +154,7 @@
 					<td ><a href="javascript:fncUpdateOwner();"><button class="btn">수정</a></button></td>
 					<td > </td>
 	
-					<td width="3"></td>	
-	
+				
 					<td > </td>
 					<td ><a href="javascript:history.back()"><button class="btn">취소</a></button></td>
 					<td width="14" height="23"> </td>
