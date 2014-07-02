@@ -1847,7 +1847,7 @@
 	<br/>
 	
 	<!--  임시로 푸터를 주석처리 -->
-	<!-- <footer id="footer"><%@include file="../common/footer.jsp"%>
+	<!-- <footer id="footer">
 
 		<!-- preview modal -->
 		<div class="modal fade" id="preview_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
