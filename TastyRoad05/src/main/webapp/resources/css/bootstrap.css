@@ -6335,5 +6335,42 @@ padding: 20px 20px 20px 20px;
 border: 1px solid #d0d0d0;
 border-radius: 5px;
 background: #F9F9F9;
-
 } 
+
+
+/* 관리자 이미지에 대한 자료를 포함하고 있는 게시판에서 마우스 커서를 데이터 위에 올려놓았을 때 그림이미
+지를 띄워주는 효과 CSS 추가 by 규진 & 성은 */
+.img_drop{
+position: relative;
+z-index: 0;
+}
+
+.img_drop:hover{
+background-color: transparent;
+z-index: 50;
+}
+
+.img_drop span{ /*CSS for enlarged image*/
+position: absolute;
+background-color: lightyellow;
+padding: 5px;
+left: -1000px;
+border: 1px dashed gray;
+visibility: hidden;
+color: black;
+text-decoration: none;
+}
+
+.img_drop span img{ /*CSS for enlarged image*/
+border-width: 0;
+padding: 2px;
+}
+
+.img_drop:hover span{ /*CSS for enlarged image on hover*/
+visibility: visible;
+top: 0;
+left: 60px; /*position where enlarged image should offset horizontally */
+
+}
+
+</style>
