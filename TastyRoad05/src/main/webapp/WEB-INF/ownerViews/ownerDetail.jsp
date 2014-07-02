@@ -139,13 +139,13 @@
 							<c:if test="${owner.ownerId == 0}">
 								<form name="getAddOwnerView" action="/owner/getAddOwnerView" method="POST">
 									<input type="hidden" name="resId" value="${owner.resId}">
-									<input type="submit" value="점주추가" class="btn">&nbsp;
+									<input type="submit" value="점주추가" class="btn">
 								</form>							
 							</c:if>
 							<c:if test="${owner.ownerId != 0}">
 								<form name="getUpdateOwnerView" action="/owner/getUpdateOwnerView" method="POST">
 									<input type="hidden" name="ownerId" value="${owner.ownerId}">
-									<input type="submit" value="점주수정"  class="btn">&nbsp;&nbsp;
+									<input type="submit" value="점주수정"  class="btn">
 								</form>
 							</c:if>
 						</td>
@@ -156,7 +156,7 @@
 										<form name="removeOwner" action="/owner/removeOwner" method="POST">
 											<input type="hidden" name="ownerId" value="${owner.ownerId}">
 											<input type="hidden" name="ownerId" value="${owner.resId}">
-											<input type="submit" value="점주삭제" class="btn">&nbsp;&nbsp;
+											<input type="submit" value="점주삭제" class="btn">
 										</form>
 									</td>
 							</c:if>

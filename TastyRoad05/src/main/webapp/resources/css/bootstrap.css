@@ -3144,12 +3144,12 @@ table th[class*="span"],
 }
 -->
 .restaurant_well2 {
-  min-height: 20px;
+  min-height: 16px;
   width: auto;
   font-size: 16px;
   padding:0px 20px 0px 5px;
   margin: 12% 0 6px 0;
- 
+  
   font-weight: bold;
   border-left: 4px solid orange;
 
