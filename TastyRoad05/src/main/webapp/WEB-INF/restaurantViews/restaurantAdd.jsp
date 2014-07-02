@@ -29,7 +29,7 @@
 				alert("상호명은 반드시 입력하여야 합니다.");
 				return;
 			}
-	/*		if(addr == null || addr.length<1){
+			if(addr == null || addr.length<1){
 				alert("주소는 반드시 입력하여야 합니다.");
 				return;
 			}
@@ -65,7 +65,7 @@
 				alert("맛집분류는 반드시 선택하여야 합니다.");
 				return;
 			}
-	*/
+	
 	
 			document.detailForm.action='/restaurant/addRestaurant';
 			document.detailForm.submit();
@@ -140,7 +140,7 @@
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">맛집이름</td>
 			<td class="ct_write01">
 			<input type="text" name="name" class="ct_input_g" style="width: 400px; 
-			height: 19px" maxLength="20">
+			height: 19px" maxLength="15">
 			</td>
 		</tr>
 		
@@ -164,7 +164,7 @@
 			<td width="104" class="ct_write">사업자 등록번호</td>
 			<td class="ct_write02">
 			<input type="text" name="licenseNo"
-			class="ct_input_g" style="width: 400px;  height: 19px" maxLength="13"></input>
+			class="ct_input_g" style="width: 400px;  height: 19px" maxLength="12"></input>
 			</td>
 		</tr>
 		
@@ -172,7 +172,7 @@
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">상세위치-위도</td>
 			<td class="ct_write01">
 			<input type="text" name="geoLat"
-			class="ct_input_g" style="width: 400px;  height: 19px" maxLength="13"></input>
+			class="ct_input_g" style="width: 400px;  height: 19px" maxLength="15"></input>
 			</td>
 		</tr>
 		
@@ -180,7 +180,7 @@
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">상세위치-경도</td>
 			<td class="ct_write02">
 			<input type="text" name="geoLong"
-			class="ct_input_g" style="width: 400px; height: 19px" maxLength="13"></input>
+			class="ct_input_g" style="width: 400px; height: 19px" maxLength="15"></input>
 			</td>
 		</tr>
 		
@@ -188,8 +188,8 @@
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">메인이미지1</td>
 			<td class="ct_write01">
 			<input type="file" name="imgSmall1"
-			class="ct_input_g2" style="width: 100%; height: auto" maxLength="10"
-				minLength="6"></input>
+			class="ct_input_g2" style="width: 100%; height: auto" maxLength="30"
+				></input>
 			</td>
 		</tr>
 		
@@ -197,8 +197,8 @@
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">상세이미지1</td>
 			<td class="ct_write01">
 			<input type="file" name="imgBig1"
-			class="ct_input_g" style="width: 100%; height: auto" maxLength="10"
-				minLength="6"></input>
+			class="ct_input_g" style="width: 100%; height: auto" maxLength="30"
+				></input>
 			</td>
 		</tr>
 		
@@ -206,8 +206,8 @@
 			<td width="104" class="ct_write">상세이미지2</td>
 			<td class="ct_write01">
 			<input type="file" name="imgBig2"
-			class="ct_input_g2" style="width: 100%; height: auto" maxLength="10"
-				minLength="6"></input>
+			class="ct_input_g2" style="width: 100%; height: auto" maxLength="30"
+				></input>
 			</td>
 		</tr>
 		
@@ -215,8 +215,8 @@
 			<td width="104" class="ct_write">상세이미지3</td>
 			<td class="ct_write01">
 			<input type="file" name="imgBig3"
-			class="ct_input_g" style="width: 100%; height: auto" maxLength="10"
-				minLength="6"></input>
+			class="ct_input_g" style="width: 100%; height: auto" maxLength="30"
+				></input>
 			</td>
 		</tr>
 		
@@ -224,8 +224,8 @@
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">메뉴이미지</td>
 			<td class="ct_write01">
 			<input type="file" name="imgMenu"
-			class="ct_input_g2" style="width: 100%; height: auto" maxLength="10"
-				minLength="6"></input>
+			class="ct_input_g2" style="width: 100%; height: auto" maxLength="15"
+				></input>
 			</td>
 		</tr>
 		
@@ -233,7 +233,7 @@
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">광고문구</td>
 			<td class="ct_write01">
 			<input type="text" name="copyComment"
-			class="ct_input_g" style="width: 400px; height: 19px" maxLength="30"></input>
+			class="ct_input_g" style="width: 400px; height: 19px" maxLength="10"></input>
 			</td>
 		</tr>
 		

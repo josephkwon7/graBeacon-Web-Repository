@@ -111,21 +111,21 @@
 		<tr>
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">UUID</td>
 			<td class="ct_write01">
-				<input type="text" name="uuId" class="ct_input_g" style="width: 100px; height: auto" maxLength="20" value="${beacon.uuId==null?'':beacon.uuId}">
+				<input type="text" name="uuId" class="ct_input_g" style="width: 100px; height: auto" maxLength="36" value="${beacon.uuId==null?'':beacon.uuId}">
 			</td>
 		</tr>
         
 		<tr>
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">Major</td>
 			<td class="ct_write01">
-				<input type="text" name="major" class="ct_input_g" style="width: 100px; height: auto" maxLength="20" value="${beacon.major==0?'':beacon.major}">
+				<input type="text" name="major" class="ct_input_g" style="width: 100px; height: auto" maxLength="5" value="${beacon.major==0?'':beacon.major}">
 			</td>
 		</tr>
         
 		<tr>
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">Minor</td>
 			<td class="ct_write01">
-				<input type="text" name="minor" class="ct_input_g" style="width: 100px; height: auto" maxLength="20" value="${beacon.minor==0?'':beacon.minor}">
+				<input type="text" name="minor" class="ct_input_g" style="width: 100px; height: auto" maxLength="5" value="${beacon.minor==0?'':beacon.minor}">
 			</td>
 		</tr>
 

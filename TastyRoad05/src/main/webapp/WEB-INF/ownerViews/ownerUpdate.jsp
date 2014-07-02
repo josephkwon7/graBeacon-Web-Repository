@@ -138,7 +138,7 @@
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">이름</td>
 			<td> </td>
 			<td class="ct_write01"><input type="text" name="name" value="${owner.name==null?'':owner.name}"
-				class="ct_input_g" maxLength="10"
+				class="ct_input_g" maxLength="20"
 				minLength="6"></td>
 		</tr>
 		<tr>
@@ -148,7 +148,7 @@
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">전화번호</td>
 			<td width="1"></td>
 			<td class="ct_write01"><input type="text" name="phone" value="${owner.phone==null?'':owner.phone}"
-				class="ct_input_g" maxLength="10"
+				class="ct_input_g" maxLength="13"
 				minLength="6"></td>
 		</tr>
 		<tr>
@@ -158,7 +158,7 @@
 			<td width="104" class="ct_write">주소</td>
 			<td width="1"></td>
 			<td class="ct_write01"><input type="text" name="addr" value="${owner.addr==null?'':owner.addr}"
-				class="ct_input_g"  maxLength="50">
+				class="ct_input_g"  maxLength="30">
 			</td>
 		</tr>
 		<tr>
@@ -168,7 +168,7 @@
 			<td width="104" class="ct_write">이메일</td>
 			<td width="1"></td>
 			<td class="ct_write01"><input type="text" name="email" value="${owner.email==null?'':owner.email}"
-				class="ct_input_g" maxLength="10"
+				class="ct_input_g" maxLength="30"
 				minLength="6"></td>
 		</tr>
 		<tr>

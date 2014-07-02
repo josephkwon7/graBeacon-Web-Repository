@@ -136,7 +136,7 @@
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">맛집이름</td>
 			
 			<td class="ct_write01"><input type="text" name="name" value="${restaurant.name==null?'':restaurant.name}"
-				class="ct_input_g" style="width: 250px; height: auto;" maxLength="10"
+				class="ct_input_g" style="width: 250px; height: auto;" maxLength="15"
 				minLength="6"></td>
 		</tr>
 		
@@ -144,7 +144,7 @@
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">주소</td>
 			
 			<td class="ct_write01"><input type="text" name="addr" value="${restaurant.addr==null?'':restaurant.addr}"
-				class="ct_input_g" style="width: 250px; height: auto;" maxLength="10"
+				class="ct_input_g" style="width: 250px; height: auto;" maxLength="30"
 				minLength="6"></td>
 		</tr>
 		
@@ -152,7 +152,7 @@
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">전화번호</td>
 			
 			<td class="ct_write01"><input type="text" name="phone" value="${restaurant.phone==null?'':restaurant.phone}"
-				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
+				class="ct_input_g" style="width: 250px; height: auto" maxLength="13"
 				minLength="6"></td>
 		</tr>
 		
@@ -160,7 +160,7 @@
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">사업자 등록번호</td>
 			
 			<td class="ct_write01"><input type="text" name="licenseNo" value="${restaurant.licenseNo==null?'':restaurant.licenseNo}"
-				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
+				class="ct_input_g" style="width: 250px; height: auto" maxLength="12"
 				minLength="6"></td>
 		</tr>
 		
@@ -168,7 +168,7 @@
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">상세위치-위도</td>
 			
 			<td class="ct_write01"><input type="text" name="geoLat" value="${restaurant.geoLat==0?'':restaurant.geoLat}"
-				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
+				class="ct_input_g" style="width: 250px; height: auto" maxLength="15"
 				minLength="6"></td>
 		</tr>
 		
@@ -176,7 +176,7 @@
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">상세위치-경도</td>
 			
 			<td class="ct_write01"><input type="text" name="geoLong" value="${restaurant.geoLong==0?'':restaurant.geoLong}"
-				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
+				class="ct_input_g" style="width: 250px; height: auto" maxLength="15"
 				minLength="6"></td>
 		</tr>
 		
@@ -184,7 +184,7 @@
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">메인이미지1</td>
 			
 			<td class="ct_write01"><input type="file" name="imgSmall1"
-				class="ct_input_g2" style="width: 250px; height: auto" maxLength="10"
+				class="ct_input_g2" style="width: 250px; height: auto" maxLength="30"
 				minLength="6"></td>
 		</tr>
 		
@@ -192,7 +192,7 @@
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">상세이미지1</td>
 			
 			<td class="ct_write01"><input type="file" name="imgBig1"
-				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
+				class="ct_input_g" style="width: 250px; height: auto" maxLength="30"
 				minLength="6"></td>
 		</tr>
 		
@@ -200,7 +200,7 @@
 			<td width="104" class="ct_write">상세이미지2</td>
 			
 			<td class="ct_write01"><input type="file" name="imgBig2"
-				class="ct_input_g2" style="width: 250px; height: auto" maxLength="10"
+				class="ct_input_g2" style="width: 250px; height: auto" maxLength="30"
 				minLength="6"></td>
 		</tr>
 		
@@ -208,7 +208,7 @@
 			<td width="104" class="ct_write">상세이미지3</td>
 			
 			<td class="ct_write01"><input type="file" name="imgBig3"
-				class="ct_input_g" style="width: 250px; height: auto" maxLength="10"
+				class="ct_input_g" style="width: 250px; height: auto" maxLength="30"
 				minLength="6"></td>
 		</tr>
 		
@@ -216,7 +216,7 @@
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">메뉴이미지</td>
 			
 			<td class="ct_write01"><input type="file" name="imgMenu"
-				class="ct_input_g2" style="width: 250px; height: auto" maxLength="10"
+				class="ct_input_g2" style="width: 250px; height: auto" maxLength="30"
 				minLength="6"></td>
 		</tr>
 		
