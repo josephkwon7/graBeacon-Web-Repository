@@ -14,7 +14,6 @@
 			<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
 			<link rel="Stylesheet" href="../resources/css/bootstrap.min.css"/>
 			<link rel="stylesheet" type="text/css" href="../resources/css/header.css">
-			<link rel="stylesheet" type="text/css" href="../resources/css/footer.css">
 
 			<style>
 			
@@ -1846,7 +1845,9 @@
 	<div id="map_canvas" style="width:80%; height:95%;"></div>
 	<br/>
 	<br/>
-	<footer id="footer">
+	
+	<!--  임시로 푸터를 주석처리 -->
+	<!-- <footer id="footer"><%@include file="../common/footer.jsp"%>
 
 		<!-- preview modal -->
 		<div class="modal fade" id="preview_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -1928,13 +1929,9 @@
 			</div>												 
 		<!-- footer부분에 modal용 div넣습니다. 레이아웃과 상관없으니 삭제하지 마세요 -->
 
-		<dl class="info">
-			<dt>Team DWF &nbsp;</dt>
-			<dt>주소 : 서울시 서초구 서초동 1327-15 비트아카데미빌딩 3층 301호</dt>
-		</dl>
-		<details>
-			<summary>Copyright@Team DWF Corp. All rights reserved.</summary>
-		</details>
+		 
+		 
+		 
 	</footer>
 </body>
 </html>
@@ -2113,3 +2110,5 @@
 
 </script>
 -->
+
+<center><%@include file="../common/footer.jsp"%></center>
