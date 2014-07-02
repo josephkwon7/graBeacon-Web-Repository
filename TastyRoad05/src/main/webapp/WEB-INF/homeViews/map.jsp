@@ -16,7 +16,7 @@
 			<link rel="Stylesheet" href="../resources/css/map.css"/>
 			 
 
-			 
+	
 		 <!--  
 				
 				
@@ -1170,6 +1170,10 @@
 		<center>
 			<div id="my-box">
 				
+							<br/>
+							<br/>
+							<br/>
+							<br/>
 							<br/>
 							<br/>
 							<article class='map_text'>
