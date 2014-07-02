@@ -3,21 +3,17 @@
 
 .wrap{
 	width:1024px;
-	height:82px;
-	
+	height:86px;
 	padding:0 0 0 0;
 	background:#FFF;
 	z-index:2;
-	
-	border-bottom: 3px solid #FF8C0A;
+	border-bottom: 3px #ff8c00 solid;
 }
 
 #header{
 	height:86px;
 	position:absolute;
 	margin:0 auto;
-	
-	
 	width:100%;
 	z-index:100;
 	background-color:#FFF;
@@ -26,7 +22,6 @@
 }
 
 #header .top-bottom-line{
-
 	background:url(../img/design/top-menu-bottom-line.png) no-repeat;
 }
 
@@ -44,8 +39,6 @@
 	width:200px;
 	float:left;
 }
-
-
 
 .navi-icon .navi01{
 	background:url(../img/design/top-menu-notice.png) no-repeat;
@@ -67,13 +60,3 @@
 	float:left;
 	width:142px;
 }
-
-.linetop{ 
-	width:auto;
-	margin-left:140px;
-	margin-right:140px;
-	border: 2px solid #FF8C0A;
-}
-
-
-
