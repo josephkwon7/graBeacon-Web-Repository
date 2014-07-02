@@ -232,7 +232,7 @@ body {
 	margin: 0 auto;
 	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "±¼¸²Ã¼";
 	font-size: 14px;
-	line-height: 20px;
+	line-height: 10px;
 	color: #333333;
 	background-color: #ffffff;
 }
@@ -6370,7 +6370,4 @@ padding: 2px;
 visibility: visible;
 top: 0;
 left: 60px; /*position where enlarged image should offset horizontally */
-
 }
-
-</style>
