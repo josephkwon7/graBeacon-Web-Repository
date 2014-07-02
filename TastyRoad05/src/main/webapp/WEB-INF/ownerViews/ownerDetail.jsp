@@ -91,14 +91,14 @@
 			</tr>
 			
 			<tr>
-				<td class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">맛집이름</td>
+				<td class="ct_write">맛집이름</td>
 				<td class="ct_write01">
 					${owner.name==null?'':owner.name}
 				</td>
 			</tr>
 			
 			<tr>
-				<td class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">전화번호</td>
+				<td class="ct_write">전화번호</td>
 				<td class="ct_write01">
 					${owner.phone==null?'':owner.phone}
 				</td>

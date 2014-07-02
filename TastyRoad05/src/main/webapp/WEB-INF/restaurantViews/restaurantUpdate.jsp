@@ -157,7 +157,7 @@
 		</tr>
 		
 		<tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">사업자 등록번호</td>
+			<td width="104" class="ct_write">사업자 등록번호</td>
 			
 			<td class="ct_write01"><input type="text" name="licenseNo" value="${restaurant.licenseNo==null?'':restaurant.licenseNo}"
 				class="ct_input_g" style="width: 250px; height: auto" maxLength="12"
