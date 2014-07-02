@@ -28,11 +28,12 @@
 				alert("major 값은 반드시 입력하여야 합니다.");
 				return;
 			}
+			/*
 			if(minor == null || minor.length<1){
 				alert("minor 값은 반드시 입력하여야 합니다.");
 				return;
 			}
-			/*
+			
 			if(email == null || email.length<1){
 				alert("이메일은 반드시 입력하여야 합니다.");
 				return;
@@ -123,7 +124,7 @@
 		</tr>
         
 		<tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">Minor</td>
+			<td width="104" class="ct_write">Minor</td>
 			<td class="ct_write01">
 				<input type="text" name="minor" class="ct_input_g" style="width: 100px; height: auto" maxLength="5" value="${beacon.minor==0?'':beacon.minor}">
 			</td>

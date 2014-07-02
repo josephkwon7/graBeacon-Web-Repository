@@ -112,7 +112,7 @@
         </tr>
         
         <tr>
-			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">Minor</td>
+			<td width="104" class="ct_write">Minor</td>
 			<td class="ct_write01">
             	<input type="text" name="minor" value="${beacon.minor==null?'':beacon.minor}" class="ct_input_g" style="width: 250px; height: auto" maxLength="5">
 			</td>

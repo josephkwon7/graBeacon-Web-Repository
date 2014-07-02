@@ -23,6 +23,10 @@
 			alert("이름은 반드시 입력하여야 합니다.");
 			return;
 		}
+		if(phone == null || phone.length<1){
+			alert("전화번호는 반드시 입력하여야 합니다.");
+			return;
+		}
 		/*
 		if(addr == null || addr.length<1){
 			alert("주소는 반드시 입력하여야 합니다.");
