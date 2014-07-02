@@ -16,7 +16,7 @@
 		//Form 유효성 검증
 		var name = document.detailForm.name.value;
 		//var addr = document.detailForm.addr.value;
-		//var phone = document.detailForm.phone.value;
+		var phone = document.detailForm.phone.value;
 		//var email = document.detailForm.email.value;
 
 		if (name == null || name.length < 1) {
