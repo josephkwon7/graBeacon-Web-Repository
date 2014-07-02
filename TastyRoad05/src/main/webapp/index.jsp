@@ -9,7 +9,7 @@
 	
 	<link rel="stylesheet"	type="text/css"	href="../resources/css/index.css">
 	<link rel="stylesheet"	type="text/css"	href="../resources/css/header.css">
-	<link rel="stylesheet"	type="text/css"	href="../resources/css/footer1.css">
+	<link rel="stylesheet"	type="text/css"	href="../resources/css/footer.css">
    
 	<script type="text/javascript">
 	   
