@@ -174,33 +174,33 @@
 			<td width="53%"></td>
 			<td align="right">
 				<table border="0" cellspacing="0" cellpadding="0">
-					<tr>
-						<td width="17" height="23">
+					
+						
 							<form name="getUpdateOwnerView"
 								action="/restaurant/getUpdateRestaurantView" method="POST">
 								<input type="hidden" name="resId" value="${restaurant.resId}">
 								<input class="btn" type="submit" value="맛집수정">
 							</form>
-						</td>
+					
 
-						<td width="17" height="23">
+					
 							<form name="removeOwner" action="/restaurant/removeRestaurant"
 								method="POST">
 								<input type="hidden" name="resId" value="${restaurant.resId}">
 								<input class="btn" type="submit" value="맛집삭제">
 							</form>
-						</td>
+						
 
 
 						<!--  뒤로가기대신 목록보기로 바꿈
 						<td class="btn" style="padding-top:3px;">
 							<a href="javascript:history.go(-1);">뒤로</a></td>
 						-->
-						<td class="btn" style="padding-top: 3px;">
-						<form name=getRestaurantListView method="POST"></form>
-						<a href="javascript:post('/restaurant/getRestaurantListView');">맛집목록</a>
-						</td>
-					</tr>
+						
+						
+						<form  name="moveToRestaurantList" action="/restaurant/getRestaurantListView"" method="POST">
+								<input type="submit" value="맛집목록" class="btn">&nbsp;&nbsp;
+							</form> 
 				</table>
 			</td>
 		</tr>

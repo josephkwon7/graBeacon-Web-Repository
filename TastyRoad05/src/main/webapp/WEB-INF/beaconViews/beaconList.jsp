@@ -124,9 +124,11 @@
 					</br> <input class="btn" type="submit" value="비콘추가"> <input
 						type="hidden" name="resId" value="${search.searchKeyword}">
 				</form>
-				<form name=getRestaurantListView method="POST"></form>
-				<a class="btn"
-					href="javascript:post('/restaurant/getRestaurantListView');">맛집목록</a>
+				
+					
+					<form  name="moveToRestaurantList" action="/restaurant/getRestaurantListView"" method="POST">
+								<input type="submit" value="맛집목록" class="btn">&nbsp;&nbsp;
+							</form> 
 			</c:if>
 		</table>
 	</div>
