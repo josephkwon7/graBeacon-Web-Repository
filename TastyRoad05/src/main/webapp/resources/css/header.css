@@ -12,7 +12,7 @@
 
 #header{
 	height:86px;
-	position:absolute;
+	position:relative;
 	margin:0 auto;
 	width:1024px;
 	z-index:100;
