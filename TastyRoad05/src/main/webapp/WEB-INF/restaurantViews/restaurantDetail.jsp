@@ -196,9 +196,10 @@
 						<td class="btn" style="padding-top:3px;">
 							<a href="javascript:history.go(-1);">뒤로</a></td>
 						-->
+						<td class="btn" style="padding-top: 3px;">
 						<form name=getRestaurantListView method="POST"></form>
-						<td class="btn" style="padding-top: 3px;"><a
-							href="javascript:post('/restaurant/getRestaurantListView');">맛집목록</a>
+						<a href="javascript:post('/restaurant/getRestaurantListView');">맛집목록</a>
+						</td>
 					</tr>
 				</table>
 			</td>
