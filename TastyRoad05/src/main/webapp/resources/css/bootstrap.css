@@ -3147,7 +3147,7 @@ table th[class*="span"],
   min-height: 16px;
   width: auto;
   font-size: 16px;
-  margin: 3% 0 6px 0;
+  margin: 3% 0 6px 10px;
   font-weight: bold;
   border-left: 4px solid orange;
 }
