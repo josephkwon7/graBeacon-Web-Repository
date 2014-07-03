@@ -11,12 +11,11 @@
 
 <link rel="stylesheet" media="all" href="../../resources/css/intro.css">
  
- 
 </head>
 
 <body>
 
-<center><%@include file="../common/header.jsp"%></center>
+<%@include file="../common/header.jsp"%>
     
 	<div id="intro_logo_image"></div>
     

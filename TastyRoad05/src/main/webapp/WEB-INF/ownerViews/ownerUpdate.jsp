@@ -79,10 +79,10 @@
 </head>
 
 <body>
-
-<header>
+	
+	<header>
 		
-			<div id="header" align="center">
+			<div id="header">
 				<div class="wrap">
 					
 					<div class="navi-icon">
@@ -101,17 +101,17 @@
 				<!-- Wrap -->
 			</div>
 		</header>
+		
+		<div class="restaurant_well2">점주정보수정</div>
 
 <form name="detailForm" method="POST"><!--  enctype="multipart/form-data" -->
 	
 	<!--  hidden parameter for update -->
 	<input type="hidden" name="ownerId" value="${owner.ownerId}">
 	<input type="hidden" name="resId" value="${owner.resId}">
-	
-    <div class="restaurant_well2">점주정보수정</div>
 
-	<table class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0"
-		style="margin-top: 13px;">
+	<table class="table-bordered" width="1019px" border="0" cellspacing="0" cellpadding="0"
+		style="margin-top: 13px; margin-left: 10px">
 		
 		<tr>
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">이름</td>

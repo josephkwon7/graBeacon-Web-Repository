@@ -73,8 +73,6 @@
 	function resetData(){
 		document.detailForm.reset();
 	}
-	
-
 	</script>
 	
 	<script type="text/javascript">
@@ -103,11 +101,8 @@
 </head>
 
 <body>
-
-<form name="detailForm" method="POST" enctype="multipart/form-data">
-	
 		<header>
-			<div id="header" align="center">
+			<div id="header">
 				<div class="wrap">
 					
 					<div class="navi-icon">
@@ -124,11 +119,15 @@
 				</div>
 			</div>
 		</header>
+		
+	<div class="restaurant_well2">맛집정보수정</div>
+		
+	<div style="width: 98%; margin-left: 10px;">
 
 	<!--  hidden parameter for update -->
 	<input type="hidden" name="resId" value="${restaurant.resId}">
 	
-    <div class="restaurant_well2">맛집정보수정</div>
+	<form name="detailForm" method="POST" enctype="multipart/form-data">
 
 	<table class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0"
 		style="margin-top: 13px;">

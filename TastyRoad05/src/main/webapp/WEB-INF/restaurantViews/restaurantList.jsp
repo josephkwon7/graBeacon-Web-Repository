@@ -41,20 +41,12 @@
 	}
 </script>
 
-
-<style type="text/css">
-body {
-	width: 1024px;
-}
-</style>
-
 </head>
 
 <body>
-
-<header>
-		
-			<div id="header" align="center">
+	
+	<header>		
+			<div id="header">
 				<div class="wrap">
 					<div class="navi-icon">
 						<a href="/"><div class="logo"></div></a> 
@@ -74,16 +66,15 @@ body {
 				<!-- Wrap -->
 			</div>
 			
-		</header>
+	</header>
+	
+	<div class="restaurant_well2">맛집 목록</div>
 
 	<div style="width: 98%; margin-left: 10px;">
 
 		<form name="detailForm" action="/restaurant/getRestaurantListView"
 			method="POST" onsubmit="return false">
-			
-			<div class="restaurant_well2">맛집 목록</div>
 				  
-			
 			<table class="table table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0"
 				style="margin-top: 10px;">
 				

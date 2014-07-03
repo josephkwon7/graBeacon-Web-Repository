@@ -5,11 +5,11 @@
 
 <%	Admin sessionAdmin = (Admin)session.getAttribute("sessionAdmin");	%>
 
-<html>
-	
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<html lang="en">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<head>
+
 		<link rel="stylesheet" href="../../resources/css/header.css" type="text/css">
         <link rel="stylesheet" href="../../resources/css/bootstrap.css" type="text/css">
         
@@ -48,10 +48,9 @@
 	</style>
 	
 	</head>
-	<body>
-	
-	<header>
-        <div id="header" align="center">
+<body>
+
+        <div id="header">
         
                 <div class="wrap">
                 
@@ -62,19 +61,13 @@
                             <a href=javascript:get('/home/getMapView');><div class="navi02"></div></a>
                             <a href=javascript:post('/home/getManageView');><div class="navi03"></div></a> 
     
-                    </div>
-				<div align="right">
-			
-					<a href="javascript:post('/admin/logoutAction');">log-out<img
-						src="../resources/img/icon/logout.png"></a>
-
-				</div>
-				<!-- 네비게이션 아이콘 -->
+	                    </div>
+						<div align="right">
+						<a href="javascript:post('/admin/logoutAction');">log-out<img
+							src="../resources/img/icon/logout.png"></a>
+						</div>
                 </div>
-                    <!-- Wrap -->
         </div>
-        
-        </header>
         
 		<div class="login_area">
         <div class="login_area_image"></div>
@@ -86,6 +79,6 @@
 		</form>
 		<a href="javascript:post('/restaurant/getRestaurantListView');"><button class="btn btn-warning" type="button" style="width:206; height:40">맛집관리</button></a>
         </div>
-	</body>
+</body>
 	
 </html>

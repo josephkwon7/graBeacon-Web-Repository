@@ -62,41 +62,17 @@
    	</script>
 	
 </head>
-
-		<header>
-			<div id="header" align="center">
-				<div class="wrap">
-					
-					<div class="navi-icon">
-						<a href="/"><div class="logo"></div></a> 
-						<a href=javascript:post('/home/getIntroView');><div class="navi01"></div></a>
-						<a href=javascript:get('/home/getMapView');><div class="navi02"></div></a>
-						<a href=javascript:post('/home/getManageView');><div class="navi03"></div></a> 
-
-					</div>
-			<div align="right">
-				
-				<a href="javascript:post('/admin/logoutAction');">log-out<img
-					src="../resources/img/icon/logout.png"></a>
-
-			</div>
-			<!-- 네비게이션 아이콘 -->
-				</div>
-				<!-- Wrap -->
-			</div>
-		</header>
+	<%@include file="/WEB-INF/common/header.jsp"%>
 		
-		 
+		<div class="restaurant_well2">비콘정보수정</div>
 
 <form name="detailForm" method="POST">
 	
 	<!--  hidden parameter for update -->
 	<input type="hidden" name="beaconId" value="${beacon.beaconId}">
 	<input type="hidden" name="resId" value="${beacon.resId}">
-	
-    <div class="restaurant_well2">비콘정보수정</div>
               	
-	<table class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 13px;">
+	<table class="table-bordered" width="1019px" border="0" cellspacing="0" cellpadding="0" style="margin-top: 13px; margin-left: 10px">
 		<tr>
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">UUID</td>
 			<td class="ct_write01">

@@ -8,7 +8,7 @@
 	<title>맛집등록</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="/resources/css/bootstrap.css" type="text/css">
-	<link rel="stylesheet" type="text/css" href="../resources/css/header.css">
+	<link rel="stylesheet" type="text/css" href="/resources/css/header.css">
 	<script type="text/javascript">
 
 		function fncAddProduct(){
@@ -104,9 +104,9 @@
 </head>
 
 <body>
-
+	
 	<header>
-			<div id="header" align="center">
+			<div id="header">
 				<div class="wrap">
 					
 					<div class="navi-icon">
@@ -127,13 +127,13 @@
 				<!-- Wrap -->
 			</div>
 	</header>
-
-<form name="detailForm" method="POST" enctype="multipart/form-data"><!--  -->
-
-    <div class="restaurant_well2">맛집등록</div>
 	
-	<table class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0"
-		style="margin-top: 13px;">
+	<div class="restaurant_well2">맛집등록</div>
+
+	<form name="detailForm" method="POST" enctype="multipart/form-data"><!--  -->
+
+	<table class="table-bordered" width="1019px" border="0" cellspacing="0" cellpadding="0"
+		style="margin-top: 13px; margin-left: 20px">
 		
 		<tr></tr>
 		<tr>

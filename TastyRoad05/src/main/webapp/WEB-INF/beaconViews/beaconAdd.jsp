@@ -79,7 +79,7 @@
 
 		<header>
 		
-			<div id="header" align="center">
+			<div id="header">
 				<div class="wrap">
 					
 					<div class="navi-icon">
@@ -101,13 +101,12 @@
 			</div>
 			
 		</header>
- 
+		
+		<div class="restaurant_well2">비컨등록</div> 
 		
 <form name="detailForm" method="POST">
-
-    <div class="restaurant_well2">비컨등록</div>
 	
-	<table class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 13px;">
+	<table class="table-bordered" width="1019px" border="0" cellspacing="0" cellpadding="0" style="margin-top: 13px; margin-left: 10px">
     
 		<tr>
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">UUID</td>

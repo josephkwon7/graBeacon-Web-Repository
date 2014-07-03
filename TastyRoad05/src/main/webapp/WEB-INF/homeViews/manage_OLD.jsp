@@ -78,7 +78,7 @@
 	<br/>
 	<header>
 		
-			<div id="header" align="center">
+			<div id="header">
 				<div class="wrap">
 					
 					<div class="navi-icon">

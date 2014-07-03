@@ -64,15 +64,13 @@
 	font-weight:bold;
 	}
 	</style>
-	
-		
 		
 	</head>
  
 	<body>
 	
 	<header>
-	<div id="header" align="center">
+	<div id="header">
     
 			<div class="wrap">
 			
@@ -89,8 +87,6 @@
 				<!-- Wrap -->
 	</div>
 	</header>
-	
-	
 		
 		<form class="login_area" name=loginForm method="POST">
 		
