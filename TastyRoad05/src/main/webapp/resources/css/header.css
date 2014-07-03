@@ -18,11 +18,6 @@
 	z-index:100;
 	background-color:#FFF;
 	top:0;
-	left:0;
-}
-
-#header .top-bottom-line{
-	background:url(../img/design/top-menu-bottom-line.png) no-repeat;
 }
 
 #header .navi-icon{
