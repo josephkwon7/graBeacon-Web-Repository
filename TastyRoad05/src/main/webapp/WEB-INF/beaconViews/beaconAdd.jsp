@@ -102,7 +102,7 @@
 			
 		</header>
 		
-		<div class="restaurant_well2">비컨등록</div> 
+		<div class="restaurant_well2">&nbsp;비콘등록</div> 
 		
 <form name="detailForm" method="POST">
 	

@@ -64,7 +64,7 @@
 </head>
 	<%@include file="/WEB-INF/common/header.jsp"%>
 		
-		<div class="restaurant_well2">비콘정보수정</div>
+		<div class="restaurant_well2">&nbsp;비콘정보수정</div>
 
 <form name="detailForm" method="POST">
 	

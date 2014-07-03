@@ -69,7 +69,7 @@
 			
 		</header>
 		
-		<div class="restaurant_well2">비콘관리</div>
+		<div class="restaurant_well2">&nbsp;비콘관리</div>
 		
 	<div style="width: 98%; margin-left: 10px;">
 <!-- 		<form name="detailForm" action="/beacon/listBeacon"
