@@ -11,6 +11,8 @@
 	<link rel="stylesheet"	type="text/css"	href="../resources/css/header.css">
 	<link rel="stylesheet"	type="text/css"	href="../resources/css/footer.css">
    
+   <title>Home Page - 생활의 윤택함을 더하다</title>
+   
 	<script type="text/javascript">
 	   
 	   	function post(path) {
@@ -37,29 +39,7 @@
    	
 </head>
 <body>
-		<header>
-		
-			<div id="header" align="center">
-				<div class="wrap">
-					<div class="navi-icon">
-						<a href="/"><div class="logo"></div></a> 
-						<form method="POST">
-							<a href=javascript:post('/home/getIntroView');><div class="navi01"></div></a>
-						<a href=javascript:get('/home/getMapView');><div class="navi02"></div></a>
-						<a href=javascript:post('/home/getManageView');><div class="navi03"></div></a> 
-						</form> 
-						
-						
-					</div>
-					<!-- 네비게이션 아이콘 -->
-				</div>
-				<!-- Wrap -->
-			</div>
-			<!-- 헤더 -->
-			
-		</header>
-		
-    <!-- 상단 메뉴 -->
+	<%@include file="/WEB-INF/common/header.jsp"%>
   
   <div id="main-image"></div>
   
@@ -77,17 +57,7 @@
   <div class="block-content6"></div>
   </section>
     
-    <center>
-<footer id="footer">
-		<dl class="info">
-			<dt>Team DWF</dt>
-			<dt>주소 &nbsp;&nbsp;:&nbsp;&nbsp; 서울시 서초구 서초동 1327-15 비트아카데미빌딩 3층 301호</dt>
-		</dl>
-		 
-			<summary>Copyright @ Team DWF Corp. All rights reserved.</summary>
-		 
-	</footer>
-	</center>
+    <center><%@include file="/WEB-INF/common/footer.jsp"%></center>
 </body>
 
 </html>
