@@ -48,8 +48,16 @@
 			alert("메인이미지는 반드시 있어야 합니다.");
 			return;
 		}
-		if(imgBig1 == null || imgBig1.length<1){
+		if(imgSmall1 == null || imgBig1.length<1){
 			alert("상세이미지1은 반드시 있어야 합니다.");
+			return;
+		}
+		if(imgSmall1 == null || imgBig2.length<1){
+			alert("상세이미지2는 반드시 있어야 합니다.");
+			return;
+		}
+		if(imgBig1 == null || imgBig3.length<1){
+			alert("상세이미지3은 반드시 있어야 합니다.");
 			return;
 		}
 		if(imgMenu == null || imgMenu.length<1){
@@ -124,11 +132,12 @@
 		
 	<div style="width: 98%; margin-left: 10px;">
 
+	
+	
+	<form name="detailForm" method="POST" enctype="multipart/form-data">
 	<!--  hidden parameter for update -->
 	<input type="hidden" name="resId" value="${restaurant.resId}">
 	
-	<form name="detailForm" method="POST" enctype="multipart/form-data">
-
 	<table class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0"
 		style="margin-top: 13px;">
 		<tr>

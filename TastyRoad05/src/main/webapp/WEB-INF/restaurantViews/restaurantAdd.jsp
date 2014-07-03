@@ -49,8 +49,16 @@
 				alert("메인이미지는 반드시 있어야 합니다.");
 				return;
 			}
-			if(imgBig1 == null || imgBig1.length<1){
+			if(imgSmall1 == null || imgBig1.length<1){
 				alert("상세이미지1은 반드시 있어야 합니다.");
+				return;
+			}
+			if(imgSmall1 == null || imgBig2.length<1){
+				alert("상세이미지2는 반드시 있어야 합니다.");
+				return;
+			}
+			if(imgBig1 == null || imgBig3.length<1){
+				alert("상세이미지3은 반드시 있어야 합니다.");
 				return;
 			}
 			if(imgMenu == null || imgMenu.length<1){
