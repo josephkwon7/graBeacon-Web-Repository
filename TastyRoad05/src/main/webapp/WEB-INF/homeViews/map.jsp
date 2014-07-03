@@ -1185,7 +1185,7 @@
 		</center>
 	</table>
 	
-	<div id="map_canvas" style="width:80%; height:95%;"></div>
+	<div id="map_canvas" style="width:75%; height:95%;"></div>
 	<br/>
 	<br/>
 	
