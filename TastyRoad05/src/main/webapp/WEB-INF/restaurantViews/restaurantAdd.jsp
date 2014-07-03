@@ -133,7 +133,7 @@
 	<form name="detailForm" method="POST" enctype="multipart/form-data"><!--  -->
 
 	<table class="table-bordered" width="1019px" border="0" cellspacing="0" cellpadding="0"
-		style="margin-top: 13px; margin-left: 20px">
+		style="margin-top: 13px; margin-left: 10px">
 		
 		<tr></tr>
 		<tr>
