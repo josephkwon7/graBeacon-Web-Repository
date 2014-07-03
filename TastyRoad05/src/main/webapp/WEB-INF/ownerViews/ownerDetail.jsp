@@ -54,7 +54,7 @@
 <body>
 	<%@include file="/WEB-INF/common/header.jsp"%>
 
-	<div class="restaurant_well2">점주조회</div>
+	<div class="restaurant_well2">&nbsp;점주조회</div>
 		
 	<c:if test="${owner.ownerId != 0}">	
 		

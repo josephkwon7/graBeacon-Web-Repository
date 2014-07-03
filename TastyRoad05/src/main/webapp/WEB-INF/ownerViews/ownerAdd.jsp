@@ -89,7 +89,7 @@
 	
 	<!--<c:out value="${owner}"/>-->
 	
-	<div class="restaurant_well2">점주등록</div>
+	<div class="restaurant_well2">&nbsp;점주등록</div>
 
 <form name="detailForm" method="POST">
 

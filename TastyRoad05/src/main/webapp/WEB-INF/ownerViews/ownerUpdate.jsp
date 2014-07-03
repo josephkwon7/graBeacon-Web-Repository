@@ -102,7 +102,7 @@
 			</div>
 		</header>
 		
-		<div class="restaurant_well2">점주정보수정</div>
+		<div class="restaurant_well2">&nbsp;점주정보수정</div>
 
 <form name="detailForm" method="POST"><!--  enctype="multipart/form-data" -->
 	
