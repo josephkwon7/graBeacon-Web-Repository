@@ -68,7 +68,7 @@
 			
 	</header>
 	
-	<div class="restaurant_well2">맛집 목록</div>
+	<div class="restaurant_well2">맛집목록</div>
 
 	<div style="width: 98%; margin-left: 10px;">
 
