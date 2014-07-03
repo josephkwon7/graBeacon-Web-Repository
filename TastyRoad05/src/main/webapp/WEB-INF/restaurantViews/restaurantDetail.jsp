@@ -64,7 +64,7 @@
 		</div>
 	</header>
 	
-	<div class="restaurant_well2">맛집상세정보</div>
+	<div class="restaurant_well2">&nbsp;맛집상세정보</div>
 
 	<table class="table-bordered" width="1019px" border="0" cellspacing="0"
 		cellpadding="0" style="margin-top: 13px; margin-left: 10px"">
