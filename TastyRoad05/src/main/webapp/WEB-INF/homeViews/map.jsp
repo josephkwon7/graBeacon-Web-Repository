@@ -1175,6 +1175,7 @@
 								<p>
 									  &nbsp;아래의 맵에서 비콘이 설치된 맛집을 확인할 수 있습니다.
 								</p>
+								<input type="button" value="전체보기 및 검색" onclick="location.href='http://www.daum.net'">
 							</article>		
 			</div>
 		</center>
