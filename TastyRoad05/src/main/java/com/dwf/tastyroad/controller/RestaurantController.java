@@ -756,7 +756,28 @@ public class RestaurantController {
 		
 		restaurantService.updateRestaurant(restaurant);
 		
-		transfer.insert(SERVER_IP, PORT, ID, PASSWORD, UPLOAD_DIR, null, fileMap);
+		boolean result=transfer.insert(SERVER_IP, PORT, ID, PASSWORD, UPLOAD_DIR, null, fileMap);
+		
+		//ftp 통신이 완료되면, 로컬 파일 시스템에 임시 저장된 이미지 파일들을 삭제.
+				if(result==true){
+					
+					set = fileMap.keySet();
+					//set.toString(); //Console 출력창 확인. ==> [imgSmall1, imgBig1, imgBig2, imgBig3, 
+					keys = set.toString().subSequence(1, set.toString().length()-1).toString().split(", ");
+					
+					for(int i=0; i<keys.length;i++){
+						System.out.println("Local File 삭제를 위한 for 문 실행......");
+						File file1 = new File(fileMap.get(keys[i]).toString());
+						file1.delete();
+			
+							if(file1.exists()){
+								System.out.println("삭제 Failed......");
+							}
+								else{
+									System.out.println("삭제 Ok!!!!!!");
+								}
+					}//endOfForStatement
+				}
 		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("restaurantViews/restaurantDetail");

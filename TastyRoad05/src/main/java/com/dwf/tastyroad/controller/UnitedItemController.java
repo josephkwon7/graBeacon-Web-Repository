@@ -45,7 +45,7 @@ public class UnitedItemController {
 	}
     
     
-	@RequestMapping(value = "/unitedItemMapView", method=RequestMethod.GET)
+	@RequestMapping(value = "/unitedItemMapView" ,method=RequestMethod.GET)
 	public ModelAndView googlemap(Locale locale, Model model) {
 		ModelAndView modelAndView = new ModelAndView();
 		
