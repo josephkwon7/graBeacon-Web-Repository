@@ -86,7 +86,7 @@ public class AdminController {
 		System.out.println("==> session : " +session);
 		System.out.println("_______________________________________________");
 		
-		session.removeAttribute("sessionUser");
+		session.removeAttribute("sessionAdmin");
 		
 		String message = "로그아웃 되었습니다.";
 		
