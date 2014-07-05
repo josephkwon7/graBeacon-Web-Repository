@@ -28,6 +28,88 @@
 	height:50px;
 }
 
+.wrap2{
+	width:1024px;
+	height:87px;
+	padding:0 0 0 0;
+	background:#FFF;
+	z-index:2;
+	border-bottom: 3px #ff8c00 solid;
+}
+
+#header2{
+	height:87px;
+	position:relative;
+	margin:2 auto;
+	width:1024px;
+	z-index:100;
+	background-color:#FFF;
+	top:0;
+}
+
+#header2 .navi-icon{
+	position:absolute;
+	padding:21px 0 0 80px;
+	margin:0 0 0 80px;
+	width:800px;
+	height:51px;
+}
+
+.wrap3{
+	width:1024px;
+	height:87px;
+	padding:0 0 0 0;
+	background:#FFF;
+	z-index:2;
+	border-bottom: 3px #ff8c00 solid;
+}
+
+#header3{
+	height:87px;
+	position:relative;
+	margin:0 auto;
+	width:1024px;
+	z-index:100;
+	background-color:#FFF;
+	top:0;
+}
+
+#header3 .navi-icon{
+	position:absolute;
+	padding:21px 0 0 80px;
+	margin:0 0 0 80px;
+	width:800px;
+	height:51px;
+}
+
+.wrap4{
+	width:1024px;
+	height:86px;
+	padding:0 0 0 0;
+	background:#FFF;
+	z-index:2;
+	border-bottom: 3px #ff8c00 solid;
+}
+
+#header4{
+	height:86px;
+	position:relative;
+	margin:1 auto;
+	margin-left: 0px;
+	width:1024px;
+	z-index:100;
+	background-color:#FFF;
+	top:0;
+}
+
+#header4 .navi-icon{
+	position:absolute;
+	padding:20px 0 0 80px;
+	margin:0 0 0 80px;
+	width:800px;
+	height:50px;
+}
+
 .navi-icon .logo{
 	background:url(../img/design/top-menu-logo.png) no-repeat;
 	height:52px;
