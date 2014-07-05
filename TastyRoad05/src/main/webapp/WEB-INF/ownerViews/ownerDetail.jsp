@@ -52,7 +52,7 @@
 </head>
 
 <body>
-	<%@include file="/WEB-INF/common/header.jsp"%>
+	<%@include file="/WEB-INF/common/header2.jsp"%>
 
 	<div class="restaurant_well2">&nbsp;점주조회</div>
 		

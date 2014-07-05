@@ -12,7 +12,7 @@
 
 		<link rel="stylesheet" href="../../resources/css/header.css" type="text/css">
         <link rel="stylesheet" href="../../resources/css/bootstrap.css" type="text/css">
-        
+        <link rel="stylesheet" media="all" href="../../resources/css/intro.css">
 		<title>Home Page - 생활의 윤택함을 더하다</title>
 	
 		<script type="text/javascript">
@@ -49,7 +49,8 @@
 	
 	</head>
 <body>
-
+<%@include file="/WEB-INF/common/header.jsp"%>  
+<!--  
         <div id="header">
         
                 <div class="wrap">
@@ -68,14 +69,16 @@
 						</div>
                 </div>
         </div>
-        
+      -->  
 		<div class="login_area">
         <div class="login_area_image"></div>
 		<p class="welcome"> 환영합니다.    <%= sessionAdmin.getAdminId()%>님</p> 
+		<br>
 		<form name=logOut method="POST">
 		</form>
 		<a href="javascript:post('/admin/logoutAction');"><button class="btn btn-warning" type="button" style="width:206; height:40">로그아웃</button></a>
 		<form name=getRestaurantListView method="POST">
+		<br>
 		</form>
 		<a href="javascript:post('/restaurant/getRestaurantListView');"><button class="btn btn-warning" type="button" style="width:206; height:40">맛집관리</button></a>
         </div>

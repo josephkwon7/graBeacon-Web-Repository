@@ -62,7 +62,7 @@
    	</script>
 	
 </head>
-	<%@include file="/WEB-INF/common/header.jsp"%>
+	<%@include file="/WEB-INF/common/header4.jsp"%>
 		
 		<div class="restaurant_well2">&nbsp;비콘정보수정</div>
 

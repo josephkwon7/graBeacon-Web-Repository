@@ -85,7 +85,7 @@
 </head>
 
 <body>
-	<%@include file="/WEB-INF/common/header.jsp"%>
+	<%@include file="/WEB-INF/common/header2.jsp"%>
 	
 	<!--<c:out value="${owner}"/>-->
 	

@@ -79,8 +79,8 @@
 
 		<header>
 		
-			<div id="header">
-				<div class="wrap">
+			<div id="header2">
+				<div class="wrap2">
 					
 					<div class="navi-icon">
 						<a href="/"><div class="logo"></div></a> 

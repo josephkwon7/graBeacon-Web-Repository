@@ -39,15 +39,25 @@
 	    document.body.appendChild(form);
 	    form.submit();
 	}
+	
+	function get(path) {
+   		
+	    var form = document.createElement("form");
+	    form.setAttribute("method", "get");
+	    form.setAttribute("action", path);
+
+	    document.body.appendChild(form);
+	    form.submit();
+	} 
 </script>
 
 </head>
 
 <body>
-	
-	<header>		
-			<div id="header">
-				<div class="wrap">
+			
+			<header>
+			<div id="header2">
+				<div class="wrap2">
 					<div class="navi-icon">
 						<a href="/"><div class="logo"></div></a> 
 						<a href=javascript:post('/home/getIntroView');><div class="navi01"></div></a>
@@ -61,12 +71,13 @@
 						src="../resources/img/icon/logout.png"></a>
 
 				</div>
-				<!-- 네비게이션 아이콘 -->
+				
 				</div>
-				<!-- Wrap -->
+				
 			</div>
+			</header>
 			
-	</header>
+	
 	
 	<div class="restaurant_well2">&nbsp;맛집목록</div>
 

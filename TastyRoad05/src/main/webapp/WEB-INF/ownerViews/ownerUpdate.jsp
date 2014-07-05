@@ -82,8 +82,8 @@
 	
 	<header>
 		
-			<div id="header">
-				<div class="wrap">
+			<div id="header4">
+				<div class="wrap4">
 					
 					<div class="navi-icon">
 						<a href="/"><div class="logo"></div></a> 

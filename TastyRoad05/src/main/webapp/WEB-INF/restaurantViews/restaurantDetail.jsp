@@ -43,8 +43,8 @@
 <body>
 	
 	<header>
-		<div id="header">
-			<div class="wrap">
+		<div id="header3">
+			<div class="wrap3">
 
 				<div class="navi-icon">
 					<a href="/"><div class="logo"></div></a> 
@@ -64,10 +64,10 @@
 		</div>
 	</header>
 	
-	<div class="restaurant_well2">&nbsp;맛집상세정보</div>
-
+	<div class="restaurant_well2" style="margin-left: 18px;">&nbsp;맛집상세정보</div>
+	<div style="width: 98%; margin-left: 10px;">
 	<table class="table-bordered" width="1019px" border="0" cellspacing="0"
-		cellpadding="0" style="margin-top: 13px; margin-left: 10px"">
+		cellpadding="0" style="margin-top: 11px; margin-left: 10px"">
 
 		<tr>
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">맛집번호</td>

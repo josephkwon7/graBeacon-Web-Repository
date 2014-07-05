@@ -45,9 +45,10 @@
 
 <body>
 		<header>
-		
-			<div id="header">
-				<div class="wrap">
+		<%@include file="/WEB-INF/common/header2.jsp"%>
+		<!-- 
+			<div id="header2">
+				<div class="wrap2">
 					
 					<div class="navi-icon">
 						<a href="/"><div class="logo"></div></a> 
@@ -62,11 +63,11 @@
 						src="../resources/img/icon/logout.png"></a>
 
 				</div>
-				<!-- 네비게이션 아이콘 -->
-				</div>
-				<!-- Wrap -->
-			</div>
 			
+				</div>
+			
+			</div>
+			 -->
 		</header>
 		
 		<div class="restaurant_well2">&nbsp;비콘관리</div>
