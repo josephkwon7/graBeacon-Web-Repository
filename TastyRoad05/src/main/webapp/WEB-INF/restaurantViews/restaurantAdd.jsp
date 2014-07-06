@@ -106,6 +106,8 @@
 <body>
 	
 	<header>
+	<%@include file="/WEB-INF/common/header3.jsp"%>
+	<!--  
 			<div id="header3">
 				<div class="wrap3">
 					
@@ -122,10 +124,10 @@
 						src="../resources/img/icon/logout.png"></a>
 
 				</div>
-				<!-- 네비게이션 아이콘 -->
+				
 				</div>
-				<!-- Wrap -->
-			</div>
+				</div>
+			-->
 	</header>
 	
 	<div class="restaurant_well2" style="margin-left: 18px;">&nbsp;맛집등록</div>

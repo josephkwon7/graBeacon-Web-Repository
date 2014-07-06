@@ -123,7 +123,7 @@
 		-->
 		</header>
 		
-	<div class="restaurant_well2">&nbsp;맛집정보수정</div>
+	<div class="restaurant_well2" style="margin-left: 18px;">&nbsp;맛집정보수정</div>
 		
 	<div style="width: 98%; margin-left: 10px;">
 
@@ -133,7 +133,7 @@
 	<form name="detailForm" method="POST" enctype="multipart/form-data">
 
 	<table class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0"
-		style="margin-top: 13px;">
+		style="margin-top: 11px; margin-left: 10px">
 		<tr>
 			<td width="104" class="ct_write"><img src="/resources/img/icon/astar.png" width="8" height="8" align="absmiddle">맛집이름</td>
 			
